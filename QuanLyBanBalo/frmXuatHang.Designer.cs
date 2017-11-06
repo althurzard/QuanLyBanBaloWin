@@ -44,7 +44,6 @@
             this.txtGhiChu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pckNgayNhap = new System.Windows.Forms.DateTimePicker();
-            this.cboMaNCC = new System.Windows.Forms.ComboBox();
             this.lblNgayNhap = new System.Windows.Forms.Label();
             this.txtMaHoaDon = new System.Windows.Forms.TextBox();
             this.lblMaHoaDon = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.lblThanhTien = new System.Windows.Forms.Label();
             this.lblGiamTru = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -136,6 +136,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.groupBox4);
             this.groupBox1.Controls.Add(this.button3);
@@ -144,7 +145,6 @@
             this.groupBox1.Controls.Add(this.txtGhiChu);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.pckNgayNhap);
-            this.groupBox1.Controls.Add(this.cboMaNCC);
             this.groupBox1.Controls.Add(this.lblNgayNhap);
             this.groupBox1.Controls.Add(this.txtMaHoaDon);
             this.groupBox1.Controls.Add(this.lblMaHoaDon);
@@ -230,16 +230,6 @@
             this.pckNgayNhap.Name = "pckNgayNhap";
             this.pckNgayNhap.Size = new System.Drawing.Size(217, 26);
             this.pckNgayNhap.TabIndex = 66;
-            // 
-            // cboMaNCC
-            // 
-            this.cboMaNCC.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cboMaNCC.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMaNCC.FormattingEnabled = true;
-            this.cboMaNCC.Location = new System.Drawing.Point(181, 70);
-            this.cboMaNCC.Name = "cboMaNCC";
-            this.cboMaNCC.Size = new System.Drawing.Size(217, 27);
-            this.cboMaNCC.TabIndex = 65;
             // 
             // lblNgayNhap
             // 
@@ -361,6 +351,15 @@
             this.label3.TabIndex = 57;
             this.label3.Text = "Thành tiền:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(181, 69);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(217, 26);
+            this.textBox1.TabIndex = 78;
+            // 
             // frmXuatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,7 +401,6 @@
         private System.Windows.Forms.TextBox txtGhiChu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker pckNgayNhap;
-        private System.Windows.Forms.ComboBox cboMaNCC;
         private System.Windows.Forms.Label lblNgayNhap;
         private System.Windows.Forms.TextBox txtMaHoaDon;
         private System.Windows.Forms.Label lblMaHoaDon;
@@ -415,5 +413,6 @@
         private System.Windows.Forms.Label lblThanhTien;
         private System.Windows.Forms.Label lblGiamTru;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
