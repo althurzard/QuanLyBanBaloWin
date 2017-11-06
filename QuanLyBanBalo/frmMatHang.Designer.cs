@@ -225,7 +225,7 @@
             // 
             this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBox5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(157, 109);
+            this.textBox5.Location = new System.Drawing.Point(158, 103);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(217, 26);
             this.textBox5.TabIndex = 72;
