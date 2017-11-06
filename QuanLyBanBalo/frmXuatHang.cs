@@ -16,5 +16,26 @@ namespace QuanLyBanBalo
         {
             InitializeComponent();
         }
+        private static frmXuatHang _Instance = null;
+
+        public static frmXuatHang Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new frmXuatHang();
+                return _Instance;
+            }
+        }
+        private void frmXuatHang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
+        }
+
+        private void frmXuatHang_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Tắt tab khi tắt form
+            ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+        }
     }
 }
