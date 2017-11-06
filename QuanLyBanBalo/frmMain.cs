@@ -22,5 +22,206 @@ namespace QuanLyBanBalo
         {
 
         }
+
+        private int KiemTraTonTaiForm(TabControl tab, Form frm)
+        {
+            // duyệt qua tất cả tab
+            for (int i = 0; i < tab.TabCount; i++)
+            {
+                //Nếu tên tab trùng vs tên form ==> trả về vị trí của tab
+                if (tab.TabPages[i].Text.Trim() == frm.Text.Trim())
+                {
+                    return i;
+                }
+
+            }
+            return -1;
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            frmNhanVien frmNv = frmNhanVien.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmNv);
+            if (index>=0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmNv.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmNv.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmNv.Parent = tp;
+                frmNv.Show();
+            }
+           
+        }
+
+        private void mặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMatHang frmMH = frmMatHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmMH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmMH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmMH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmMH.Parent = tp;
+                frmMH.Show();
+            }
+        }
+
+        private void nhàCungCấpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNhaCungCap frmNCC = frmNhaCungCap.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmNCC);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmNCC.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmNCC.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmNCC.Parent = tp;
+                frmNCC.Show();
+            }
+        }
+
+        private void bảoHànhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBaoHanh frmBH = frmBaoHanh.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmBH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmBH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmBH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmBH.Parent = tp;
+                frmBH.Show();
+            }
+        }
+
+        private void hóaĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNhapHang frmNH = frmNhapHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmNH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmNH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmNH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmNH.Parent = tp;
+                frmNH.Show();
+            }
+        }
+
+        private void danhSáchHĐNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDanhSachHDN frmDSN = frmDanhSachHDN.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmDSN);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmDSN.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmDSN.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmDSN.Parent = tp;
+                frmDSN.Show();
+            }
+        }
+
+        private void hóaĐơnXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmXuatHang frmXH = frmXuatHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmXH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmXH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmXH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmXH.Parent = tp;
+                frmXH.Show();
+            }
+        }
+
+        private void danhSáchHĐXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDanhSachHDX frmDSX = frmDanhSachHDX.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmDSX);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmDSX.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmDSX.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmDSX.Parent = tp;
+                frmDSX.Show();
+            }
+        }
     }
 }
