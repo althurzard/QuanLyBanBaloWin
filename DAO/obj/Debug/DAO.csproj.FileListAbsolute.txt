@@ -1,6 +1,6 @@
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\bin\Debug\DAO.dll
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\bin\Debug\DAO.pdb
-C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.dll
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache

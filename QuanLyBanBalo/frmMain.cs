@@ -59,6 +59,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmNv.Parent = tp;
                 frmNv.Show();
+                tbcMain.SelectTab(tp);
             }
            
         }
@@ -83,6 +84,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmMH.Parent = tp;
                 frmMH.Show();
+                tbcMain.SelectTab(tp);
             }
         }
 
@@ -106,6 +108,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmNCC.Parent = tp;
                 frmNCC.Show();
+                tbcMain.SelectTab(tp);
             }
         }
 
@@ -129,6 +132,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmBH.Parent = tp;
                 frmBH.Show();
+                tbcMain.SelectTab(tp);
             }
         }
 
@@ -152,6 +156,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmNH.Parent = tp;
                 frmNH.Show();
+                tbcMain.SelectTab(tp);
             }
         }
 
@@ -175,6 +180,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmDSN.Parent = tp;
                 frmDSN.Show();
+                tbcMain.SelectTab(tp);
             }
         }
 
@@ -198,6 +204,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmXH.Parent = tp;
                 frmXH.Show();
+                tbcMain.SelectTab(tp);
             }
         }
 
@@ -221,6 +228,7 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmDSX.Parent = tp;
                 frmDSX.Show();
+                tbcMain.SelectTab(tp);
             }
         }
     }

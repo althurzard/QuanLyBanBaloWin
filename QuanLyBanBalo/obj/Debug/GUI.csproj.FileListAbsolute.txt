@@ -19,6 +19,11 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\Quan
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\QuanLyBanBalo.exe.config
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\QuanLyBanBalo.exe
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\QuanLyBanBalo.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\BUS.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\DAO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\BUS.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\DAO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csprojResolveAssemblyReference.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmBaoHanh.resources
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDanhSachHDN.resources
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDanhSachHDX.resources
@@ -34,4 +39,3 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.Genera
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
-C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csprojResolveAssemblyReference.cache
