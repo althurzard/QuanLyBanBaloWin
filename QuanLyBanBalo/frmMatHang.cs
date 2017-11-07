@@ -12,6 +12,13 @@ namespace QuanLyBanBalo
 {
     public partial class frmMatHang : Form
     {
+        clsSanPham_BUS bus = new clsSanPham_BUS();
+
+        DataView dvSanPham;
+        DataView dvDanhMuc;
+        DataTable dtSanPham;
+        DataTable dtDanhMuc;
+        DataRowView drvDanhMuc;
         private static frmMatHang _Instance = null;
         public frmMatHang()
         {
@@ -20,16 +27,30 @@ namespace QuanLyBanBalo
         private void frmMatHang_Load(object sender, EventArgs e)
         {
             loadSanPham();
+            loadMauMa();
         }
         private void loadSanPham()
         {
-            DataTable dt = new DataTable();
-            clsSanPham_BUS bus = new clsSanPham_BUS();
-            dt = bus.LayTatCaSanPham();
+            dtSanPham = bus.LayTatCaSanPham();
+            dvSanPham = new DataView(dtSanPham);
             dgvSanPham.AutoGenerateColumns = false;
-            dgvSanPham.DataSource = dt;
+            dgvSanPham.DataSource = dvSanPham;
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
 
+       private void loadMauMa()
+       {
+            dtDanhMuc = bus.LayTatCaDanhMuc();
+            DataRow dr;
+            dr = dtDanhMuc.NewRow();
+            dr["TenDanhMuc"] = "Tất cả";
+            dr["MaDanhMuc"] = 0;
+            dtDanhMuc.Rows.InsertAt(dr,0);
+            dvDanhMuc = new DataView(dtDanhMuc);
+            cboMauMa.DataSource = dvDanhMuc;
+            cboMauMa.ValueMember = "MaDanhMuc";
+            cboMauMa.DisplayMember = "TenDanhMuc";
+       }
 
         public static frmMatHang Instance
         {
@@ -61,8 +82,7 @@ namespace QuanLyBanBalo
                     e.Value = new Bitmap(e.Value.ToString());
                 }
                 if (dgvSanPham.Columns[e.ColumnIndex].Name =="colChongNuoc")
-                {
-                    if (e.Value != null)
+                {           if (e.Value != null)
                     {
                         if(bool.Parse(e.Value.ToString()) == true)
                         {
@@ -80,6 +100,84 @@ namespace QuanLyBanBalo
 
             }
             
+        }
+
+        private void txtMaSP_TextChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = string.Format("MaSP like '%{0}%'", txtMaSP.Text);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = string.Format("TenSP like '%{0}%'", txtTenSP.Text);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void txtThuongHieu_TextChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = string.Format("ThuongHieu like '%{0}%'", txtThuongHieu.Text);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void txtChatLieu_TextChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = string.Format("ChatLieu like '%{0}%'", txtChatLieu.Text);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void cboMauMa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectString;
+            drvDanhMuc = (DataRowView)(cboMauMa.SelectedItem);
+            selectString = drvDanhMuc["TenDanhMuc"].ToString();
+            if(selectString =="Tất cả")
+            {
+                dvSanPham.RowFilter = "";
+            }
+            else
+            {
+                dvSanPham.RowFilter = string.Format("TenDanhMuc like '%{0}%'", selectString);
+                lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            }
+        }
+
+        private void rdGia1_CheckedChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'",0,500000);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void rdGia2_CheckedChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'", 500000, 1000000);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void rdGia3_CheckedChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'", 1000000, 2000000);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void rdGia4_CheckedChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = String.Format("GiaBanLe >= {0} ",2000000);
+            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+        }
+
+        private void btnKhoiPhuc_Click(object sender, EventArgs e)
+        {
+            txtMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtThuongHieu.Text = "";
+            txtChatLieu.Text = "";
+            cboMauMa.SelectedIndex = 0;
+            rdGia1.Checked = false;
+            rdGia2.Checked = false;
+            rdGia3.Checked = false;
+            rdGia4.Checked = false;
+            loadSanPham();
         }
     }
 }
