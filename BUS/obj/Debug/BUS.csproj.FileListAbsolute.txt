@@ -1,5 +1,7 @@
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\bin\Debug\BUS.dll
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\bin\Debug\BUS.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\bin\Debug\DAO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\bin\Debug\DAO.pdb
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\obj\Debug\BUS.dll

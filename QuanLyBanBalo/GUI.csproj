@@ -499,5 +499,30 @@
   <ItemGroup>
     <None Include="bin\Debug\data\icons\if_close_1282956.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BUS\BUS.csproj">
+      <Project>{c07020c9-169e-4df2-ae0e-d75ae507f63e}</Project>
+      <Name>BUS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\images\1507827672.4542.jpg" />
+    <Content Include="bin\Debug\images\1508510316.0103.jpg" />
+    <Content Include="bin\Debug\images\balo-b2b01-aji-2_grande.jpg" />
+    <Content Include="bin\Debug\images\balo-sc-b2b01-sse-bk-1_grande.jpg" />
+    <Content Include="bin\Debug\images\balo-sc-b2b02-jsc-bk-1_grande.jpg" />
+    <Content Include="bin\Debug\images\balo-simplecarry-acity-2_1fe4d397bc874e458f1681f1fec26b07_grande.jpg" />
+    <Content Include="bin\Debug\images\balo-simplecarry-acity-2_grande.jpg" />
+    <Content Include="bin\Debug\images\balo-simplecarry-acity-grey.jpg" />
+    <Content Include="bin\Debug\images\balo-simplecarry-b2b01-black.jpg" />
+    <Content Include="bin\Debug\images\businessman.png" />
+    <Content Include="bin\Debug\images\cabinzero-classic-28l-cz081603-backpack-s-grey-camo_240.JPG" />
+    <Content Include="bin\Debug\images\cabinzero-classic-36l-cz171602-backpack-m-jungle-camo_240.jpg" />
+    <Content Include="bin\Debug\images\L39567443200-1.gif" />
+    <Content Include="bin\Debug\images\L39569273700-6.gif" />
+    <Content Include="bin\Debug\images\nccbalovina-1.jpg" />
+    <Content Include="bin\Debug\images\nv-aazneir-1.png" />
+    <Content Include="bin\Debug\images\office_women_glasses-2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
