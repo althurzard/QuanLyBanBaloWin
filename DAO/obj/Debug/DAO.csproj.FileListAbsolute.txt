@@ -4,3 +4,11 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csproj.CoreCompileInput
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.dll
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.pdb
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\bin\Debug\DAO.dll
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\bin\Debug\DAO.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.dll
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\bin\Debug\DTO.dll
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\bin\Debug\DTO.pdb

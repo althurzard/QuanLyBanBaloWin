@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BUS;
 namespace QuanLyBanBalo
 {
     public partial class frmNhanVien : Form
@@ -23,10 +23,6 @@ namespace QuanLyBanBalo
                 return _Instance;
             }
         }
-
-            
-            
-
             
         public frmNhanVien()
         {

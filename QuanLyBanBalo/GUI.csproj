@@ -504,6 +504,10 @@
       <Project>{c07020c9-169e-4df2-ae0e-d75ae507f63e}</Project>
       <Name>BUS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{83636585-96af-4a71-9de2-8e53db334c23}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\images\1507827672.4542.jpg" />

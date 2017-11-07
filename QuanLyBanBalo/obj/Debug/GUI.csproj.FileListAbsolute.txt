@@ -39,3 +39,10 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.Genera
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\BUS.dll
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DAO.dll
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\BUS.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DAO.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmKhuyenMai.resources
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DTO.dll
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DTO.pdb

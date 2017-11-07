@@ -40,13 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsHinhAnh_BUS.cs" />
+    <Compile Include="clsNhanVien_BUS.cs" />
     <Compile Include="clsSanPham_BUS.cs" />
+    <Compile Include="clsTaiKhoan_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
       <Project>{d5c2b82b-bcb0-4a9b-94ac-15e90d5ebfbc}</Project>
       <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{83636585-96af-4a71-9de2-8e53db334c23}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
