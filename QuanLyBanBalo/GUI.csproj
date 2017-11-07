@@ -184,5 +184,320 @@
   <ItemGroup>
     <None Include="bin\Debug\data\icons\if_address_16_22501.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Alarmclock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\ATM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Badadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Bagcancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Bagitems.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\BagOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Bagremove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Bagshop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Balance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Basket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Basketfull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Bill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Billpaid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Bitcoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Briefcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Brush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Businessman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Calculate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Carrycart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cartadd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cartdivide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cartgrill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cartmetal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cartmultiply.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\CartOK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cartsubstract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Cashregister.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Chipcard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Citybuilding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Coindecrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Coinincrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Coinstack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Comissiondown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Comissionup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Conversion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Creditcard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Deliverybox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Desk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Diamond.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Digitalclock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Diploma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Discounttag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Docarchive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Dollarbag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Dollarcoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Dollarpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Dollarstats.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Doublesafebox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Economies.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Education.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Eurocoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Europaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Feather.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Financestat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Fingercoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Graphicpanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Growing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Growingmoney.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Humantarget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Incomedecrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Incomeincrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Influence.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Infodoc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Infographic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Investigate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Invoice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Invoicesmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Manbag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Mastercard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Mobilepay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Moneyprinter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Notifications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Paperdesk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\POS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Poundcoin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Poundpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Pricetag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Prizecup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Receipt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Safebox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Saleshop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Shakinghands.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Statsdecrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Statsincrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Statspanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Teammates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Timelapse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Timelapsefinished.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Timer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Upstatspanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Visacard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Wallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\Womenwallet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons2\WWW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\data\icons\if_close_1282956.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -118,28 +118,343 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="if_clipboard_16_22528" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons\if_clipboard_16_22528.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Shutdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons\Shutdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="thumb_IMG_1490_1024" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\thumb_IMG_1490_1024.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="if_statistics_16_22636" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons\if_statistics_16_22636.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="report" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\report.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="if_statistics_16_22636" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons\if_statistics_16_22636.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Infographic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Infographic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Invoice.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fingercoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Fingercoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Brush" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Brush.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Desk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Desk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dollarbag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Dollarbag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cartadd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cartadd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="POS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\POS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Badadd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Badadd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Doublesafebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Doublesafebox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Businessman" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Businessman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Womenwallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Womenwallet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dollarstats" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Dollarstats.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Timelapse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Timelapse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dollarpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Dollarpaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Statspanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Statspanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Notifications" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Notifications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Basketfull" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Basketfull.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Conversion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Conversion.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Open.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Growing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Growing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_folder_16_22556" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\if_folder_16_22556.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Calculator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Calculator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Deliverybox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Deliverybox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_clipboard_16_22528" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons\if_clipboard_16_22528.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bagremove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Bagremove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Education" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Education.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Teammates" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Teammates.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mobilepay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Mobilepay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Influence" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Influence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Statsincrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Statsincrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poundpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Poundpaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dollarcoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Dollarcoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coindecrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Coindecrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Digitalclock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Digitalclock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Humantarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Humantarget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Statsdecrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Statsdecrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Growingmoney" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Growingmoney.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cashregister" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cashregister.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Invoicesmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Invoicesmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Basket" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Basket.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Timer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Timer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bagitems" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Bagitems.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Carrycart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Carrycart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WWW" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\WWW.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Upstatspanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Upstatspanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bitcoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Bitcoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Alarmclock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Alarmclock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diploma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Diploma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Timelapsefinished" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Timelapsefinished.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mastercard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Mastercard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coins" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Coins.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coinincrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Coinincrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Docarchive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Docarchive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cartsubstract" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cartsubstract.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Comissiondown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Comissiondown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Visacard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Visacard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Discounttag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Discounttag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Infodoc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Infodoc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shakinghands" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Shakinghands.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Prizecup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Prizecup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cartmultiply" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cartmultiply.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shutdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons\Shutdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Saleshop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Saleshop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Pen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Receipt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Receipt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Calculate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Calculate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_address_16_22501" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\if_address_16_22501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CartOK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\CartOK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Moneyprinter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Moneyprinter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Billpaid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Billpaid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Comissionup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Comissionup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Paperdesk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Paperdesk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Poundcoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Poundcoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bagshop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Bagshop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Shop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Shop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Bill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Financestat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Financestat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Europaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Europaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Briefcase" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Briefcase.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Safebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Safebox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Graphicpanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Graphicpanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Incomeincrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Incomeincrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cartgrill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cartgrill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Investigate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Investigate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Feather" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Feather.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Chipcard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Chipcard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Economies" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Economies.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cartmetal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cartmetal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ATM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\ATM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Eurocoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Eurocoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Coinstack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Coinstack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Wallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Wallet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pricetag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Pricetag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Incomedecrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Incomedecrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Manbag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Manbag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thumb_IMG_1490_1024" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thumb_IMG_1490_1024.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bagcancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Bagcancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Creditcard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Creditcard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Citybuilding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Citybuilding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cartdivide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\Cartdivide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BagOK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons2\BagOK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="if_close_1282956" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\data\icons\if_close_1282956.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
