@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tbcMain = new System.Windows.Forms.TabControl();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.nhậpHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hóaĐơnNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +51,6 @@
             this.cáchSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vềChúngTôiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tbcMain = new System.Windows.Forms.TabControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,12 +70,24 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // tbcMain
+            // 
+            this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcMain.ItemSize = new System.Drawing.Size(0, 15);
+            this.tbcMain.Location = new System.Drawing.Point(126, 0);
+            this.tbcMain.Name = "tbcMain";
+            this.tbcMain.Padding = new System.Drawing.Point(10, 3);
+            this.tbcMain.SelectedIndex = 0;
+            this.tbcMain.Size = new System.Drawing.Size(818, 414);
+            this.tbcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tbcMain.TabIndex = 2;
+            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nhậpHàngToolStripMenuItem,
             this.xuấtHàngToolStripMenuItem});
-            this.toolStripDropDownButton1.Image = global::QuanLyBanBalo.Properties.Resources.if_clipboard_16_22528;
+            this.toolStripDropDownButton1.Image = global::QuanLyBanBalo.Properties.Resources.Carrycart;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
             this.toolStripDropDownButton1.Size = new System.Drawing.Size(123, 54);
@@ -134,7 +146,7 @@
             this.nhânViênToolStripMenuItem,
             this.nhàCungCấpToolStripMenuItem,
             this.bảoHànhToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = global::QuanLyBanBalo.Properties.Resources.if_folder_16_22556;
+            this.toolStripDropDownButton2.Image = global::QuanLyBanBalo.Properties.Resources.Paperdesk;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
             this.toolStripDropDownButton2.Size = new System.Drawing.Size(123, 54);
@@ -175,7 +187,7 @@
             this.xuấtHàngToolStripMenuItem1,
             this.tồnKhoToolStripMenuItem,
             this.doanhThuToolStripMenuItem});
-            this.toolStripDropDownButton4.Image = global::QuanLyBanBalo.Properties.Resources.report;
+            this.toolStripDropDownButton4.Image = global::QuanLyBanBalo.Properties.Resources.Notifications;
             this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
             this.toolStripDropDownButton4.Size = new System.Drawing.Size(123, 54);
@@ -184,25 +196,25 @@
             // nhậpHàngToolStripMenuItem1
             // 
             this.nhậpHàngToolStripMenuItem1.Name = "nhậpHàngToolStripMenuItem1";
-            this.nhậpHàngToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.nhậpHàngToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.nhậpHàngToolStripMenuItem1.Text = "Nhập hàng";
             // 
             // xuấtHàngToolStripMenuItem1
             // 
             this.xuấtHàngToolStripMenuItem1.Name = "xuấtHàngToolStripMenuItem1";
-            this.xuấtHàngToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.xuấtHàngToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.xuấtHàngToolStripMenuItem1.Text = "Xuất hàng";
             // 
             // tồnKhoToolStripMenuItem
             // 
             this.tồnKhoToolStripMenuItem.Name = "tồnKhoToolStripMenuItem";
-            this.tồnKhoToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.tồnKhoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.tồnKhoToolStripMenuItem.Text = "Tồn kho";
             // 
             // doanhThuToolStripMenuItem
             // 
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
-            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
             // toolStripDropDownButton5
@@ -210,7 +222,7 @@
             this.toolStripDropDownButton5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cáchSửDụngToolStripMenuItem,
             this.vềChúngTôiToolStripMenuItem});
-            this.toolStripDropDownButton5.Image = global::QuanLyBanBalo.Properties.Resources.if_address_16_22501;
+            this.toolStripDropDownButton5.Image = global::QuanLyBanBalo.Properties.Resources.Book;
             this.toolStripDropDownButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton5.Name = "toolStripDropDownButton5";
             this.toolStripDropDownButton5.Size = new System.Drawing.Size(123, 54);
@@ -219,35 +231,23 @@
             // cáchSửDụngToolStripMenuItem
             // 
             this.cáchSửDụngToolStripMenuItem.Name = "cáchSửDụngToolStripMenuItem";
-            this.cáchSửDụngToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.cáchSửDụngToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cáchSửDụngToolStripMenuItem.Text = "Cách sử dụng";
             // 
             // vềChúngTôiToolStripMenuItem
             // 
             this.vềChúngTôiToolStripMenuItem.Name = "vềChúngTôiToolStripMenuItem";
-            this.vềChúngTôiToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.vềChúngTôiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.vềChúngTôiToolStripMenuItem.Text = "Về chúng tôi";
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton1.Image = global::QuanLyBanBalo.Properties.Resources.Shutdown;
+            this.toolStripButton1.Image = global::QuanLyBanBalo.Properties.Resources.if_close_1282956;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(123, 54);
             this.toolStripButton1.Text = "THOÁT";
-            // 
-            // tbcMain
-            // 
-            this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbcMain.ItemSize = new System.Drawing.Size(0, 15);
-            this.tbcMain.Location = new System.Drawing.Point(126, 0);
-            this.tbcMain.Name = "tbcMain";
-            this.tbcMain.Padding = new System.Drawing.Point(10, 3);
-            this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(818, 414);
-            this.tbcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tbcMain.TabIndex = 2;
             // 
             // frmMain
             // 
