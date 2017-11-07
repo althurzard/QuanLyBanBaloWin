@@ -16,5 +16,12 @@ namespace BUS
             dt = dao.LayTatCaSanPham();
             return dt;
         }
+        public DataTable LayTatCaDanhMuc()
+        {
+            clsSanPham_DAO dao = new clsSanPham_DAO();
+            DataTable dt = new DataTable();
+            dt = dao.LayTatCaMauMa();
+            return dt;
+        }
     }
 }
