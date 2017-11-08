@@ -11,14 +11,14 @@ namespace DTO
         private string _tenTaiKhoan;
         private string _matKhau;
         private clsNhanVien_DTO _nhanVien;
-        private clsPhanLoaiTK _loaiTK;
+        private clsPhanLoaiTK_DTO _loaiTK;
 
         public clsTaiKhoan_DTO()
         {
 
         }
 
-        public clsTaiKhoan_DTO(string tenTaiKhoan, string matKhau, clsNhanVien_DTO nhanVien, clsPhanLoaiTK loaiTK)
+        public clsTaiKhoan_DTO(string tenTaiKhoan, string matKhau, clsNhanVien_DTO nhanVien, clsPhanLoaiTK_DTO loaiTK)
         {
             _tenTaiKhoan = tenTaiKhoan;
             _matKhau = matKhau;
@@ -29,6 +29,6 @@ namespace DTO
         public string TenTaiKhoan { get => _tenTaiKhoan; set => _tenTaiKhoan = value; }
         public string MatKhau { get => _matKhau; set => _matKhau = value; }
         public clsNhanVien_DTO NhanVien { get => _nhanVien; set => _nhanVien = value; }
-        public clsPhanLoaiTK LoaiTK { get => _loaiTK; set => _loaiTK = value; }
+        public clsPhanLoaiTK_DTO LoaiTK { get => _loaiTK; set => _loaiTK = value; }
     }
 }

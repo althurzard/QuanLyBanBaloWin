@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class clsPhanLoaiTK
+    public class clsPhanLoaiTK_DTO
     {
         private int _maPhanLoaiTK;
         private string _moTa;
 
-        public clsPhanLoaiTK()
+        public clsPhanLoaiTK_DTO()
         {
 
         }
 
-        public clsPhanLoaiTK(int maPhanLoaiTK, string moTa)
+        public clsPhanLoaiTK_DTO(int maPhanLoaiTK, string moTa)
         {
             _maPhanLoaiTK = maPhanLoaiTK;
             _moTa = moTa;

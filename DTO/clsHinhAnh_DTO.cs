@@ -17,7 +17,7 @@ namespace DTO
 
         }
 
-        public clsHinhAnh_DTO(string tenHinhAnh, string url, int maHinhAnh)
+        public clsHinhAnh_DTO(string tenHinhAnh, string url, int maHinhAnh = -1 /*Gia trị mặc định khi khởi tạo image - chưa có mã hình ảnh */)
         {
             _tenHinhAnh = tenHinhAnh;
             _url = url;

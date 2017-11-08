@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="clsHinhAnh_BUS.cs" />
     <Compile Include="clsNhanVien_BUS.cs" />
+    <Compile Include="clsPhanLoaiTK_BUS.cs" />
     <Compile Include="clsSanPham_BUS.cs" />
     <Compile Include="clsTaiKhoan_BUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

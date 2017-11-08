@@ -111,6 +111,7 @@
     <Compile Include="frmXuatHang.Designer.cs">
       <DependentUpon>frmXuatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBaoHanh.resx">

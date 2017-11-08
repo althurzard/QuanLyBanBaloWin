@@ -35,12 +35,12 @@ namespace DAO
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.Add("@MaNV", SqlDbType.Char).Value = nhanVien.MaNV;
                 cmd.Parameters.Add("@HoTen", SqlDbType.NVarChar).Value = nhanVien.HoTen;
-                cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = nhanVien.NgaySinh;
+                cmd.Parameters.Add("@NgaySinh", SqlDbType.Date).Value = nhanVien.NgaySinh.Date;
                 cmd.Parameters.Add("@QueQuan", SqlDbType.NVarChar).Value = nhanVien.QueQuan;
                 cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = nhanVien.DiaChi;
                 cmd.Parameters.Add("@SoDienThoai", SqlDbType.Char).Value = nhanVien.SoDienThoai;
                 cmd.Parameters.Add("@TrangThai", SqlDbType.Int).Value = 1;
-                cmd.Parameters.Add("@NgayKhoiTao", SqlDbType.Date).Value = nhanVien.NgayKhoiTao;
+                cmd.Parameters.Add("@NgayKhoiTao", SqlDbType.Date).Value = nhanVien.NgayKhoiTao.Date;
                 cmd.Parameters.Add("@MaHinhAnh", SqlDbType.Int).Value = nhanVien.HinhAnh.MaHinhAnh;
                 cmd.Parameters.Add("@LastUpdated", SqlDbType.DateTime).Value = DateTime.Now;
                 cmd.CommandType = CommandType.Text;
