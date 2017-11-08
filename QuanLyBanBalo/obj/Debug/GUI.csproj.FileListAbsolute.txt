@@ -46,3 +46,6 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DAO.
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmKhuyenMai.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DTO.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\bin\Debug\DTO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\DTO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\bin\Debug\DTO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmSuaSanPham.resources

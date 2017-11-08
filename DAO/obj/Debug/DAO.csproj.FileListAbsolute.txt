@@ -12,3 +12,5 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.pdb
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\bin\Debug\DTO.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\bin\Debug\DTO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\bin\Debug\DTO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\DAO\bin\Debug\DTO.pdb

@@ -5,23 +5,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAO;
+using DTO;
+using System.Data.SqlClient;
+
 namespace BUS
 {
     public class clsSanPham_BUS
     {
-        public DataTable LayTatCaSanPham()
+       
+        public static  DataTable LayTatCaSanPham()
         {
-            clsSanPham_DAO dao = new clsSanPham_DAO();
-            DataTable dt = new DataTable();
-            dt = dao.LayTatCaSanPham();
-            return dt;
+            return clsSanPham_DAO.LayTatCaSanPham();
         }
-        public DataTable LayTatCaDanhMuc()
+        public static DataTable LayTatCaMauMa()
         {
-            clsSanPham_DAO dao = new clsSanPham_DAO();
-            DataTable dt = new DataTable();
-            dt = dao.LayTatCaMauMa();
-            return dt;
+            return clsSanPham_DAO.LayTatCaMauMa();
+        }
+        public static int XoaSanPham(string idSanPham)
+        {
+            return clsSanPham_DAO.XoaSanPham(idSanPham);
+        }
+        public static SqlDataReader LayThongTinMotSanPham(string idSanPham)
+        {
+            return clsSanPham_DAO.LayThongTinMotSanPham(idSanPham);
+        }
+        
+        public static object SuaSanPham(clsSanPham_DTO sanPham, clsChiTietSP_DTO chiTietSP)
+        {
+            return clsSanPham_DAO.SuaSanPham(sanPham,chiTietSP);
         }
     }
 }
