@@ -16,3 +16,5 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\BUS\obj\Debug\BUS.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\BUS\obj\Debug\BUS.pdb
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\BUS\bin\Debug\DTO.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\BUS\bin\Debug\DTO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\bin\Debug\DTO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\BUS\bin\Debug\DTO.pdb

@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsChiTietSP_DTO.cs" />
     <Compile Include="clsHinhAnh_DTO.cs" />
     <Compile Include="clsNhanVien_DTO.cs" />
     <Compile Include="clsPhanLoaiTK.cs" />
+    <Compile Include="clsSanPham_DTO.cs" />
     <Compile Include="clsTaiKhoan_DTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
