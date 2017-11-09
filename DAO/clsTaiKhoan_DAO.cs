@@ -42,5 +42,11 @@ namespace DAO
 
             }
         }
+
+        public static bool KiemTraTaiKhoanDaTonTai(string tenTaiKhoan)
+        {
+            string query = string.Format("select count(*) from TaiKhoan where TenTaiKhoan = '{0}'", tenTaiKhoan);
+            return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
+        }
     }
 }

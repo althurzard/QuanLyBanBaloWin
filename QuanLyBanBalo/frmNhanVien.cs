@@ -31,6 +31,7 @@ namespace QuanLyBanBalo
         {
             InitializeComponent();
             loadLoaiTK();
+            showValidateLabel(false);
         }
 
         private void frmNhanVien_FormClosing(object sender, FormClosingEventArgs e)
@@ -54,58 +55,150 @@ namespace QuanLyBanBalo
 
         private void themHinhAnh()
         {
-
-            
-            OpenFileDialog of = new OpenFileDialog();
-            //For any other formats
-            of.Filter = "Image Files (*.bmp;*.jpg;*.jpeg,*.png)|*.BMP;*.JPG;*.JPEG;*.PNG";
-            of.Multiselect = false;
-            if (of.ShowDialog() == DialogResult.OK)
+            string filePath = Helper.layHinhAnh();
+            if (filePath != null)
             {
-                // Copy file vào folder data
-                string fileName = Path.GetFileName(of.FileName);
-                string destPath = Directory.GetCurrentDirectory() + "\\data\\avatar\\" + fileName;
-                File.Copy(of.FileName, destPath, true);
-
-                pictureHinhAnh.ImageLocation = destPath;
-                
-
+                lblChonAnh.Visible = false;
+                pictureHinhAnh.ImageLocation = filePath;
             }
         }
 
+        private void showValidateLabel(bool willShow)
+        {
+            lblHoten.Visible = willShow;
+            lblDiaChi.Visible = willShow;
+            lblMatKhau.Visible = willShow;
+            lblNhapLaiMK.Visible = willShow;
+            lblQueQuan.Visible = willShow;
+            lblSDT.Visible = willShow;
+            lblTenDangNhap.Visible = willShow;
+            lblChonAnh.Visible = willShow;
+        }
+
+        private bool kiemTraTextbox()
+        {
+            bool hopLe = true;
+            if (string.IsNullOrWhiteSpace(txtHoTen.Text))
+            {
+                hopLe = false;
+                lblHoten.Visible = true;
+            }
+            if (string.IsNullOrWhiteSpace(txtQueQuan.Text))
+            {
+                hopLe = false;
+                lblQueQuan.Visible = true;
+            }
+            if(string.IsNullOrWhiteSpace(txtSoDienThoai.Text))
+            {
+                hopLe = false;
+                lblSDT.Visible = true;
+            }
+            if (string.IsNullOrWhiteSpace(txtDiaChi.Text))
+            {
+                hopLe = false;
+                lblDiaChi.Visible = true;
+            }
+            if (string.IsNullOrWhiteSpace(txtDangNhap.Text))
+            {
+                hopLe = false;
+                lblTenDangNhap.Visible = true;
+            }
+            if(string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            {
+                hopLe = false;
+                lblMatKhau.Visible = true;
+            }
+            if (txtMatKhau.Text != txtNhapLaiMK.Text || string.IsNullOrWhiteSpace(txtNhapLaiMK.Text))
+            {
+                hopLe = false;
+                lblNhapLaiMK.Visible = true;
+            }
+            if (pictureHinhAnh.Image == null)
+            {
+                hopLe = false;
+                lblChonAnh.Visible = true;
+            }
+
+            return hopLe;
+
+        }
+
+
         private void taoTaiKhoan()
         {
-            string tenHinh = Path.GetFileNameWithoutExtension(pictureHinhAnh.ImageLocation);
-            string url = "data/avatar/" + Path.GetFileName(pictureHinhAnh.ImageLocation);
-            clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(tenHinh, url);
-            object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-            if (resultHinhAnh is int)
+            showValidateLabel(false);
+
+            if (kiemTraTextbox())
             {
-                hinhAnh.MaHinhAnh = (int)resultHinhAnh;
-                clsNhanVien_DTO nhanVien = new clsNhanVien_DTO(Helper.GetTimestamp(DateTime.Now), txtHoTen.Text, pckNgaySinh.Value, txtQueQuan.Text, txtDiaChi.Text, txtSoDienThoai.Text, hinhAnh, DateTime.Now);
-                object resultThemNV = clsNhanVien_BUS.ThemNhanVien(nhanVien);
-                if (resultThemNV is bool)
+                // Hop le
+                if (clsTaiKhoan_BUS.KiemTraTaiKhoanDaTonTai(txtDangNhap.Text))
                 {
-                    int maLoaiTK = (int)cboLoaiTK.SelectedValue;
-                    string moTa = ((DataRowView)cboLoaiTK.Items[cboLoaiTK.SelectedIndex])["MoTa"].ToString();
-                    clsTaiKhoan_DTO taiKhoan = new clsTaiKhoan_DTO(txtDangNhap.Text, txtMatKhau.Text, nhanVien, new clsPhanLoaiTK_DTO(maLoaiTK,moTa));
-                    object resultThemTaiKhoan = clsTaiKhoan_BUS.ThemTaiKhoan(taiKhoan);
-                    if (resultThemTaiKhoan is bool)
+                    // tai khoan da ton tai
+                    DialogResult = MessageBox.Show("Tên tài khoản đã tồn tại, vui lòng nhập tên khác.", "Thông báo", MessageBoxButtons.OK);
+                    if (DialogResult == DialogResult.OK)
                     {
-                        MessageBox.Show("Tạo tài khoản thành công");
-                    } else
-                    {
-                        MessageBox.Show((string)resultThemTaiKhoan);
+                        txtDangNhap.Text = "";
                     }
-                } else
-                {
-                    MessageBox.Show((string)resultThemNV);
+
                 }
-            } else
-            {
-                MessageBox.Show((string)resultHinhAnh);
+                else
+                {
+                    // Lưu ảnh vào database 
+                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(pictureHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Avatar);
+                    object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+
+                    if (resultHinhAnh is int)
+                    {
+                        hinhAnh.MaHinhAnh = (int)resultHinhAnh;
+                        // Lưu nhân viên vào database
+                        clsNhanVien_DTO nhanVien = new clsNhanVien_DTO(Helper.GetTimestamp(DateTime.Now), txtHoTen.Text, pckNgaySinh.Value, txtQueQuan.Text, txtDiaChi.Text, txtSoDienThoai.Text, hinhAnh, DateTime.Now);
+                        object resultThemNV = clsNhanVien_BUS.ThemNhanVien(nhanVien);
+                        if (resultThemNV is bool)
+                        {
+                            // Lưu Tài Khoản vào database
+                            int maLoaiTK = (int)cboLoaiTK.SelectedValue;
+                            string moTa = ((DataRowView)cboLoaiTK.Items[cboLoaiTK.SelectedIndex])["MoTa"].ToString();
+                            clsTaiKhoan_DTO taiKhoan = new clsTaiKhoan_DTO(txtDangNhap.Text, txtMatKhau.Text, nhanVien, new clsPhanLoaiTK_DTO(maLoaiTK, moTa));
+                            object resultThemTaiKhoan = clsTaiKhoan_BUS.ThemTaiKhoan(taiKhoan);
+
+                            if (resultThemTaiKhoan is bool)
+                            {
+                                if ((bool)resultThemTaiKhoan)
+                                {
+                                    // Copy image file vào folder data/avatar
+                                    string fileName = Path.GetFileName(pictureHinhAnh.ImageLocation);
+                                    string destPath = Directory.GetCurrentDirectory() + "\\data\\avatar\\" + fileName;
+                                    File.Copy(pictureHinhAnh.ImageLocation, destPath, true);
+
+                                    MessageBox.Show("Tạo tài khoản thành công");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Tạo tài khoản thất bại");
+                                }
+
+
+                            }
+                            else
+                            {
+                                MessageBox.Show((string)resultThemTaiKhoan);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show((string)resultThemNV);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show((string)resultHinhAnh);
+                    }
+                }
             }
-            
+            else
+            {
+                DialogResult = MessageBox.Show("Đã xảy ra lỗi, vui lòng kiểm tra lại thông tin nhập.", "Thông báo", MessageBoxButtons.OK);
+            }
 
         }
 
@@ -118,5 +211,16 @@ namespace QuanLyBanBalo
         {
             taoTaiKhoan();
         }
+
+        private void txtSoDienThoai_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
+        }
+
     }
 }

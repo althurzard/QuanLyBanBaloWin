@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using System.IO;
+
 namespace QuanLyBanBalo
 {
     public partial class frmSuaSanPham : Form
@@ -70,6 +72,7 @@ namespace QuanLyBanBalo
                         rdKhong.Checked = true;
                     }
                     picHinhAnh.ImageLocation = dr["Url"].ToString();
+                    picHinhAnh.Name = dr["MaHinhAnh"].ToString();
                     picHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
@@ -79,14 +82,10 @@ namespace QuanLyBanBalo
         #region : Sự kiện bấm nút
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
-            
-
-
             try
             {
-                    // Sản Phẩm
-                    clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
+                // Sản Phẩm
+                clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
                     dtoSanPham.MaSP = txtMaSP.Text;
                     dtoSanPham.TenSP = txtTenSP.Text;
                     dtoSanPham.ThuongHieu = txtThuongHieu.Text;
@@ -103,21 +102,44 @@ namespace QuanLyBanBalo
                 }
                     dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
                     dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
-                    dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);   
+                    dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
+
+
+                object resultHinhAnh;
+
+                // Copy image file vào folder data/product
+                string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
+                string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
+                if (true)
+                {
+                    File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                    // Lưu ảnh vào database 
+                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                    resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                }
+                else
+                {
+                    resultHinhAnh = int.Parse(picHinhAnh.Name.ToString());
+                }
                 
+
                 // Chi Tiết Sản Phẩm
-                    clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
+                clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
                     dtoChiTietSP.MaCTSP = txtMaCTSP.Text;
                     dtoChiTietSP.MauSac = txtMauSac.Text;
                     dtoChiTietSP.SoLuong = int.Parse(txtCTSoLuong.Text);
+                    dtoChiTietSP.MaHinhAnh = (int)resultHinhAnh;
+               
+                // Sửa sản phẩm
+                clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
 
-                    clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
-
-                    MessageBox.Show("Cập nhật thành công","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }catch
+                MessageBox.Show("Cập nhật thành công","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (Exception)
             {
                  MessageBox.Show("Dữ liệu nhập không chính xác! \nVui Lòng Kiểm Tra Lại","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+            
         }
         #endregion
 
@@ -163,7 +185,7 @@ namespace QuanLyBanBalo
         }
         private void txtNamBH_Validating(object sender, CancelEventArgs e)
         {
-            if (!Validation.IsNumeric(txtNamBH.Text, out msg))
+            if (!Validation.IsNumberic(txtNamBH.Text, out msg))
             {
                 e.Cancel = true;
                 txtNamBH.Select(0, txtNamBH.Text.Length);
@@ -193,7 +215,7 @@ namespace QuanLyBanBalo
         }
         private void txtGiaBanLe_Validating(object sender, CancelEventArgs e)
         {
-            if (!Validation.IsNumeric(txtGiaBanLe.Text, out msg))
+            if (!Validation.IsNumberic(txtGiaBanLe.Text, out msg))
             {
                 e.Cancel = true;
                 txtGiaBanLe.Select(0, txtGiaBanLe.Text.Length);
@@ -208,7 +230,7 @@ namespace QuanLyBanBalo
         }
         private void txtGiaVon_Validating(object sender, CancelEventArgs e)
         { 
-                if (!Validation.IsNumeric(txtGiaVon.Text, out msg))
+                if (!Validation.IsNumberic(txtGiaVon.Text, out msg))
                 {
                     e.Cancel = true;
                 txtGiaVon.Select(0, txtGiaVon.Text.Length);
@@ -222,7 +244,7 @@ namespace QuanLyBanBalo
         }
         private void txtTrongLuong_Validating(object sender, CancelEventArgs e)
         {
-                if (!Validation.IsNumeric(txtTrongLuong.Text, out msg))
+                if (!Validation.IsNumberic(txtTrongLuong.Text, out msg))
                 {
                     e.Cancel = true;
                     txtTrongLuong.Select(0, txtTrongLuong.Text.Length);
@@ -253,7 +275,7 @@ namespace QuanLyBanBalo
         }
         private void txtCTSoLuong_Validating(object sender, CancelEventArgs e)
         {
-            if (!Validation.IsNumeric(txtCTSoLuong.Text, out msg))
+            if (!Validation.IsNumberic(txtCTSoLuong.Text, out msg))
             {
                 e.Cancel = true;
                 txtCTSoLuong.Select(0, txtCTSoLuong.Text.Length);
@@ -261,8 +283,16 @@ namespace QuanLyBanBalo
             }
         }
 
-#endregion
+        #endregion
 
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+            string filePath = Helper.layHinhAnh();
+            if (filePath != null)
+            {
+                picHinhAnh.ImageLocation = filePath;
+            }
+        }
     }
 }
 
