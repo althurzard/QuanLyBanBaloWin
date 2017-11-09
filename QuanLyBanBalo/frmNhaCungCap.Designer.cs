@@ -62,7 +62,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txtMaNCC);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(272, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(625, 249);
             this.groupBox2.TabIndex = 2;
@@ -184,14 +184,14 @@
             // dgvDanhSachNCC
             // 
             this.dgvDanhSachNCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDanhSachNCC.Location = new System.Drawing.Point(12, 279);
+            this.dgvDanhSachNCC.Location = new System.Drawing.Point(165, 267);
             this.dgvDanhSachNCC.Name = "dgvDanhSachNCC";
-            this.dgvDanhSachNCC.Size = new System.Drawing.Size(625, 209);
+            this.dgvDanhSachNCC.Size = new System.Drawing.Size(854, 209);
             this.dgvDanhSachNCC.TabIndex = 3;
             // 
             // btnApDung
             // 
-            this.btnApDung.Location = new System.Drawing.Point(272, 494);
+            this.btnApDung.Location = new System.Drawing.Point(719, 482);
             this.btnApDung.Name = "btnApDung";
             this.btnApDung.Size = new System.Drawing.Size(112, 34);
             this.btnApDung.TabIndex = 94;
@@ -202,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 535);
+            this.ClientSize = new System.Drawing.Size(1218, 535);
             this.Controls.Add(this.btnApDung);
             this.Controls.Add(this.dgvDanhSachNCC);
             this.Controls.Add(this.groupBox2);
