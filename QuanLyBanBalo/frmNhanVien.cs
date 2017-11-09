@@ -147,9 +147,8 @@ namespace QuanLyBanBalo
                     clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(pictureHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Avatar);
                     object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
 
-                    if (resultHinhAnh is int)
+                    if (resultHinhAnh is bool)
                     {
-                        hinhAnh.MaHinhAnh = (int)resultHinhAnh;
                         // Lưu nhân viên vào database
                         clsNhanVien_DTO nhanVien = new clsNhanVien_DTO(Helper.GetTimestamp(DateTime.Now), txtHoTen.Text, pckNgaySinh.Value, txtQueQuan.Text, txtDiaChi.Text, txtSoDienThoai.Text, hinhAnh, DateTime.Now);
                         object resultThemNV = clsNhanVien_BUS.ThemNhanVien(nhanVien);

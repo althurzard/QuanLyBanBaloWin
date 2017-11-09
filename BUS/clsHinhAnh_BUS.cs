@@ -11,7 +11,13 @@ namespace BUS
     {
         public static object ThemHinhAnh(clsHinhAnh_DTO hinhAnh)
         {
-            return clsHinhAnh_DAO.ThemHinhAnh(hinhAnh);
+            object result = clsHinhAnh_DAO.ThemHinhAnh(hinhAnh);
+            if (result is int)
+            {
+                hinhAnh.MaHinhAnh = (int)result;
+                return true;
+            }
+            return result;
         }
     }
 }
