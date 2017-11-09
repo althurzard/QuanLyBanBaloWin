@@ -48,5 +48,11 @@ namespace DAO
             string query = string.Format("select count(*) from TaiKhoan where TenTaiKhoan = '{0}'", tenTaiKhoan);
             return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
+
+        public static DataTable LayBang()
+        {
+            string query = "Select Url,NhanVien.MaNV as MaNV,HoTen,NgaySinh,QueQuan,DiaChi,NgayKhoiTao,LastUpdated,TenTaiKhoan,MatKhau,PhanLoaiTaiKhoan.MoTa as MoTa,TaiKhoan.TrangThai as TrangThai from TaiKhoan, NhanVien, HinhAnh, PhanLoaiTaiKhoan where TaiKhoan.MaNV = NhanVien.MaNV AND NhanVien.MaHinhAnh = HinhAnh.MaHinhAnh AND TaiKhoan.MaPhanLoaiTK = PhanLoaiTaiKhoan.MaPhanLoaiTK ";
+            return XuLyDuLieu.LayBang(query);
+        }
     }
 }

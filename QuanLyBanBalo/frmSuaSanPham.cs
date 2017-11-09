@@ -104,23 +104,14 @@ namespace QuanLyBanBalo
                     dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
                     dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
 
-
-                object resultHinhAnh;
-
                 // Copy image file vào folder data/product
                 string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
                 string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
-                if (true)
-                {
-                    File.Copy(picHinhAnh.ImageLocation, destPath, true);
-                    // Lưu ảnh vào database 
-                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
-                    resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                }
-                else
-                {
-                    resultHinhAnh = int.Parse(picHinhAnh.Name.ToString());
-                }
+                File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                // Lưu ảnh vào database 
+                clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+             
                 
 
                 // Chi Tiết Sản Phẩm
