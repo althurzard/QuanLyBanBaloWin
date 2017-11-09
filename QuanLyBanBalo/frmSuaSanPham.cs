@@ -19,6 +19,7 @@ namespace QuanLyBanBalo
         DataTable dtDanhMuc;
         private static string idSP;
         private static string msg;
+        private static bool check = false;
 
         public frmSuaSanPham()
         {
@@ -92,39 +93,48 @@ namespace QuanLyBanBalo
                     dtoSanPham.ChatLieu = txtChatLieu.Text;
                     dtoSanPham.GiaVon = decimal.Parse(txtGiaVon.Text);
                     dtoSanPham.GiaBanLe = decimal.Parse(txtGiaBanLe.Text);
-                if(rdCo.Checked == true)
-                {
-                        dtoSanPham.ChongNuoc = true;
-                }
-                else
-                {
-                        dtoSanPham.ChongNuoc = false;
-                }
+                    if(rdCo.Checked == true)
+                    {
+                            dtoSanPham.ChongNuoc = true;
+                    }
+                    else
+                    {
+                            dtoSanPham.ChongNuoc = false;
+                    }
                     dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
                     dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
                     dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
 
-                // Copy image file vào folder data/product
-                string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
-                string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
-                File.Copy(picHinhAnh.ImageLocation, destPath, true);
-                // Lưu ảnh vào database 
-                clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
-                object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-             
-                
+                object resultHinhAnh = picHinhAnh.Name;
 
+                /*kiểm tra xem có thay đổi hình ảnh không
+                 * Nếu có resultHinhAnh = Mã Hình
+                 */
+                if (check)
+                {
+                    // Lưu ảnh vào database 
+                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                    resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                    // Copy image file vào folder data/product
+                    string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
+                    string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
+                    File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                }
                 // Chi Tiết Sản Phẩm
                 clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
                     dtoChiTietSP.MaCTSP = txtMaCTSP.Text;
                     dtoChiTietSP.MauSac = txtMauSac.Text;
                     dtoChiTietSP.SoLuong = int.Parse(txtCTSoLuong.Text);
-                    dtoChiTietSP.MaHinhAnh = (int)resultHinhAnh;
+                    dtoChiTietSP.MaHinhAnh = int.Parse(resultHinhAnh.ToString());
                
                 // Sửa sản phẩm
                 clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
 
                 MessageBox.Show("Cập nhật thành công","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (IOException msg)
+            {
+                MessageBox.Show(msg.Message);
             }
             catch (Exception)
             {
@@ -278,6 +288,7 @@ namespace QuanLyBanBalo
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
+            check = true;
             string filePath = Helper.layHinhAnh();
             if (filePath != null)
             {
