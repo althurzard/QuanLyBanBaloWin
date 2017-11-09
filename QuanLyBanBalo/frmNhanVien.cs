@@ -16,6 +16,7 @@ namespace QuanLyBanBalo
     public partial class frmNhanVien : Form
     {
         private static frmNhanVien _Instance = null;
+        private DataView dgvView = null;
 
         public static frmNhanVien Instance
         {
@@ -51,6 +52,14 @@ namespace QuanLyBanBalo
             cboLoaiTK.DataSource = phanLoaiTKTable;
             cboLoaiTK.ValueMember = "MaPhanLoaiTK";
             cboLoaiTK.DisplayMember = "MoTa";
+        }
+
+        private void loadBangTK()
+        {
+            dgvBangTaiKhoan.AutoGenerateColumns = false;
+            DataTable dt = clsTaiKhoan_BUS.LayBang();
+            dgvView = new DataView(dt);
+            dgvBangTaiKhoan.DataSource = dgvView;
         }
 
         private void themHinhAnh()
@@ -221,5 +230,17 @@ namespace QuanLyBanBalo
             e.Handled = !Validation.IsNumberic(e);
         }
 
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvBangTaiKhoan.Columns[e.ColumnIndex].Name == "Url")
+            {
+                e.Value = new Bitmap(e.Value.ToString());
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            loadBangTK();
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAO;
+using System.Data;
 namespace BUS
 {
     public class clsTaiKhoan_BUS
@@ -18,6 +19,11 @@ namespace BUS
         public static bool KiemTraTaiKhoanDaTonTai(string tenTaiKhoan)
         {
             return clsTaiKhoan_DAO.KiemTraTaiKhoanDaTonTai(tenTaiKhoan);
+        }
+
+        public static DataTable LayBang()
+        {
+            return clsTaiKhoan_DAO.LayBang();
         }
         
     }
