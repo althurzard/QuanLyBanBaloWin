@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdGia4 = new System.Windows.Forms.RadioButton();
@@ -332,7 +332,7 @@
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSanPham.Size = new System.Drawing.Size(1194, 241);
             this.dgvSanPham.TabIndex = 1;
-            this.dgvSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellContentClick);
+            //this.dgvSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellContentClick);
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
             this.dgvSanPham.DoubleClick += new System.EventHandler(this.dgvSanPham_DoubleClick);
             this.dgvSanPham.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvSanPham_KeyDown);
@@ -404,18 +404,18 @@
             // colGiaVon
             // 
             this.colGiaVon.DataPropertyName = "GiaVon";
-            dataGridViewCellStyle5.Format = "N0";
-            dataGridViewCellStyle5.NullValue = null;
-            this.colGiaVon.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "N0";
+            dataGridViewCellStyle1.NullValue = null;
+            this.colGiaVon.DefaultCellStyle = dataGridViewCellStyle1;
             this.colGiaVon.HeaderText = "Giá Vốn";
             this.colGiaVon.Name = "colGiaVon";
             // 
             // colGiaBanLe
             // 
             this.colGiaBanLe.DataPropertyName = "GiaBanLe";
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = null;
-            this.colGiaBanLe.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.colGiaBanLe.DefaultCellStyle = dataGridViewCellStyle2;
             this.colGiaBanLe.HeaderText = "Giá Bán Lẻ";
             this.colGiaBanLe.Name = "colGiaBanLe";
             // 

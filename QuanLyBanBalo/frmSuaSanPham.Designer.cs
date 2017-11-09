@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.cboMauMa = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,14 +58,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtCTSoLuong = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnKhoiPhuc = new System.Windows.Forms.Button();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
             this.txtMaCTSP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnLuu = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -105,6 +106,8 @@
             this.txtTenSP.Name = "txtTenSP";
             this.txtTenSP.Size = new System.Drawing.Size(217, 26);
             this.txtTenSP.TabIndex = 21;
+            this.txtTenSP.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenSP_Validating);
+            this.txtTenSP.Validated += new System.EventHandler(this.txtTenSP_Validated);
             // 
             // label2
             // 
@@ -124,6 +127,8 @@
             this.txtChatLieu.Name = "txtChatLieu";
             this.txtChatLieu.Size = new System.Drawing.Size(217, 26);
             this.txtChatLieu.TabIndex = 24;
+            this.txtChatLieu.Validating += new System.ComponentModel.CancelEventHandler(this.txtChatLieu_Validating);
+            this.txtChatLieu.Validated += new System.EventHandler(this.txtChatLieu_Validated);
             // 
             // label14
             // 
@@ -143,6 +148,8 @@
             this.txtGiaVon.Name = "txtGiaVon";
             this.txtGiaVon.Size = new System.Drawing.Size(217, 26);
             this.txtGiaVon.TabIndex = 42;
+            this.txtGiaVon.Validating += new System.ComponentModel.CancelEventHandler(this.txtGiaVon_Validating);
+            this.txtGiaVon.Validated += new System.EventHandler(this.txtGiaVon_Validated);
             // 
             // label6
             // 
@@ -182,6 +189,8 @@
             this.txtTrongLuong.Name = "txtTrongLuong";
             this.txtTrongLuong.Size = new System.Drawing.Size(217, 26);
             this.txtTrongLuong.TabIndex = 50;
+            this.txtTrongLuong.Validating += new System.ComponentModel.CancelEventHandler(this.txtTrongLuong_Validating);
+            this.txtTrongLuong.Validated += new System.EventHandler(this.txtTrongLuong_Validated);
             // 
             // label5
             // 
@@ -201,6 +210,8 @@
             this.txtGiaBanLe.Name = "txtGiaBanLe";
             this.txtGiaBanLe.Size = new System.Drawing.Size(217, 26);
             this.txtGiaBanLe.TabIndex = 53;
+            this.txtGiaBanLe.Validating += new System.ComponentModel.CancelEventHandler(this.txtGiaBanLe_Validating);
+            this.txtGiaBanLe.Validated += new System.EventHandler(this.txtGiaBanLe_Validated);
             // 
             // label9
             // 
@@ -220,6 +231,8 @@
             this.txtThuongHieu.Name = "txtThuongHieu";
             this.txtThuongHieu.Size = new System.Drawing.Size(217, 26);
             this.txtThuongHieu.TabIndex = 54;
+            this.txtThuongHieu.Validating += new System.ComponentModel.CancelEventHandler(this.txtThuongHieu_Validating);
+            this.txtThuongHieu.Validated += new System.EventHandler(this.txtThuongHieu_Validated);
             // 
             // label11
             // 
@@ -271,6 +284,8 @@
             this.txtNamBH.Name = "txtNamBH";
             this.txtNamBH.Size = new System.Drawing.Size(217, 26);
             this.txtNamBH.TabIndex = 62;
+            this.txtNamBH.Validating += new System.ComponentModel.CancelEventHandler(this.txtNamBH_Validating);
+            this.txtNamBH.Validated += new System.EventHandler(this.txtNamBH_Validated);
             // 
             // groupBox2
             // 
@@ -338,6 +353,8 @@
             this.txtMauSac.Name = "txtMauSac";
             this.txtMauSac.Size = new System.Drawing.Size(217, 26);
             this.txtMauSac.TabIndex = 48;
+            this.txtMauSac.Validating += new System.ComponentModel.CancelEventHandler(this.txtMauSac_Validating);
+            this.txtMauSac.Validated += new System.EventHandler(this.txtMauSac_Validated);
             // 
             // label13
             // 
@@ -357,6 +374,8 @@
             this.txtCTSoLuong.Name = "txtCTSoLuong";
             this.txtCTSoLuong.Size = new System.Drawing.Size(217, 26);
             this.txtCTSoLuong.TabIndex = 51;
+            this.txtCTSoLuong.Validating += new System.ComponentModel.CancelEventHandler(this.txtCTSoLuong_Validating);
+            this.txtCTSoLuong.Validated += new System.EventHandler(this.txtCTSoLuong_Validated);
             // 
             // groupBox3
             // 
@@ -374,36 +393,6 @@
             this.groupBox3.TabIndex = 48;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi tiết sản phẩm";
-            // 
-            // btnKhoiPhuc
-            // 
-            this.btnKhoiPhuc.Location = new System.Drawing.Point(587, 304);
-            this.btnKhoiPhuc.Name = "btnKhoiPhuc";
-            this.btnKhoiPhuc.Size = new System.Drawing.Size(75, 23);
-            this.btnKhoiPhuc.TabIndex = 49;
-            this.btnKhoiPhuc.Text = "Khôi Phục";
-            this.btnKhoiPhuc.UseVisualStyleBackColor = true;
-            this.btnKhoiPhuc.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Location = new System.Drawing.Point(668, 304);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
-            this.btnLuu.TabIndex = 50;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Location = new System.Drawing.Point(506, 304);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
-            this.btnThoat.TabIndex = 51;
-            this.btnThoat.Text = "Hủy";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // txtMaCTSP
             // 
@@ -425,14 +414,26 @@
             this.label10.TabIndex = 53;
             this.label10.Text = "Mã chi tiết";
             // 
+            // btnLuu
+            // 
+            this.btnLuu.Location = new System.Drawing.Point(633, 295);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(110, 23);
+            this.btnLuu.TabIndex = 50;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmSuaSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1240, 517);
-            this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnLuu);
-            this.Controls.Add(this.btnKhoiPhuc);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "frmSuaSanPham";
@@ -443,6 +444,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,10 +480,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtCTSoLuong;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnKhoiPhuc;
         private System.Windows.Forms.Button btnLuu;
-        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.TextBox txtMaCTSP;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

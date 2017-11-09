@@ -18,7 +18,7 @@ namespace DAO
         {
             get
             {
-                SqlConnection conn = new SqlConnection(StringConn);
+                SqlConnection conn = new SqlConnection(StringConn1);
                 conn.Open();
                 return conn;
             }
