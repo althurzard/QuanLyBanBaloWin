@@ -18,10 +18,20 @@ namespace QuanLyBanBalo
         DataTable dtDanhMuc;
         DataRowView drvDanhMuc;
         private static frmMatHang _Instance = null;
+        public static frmMatHang Instance
+        {
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new frmMatHang();
+                return _Instance;
+            }
+        }
         public frmMatHang()
         {
             InitializeComponent();
         }
+
         private void frmMatHang_Load(object sender, EventArgs e)
         {
             setUp();
@@ -29,6 +39,7 @@ namespace QuanLyBanBalo
             loadMauMa();
         }
 
+        #region: load dữ liệu
         private void setUp()
         {
             //Ẩn cột Mã Sản Phẩm
@@ -36,7 +47,6 @@ namespace QuanLyBanBalo
             //Ẩn cột Mã Sản Phẩm
             dgvSanPham.Columns["colMaCTSP"].Visible = false;
         }
-
         private void loadSanPham()
         {
             dtSanPham = clsSanPham_BUS.LayTatCaSanPham();
@@ -45,7 +55,6 @@ namespace QuanLyBanBalo
             dgvSanPham.DataSource = dvSanPham;
             lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void loadMauMa()
         {
             dtDanhMuc = clsSanPham_BUS.LayTatCaMauMa();
@@ -59,28 +68,60 @@ namespace QuanLyBanBalo
             cboMauMa.ValueMember = "MaDanhMuc";
             cboMauMa.DisplayMember = "TenDanhMuc";
         }
+#endregion
 
-        public static frmMatHang Instance
+        #region : Sự kiện bấm nút
+        private void dgvSanPham_DoubleClick(object sender, EventArgs e)
         {
-            get
+            string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[0].Value.ToString();
+            frmSuaSanPham frm = new frmSuaSanPham(idSanPham);
+            frm.Show();
+        }
+        private void btnKhoiPhuc_Click(object sender, EventArgs e)
+        {
+            txtMaSP.Text = "";
+            txtTenSP.Text = "";
+            txtThuongHieu.Text = "";
+            txtChatLieu.Text = "";
+            cboMauMa.SelectedIndex = 0;
+            rdGia1.Checked = false;
+            rdGia2.Checked = false;
+            rdGia3.Checked = false;
+            rdGia4.Checked = false;
+            loadSanPham();
+        }
+        private void dgvSanPham_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
             {
-                if (_Instance == null)
-                    _Instance = new frmMatHang();
-                return _Instance;
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                {
+                    // lấy ra id chi tiet trong dgv
+                    string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                    if (clsSanPham_BUS.XoaSanPham(idSanPham) == 1)
+                    {
+                        MessageBox.Show("Xóa Thành Công");
+                        loadSanPham();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa Thất Bại");
+                    }
+                }
             }
         }
+        #endregion
 
+        #region : Sự kiện tìm kiếm vs đóng mở form
         private void frmMatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Tắt tab khi tắt form
             ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
         }
-
         private void frmMatHang_FormClosing(object sender, FormClosingEventArgs e)
         {
             _Instance = null;
         }
-
         private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
@@ -109,31 +150,26 @@ namespace QuanLyBanBalo
             }
             
         }
-
         private void txtMaSP_TextChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = string.Format("MaSP like '%{0}%'", txtMaSP.Text);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void txtTenSP_TextChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = string.Format("TenSP like '%{0}%'", txtTenSP.Text);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void txtThuongHieu_TextChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = string.Format("ThuongHieu like '%{0}%'", txtThuongHieu.Text);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void txtChatLieu_TextChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = string.Format("ChatLieu like '%{0}%'", txtChatLieu.Text);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void cboMauMa_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectString;
@@ -151,76 +187,30 @@ namespace QuanLyBanBalo
                 lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
             }
         }
-
         private void rdGia1_CheckedChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'",0,500000);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void rdGia2_CheckedChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'", 500000, 1000000);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void rdGia3_CheckedChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'", 1000000, 2000000);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-
         private void rdGia4_CheckedChanged(object sender, EventArgs e)
         {
             dvSanPham.RowFilter = String.Format("GiaBanLe >= {0} ",2000000);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
+#endregion
 
-        private void btnKhoiPhuc_Click(object sender, EventArgs e)
-        {
-            txtMaSP.Text = "";
-            txtTenSP.Text = "";
-            txtThuongHieu.Text = "";
-            txtChatLieu.Text = "";
-            cboMauMa.SelectedIndex = 0;
-            rdGia1.Checked = false;
-            rdGia2.Checked = false;
-            rdGia3.Checked = false;
-            rdGia4.Checked = false;
-            loadSanPham();
-        }
 
-        private void dgvSanPham_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                if(DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không","Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
-                {
-                    // lấy ra id chi tiet trong dgv
-                    string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[1].Value.ToString();
-                   if(clsSanPham_BUS.XoaSanPham(idSanPham) == 1)
-                   {
-                        MessageBox.Show("Xóa Thành Công");
-                        loadSanPham();
-                   }
-                   else
-                   {
-                        MessageBox.Show("Xóa Thất Bại");
-                   }
-                }
-            }
-        }
 
-        private void dgvSanPham_DoubleClick(object sender, EventArgs e)
-        {   
-            string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[0].Value.ToString();
-            frmSuaSanPham frm = new frmSuaSanPham(idSanPham);
-            frm.Show();
-        }
 
-        private void dgvSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
     }
 }
