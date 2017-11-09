@@ -163,7 +163,7 @@ namespace QuanLyBanBalo
         }
         private void txtNamBH_Validating(object sender, CancelEventArgs e)
         {
-            if (!Validation.IsNumeric(txtNamBH.Text, out msg))
+            if (!Validation.IsNumberic(txtNamBH.Text, out msg))
             {
                 e.Cancel = true;
                 txtNamBH.Select(0, txtNamBH.Text.Length);
@@ -193,7 +193,7 @@ namespace QuanLyBanBalo
         }
         private void txtGiaBanLe_Validating(object sender, CancelEventArgs e)
         {
-            if (!Validation.IsNumeric(txtGiaBanLe.Text, out msg))
+            if (!Validation.IsNumberic(txtGiaBanLe.Text, out msg))
             {
                 e.Cancel = true;
                 txtGiaBanLe.Select(0, txtGiaBanLe.Text.Length);
@@ -208,7 +208,7 @@ namespace QuanLyBanBalo
         }
         private void txtGiaVon_Validating(object sender, CancelEventArgs e)
         { 
-                if (!Validation.IsNumeric(txtGiaVon.Text, out msg))
+                if (!Validation.IsNumberic(txtGiaVon.Text, out msg))
                 {
                     e.Cancel = true;
                 txtGiaVon.Select(0, txtGiaVon.Text.Length);
@@ -222,7 +222,7 @@ namespace QuanLyBanBalo
         }
         private void txtTrongLuong_Validating(object sender, CancelEventArgs e)
         {
-                if (!Validation.IsNumeric(txtTrongLuong.Text, out msg))
+                if (!Validation.IsNumberic(txtTrongLuong.Text, out msg))
                 {
                     e.Cancel = true;
                     txtTrongLuong.Select(0, txtTrongLuong.Text.Length);
@@ -253,7 +253,7 @@ namespace QuanLyBanBalo
         }
         private void txtCTSoLuong_Validating(object sender, CancelEventArgs e)
         {
-            if (!Validation.IsNumeric(txtCTSoLuong.Text, out msg))
+            if (!Validation.IsNumberic(txtCTSoLuong.Text, out msg))
             {
                 e.Cancel = true;
                 txtCTSoLuong.Select(0, txtCTSoLuong.Text.Length);

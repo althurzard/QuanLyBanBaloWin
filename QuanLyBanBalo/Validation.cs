@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace QuanLyBanBalo
 {
@@ -14,13 +15,12 @@ namespace QuanLyBanBalo
          Trả về true false và câu thông báo
         */
 
-
         /*
          * kiểm tra có để trống không
          */
         public static bool NotEmptyTextBox(string textBox , out string errorMSG)
         {
-            if(textBox.Length == 0)
+            if(string.IsNullOrWhiteSpace(textBox))
             {
                 errorMSG = "Không được để trống ô này";
                 return false;
@@ -35,7 +35,7 @@ namespace QuanLyBanBalo
         /*
          * Kiểm tra phải số không
          */
-        public static bool IsNumeric(string textBox, out string errorMSG)
+        public static bool IsNumberic(string textBox, out string errorMSG)
         {
             //kiểm tra có để trống không
            if(NotEmptyTextBox(textBox, out errorMSG))
@@ -55,6 +55,15 @@ namespace QuanLyBanBalo
                 return NotEmptyTextBox(textBox, out errorMSG);
             }
            
+        }
+
+        /*
+         * Kiểm tra phải số không với sự kiện KeyPress
+         * example: e.Handled = !Validation.IsNumberic(e)
+         */
+        public static bool IsNumberic(KeyPressEventArgs e)
+        {
+            return Char.IsControl(e.KeyChar) ? Char.IsControl(e.KeyChar) : Char.IsDigit(e.KeyChar);
         }
         
     }

@@ -13,6 +13,12 @@ namespace BUS
         {
             return clsTaiKhoan_DAO.ThemTaiKhoan(taiKhoan);
         }
+
+
+        public static bool KiemTraTaiKhoanDaTonTai(string tenTaiKhoan)
+        {
+            return clsTaiKhoan_DAO.KiemTraTaiKhoanDaTonTai(tenTaiKhoan);
+        }
         
     }
 }
