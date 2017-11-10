@@ -19,7 +19,7 @@ namespace QuanLyBanBalo
         DataTable dtDanhMuc;
         private static string idSP;
         private static string msg;
-        private static bool check = false;
+        private static bool kiemTraThayDoiPic = false;
 
         public frmSuaSanPham()
         {
@@ -110,7 +110,7 @@ namespace QuanLyBanBalo
                 /*kiểm tra xem có thay đổi hình ảnh không
                  * Nếu có resultHinhAnh = Mã Hình
                  */
-                if (check)
+                if (kiemTraThayDoiPic)
                 {
                     // Lưu ảnh vào database 
                     clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
@@ -119,6 +119,7 @@ namespace QuanLyBanBalo
                     string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
                     string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
                     File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                    kiemTraThayDoiPic = false;
                 }
                 // Chi Tiết Sản Phẩm
                 clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
@@ -288,10 +289,11 @@ namespace QuanLyBanBalo
 
         private void btnChonAnh_Click(object sender, EventArgs e)
         {
-            check = true;
+            
             string filePath = Helper.layHinhAnh();
             if (filePath != null)
             {
+                kiemTraThayDoiPic = true;
                 picHinhAnh.ImageLocation = filePath;
             }
         }
