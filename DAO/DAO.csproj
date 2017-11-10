@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsHinhAnh_DAO.cs" />
+    <Compile Include="clsNhaCungCap_DAO.cs" />
     <Compile Include="clsNhanVien_DAO.cs" />
     <Compile Include="clsPhanLoaiTK_DAO.cs" />
     <Compile Include="clsSanPham_DAO.cs" />

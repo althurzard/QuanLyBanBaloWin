@@ -57,6 +57,9 @@ namespace QuanLyBanBalo
            
         }
 
+
+        
+
         /*
          * Kiểm tra phải số không với sự kiện KeyPress
          * example: e.Handled = !Validation.IsNumberic(e)
@@ -65,6 +68,7 @@ namespace QuanLyBanBalo
         {
             return Char.IsControl(e.KeyChar) ? Char.IsControl(e.KeyChar) : Char.IsDigit(e.KeyChar);
         }
+
         
     }
 }

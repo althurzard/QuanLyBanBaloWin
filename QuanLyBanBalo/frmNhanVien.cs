@@ -175,7 +175,7 @@ namespace QuanLyBanBalo
                                 {
                                     // Copy image file vào folder data/avatar
                                     string fileName = Path.GetFileName(pictureHinhAnh.ImageLocation);
-                                    string destPath = Directory.GetCurrentDirectory() + "\\data\\avatar\\" + fileName;
+                                    string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
                                     File.Copy(pictureHinhAnh.ImageLocation, destPath, true);
 
                                     MessageBox.Show("Tạo tài khoản thành công");

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
 using DTO;
+using System.IO;
+
 namespace QuanLyBanBalo
 {
     public partial class frmSuaSanPham : Form
@@ -17,6 +19,7 @@ namespace QuanLyBanBalo
         DataTable dtDanhMuc;
         private static string idSP;
         private static string msg;
+        private static bool check = false;
 
         public frmSuaSanPham()
         {
@@ -70,6 +73,7 @@ namespace QuanLyBanBalo
                         rdKhong.Checked = true;
                     }
                     picHinhAnh.ImageLocation = dr["Url"].ToString();
+                    picHinhAnh.Name = dr["MaHinhAnh"].ToString();
                     picHinhAnh.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
@@ -79,45 +83,64 @@ namespace QuanLyBanBalo
         #region : Sự kiện bấm nút
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
-            
-
-
             try
             {
-                    // Sản Phẩm
-                    clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
+                // Sản Phẩm
+                clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
                     dtoSanPham.MaSP = txtMaSP.Text;
                     dtoSanPham.TenSP = txtTenSP.Text;
                     dtoSanPham.ThuongHieu = txtThuongHieu.Text;
                     dtoSanPham.ChatLieu = txtChatLieu.Text;
                     dtoSanPham.GiaVon = decimal.Parse(txtGiaVon.Text);
                     dtoSanPham.GiaBanLe = decimal.Parse(txtGiaBanLe.Text);
-                if(rdCo.Checked == true)
-                {
-                        dtoSanPham.ChongNuoc = true;
-                }
-                else
-                {
-                        dtoSanPham.ChongNuoc = false;
-                }
+                    if(rdCo.Checked == true)
+                    {
+                            dtoSanPham.ChongNuoc = true;
+                    }
+                    else
+                    {
+                            dtoSanPham.ChongNuoc = false;
+                    }
                     dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
                     dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
-                    dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);   
-                
+                    dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
+
+                object resultHinhAnh = picHinhAnh.Name;
+
+                /*kiểm tra xem có thay đổi hình ảnh không
+                 * Nếu có resultHinhAnh = Mã Hình
+                 */
+                if (check)
+                {
+                    // Lưu ảnh vào database 
+                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                    resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                    // Copy image file vào folder data/product
+                    string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
+                    string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
+                    File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                }
                 // Chi Tiết Sản Phẩm
-                    clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
+                clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
                     dtoChiTietSP.MaCTSP = txtMaCTSP.Text;
                     dtoChiTietSP.MauSac = txtMauSac.Text;
                     dtoChiTietSP.SoLuong = int.Parse(txtCTSoLuong.Text);
+                    dtoChiTietSP.MaHinhAnh = int.Parse(resultHinhAnh.ToString());
+               
+                // Sửa sản phẩm
+                clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
 
-                    clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
-
-                    MessageBox.Show("Cập nhật thành công","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }catch
+                MessageBox.Show("Cập nhật thành công","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (IOException msg)
+            {
+                MessageBox.Show(msg.Message);
+            }
+            catch (Exception)
             {
                  MessageBox.Show("Dữ liệu nhập không chính xác! \nVui Lòng Kiểm Tra Lại","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
+            
         }
         #endregion
 
@@ -261,8 +284,17 @@ namespace QuanLyBanBalo
             }
         }
 
-#endregion
+        #endregion
 
+        private void btnChonAnh_Click(object sender, EventArgs e)
+        {
+            check = true;
+            string filePath = Helper.layHinhAnh();
+            if (filePath != null)
+            {
+                picHinhAnh.ImageLocation = filePath;
+            }
+        }
     }
 }
 

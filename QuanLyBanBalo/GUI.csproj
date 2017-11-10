@@ -539,5 +539,6 @@
     <Content Include="bin\Debug\images\nv-aazneir-1.png" />
     <Content Include="bin\Debug\images\office_women_glasses-2.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

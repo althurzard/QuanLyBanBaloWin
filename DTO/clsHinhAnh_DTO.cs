@@ -34,6 +34,8 @@ namespace DTO
                 path = "data/avatar/";
             else if (loaiAnh == LoaiHinhAnh.Icon)
                 path = "data/icon/";
+            else
+                path = "data/product/";
  
             _url = path + Path.GetFileName(imageLocation);
 

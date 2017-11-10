@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="clsChiTietSP_DTO.cs" />
     <Compile Include="clsHinhAnh_DTO.cs" />
+    <Compile Include="clsNhaCungCap_DTO.cs" />
     <Compile Include="clsNhanVien_DTO.cs" />
     <Compile Include="clsPhanLoaiTK_DTO.cs" />
     <Compile Include="clsSanPham_DTO.cs" />

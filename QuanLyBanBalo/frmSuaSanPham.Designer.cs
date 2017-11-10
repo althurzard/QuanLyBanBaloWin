@@ -62,6 +62,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnChonAnh = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -379,6 +380,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnChonAnh);
             this.groupBox3.Controls.Add(this.txtMaCTSP);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.txtCTSoLuong);
@@ -427,6 +429,16 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnChonAnh
+            // 
+            this.btnChonAnh.Location = new System.Drawing.Point(210, 130);
+            this.btnChonAnh.Name = "btnChonAnh";
+            this.btnChonAnh.Size = new System.Drawing.Size(75, 23);
+            this.btnChonAnh.TabIndex = 54;
+            this.btnChonAnh.Text = "Chọn Ảnh";
+            this.btnChonAnh.UseVisualStyleBackColor = true;
+            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // frmSuaSanPham
             // 
@@ -484,5 +496,6 @@
         private System.Windows.Forms.TextBox txtMaCTSP;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnChonAnh;
     }
 }

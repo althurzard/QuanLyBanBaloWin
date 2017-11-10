@@ -22,7 +22,7 @@ namespace DAO
 
         public static SqlDataReader LayThongTinMotSanPham(string idSanPham)
         {
-            string query =string.Format("SELECT SanPham.*,DanhMuc.*,ChiTietSanPham.*,HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND SanPham.MaSP='{0}'", idSanPham);
+            string query =string.Format("SELECT SanPham.*,DanhMuc.*,ChiTietSanPham.*,HinhAnh.Url,HinhAnh.MaHinhAnh FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND SanPham.MaSP='{0}'", idSanPham);
             drSanPham = XuLyDuLieu.LayDuLieu(query);
             return drSanPham;
         }
@@ -44,6 +44,7 @@ namespace DAO
         {
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
+                //cập nhật vào bảng sản phẩm
                 string query = string.Format("UPDATE SanPham SET TenSP = @TenSP , ThuongHieu = @ThuongHieu, ChatLieu = @ChatLieu, GiaVon = @GiaVon, GiaBanLe = @GiaBanLe, ChongNuoc = @ChongNuoc, TrongLuong = @TrongLuong, MaDanhMuc = @MaDanhMuc, SoNamBH = @SoNamBH WHERE MaSP = @MaSP");
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.Add("@MaSP", SqlDbType.Char).Value = sanPham.MaSP;
@@ -58,12 +59,13 @@ namespace DAO
                 cmd.Parameters.Add("@SoNamBH", SqlDbType.Int).Value = sanPham.SoNamBH;
                 cmd.CommandType = CommandType.Text;
 
-                string queryDanhMuc = string.Format("UPDATE ChiTietSanPham SET MauSac = @MauSac, SoLuong = @SoLuong WHERE MaCTSP = @MaCTSP");
+                //cập nhật bảng chi tiết sản phẩm
+                string queryDanhMuc = string.Format("UPDATE ChiTietSanPham SET MauSac = @MauSac, SoLuong = @SoLuong, MaHinhAnh = @MaHinhAnh WHERE MaCTSP = @MaCTSP");
                 SqlCommand cmdDanhMuc = new SqlCommand(queryDanhMuc, connection);
                 cmdDanhMuc.Parameters.Add("@MaCTSP", SqlDbType.Char).Value = chiTietSP.MaCTSP;
                 cmdDanhMuc.Parameters.Add("@MauSac", SqlDbType.NVarChar).Value = chiTietSP.MauSac;
                 cmdDanhMuc.Parameters.Add("@SoLuong", SqlDbType.Int).Value = chiTietSP.SoLuong;
-                //cmd.Parameters.Add("@MaHinhAnh", SqlDbType.Int).Value = chiTietSP.MaHinhAnh;
+                cmdDanhMuc.Parameters.Add("@MaHinhAnh", SqlDbType.Int).Value = chiTietSP.MaHinhAnh;
                 cmdDanhMuc.CommandType = CommandType.Text;
                 try
                 {
