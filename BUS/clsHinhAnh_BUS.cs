@@ -15,9 +15,9 @@ namespace BUS
             if (result is int)
             {
                 hinhAnh.MaHinhAnh = (int)result;
-                return result;
+                return true;
             }
-            return true;
+            return result;
             
         }
     }

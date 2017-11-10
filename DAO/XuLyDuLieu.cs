@@ -12,8 +12,8 @@ namespace DAO
 
     public class XuLyDuLieu
     {
-        private static string StringConn = @"Data Source=.\SQLExpress;Initial Catalog=db_baloshop;Integrated Security=True";
-        private static string StringConn1 = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Directory.GetCurrentDirectory() + "\\data\\db_baloshop.mdf;Integrated Security=True; Connect Timeout = 30";
+        private static string StringConn1 = @"Data Source=.\SQLExpress;Initial Catalog=db_baloshop;Integrated Security=True";
+        private static string StringConn = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + Directory.GetCurrentDirectory() + "\\data\\db_baloshop.mdf;Integrated Security=True; Connect Timeout = 30";
         public static SqlConnection MoKetNoi
         {
             get

@@ -105,16 +105,16 @@ namespace QuanLyBanBalo
                     dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
                     dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
 
-                object resultHinhAnh = picHinhAnh.Name;
-
+                // Thông tin ảnh hiện tại
+                clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product, int.Parse(picHinhAnh.Name));
                 /*kiểm tra xem có thay đổi hình ảnh không
                  * Nếu có resultHinhAnh = Mã Hình
                  */
                 if (kiemTraThayDoiPic)
                 {
                     // Lưu ảnh vào database 
-                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
-                    resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                    // HinhAnh được thay đổi mã ảnh mới
+                    clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
                     // Copy image file vào folder data/product
                     string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
                     string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
@@ -126,7 +126,7 @@ namespace QuanLyBanBalo
                     dtoChiTietSP.MaCTSP = txtMaCTSP.Text;
                     dtoChiTietSP.MauSac = txtMauSac.Text;
                     dtoChiTietSP.SoLuong = int.Parse(txtCTSoLuong.Text);
-                    dtoChiTietSP.MaHinhAnh = int.Parse(resultHinhAnh.ToString());
+                dtoChiTietSP.MaHinhAnh = hinhAnh.MaHinhAnh;
                
                 // Sửa sản phẩm
                 clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
