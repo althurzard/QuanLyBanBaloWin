@@ -22,5 +22,13 @@ namespace BUS
         {
             return clsNhaCungCap_DAO.KiemTraTonTaiTenNCC(tenNhaCungCap);
         }
+        public static object SuaNhaCungCap(clsNhaCungCap_DTO nhaCC)
+        {
+            return clsNhaCungCap_DAO.SuaNhaCungCap(nhaCC);
+        }
+        public static int XoaNhaCungCap(string MaNhaCungCap)
+        {
+            return clsNhaCungCap_DAO.XoaNhaCungCap(MaNhaCungCap);
+        }
     }
 }

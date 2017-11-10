@@ -39,7 +39,7 @@ namespace QuanLyBanBalo
             loadMauMa();
         }
 
-        #region: load dữ liệu
+#region: load dữ liệu
         private void setUp()
         {
             //Ẩn cột Mã Sản Phẩm
@@ -70,7 +70,7 @@ namespace QuanLyBanBalo
         }
 #endregion
 
-        #region : Sự kiện bấm nút
+#region : Sự kiện bấm nút
         private void dgvSanPham_DoubleClick(object sender, EventArgs e)
         {
             string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[0].Value.ToString();
@@ -110,9 +110,9 @@ namespace QuanLyBanBalo
                 }
             }
         }
-        #endregion
+#endregion
 
-        #region : Sự kiện tìm kiếm vs đóng mở form
+#region : Sự kiện tìm kiếm vs đóng mở form
         private void frmMatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Tắt tab khi tắt form

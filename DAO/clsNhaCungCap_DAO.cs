@@ -13,7 +13,7 @@ namespace DAO
     {
         public static DataTable LayNhaCC()
         {
-            string query = "SELECT * FROM NhaCungCap,HinhAnh WHERE NhaCungCap.TrangThai = 1 AND NhaCungCap.MaHinhAnh = HinhAnh.MaHinhAnh ";
+            string query = "SELECT NhaCungCap.*,HinhAnh.Url FROM NhaCungCap,HinhAnh WHERE NhaCungCap.TrangThai = 1 AND NhaCungCap.MaHinhAnh = HinhAnh.MaHinhAnh ";
             return XuLyDuLieu.LayBang(query);
         }
         public static bool KiemTraTonTaiTenNCC(string tenNhaCungCap)
@@ -44,6 +44,33 @@ namespace DAO
                     return e.Message.ToString();
                 }
             }
+        }
+        public static object SuaNhaCungCap(clsNhaCungCap_DTO nhaCC)
+        {
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("UPDATE NhaCungCap SET TenNhaCungCap = @TenNhaCungCap, MaHinhAnh = @MaHinhAnh, SoDienThoai = @SoDienThoai, DiaChi = @DiaChi WHERE MaNhaCungCap = @MaNhaCungCap");
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.Add("@MaNhaCungCap", SqlDbType.Char).Value = nhaCC.MaNhaCungCap;
+                cmd.Parameters.Add("@TenNhaCungCap", SqlDbType.NVarChar).Value = nhaCC.TenNhaCungCap;
+                cmd.Parameters.Add("@MaHinhAnh", SqlDbType.Int).Value = nhaCC.MaHinhAnh;
+                cmd.Parameters.Add("@SoDienThoai", SqlDbType.Int).Value = nhaCC.SoDienThoai;
+                cmd.Parameters.Add("@DiaChi", SqlDbType.NVarChar).Value = nhaCC.DiaChi;
+                cmd.CommandType = CommandType.Text;
+                try
+                {
+                    return cmd.ExecuteNonQuery() == 1;
+                }
+                catch (SqlException e)
+                {
+                    return e.Message.ToString();
+                }
+            }
+        }
+        public static int XoaNhaCungCap(string MaNhaCungCap)
+        {
+            string query =string.Format("UPDATE NhaCungCap Set TrangThai = 0 WHERE MaNhaCungCap = '{0}'",MaNhaCungCap);
+            return XuLyDuLieu.ThucThiCauLenh(query);
         }
     }
 }
