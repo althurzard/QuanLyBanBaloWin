@@ -131,8 +131,8 @@ namespace QuanLyBanBalo
                     {
                         // Lưu ảnh vào database 
                         clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Avatar);
-                        object MaHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                        if (MaHinhAnh is int)
+                        object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                        if (resultHinhAnh is bool)
                         {
 
                             clsNhaCungCap_DTO dtoNcc = new clsNhaCungCap_DTO();
@@ -142,7 +142,7 @@ namespace QuanLyBanBalo
                             dtoNcc.DiaChi = txtDiaChi.Text;
                             dtoNcc.SoDienThoai = int.Parse(txtSDT.Text);
                             dtoNcc.TrangThai = 1;
-                            dtoNcc.MaHinhAnh = int.Parse(MaHinhAnh.ToString());
+                            dtoNcc.MaHinhAnh = hinhAnh.MaHinhAnh;
                             object KqThem = clsNhaCungCap_BUS.ThemNhaCungCap(dtoNcc);
                             if (KqThem is bool)
                             {
@@ -175,7 +175,7 @@ namespace QuanLyBanBalo
         private void btnSua_Click(object sender, EventArgs e)
         {
             HienLabel(false);
-            object MaHinhAnh;
+            clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Avatar,MaHinhAnhMacDinh);
             if (KiemTraTextBox())
             {
                 try
@@ -185,45 +185,43 @@ namespace QuanLyBanBalo
                     if (kiemTraThayDoiPic)
                     {
                         // Lưu ảnh vào database 
-                        clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Avatar);
-                        MaHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                        // Copy image file vào folder data/avatar
-                        string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
-                        string destPath = Directory.GetCurrentDirectory() + "\\data\\avatar\\" + fileName;
-                        File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                        
+                        object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+
+                        if (resultHinhAnh is bool)
+                        {
+                            // Copy image file vào folder data/avatar
+                            string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
+                            string destPath = Directory.GetCurrentDirectory() + "\\data\\avatar\\" + fileName;
+                            File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                            
+                        } else
+                        {
+                            MessageBox.Show((string)resultHinhAnh, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
                         kiemTraThayDoiPic = false;
+
+                    }
+                    clsNhaCungCap_DTO dtoNcc = new clsNhaCungCap_DTO();
+                    //
+                    dtoNcc.MaNhaCungCap = MaNhaCungCap;
+                    dtoNcc.TenNhaCungCap = txtTenNCC.Text;
+                    dtoNcc.DiaChi = txtDiaChi.Text;
+                    dtoNcc.SoDienThoai = int.Parse(txtSDT.Text);
+                    dtoNcc.MaHinhAnh = hinhAnh.MaHinhAnh;
+                    //
+                    object KqSua = clsNhaCungCap_BUS.SuaNhaCungCap(dtoNcc);
+                    if (KqSua is bool)
+                    {
+                        MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadNCC();
                     }
                     else
                     {
-                        MaHinhAnh = MaHinhAnhMacDinh;
+                        MessageBox.Show("Thêm thất bại! \nVui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
 
-                    if (MaHinhAnh is int)
-                    {
-
-                        clsNhaCungCap_DTO dtoNcc = new clsNhaCungCap_DTO();
-                        //
-                        dtoNcc.MaNhaCungCap = MaNhaCungCap;
-                        dtoNcc.TenNhaCungCap = txtTenNCC.Text;
-                        dtoNcc.DiaChi = txtDiaChi.Text;
-                        dtoNcc.SoDienThoai = int.Parse(txtSDT.Text);
-                        dtoNcc.MaHinhAnh = int.Parse(MaHinhAnh.ToString());
-                        //
-                        object KqSua = clsNhaCungCap_BUS.SuaNhaCungCap(dtoNcc);
-                        if (KqSua is bool)
-                        {
-                            MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadNCC();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm thất bại! \nVui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Hình ảnh không hợp lệ vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    }
+                   
                 }
                 catch (Exception)
                 {
