@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsDanhMuc_DAO.cs" />
     <Compile Include="clsHinhAnh_DAO.cs" />
     <Compile Include="clsNhaCungCap_DAO.cs" />
     <Compile Include="clsNhanVien_DAO.cs" />
