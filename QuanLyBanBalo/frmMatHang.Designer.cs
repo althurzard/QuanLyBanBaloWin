@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rdGia4 = new System.Windows.Forms.RadioButton();
@@ -309,7 +309,11 @@
             // dgvSanPham
             // 
             this.dgvSanPham.AllowUserToAddRows = false;
+            this.dgvSanPham.AllowUserToResizeColumns = false;
+            this.dgvSanPham.AllowUserToResizeRows = false;
             this.dgvSanPham.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgvSanPham.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvSanPham.ColumnHeadersHeight = 50;
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colMaSP,
@@ -328,11 +332,12 @@
             this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.Location = new System.Drawing.Point(12, 337);
             this.dgvSanPham.Name = "dgvSanPham";
+            this.dgvSanPham.ReadOnly = true;
             this.dgvSanPham.RowHeadersVisible = false;
+            this.dgvSanPham.RowTemplate.Height = 70;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSanPham.Size = new System.Drawing.Size(1194, 241);
             this.dgvSanPham.TabIndex = 1;
-            //this.dgvSanPham.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellContentClick);
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
             this.dgvSanPham.DoubleClick += new System.EventHandler(this.dgvSanPham_DoubleClick);
             this.dgvSanPham.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvSanPham_KeyDown);
@@ -364,7 +369,7 @@
             this.colTenSP.DataPropertyName = "TenSP";
             this.colTenSP.HeaderText = "Tên Sản Phẩm";
             this.colTenSP.Name = "colTenSP";
-            this.colTenSP.Width = 103;
+            this.colTenSP.Width = 70;
             // 
             // colThuongHieu
             // 
@@ -378,7 +383,7 @@
             this.colTenDanhMuc.DataPropertyName = "TenDanhMuc";
             this.colTenDanhMuc.HeaderText = "Tên Danh Mục";
             this.colTenDanhMuc.Name = "colTenDanhMuc";
-            this.colTenDanhMuc.Width = 104;
+            this.colTenDanhMuc.Width = 77;
             // 
             // colChatLieu
             // 
@@ -404,20 +409,22 @@
             // colGiaVon
             // 
             this.colGiaVon.DataPropertyName = "GiaVon";
-            dataGridViewCellStyle1.Format = "N0";
-            dataGridViewCellStyle1.NullValue = null;
-            this.colGiaVon.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Format = "N0";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colGiaVon.DefaultCellStyle = dataGridViewCellStyle5;
             this.colGiaVon.HeaderText = "Giá Vốn";
             this.colGiaVon.Name = "colGiaVon";
+            this.colGiaVon.ReadOnly = true;
             // 
             // colGiaBanLe
             // 
             this.colGiaBanLe.DataPropertyName = "GiaBanLe";
-            dataGridViewCellStyle2.Format = "N0";
-            dataGridViewCellStyle2.NullValue = null;
-            this.colGiaBanLe.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "N0";
+            dataGridViewCellStyle6.NullValue = null;
+            this.colGiaBanLe.DefaultCellStyle = dataGridViewCellStyle6;
             this.colGiaBanLe.HeaderText = "Giá Bán Lẻ";
             this.colGiaBanLe.Name = "colGiaBanLe";
+            this.colGiaBanLe.ReadOnly = true;
             // 
             // colSoLuong
             // 

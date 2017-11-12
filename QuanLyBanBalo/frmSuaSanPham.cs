@@ -33,7 +33,6 @@ namespace QuanLyBanBalo
         {
             loadMauMa();
             loadSanPham();
-            
         }
 
 
@@ -87,6 +86,7 @@ namespace QuanLyBanBalo
             {
                 // Sản Phẩm
                 clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
+                
                     dtoSanPham.MaSP = txtMaSP.Text;
                     dtoSanPham.TenSP = txtTenSP.Text;
                     dtoSanPham.ThuongHieu = txtThuongHieu.Text;
