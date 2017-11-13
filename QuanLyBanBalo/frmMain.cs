@@ -15,7 +15,13 @@ namespace QuanLyBanBalo
         public frmMain()
         {
             InitializeComponent();
-           
+            nhapHangToolStripMenuItem.Enabled = Validation.CheckPermission();
+            nhanVienToolStripMenuItem.Enabled = Validation.CheckPermission();
+            matHangToolStripMenuItem.Enabled = Validation.CheckPermission();
+            nhaCungCapToolStripMenuItem.Enabled = Validation.CheckPermission();
+            baoHanhToolStripMenuItem.Enabled = Validation.CheckPermission();
+            danhMucSanPhamToolStripMenuItem.Enabled = Validation.CheckPermission();
+
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
@@ -254,6 +260,20 @@ namespace QuanLyBanBalo
                 frmDM.Show();
                 tbcMain.SelectTab(tp);
             }
+        }
+
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+           DialogResult result =  MessageBox.Show("Bạn có chắc chứ?", "Thông báo", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                Application.Exit();
+            } 
         }
     }
 }

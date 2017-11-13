@@ -24,7 +24,7 @@ namespace DTO
         {
 
         }
-
+        //DuLieu/hinh/hinhanh.abc
         public clsHinhAnh_DTO(string imageLocation, LoaiHinhAnh loaiAnh, int maHinhAnh = -1 /*Gia trị mặc định khi khởi tạo image - chưa có mã hình ảnh */)
         {
             _tenHinhAnh = Path.GetFileNameWithoutExtension(imageLocation);
@@ -36,9 +36,8 @@ namespace DTO
                 path = "data/icon/";
             else
                 path = "data/product/";
- 
+            
             _url = path + Path.GetFileName(imageLocation);
-
             _maHinhAnh = maHinhAnh;
         }
 

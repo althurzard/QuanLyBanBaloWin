@@ -51,3 +51,5 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCo
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmSuaNhanVien.resources
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDangNhap.resources
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDanhMuc.resources

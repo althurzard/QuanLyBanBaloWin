@@ -5,11 +5,12 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DTO;
 namespace QuanLyBanBalo
 {
     public class Validation
     {
+        public static clsTaiKhoan_DTO nhanVien = null;
         /*
          Validate
          Trả về true false và câu thông báo
@@ -67,6 +68,16 @@ namespace QuanLyBanBalo
         public static bool IsNumberic(KeyPressEventArgs e)
         {
             return Char.IsControl(e.KeyChar) ? Char.IsControl(e.KeyChar) : Char.IsDigit(e.KeyChar);
+        }
+
+
+        public static bool CheckPermission()
+        {
+            if (nhanVien != null && nhanVien.LoaiTK.MaPhanLoaiTK == 2)
+            {
+                return false;
+            }
+            return true;
         }
 
         

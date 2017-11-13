@@ -21,7 +21,7 @@ namespace QuanLyBanBalo
             MessageBoxManager.No = "Không";
             MessageBoxManager.Cancel = "Huỷ bỏ";
             MessageBoxManager.Register();
-            Application.Run(new frmMain());
+            Application.Run(new frmDangNhap());
         }
 
     }

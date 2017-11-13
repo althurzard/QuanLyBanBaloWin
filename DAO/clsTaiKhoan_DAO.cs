@@ -45,7 +45,7 @@ namespace DAO
 
         public static clsTaiKhoan_DTO LayTaiKhoan(string MaNV)
         {
-            clsTaiKhoan_DTO tk = new clsTaiKhoan_DTO();
+            clsTaiKhoan_DTO tk = null;
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
                 string query = string.Format("Select * from TaiKhoan where MaNV = '{0}' AND TrangThai=1 ",MaNV);
@@ -54,7 +54,7 @@ namespace DAO
                 {
                     while(reader.Read())
                     {
-
+                        tk = new clsTaiKhoan_DTO();
                         tk.TenTaiKhoan = reader["TenTaiKhoan"].ToString();
                         tk.MatKhau = reader["MatKhau"].ToString();
                         tk.TrangThai = (int)reader["TrangThai"];
@@ -73,11 +73,42 @@ namespace DAO
             return tk;
         }
 
+        public static clsTaiKhoan_DTO LayTaiKhoan(clsTaiKhoan_DTO taiKhoan)
+        {
+            clsTaiKhoan_DTO tk = null;
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from TaiKhoan where  TenTaiKhoan = '{0}' AND MatKhau = '{1}' ", taiKhoan.TenTaiKhoan,taiKhoan.MatKhau);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        tk = new clsTaiKhoan_DTO();
+                        tk.TenTaiKhoan = reader["TenTaiKhoan"].ToString();
+                        tk.MatKhau = reader["MatKhau"].ToString();
+                        tk.TrangThai = (int)reader["TrangThai"];
+                        if (reader["LastLogon"] is DateTime)
+                        {
+                            tk.LastLogon = (DateTime)reader["LastLogon"];
+                        }
+
+                        tk.NhanVien = clsNhanVien_DAO.LayNhanVien(reader["MaNV"].ToString());
+                        tk.LoaiTK = clsPhanLoaiTK_DAO.LayLoaiTK((int)reader["MaPhanLoaiTK"]);
+                    }
+                }
+
+            }
+
+            return tk;
+        }
+
         public static bool KiemTraTaiKhoanDaTonTai(string tenTaiKhoan)
         {
             string query = string.Format("select count(*) from TaiKhoan where TenTaiKhoan = '{0}'", tenTaiKhoan);
             return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
+
 
         public static DataTable LayBang()
         {
