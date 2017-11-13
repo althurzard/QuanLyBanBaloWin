@@ -16,7 +16,13 @@ namespace QuanLyBanBalo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            MessageBoxManager.OK = "Đồng ý";
+            MessageBoxManager.Yes ="Có";
+            MessageBoxManager.No = "Không";
+            MessageBoxManager.Cancel = "Huỷ bỏ";
+            MessageBoxManager.Register();
             Application.Run(new frmMain());
         }
+
     }
 }
