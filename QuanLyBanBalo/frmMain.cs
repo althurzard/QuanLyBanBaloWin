@@ -231,5 +231,29 @@ namespace QuanLyBanBalo
                 tbcMain.SelectTab(tp);
             }
         }
+
+        private void danhMụcSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDanhMuc frmDM = frmDanhMuc.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmDM);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmDM.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmDM.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmDM.Parent = tp;
+                frmDM.Show();
+                tbcMain.SelectTab(tp);
+            }
+        }
     }
 }

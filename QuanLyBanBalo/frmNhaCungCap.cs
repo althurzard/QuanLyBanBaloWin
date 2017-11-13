@@ -202,6 +202,7 @@ namespace QuanLyBanBalo
                         kiemTraThayDoiPic = false;
 
                     }
+
                     clsNhaCungCap_DTO dtoNcc = new clsNhaCungCap_DTO();
                     //
                     dtoNcc.MaNhaCungCap = MaNhaCungCap;
@@ -259,11 +260,13 @@ namespace QuanLyBanBalo
         {
             _Instance = null;
         }
+
         private void frmNhaCungCap_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Tắt tab khi tắt form
             ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
         }
+
         private void dgvDanhSachNCC_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             try
@@ -278,6 +281,7 @@ namespace QuanLyBanBalo
                
             }
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -288,6 +292,7 @@ namespace QuanLyBanBalo
                 picHinhAnh.ImageLocation = filePath;
             }
         }
+
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !Validation.IsNumberic(e);
@@ -312,6 +317,7 @@ namespace QuanLyBanBalo
             }
             
         }
+
         private void txtTimKiemSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !Validation.IsNumberic(e);
