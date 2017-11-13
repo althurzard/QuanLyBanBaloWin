@@ -50,3 +50,4 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.Genera
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmSuaNhanVien.resources

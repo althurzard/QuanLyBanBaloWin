@@ -25,6 +25,21 @@ namespace BUS
         {
             return clsTaiKhoan_DAO.LayBang();
         }
+
+        public static clsTaiKhoan_DTO LayTaiKhoan(string MaNV)
+        {
+            return clsTaiKhoan_DAO.LayTaiKhoan(MaNV);
+        }
+
+        public static object SuaTaiKhoan(clsTaiKhoan_DTO taiKhoan)
+        {
+            return clsTaiKhoan_DAO.SuaTaiKhoan(taiKhoan);
+        }
+
+        public static bool XoaTaiKhoan(string tenTaiKhoan)
+        {
+            return clsTaiKhoan_DAO.XoaTaiKhoan(tenTaiKhoan);
+        }
         
     }
 }

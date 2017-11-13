@@ -38,5 +38,29 @@ namespace DAO
 
             }
         }
+
+        public static clsHinhAnh_DTO LayHinhAnh(int MaHinhAnh)
+        {
+            clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO();
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from HinhAnh where MaHinhAnh = {0} AND TrangThai = 1", MaHinhAnh);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        hinhAnh.MaHinhAnh = (int)reader["MaHinhAnh"];
+                        hinhAnh.TenHinhAnh = reader["TenHinhAnh"].ToString();
+                        hinhAnh.Url = reader["Url"].ToString();
+
+                    }
+                }
+
+            }
+            return hinhAnh;
+        }
+
+        
     }
 }

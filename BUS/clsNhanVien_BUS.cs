@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using DAO;
 using System.Data;
+
 namespace BUS
 {
     public class clsNhanVien_BUS
@@ -19,6 +20,16 @@ namespace BUS
         public static DataTable LayBangNhanVien()
         {
             return clsNhanVien_DAO.LayBangNhanVien();
+        }
+
+        public static clsNhanVien_DTO LayNhanVien(string MaNV)
+        {
+            return clsNhanVien_DAO.LayNhanVien(MaNV);
+        }
+
+        public static object SuaNhanVien(clsNhanVien_DTO nhanVien)
+        {
+            return clsNhanVien_DAO.SuaNhanVien(nhanVien);
         }
     }
 }

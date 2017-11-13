@@ -31,8 +31,10 @@ namespace QuanLyBanBalo
         public frmNhanVien()
         {
             InitializeComponent();
+            setupBangTK();
             loadLoaiTK();
             showValidateLabel(false);
+            loadBangTK();
         }
 
         private void frmNhanVien_FormClosing(object sender, FormClosingEventArgs e)
@@ -46,6 +48,11 @@ namespace QuanLyBanBalo
             _Instance = null;
         }
 
+        private void setupBangTK()
+        {
+           
+        }
+
         private void loadLoaiTK()
         {
             DataTable phanLoaiTKTable = clsPhanLoaiTK_BUS.LayBang();
@@ -57,6 +64,7 @@ namespace QuanLyBanBalo
         private void loadBangTK()
         {
             dgvBangTaiKhoan.AutoGenerateColumns = false;
+            dgvBangTaiKhoan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataTable dt = clsTaiKhoan_BUS.LayBang();
             dgvView = new DataView(dt);
             dgvBangTaiKhoan.DataSource = dgvView;
@@ -67,7 +75,6 @@ namespace QuanLyBanBalo
             string filePath = Helper.layHinhAnh();
             if (filePath != null)
             {
-                lblChonAnh.Visible = false;
                 pictureHinhAnh.ImageLocation = filePath;
             }
         }
@@ -77,11 +84,9 @@ namespace QuanLyBanBalo
             lblHoten.Visible = willShow;
             lblDiaChi.Visible = willShow;
             lblMatKhau.Visible = willShow;
-            lblNhapLaiMK.Visible = willShow;
             lblQueQuan.Visible = willShow;
             lblSDT.Visible = willShow;
             lblTenDangNhap.Visible = willShow;
-            lblChonAnh.Visible = willShow;
         }
 
         private bool kiemTraTextbox()
@@ -116,16 +121,6 @@ namespace QuanLyBanBalo
             {
                 hopLe = false;
                 lblMatKhau.Visible = true;
-            }
-            if (txtMatKhau.Text != txtNhapLaiMK.Text || string.IsNullOrWhiteSpace(txtNhapLaiMK.Text))
-            {
-                hopLe = false;
-                lblNhapLaiMK.Visible = true;
-            }
-            if (pictureHinhAnh.Image == null)
-            {
-                hopLe = false;
-                lblChonAnh.Visible = true;
             }
 
             return hopLe;
@@ -235,12 +230,52 @@ namespace QuanLyBanBalo
             if (dgvBangTaiKhoan.Columns[e.ColumnIndex].Name == "Url")
             {
                 e.Value = new Bitmap(e.Value.ToString());
-            }
+            } 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             loadBangTK();
+        }
+
+
+        private void rdbMaNhanVien_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTraCuuMa.Enabled = rdbMaNhanVien.Checked;
+        }
+
+        private void rdbTenDangNhap_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTraCuuTen.Enabled = rdbTenDangNhap.Checked;
+        }
+
+        private void txtTraCuuTen_TextChanged(object sender, EventArgs e)
+        {
+            dgvView.RowFilter = string.Format("TenTaiKhoan LIKE '%{0}%'", txtTraCuuTen.Text);
+        }
+
+        private void txtTraCuuMa_TextChanged(object sender, EventArgs e)
+        {
+            dgvView.RowFilter = string.Format("MaNV LIKE '%{0}%'", txtTraCuuMa.Text);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            loadBangTK();
+        }
+
+        private void pictureHinhAnh_Click(object sender, EventArgs e)
+        {
+            themHinhAnh();
+        }
+
+        private void dgvBangTaiKhoan_DoubleClick(object sender, EventArgs e)
+        {
+            DataGridViewRow currentRow = dgvBangTaiKhoan.CurrentRow;
+            string maNV = currentRow.Cells[0].Value.ToString();
+            
+            frmSuaNhanVien nv = new frmSuaNhanVien(maNV);
+            nv.ShowDialog();
         }
     }
 }
