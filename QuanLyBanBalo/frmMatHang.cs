@@ -79,7 +79,6 @@ namespace QuanLyBanBalo
         }
         private void btnKhoiPhuc_Click(object sender, EventArgs e)
         {
-            txtMaSP.Text = "";
             txtTenSP.Text = "";
             txtThuongHieu.Text = "";
             txtChatLieu.Text = "";
@@ -149,11 +148,6 @@ namespace QuanLyBanBalo
 
             }
             
-        }
-        private void txtMaSP_TextChanged(object sender, EventArgs e)
-        {
-            dvSanPham.RowFilter = string.Format("MaSP like '%{0}%'", txtMaSP.Text);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
         private void txtTenSP_TextChanged(object sender, EventArgs e)
         {

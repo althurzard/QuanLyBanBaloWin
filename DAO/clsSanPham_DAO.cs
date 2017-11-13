@@ -71,7 +71,7 @@ namespace DAO
                 {
                     cmd.ExecuteNonQuery();
                     cmdDanhMuc.ExecuteNonQuery();
-                    return 1;
+                    return true;
                 }
                 catch (SqlException e)
                 {
