@@ -18,7 +18,6 @@ namespace QuanLyBanBalo
     {
         DataTable dtDanhMuc;
         private static string idSP;
-        private static string msg;
         private static bool kiemTraThayDoiPic = false;
 
         public frmSuaSanPham()
@@ -36,7 +35,7 @@ namespace QuanLyBanBalo
         }
 
 
-        #region : Load dữ liệu
+      
         private void loadMauMa()
         {
             dtDanhMuc = clsSanPham_BUS.LayTatCaMauMa();
@@ -56,8 +55,8 @@ namespace QuanLyBanBalo
                     txtThuongHieu.Text = dr["ThuongHieu"].ToString();
                     txtNamBH.Text = dr["SoNamBH"].ToString();
                     txtChatLieu.Text = dr["ChatLieu"].ToString();
-                    txtGiaVon.Text = dr["GiaVon"].ToString();
-                    txtGiaBanLe.Text = dr["GiaBanLe"].ToString();
+                    txtGiaVon.Text = string.Format("{0:N0}", dr["GiaVon"]);
+                    txtGiaBanLe.Text = string.Format("{0:N0}", dr["GiaBanLe"]);
                     txtTrongLuong.Text = dr["TrongLuong"].ToString();
                     txtMauSac.Text = dr["MauSac"].ToString();
                     txtCTSoLuong.Text = dr["SoLuong"].ToString();
@@ -77,214 +76,146 @@ namespace QuanLyBanBalo
                 }
             }
         }
-        #endregion
+   
 
-        #region : Sự kiện bấm nút
+        
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            try
+            showLable(false);
+            if (KiemTraTextBox())
             {
-                // Sản Phẩm
-                clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
+                try
+                {
+                    // Sản Phẩm
+                    clsSanPham_DTO dtoSanPham = new clsSanPham_DTO();
                 
-                    dtoSanPham.MaSP = txtMaSP.Text;
-                    dtoSanPham.TenSP = txtTenSP.Text;
-                    dtoSanPham.ThuongHieu = txtThuongHieu.Text;
-                    dtoSanPham.ChatLieu = txtChatLieu.Text;
-                    dtoSanPham.GiaVon = decimal.Parse(txtGiaVon.Text);
-                    dtoSanPham.GiaBanLe = decimal.Parse(txtGiaBanLe.Text);
-                    if(rdCo.Checked == true)
+                        dtoSanPham.MaSP = idSP;
+                        dtoSanPham.TenSP = txtTenSP.Text;
+                        dtoSanPham.ThuongHieu = txtThuongHieu.Text;
+                        dtoSanPham.ChatLieu = txtChatLieu.Text;
+                        dtoSanPham.GiaVon = decimal.Parse(txtGiaVon.Text);
+                        dtoSanPham.GiaBanLe = decimal.Parse(txtGiaBanLe.Text);
+                        if(rdCo.Checked == true)
+                        {
+                                dtoSanPham.ChongNuoc = true;
+                        }
+                        else
+                        {
+                                dtoSanPham.ChongNuoc = false;
+                        }
+                        dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
+                        dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
+                        dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
+
+                    // Thông tin ảnh hiện tại
+                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product, int.Parse(picHinhAnh.Name));
+                    /*kiểm tra xem có thay đổi hình ảnh không
+                     * Nếu có resultHinhAnh = Mã Hình
+                     */
+                    if (kiemTraThayDoiPic)
                     {
-                            dtoSanPham.ChongNuoc = true;
+                        // Lưu ảnh vào database 
+                        // HinhAnh được thay đổi mã ảnh mới
+                        clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                        // Copy image file vào folder data/product
+                        string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
+                        string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
+                        File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                        kiemTraThayDoiPic = false;
+                    }
+                    // Chi Tiết Sản Phẩm
+                    clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
+                        dtoChiTietSP.MaCTSP = txtMaCTSP.Text;
+                        dtoChiTietSP.MauSac = txtMauSac.Text;
+                        dtoChiTietSP.SoLuong = int.Parse(txtCTSoLuong.Text);
+                    dtoChiTietSP.MaHinhAnh = hinhAnh.MaHinhAnh;
+               
+                    // Sửa sản phẩm
+                    object resultSanPham = clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
+                    if(resultSanPham is bool || (bool)resultSanPham)
+                    {
+                        MessageBox.Show("Cập nhật thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                            dtoSanPham.ChongNuoc = false;
+                        MessageBox.Show("Cập nhật thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
-                    dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
-                    dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
-
-                // Thông tin ảnh hiện tại
-                clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product, int.Parse(picHinhAnh.Name));
-                /*kiểm tra xem có thay đổi hình ảnh không
-                 * Nếu có resultHinhAnh = Mã Hình
-                 */
-                if (kiemTraThayDoiPic)
-                {
-                    // Lưu ảnh vào database 
-                    // HinhAnh được thay đổi mã ảnh mới
-                    clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                    // Copy image file vào folder data/product
-                    string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
-                    string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
-                    File.Copy(picHinhAnh.ImageLocation, destPath, true);
-                    kiemTraThayDoiPic = false;
+                    
                 }
-                // Chi Tiết Sản Phẩm
-                clsChiTietSP_DTO dtoChiTietSP = new clsChiTietSP_DTO();
-                    dtoChiTietSP.MaCTSP = txtMaCTSP.Text;
-                    dtoChiTietSP.MauSac = txtMauSac.Text;
-                    dtoChiTietSP.SoLuong = int.Parse(txtCTSoLuong.Text);
-                dtoChiTietSP.MaHinhAnh = hinhAnh.MaHinhAnh;
-               
-                // Sửa sản phẩm
-                clsSanPham_BUS.SuaSanPham(dtoSanPham, dtoChiTietSP);
+                catch (IOException msg)
+                {
+                    MessageBox.Show(msg.Message);
+                }
+                catch (Exception)
+                {
+                     MessageBox.Show("Dữ liệu nhập không chính xác! \nVui Lòng Kiểm Tra Lại","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                }
+            }
 
-                MessageBox.Show("Cập nhật thành công","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-            catch (IOException msg)
-            {
-                MessageBox.Show(msg.Message);
-            }
-            catch (Exception)
-            {
-                 MessageBox.Show("Dữ liệu nhập không chính xác! \nVui Lòng Kiểm Tra Lại","Thông Báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-            }
-            
         }
-        #endregion
-
         #region: Validate TextBox
-
-        private void txtTenSP_Validated(object sender, EventArgs e)
+       private bool KiemTraTextBox()
         {
-            //xóa erP
-            errorProvider1.SetError(txtTenSP, "");
-        }
-        private void txtTenSP_Validating(object sender, CancelEventArgs e)
-        {
-            if (!Validation.NotEmptyTextBox(txtTenSP.Text,out msg))
+            bool hople = true;
+            if (string.IsNullOrWhiteSpace(txtTenSP.Text))
             {
-                e.Cancel = true;
-                //Chọn vị trí textbox 
-                txtTenSP.Select(0, txtTenSP.Text.Length);
-                //gọi erP xuất thông báo
-                this.errorProvider1.SetError(txtTenSP, msg);
+                hople = false;
+                lblTenSP.Visible = true;
             }
-        }
-
-        private void txtThuongHieu_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtThuongHieu, "");
-        }
-        private void txtThuongHieu_Validating(object sender, CancelEventArgs e)
-        {
-            
-            if (!Validation.NotEmptyTextBox(txtThuongHieu.Text, out msg))
+            if (string.IsNullOrWhiteSpace(txtThuongHieu.Text))
             {
-                e.Cancel = true;
-                //Chọn vị trí textbox 
-                txtTenSP.Select(0, txtThuongHieu.Text.Length);
-                //gọi erP xuất thông báo
-                this.errorProvider1.SetError(txtThuongHieu, msg);
+                hople = false;
+                lblThuongHieu.Visible = true;
             }
-        }
-        
-        private void txtNamBH_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtNamBH, "");
-        }
-        private void txtNamBH_Validating(object sender, CancelEventArgs e)
-        {
-            if (!Validation.IsNumberic(txtNamBH.Text, out msg))
+            if (string.IsNullOrWhiteSpace(txtNamBH.Text))
             {
-                e.Cancel = true;
-                txtNamBH.Select(0, txtNamBH.Text.Length);
-                this.errorProvider1.SetError(txtNamBH, msg);
+                hople = false;
+                lblNamBH.Visible = true;
             }
-        }
-
-        private void txtChatLieu_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtChatLieu, "");
-        }
-        private void txtChatLieu_Validating(object sender, CancelEventArgs e)
-        {
-            if (!Validation.NotEmptyTextBox(txtChatLieu.Text, out msg))
+            if (string.IsNullOrWhiteSpace(txtChatLieu.Text))
             {
-                e.Cancel = true;
-                //Chọn vị trí textbox 
-                txtChatLieu.Select(0, txtChatLieu.Text.Length);
-                //gọi erP xuất thông báo
-                this.errorProvider1.SetError(txtChatLieu, msg);
+                hople = false;
+                lblChatLieu.Visible = true;
             }
-        }
-
-        private void txtGiaBanLe_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtGiaBanLe, "");
-        }
-        private void txtGiaBanLe_Validating(object sender, CancelEventArgs e)
-        {
-            if (!Validation.IsNumberic(txtGiaBanLe.Text, out msg))
+            if (string.IsNullOrWhiteSpace(txtGiaBanLe.Text))
             {
-                e.Cancel = true;
-                txtGiaBanLe.Select(0, txtGiaBanLe.Text.Length);
-                this.errorProvider1.SetError(txtGiaBanLe, msg);
+                hople = false;
+                lblGiaBanLe.Visible = true;
             }
-        }
-
-        private void txtGiaVon_Validated(object sender, EventArgs e)
-        {
-
-                errorProvider1.SetError(txtGiaVon, "");
-        }
-        private void txtGiaVon_Validating(object sender, CancelEventArgs e)
-        { 
-                if (!Validation.IsNumberic(txtGiaVon.Text, out msg))
-                {
-                    e.Cancel = true;
-                txtGiaVon.Select(0, txtGiaVon.Text.Length);
-                    this.errorProvider1.SetError(txtGiaVon, msg);
-                }  
-        }
-
-        private void txtTrongLuong_Validated(object sender, EventArgs e)
-        {
-                errorProvider1.SetError(txtTrongLuong, "");
-        }
-        private void txtTrongLuong_Validating(object sender, CancelEventArgs e)
-        {
-                if (!Validation.IsNumberic(txtTrongLuong.Text, out msg))
-                {
-                    e.Cancel = true;
-                    txtTrongLuong.Select(0, txtTrongLuong.Text.Length);
-                    this.errorProvider1.SetError(txtTrongLuong, msg);
-                }
-        }
-
-        private void txtMauSac_Validated(object sender, EventArgs e)
-        {
-            errorProvider1.SetError(txtMauSac, "");
-        }
-        private void txtMauSac_Validating(object sender, CancelEventArgs e)
-        {
-                if (!Validation.NotEmptyTextBox(txtMauSac.Text, out msg))
-                {
-                    e.Cancel = true;
-                    //Chọn vị trí textbox 
-                    txtMauSac.Select(0, txtMauSac.Text.Length);
-                    //gọi erP xuất thông báo
-                    this.errorProvider1.SetError(txtMauSac, msg);
-                }
-        }
-
-        private void txtCTSoLuong_Validated(object sender, EventArgs e)
-        {
-
-                errorProvider1.SetError(txtCTSoLuong, "");
-        }
-        private void txtCTSoLuong_Validating(object sender, CancelEventArgs e)
-        {
-            if (!Validation.IsNumberic(txtCTSoLuong.Text, out msg))
+            if (string.IsNullOrWhiteSpace(txtGiaVon.Text))
             {
-                e.Cancel = true;
-                txtCTSoLuong.Select(0, txtCTSoLuong.Text.Length);
-                this.errorProvider1.SetError(txtCTSoLuong, msg);
+                hople = false;
+                lblGiaVon.Visible = true;
             }
+            if (string.IsNullOrWhiteSpace(txtTrongLuong.Text))
+            {
+                hople = false;
+                lblTrongLuong.Visible = true;
+            }
+            if (string.IsNullOrWhiteSpace(txtCTSoLuong.Text))
+            {
+                hople = false;
+                lblSoLuong.Visible = true;
+            }
+            if (string.IsNullOrWhiteSpace(txtMauSac.Text))
+            {
+                hople = false;
+                lblMauSac.Visible = true;
+            }
+            return hople;
         }
-
+       private void showLable(bool bl)
+       {
+            lblTenSP.Visible = bl;
+            lblThuongHieu.Visible = bl;
+            lblNamBH.Visible = bl;
+            lblChatLieu.Visible = bl;
+            lblGiaBanLe.Visible = bl;
+            lblGiaVon.Visible = bl;
+            lblTrongLuong.Visible = bl;
+            lblMauSac.Visible = bl;
+            lblSoLuong.Visible = bl;
+        }
         #endregion
 
         private void btnChonAnh_Click(object sender, EventArgs e)
@@ -295,6 +226,121 @@ namespace QuanLyBanBalo
             {
                 kiemTraThayDoiPic = true;
                 picHinhAnh.ImageLocation = filePath;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtGiaVon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
+        }
+
+        private void txtGiaBanLe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
+        }
+
+        private void txtNamBH_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
+        }
+
+        private void txtTrongLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if(!Char.IsControl(e.KeyChar) && !Char.IsNumber(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+        }
+
+        private void txtCTSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
+        }
+        bool _KiemTraThayDoiTextBox = true;
+        private void txtGiaBanLe_TextChanged(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                if (_KiemTraThayDoiTextBox)
+                {
+                    string strTemp = txtGiaBanLe.Text;
+                    //kiểm tra chuỗi có trống không
+                    if (String.IsNullOrEmpty(strTemp)) return;
+
+                    //tìm vị trí dấu chấm trong text box
+                    int iIndex = strTemp.IndexOf('.');
+
+                    //nếu tìm thấy 
+                    if (iIndex != -1)
+                    {
+                        string strT = strTemp.Substring(iIndex + 1, 1);
+                        if (!String.IsNullOrEmpty(strT))
+                        {
+
+                        }
+                    }
+
+                    double DinhDangTien = double.Parse(txtGiaBanLe.Text.Trim(','));
+                    _KiemTraThayDoiTextBox = false;
+                    //Định dạng lại textbox
+                    txtGiaBanLe.Text = DinhDangTien.ToString("0,00.##");
+                } else
+                {
+                    _KiemTraThayDoiTextBox = true;
+                    //Đưa vị trí con trỏ ra cuối chuỗi
+                    txtGiaBanLe.Select(txtGiaBanLe.TextLength, 0);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi không biết");
+            }
+        }
+
+        private void txtGiaVon_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_KiemTraThayDoiTextBox)
+                {
+                    string strTemp = txtGiaVon.Text;
+                    //kiểm tra chuỗi có trống không
+                    if (String.IsNullOrEmpty(strTemp)) return;
+
+                    //tìm vị trí dấu chấm trong text box
+                    int iIndex = strTemp.IndexOf('.');
+
+                    //nếu tìm thấy 
+                    if (iIndex != -1)
+                    {
+                        string strT = strTemp.Substring(iIndex + 1, 1);
+                        if (!String.IsNullOrEmpty(strT))
+                        {
+
+                        }
+                    }
+
+                    double DinhDangTien = double.Parse(txtGiaVon.Text.Trim(','));
+                    _KiemTraThayDoiTextBox = false;
+                    //Định dạng lại textbox
+                    txtGiaVon.Text = DinhDangTien.ToString("0,00.##");
+                }
+                else
+                {
+                    _KiemTraThayDoiTextBox = true;
+                    //Đưa vị trí con trỏ ra cuối chuỗi
+                    txtGiaVon.Select(txtGiaVon.TextLength, 0);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi không biết");
             }
         }
     }
