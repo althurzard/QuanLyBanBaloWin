@@ -335,6 +335,7 @@
             this.dgvDanhSachNCC.AllowUserToAddRows = false;
             this.dgvDanhSachNCC.AllowUserToResizeColumns = false;
             this.dgvDanhSachNCC.AllowUserToResizeRows = false;
+            this.dgvDanhSachNCC.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDanhSachNCC.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;

@@ -18,15 +18,18 @@ namespace QuanLyBanBalo
     {
         DataTable dtDanhMuc;
         private static string idSP;
+        private static string idChiTiet;
         private static bool kiemTraThayDoiPic = false;
 
         public frmSuaSanPham()
         {
             InitializeComponent();
         }
-        public frmSuaSanPham(string idSanPham):this()
+        public frmSuaSanPham(string idSanPham,string _idChiTiet):this()
         {
             idSP = idSanPham;
+            idChiTiet = _idChiTiet;
+
         }
         private void frmSuaSanPham_Load(object sender, EventArgs e)
         {
@@ -45,7 +48,7 @@ namespace QuanLyBanBalo
         }
         public void loadSanPham()
         {
-            SqlDataReader dr = clsSanPham_BUS.LayThongTinMotSanPham(idSP);
+            SqlDataReader dr = clsSanPham_BUS.LayThongTinMotSanPham(idSP,idChiTiet);
             if (dr != null)
             {
                 while (dr.Read())
@@ -60,7 +63,7 @@ namespace QuanLyBanBalo
                     txtTrongLuong.Text = dr["TrongLuong"].ToString();
                     txtMauSac.Text = dr["MauSac"].ToString();
                     txtCTSoLuong.Text = dr["SoLuong"].ToString();
-                    txtMaCTSP.Text = dr["MaCTSP"].ToString();
+                    txtMaCTSP.Text = idChiTiet.ToString();
                     cboMauMa.SelectedValue = dr["MaDanhMuc"].ToString();
                     if (bool.Parse(dr["ChongNuoc"].ToString()) == true)
                     {
@@ -261,6 +264,7 @@ namespace QuanLyBanBalo
         {
             e.Handled = !Validation.IsNumberic(e);
         }
+
         bool _KiemTraThayDoiTextBox = true;
         private void txtGiaBanLe_TextChanged(object sender, EventArgs e)
         {

@@ -158,29 +158,6 @@ namespace QuanLyBanBalo
             }
         }
 
-        private void txtTKMaDanhMuc_TextChanged(object sender, EventArgs e)
-        {
-            if (txtTKMaDanhMuc.Text != "")
-            {
-                try
-                {
-                    dvDanhMuc.RowFilter = string.Format("MaDanhMuc = {0}", txtTKMaDanhMuc.Text);
-                    lbDemDanhMuc.Text = string.Format("* Có {0} danh mục", dgvDanhMuc.Rows.Count);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Không đúng đinh dạng, vui lòng thử lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                
-            }
-            else
-            {
-                dvDanhMuc.RowFilter = "";
-                lbDemDanhMuc.Text = string.Format("* Có {0} danh mục", dgvDanhMuc.Rows.Count);
-            }
-           
-        }
-
         private void txtTKTenDanhMuc_TextChanged(object sender, EventArgs e)
         {
             dvDanhMuc.RowFilter = string.Format("TenDanhMuc like '%{0}%'", txtTKTenDanhMuc.Text);

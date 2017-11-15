@@ -19,6 +19,25 @@ namespace DTO
         int _MaDanhMuc;
         int _SoNamBH;
 
+        public clsSanPham_DTO()
+        {
+
+        } 
+
+        public clsSanPham_DTO(string maSP,string tenSP, string thuongHieu, string chatLieu, decimal giaVon, decimal giaBanLe, bool chongNuoc, float trongLuong, int maDanhMuc, int namBH)
+        {
+             _MaSP = maSP;
+             _TenSP = tenSP;
+             _ThuongHieu = thuongHieu;
+             _ChatLieu = chatLieu;
+             _GiaVon = giaVon;
+             _GiaBanLe = giaBanLe;
+             _ChongNuoc = chongNuoc;
+             _TrongLuong = trongLuong;
+             _MaDanhMuc = maDanhMuc;
+             _SoNamBH = namBH;
+        }
+
         public string MaSP { get => _MaSP; set => _MaSP = value; }
         public string TenSP { get => _TenSP; set => _TenSP = value; }
         public string ThuongHieu { get => _ThuongHieu; set => _ThuongHieu = value; }

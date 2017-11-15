@@ -15,6 +15,20 @@ namespace DTO
         int _MaHinhAnh;
         int _TrangThai;
 
+        public clsChiTietSP_DTO()
+        {
+
+        }
+        public clsChiTietSP_DTO(string maSP,string maCTSP, string mauSac, int soLuong, int maHinhAnh, int trangThai)
+        {
+             _MaSP = maSP;
+             _MaCTSP = maCTSP;
+             _MauSac = mauSac;
+             _SoLuong = soLuong;
+             _MaHinhAnh = maHinhAnh;
+             _TrangThai= trangThai;
+        }
+
         public string MaSP { get => _MaSP; set => _MaSP = value; }
         public string MaCTSP { get => _MaCTSP; set => _MaCTSP = value; }
         public string MauSac { get => _MauSac; set => _MauSac = value; }
