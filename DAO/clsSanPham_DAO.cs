@@ -20,9 +20,9 @@ namespace DAO
             return dtSanPham;
         }
 
-        public static SqlDataReader LayThongTinMotSanPham(string idSanPham)
+        public static SqlDataReader LayThongTinMotSanPham(string idSanPham,string idChiTiet)
         {
-            string query =string.Format("SELECT SanPham.*,DanhMuc.*,ChiTietSanPham.*,HinhAnh.Url,HinhAnh.MaHinhAnh FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND SanPham.MaSP='{0}'", idSanPham);
+            string query =string.Format("SELECT SanPham.*,DanhMuc.*,ChiTietSanPham.*,HinhAnh.Url,HinhAnh.MaHinhAnh FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND SanPham.MaSP='{0}' AND ChiTietSanPham.MaCTSP ='{1}'", idSanPham,idChiTiet);
             drSanPham = XuLyDuLieu.LayDuLieu(query);
             return drSanPham;
         }
@@ -79,5 +79,41 @@ namespace DAO
                 }
             }
         }
+
+        public static object ThemSanPham(clsSanPham_DTO sanPham)
+        {
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("INSERT INTO SanPham(MaSP,TenSP,ThuongHieu,ChatLieu,GiaVon,GiaBanLe,ChongNuoc,TrongLuong,MaDanhMuc,SoNamBH) VALUES(@MaSP,@TenSP,@ThuongHieu,@ChatLieu,@GiaVon,@GiaBanLe,@ChongNuoc,@TrongLuong,@MaDanhMuc,@SoNamBH)");
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.Add("@MaSP", SqlDbType.Char).Value = sanPham.MaSP;
+                cmd.Parameters.Add("@TenSP", SqlDbType.NVarChar).Value = sanPham.TenSP;
+                cmd.Parameters.Add("@ThuongHieu", SqlDbType.NVarChar).Value = sanPham.ThuongHieu;
+                cmd.Parameters.Add("@ChatLieu", SqlDbType.NVarChar).Value = sanPham.ChatLieu;
+                cmd.Parameters.Add("@GiaVon", SqlDbType.Money).Value = sanPham.GiaVon;
+                cmd.Parameters.Add("@GiaBanLe", SqlDbType.Money).Value = sanPham.GiaBanLe;
+                cmd.Parameters.Add("@ChongNuoc", SqlDbType.Bit).Value = sanPham.ChongNuoc;
+                cmd.Parameters.Add("@TrongLuong", SqlDbType.Float).Value = sanPham.TrongLuong;
+                cmd.Parameters.Add("@MaDanhMuc", SqlDbType.Int).Value = sanPham.MaDanhMuc;
+                cmd.Parameters.Add("@SoNamBH", SqlDbType.Int).Value = sanPham.SoNamBH;
+                cmd.CommandType = CommandType.Text;
+                try
+                {
+                    return cmd.ExecuteNonQuery() == 1;
+                }
+                catch (SqlException e)
+                {
+                    return e.Message.ToString();
+                }
+            }
+        }
+
+        public static bool KiemTraTrungSanPham(string tenSanPham)
+        {
+            string query = string.Format("SELECT count(TenSP) FROM SanPham WHERE TenSP = N'{0}'", tenSanPham);
+            return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
+        }
+
+        
     }
 }

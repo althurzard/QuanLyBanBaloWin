@@ -25,14 +25,25 @@ namespace BUS
         {
             return clsSanPham_DAO.XoaSanPham(idSanPham);
         }
-        public static SqlDataReader LayThongTinMotSanPham(string idSanPham)
+        public static SqlDataReader LayThongTinMotSanPham(string idSanPham,string idChiTiet)
         {
-            return clsSanPham_DAO.LayThongTinMotSanPham(idSanPham);
+            return clsSanPham_DAO.LayThongTinMotSanPham(idSanPham,idChiTiet);
         }
         
         public static object SuaSanPham(clsSanPham_DTO sanPham, clsChiTietSP_DTO chiTietSP)
         {
             return clsSanPham_DAO.SuaSanPham(sanPham,chiTietSP);
         }
+
+        public static object ThemSanPham(clsSanPham_DTO sanPham)
+        {
+            return clsSanPham_DAO.ThemSanPham(sanPham);
+        }
+
+        public static bool KiemTraTrungSanPham(string tenSanPham)
+        {
+            return clsSanPham_DAO.KiemTraTrungSanPham(tenSanPham);
+        }
+        
     }
 }

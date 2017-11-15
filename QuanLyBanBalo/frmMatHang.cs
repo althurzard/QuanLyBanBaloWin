@@ -39,7 +39,6 @@ namespace QuanLyBanBalo
             loadMauMa();
         }
 
-#region: load dữ liệu
         private void setUp()
         {
             //Ẩn cột Mã Sản Phẩm
@@ -68,13 +67,12 @@ namespace QuanLyBanBalo
             cboMauMa.ValueMember = "MaDanhMuc";
             cboMauMa.DisplayMember = "TenDanhMuc";
         }
-#endregion
 
-#region : Sự kiện bấm nút
         private void dgvSanPham_DoubleClick(object sender, EventArgs e)
         {
             string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[0].Value.ToString();
-            frmSuaSanPham frm = new frmSuaSanPham(idSanPham);
+            string idChiTiet = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            frmSuaSanPham frm = new frmSuaSanPham(idSanPham,idChiTiet);
             frm.Show();
         }
         private void btnKhoiPhuc_Click(object sender, EventArgs e)
@@ -109,9 +107,6 @@ namespace QuanLyBanBalo
                 }
             }
         }
-#endregion
-
-#region : Sự kiện tìm kiếm vs đóng mở form
         private void frmMatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Tắt tab khi tắt form
@@ -201,7 +196,7 @@ namespace QuanLyBanBalo
             dvSanPham.RowFilter = String.Format("GiaBanLe >= {0} ",2000000);
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
-#endregion
+
 
 
 

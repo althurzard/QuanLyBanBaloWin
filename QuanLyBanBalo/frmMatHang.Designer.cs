@@ -53,9 +53,6 @@
             this.txtTenSP = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
-            this.lbDemSp = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHinhAnh = new System.Windows.Forms.DataGridViewImageColumn();
@@ -69,6 +66,9 @@
             this.colGiaBanLe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNamBaoHanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbDemSp = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -86,12 +86,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtTenSP);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(210, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(795, 296);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Thông tin sản phẩm";
+            this.groupBox1.Text = "Tìm kiếm sản phẩm";
             // 
             // groupBox2
             // 
@@ -228,7 +228,6 @@
             // 
             this.cboMauMa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboMauMa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMauMa.FormattingEnabled = true;
             this.cboMauMa.Location = new System.Drawing.Point(499, 28);
             this.cboMauMa.Name = "cboMauMa";
             this.cboMauMa.Size = new System.Drawing.Size(217, 27);
@@ -324,41 +323,11 @@
             this.dgvSanPham.RowHeadersVisible = false;
             this.dgvSanPham.RowTemplate.Height = 70;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(1211, 241);
+            this.dgvSanPham.Size = new System.Drawing.Size(1211, 287);
             this.dgvSanPham.TabIndex = 1;
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
             this.dgvSanPham.DoubleClick += new System.EventHandler(this.dgvSanPham_DoubleClick);
             this.dgvSanPham.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvSanPham_KeyDown);
-            // 
-            // lbDemSp
-            // 
-            this.lbDemSp.AutoSize = true;
-            this.lbDemSp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDemSp.Location = new System.Drawing.Point(10, 322);
-            this.lbDemSp.Name = "lbDemSp";
-            this.lbDemSp.Size = new System.Drawing.Size(64, 13);
-            this.lbDemSp.TabIndex = 4;
-            this.lbDemSp.Text = "Sản Phẩm";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(10, 581);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "(*) Bấm nút Delete để xóa";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 603);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(196, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "(*) Double click để sửa sản phẩm";
             // 
             // colMaSP
             // 
@@ -475,6 +444,36 @@
             this.colNamBaoHanh.HeaderText = "Năm BH";
             this.colNamBaoHanh.Name = "colNamBaoHanh";
             this.colNamBaoHanh.ReadOnly = true;
+            // 
+            // lbDemSp
+            // 
+            this.lbDemSp.AutoSize = true;
+            this.lbDemSp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDemSp.Location = new System.Drawing.Point(10, 322);
+            this.lbDemSp.Name = "lbDemSp";
+            this.lbDemSp.Size = new System.Drawing.Size(64, 13);
+            this.lbDemSp.TabIndex = 4;
+            this.lbDemSp.Text = "Sản Phẩm";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(10, 627);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 13);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "(*) Bấm nút Delete để xóa";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 649);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(196, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "(*) Double click để sửa sản phẩm";
             // 
             // frmMatHang
             // 
