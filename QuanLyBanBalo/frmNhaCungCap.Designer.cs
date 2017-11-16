@@ -42,7 +42,6 @@
             this.lbDiaChi = new System.Windows.Forms.Label();
             this.lbTenNCC = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
@@ -85,7 +84,6 @@
             this.grbNcc.Controls.Add(this.lbDiaChi);
             this.grbNcc.Controls.Add(this.lbTenNCC);
             this.grbNcc.Controls.Add(this.button2);
-            this.grbNcc.Controls.Add(this.button1);
             this.grbNcc.Controls.Add(this.btnLamMoi);
             this.grbNcc.Controls.Add(this.txtSDT);
             this.grbNcc.Controls.Add(this.txtDiaChi);
@@ -212,16 +210,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.btnSua_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(625, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 34);
-            this.button1.TabIndex = 95;
-            this.button1.Text = "Chọn Ảnh";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // btnLamMoi
             // 
             this.btnLamMoi.Location = new System.Drawing.Point(389, 209);
@@ -271,6 +259,7 @@
             this.picHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHinhAnh.TabIndex = 89;
             this.picHinhAnh.TabStop = false;
+            this.picHinhAnh.Click += new System.EventHandler(this.picHinhAnh_Click);
             // 
             // label8
             // 
@@ -567,7 +556,6 @@
         private System.Windows.Forms.DataGridView dgvDanhSachNCC;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lbSDT;
         private System.Windows.Forms.Label lbDiaChi;

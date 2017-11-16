@@ -67,7 +67,6 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.lblMauSac = new System.Windows.Forms.Label();
-            this.btnChonAnh = new System.Windows.Forms.Button();
             this.txtMaCTSP = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -416,11 +415,13 @@
             // 
             // picHinhAnh
             // 
+            this.picHinhAnh.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.picHinhAnh.Location = new System.Drawing.Point(104, 130);
             this.picHinhAnh.Name = "picHinhAnh";
             this.picHinhAnh.Size = new System.Drawing.Size(139, 180);
             this.picHinhAnh.TabIndex = 47;
             this.picHinhAnh.TabStop = false;
+            this.picHinhAnh.Click += new System.EventHandler(this.picHinhAnh_Click);
             // 
             // label17
             // 
@@ -465,7 +466,6 @@
             // 
             this.groupBox3.Controls.Add(this.lblSoLuong);
             this.groupBox3.Controls.Add(this.lblMauSac);
-            this.groupBox3.Controls.Add(this.btnChonAnh);
             this.groupBox3.Controls.Add(this.txtMaCTSP);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.txtCTSoLuong);
@@ -502,16 +502,6 @@
             this.lblMauSac.TabIndex = 67;
             this.lblMauSac.Text = "Không được để trống";
             this.lblMauSac.Visible = false;
-            // 
-            // btnChonAnh
-            // 
-            this.btnChonAnh.Location = new System.Drawing.Point(246, 128);
-            this.btnChonAnh.Name = "btnChonAnh";
-            this.btnChonAnh.Size = new System.Drawing.Size(75, 23);
-            this.btnChonAnh.TabIndex = 54;
-            this.btnChonAnh.Text = "Chọn Ảnh";
-            this.btnChonAnh.UseVisualStyleBackColor = true;
-            this.btnChonAnh.Click += new System.EventHandler(this.btnChonAnh_Click);
             // 
             // txtMaCTSP
             // 
@@ -614,7 +604,6 @@
         private System.Windows.Forms.TextBox txtMaCTSP;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Button btnChonAnh;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblTrongLuong;
         private System.Windows.Forms.Label lblGiaVon;

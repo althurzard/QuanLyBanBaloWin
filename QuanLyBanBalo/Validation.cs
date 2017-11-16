@@ -80,6 +80,11 @@ namespace QuanLyBanBalo
             return true;
         }
 
+        public static string LayMaNhanVien()
+        {
+            return nhanVien.NhanVien.MaNV;
+        }
+
         
     }
 }

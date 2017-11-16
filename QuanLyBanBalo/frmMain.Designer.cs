@@ -57,6 +57,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -89,7 +90,7 @@
             this.hóaĐơnNhậpToolStripMenuItem,
             this.danhSáchHĐNToolStripMenuItem});
             this.nhapHangToolStripMenuItem.Name = "nhapHangToolStripMenuItem";
-            this.nhapHangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nhapHangToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.nhapHangToolStripMenuItem.Text = "Nhập hàng";
             // 
             // hóaĐơnNhậpToolStripMenuItem
@@ -112,7 +113,7 @@
             this.hóaĐơnXuấtToolStripMenuItem,
             this.danhSáchHĐXToolStripMenuItem});
             this.xuấtHàngToolStripMenuItem.Name = "xuấtHàngToolStripMenuItem";
-            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.xuấtHàngToolStripMenuItem.Text = "Xuất hàng";
             // 
             // hóaĐơnXuấtToolStripMenuItem

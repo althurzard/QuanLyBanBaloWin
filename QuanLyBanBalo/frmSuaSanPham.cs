@@ -221,16 +221,7 @@ namespace QuanLyBanBalo
         }
         #endregion
 
-        private void btnChonAnh_Click(object sender, EventArgs e)
-        {
-            
-            string filePath = Helper.layHinhAnh();
-            if (filePath != null)
-            {
-                kiemTraThayDoiPic = true;
-                picHinhAnh.ImageLocation = filePath;
-            }
-        }
+    
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -345,6 +336,16 @@ namespace QuanLyBanBalo
             catch
             {
                 MessageBox.Show("Lỗi không biết");
+            }
+        }
+
+        private void picHinhAnh_Click(object sender, EventArgs e)
+        {
+            string filePath = Helper.layHinhAnh();
+            if (filePath != null)
+            {
+                kiemTraThayDoiPic = true;
+                picHinhAnh.ImageLocation = filePath;
             }
         }
     }
