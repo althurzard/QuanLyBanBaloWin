@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BUS;
+using DTO;
+
 namespace QuanLyBanBalo
 {
     public partial class frmMatHang : Form
     {
-        DataView dvSanPham;
+        private int MaDanhMuc;
         DataView dvDanhMuc;
+        DataView dvSanPham;
+        DataView dvMauMa;
         DataTable dtSanPham;
+        DataTable dtMauMa;
         DataTable dtDanhMuc;
         DataRowView drvDanhMuc;
         private static frmMatHang _Instance = null;
@@ -37,6 +42,7 @@ namespace QuanLyBanBalo
             setUp();
             loadSanPham();
             loadMauMa();
+            LoadDanhMuc();
         }
 
         private void setUp()
@@ -56,16 +62,39 @@ namespace QuanLyBanBalo
         }
         private void loadMauMa()
         {
-            dtDanhMuc = clsSanPham_BUS.LayTatCaMauMa();
+            dtMauMa = clsSanPham_BUS.LayTatCaMauMa();
             DataRow dr;
-            dr = dtDanhMuc.NewRow();
+            dr = dtMauMa.NewRow();
             dr["TenDanhMuc"] = "Tất cả";
             dr["MaDanhMuc"] = 0;
-            dtDanhMuc.Rows.InsertAt(dr,0);
-            dvDanhMuc = new DataView(dtDanhMuc);
-            cboMauMa.DataSource = dvDanhMuc;
+            dtMauMa.Rows.InsertAt(dr,0);
+            dvMauMa = new DataView(dtMauMa);
+            cboMauMa.DataSource = dvMauMa;
             cboMauMa.ValueMember = "MaDanhMuc";
             cboMauMa.DisplayMember = "TenDanhMuc";
+        }
+
+        private void LoadDanhMuc()
+        {
+            txtTenDanhMuc.Text = "";
+            btnThem.Enabled = true;
+            dtDanhMuc = clsDanhMuc_BUS.LayTatCaDanhMuc();
+            dvDanhMuc = new DataView(dtDanhMuc);
+            dgvDanhMuc.AutoGenerateColumns = false;
+            dgvDanhMuc.DataSource = dvDanhMuc;
+            lbDemDanhMuc.Text = string.Format("Có {0} mẫu mã.", dgvDanhMuc.Rows.Count);
+        }
+
+        private bool KiemTraTextBox()
+        {
+            bool kiemtra = true;
+            if (string.IsNullOrWhiteSpace(txtTenDanhMuc.Text))
+            {
+                kiemtra = false;
+                lbTenDanhMuc.Visible = true;
+
+            }
+            return kiemtra;
         }
 
         private void dgvSanPham_DoubleClick(object sender, EventArgs e)
@@ -197,9 +226,105 @@ namespace QuanLyBanBalo
             lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
         }
 
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            lbTenDanhMuc.Visible = false;
+            if (KiemTraTextBox())
+            {
+                //kiểm tra tồn tại
+                if (clsDanhMuc_BUS.KiemTraTonTaiTenDanhMuc(txtTenDanhMuc.Text))
+                {
+                    MessageBox.Show("Tên danh mục đã tồn tại, vui lòng chọn tên khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    clsDanhMuc_DTO dtoDanhMuc = new clsDanhMuc_DTO();
+                    dtoDanhMuc.TenDanhMuc = txtTenDanhMuc.Text;
+                    dtoDanhMuc.TrangThai = 1;
+                    object resultDanhMuc = clsDanhMuc_BUS.ThemDanhMuc(dtoDanhMuc);
+                    if (resultDanhMuc is bool || (bool)resultDanhMuc)
+                    {
+                        MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDanhMuc();
+                        loadSanPham();
+                        loadMauMa();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
 
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            lbTenDanhMuc.Visible = false;
+            if (KiemTraTextBox())
+            {
+                clsDanhMuc_DTO dtoDanhMuc = new clsDanhMuc_DTO();
+                dtoDanhMuc.MaDanhMuc = MaDanhMuc;
+                dtoDanhMuc.TenDanhMuc = txtTenDanhMuc.Text;
+                object resultDanhMuc = clsDanhMuc_BUS.SuaDanhMuc(dtoDanhMuc);
 
+                if (resultDanhMuc is bool || (bool)resultDanhMuc)
+                {
+                    MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadDanhMuc();
+                    loadSanPham();
+                    loadMauMa();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
 
+        private void dgvDanhMuc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            if (e.RowIndex >= 0)
+            {
+                txtTenDanhMuc.Text = dgvDanhMuc.CurrentRow.Cells["colTenMauMa"].Value.ToString();
+                MaDanhMuc = int.Parse(dgvDanhMuc.CurrentRow.Cells["colMaDanhMuc"].Value.ToString());
+            }
+        }
 
+        private void dgvDanhMuc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                {
+                    clsDanhMuc_DTO dtoDanhMuc = new clsDanhMuc_DTO();
+                    dtoDanhMuc.MaDanhMuc = MaDanhMuc;
+                    object resultDanhMuc = clsDanhMuc_BUS.XoaDanhMuc(dtoDanhMuc);
+                    if (resultDanhMuc is bool || (bool)resultDanhMuc)
+                    {
+                        MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadDanhMuc();
+                        loadSanPham();
+                        loadMauMa();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
+        private void txtTenDanhMuc_TextChanged(object sender, EventArgs e)
+        {
+            dvDanhMuc.RowFilter = string.Format("TenDanhMuc like '%{0}%'", txtTenDanhMuc.Text);
+            lbDemDanhMuc.Text = string.Format("Có {0} danh mục", dgvDanhMuc.Rows.Count);
+            if (string.IsNullOrWhiteSpace(txtTenDanhMuc.Text))
+            {
+                btnSua.Enabled = false;
+                btnThem.Enabled = true;
+            }
+        }
     }
 }

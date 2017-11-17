@@ -56,6 +56,7 @@
             this.grbDanhMuc.Controls.Add(this.btnThem);
             this.grbDanhMuc.Controls.Add(this.txtTenDanhMuc);
             this.grbDanhMuc.Controls.Add(this.label1);
+            this.grbDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDanhMuc.Location = new System.Drawing.Point(129, 12);
             this.grbDanhMuc.Name = "grbDanhMuc";
             this.grbDanhMuc.Size = new System.Drawing.Size(495, 158);
@@ -70,7 +71,7 @@
             this.lbTenDanhMuc.ForeColor = System.Drawing.Color.Red;
             this.lbTenDanhMuc.Location = new System.Drawing.Point(114, 67);
             this.lbTenDanhMuc.Name = "lbTenDanhMuc";
-            this.lbTenDanhMuc.Size = new System.Drawing.Size(109, 13);
+            this.lbTenDanhMuc.Size = new System.Drawing.Size(157, 20);
             this.lbTenDanhMuc.TabIndex = 4;
             this.lbTenDanhMuc.Text = "Không được để trống";
             this.lbTenDanhMuc.Visible = false;
@@ -173,7 +174,7 @@
             this.dgvDanhMuc.RowHeadersWidth = 70;
             this.dgvDanhMuc.RowTemplate.Height = 70;
             this.dgvDanhMuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDanhMuc.Size = new System.Drawing.Size(980, 331);
+            this.dgvDanhMuc.Size = new System.Drawing.Size(495, 262);
             this.dgvDanhMuc.TabIndex = 2;
             this.dgvDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellClick);
             this.dgvDanhMuc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDanhMuc_KeyDown);

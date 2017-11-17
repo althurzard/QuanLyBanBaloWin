@@ -20,7 +20,7 @@ namespace QuanLyBanBalo
             matHangToolStripMenuItem.Enabled = Validation.CheckPermission();
             nhaCungCapToolStripMenuItem.Enabled = Validation.CheckPermission();
             baoHanhToolStripMenuItem.Enabled = Validation.CheckPermission();
-            danhMucSanPhamToolStripMenuItem.Enabled = Validation.CheckPermission();
+            
 
         }
 

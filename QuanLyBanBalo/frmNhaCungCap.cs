@@ -326,5 +326,20 @@ namespace QuanLyBanBalo
                 picHinhAnh.ImageLocation = filePath;
             }
         }
+
+        private void txtTKTenNCC_TextChanged(object sender, EventArgs e)
+        {
+            dvNCC.RowFilter = string.Format("TenNhaCungCap LIKE '%{0}%'", txtTKTenNCC.Text);
+        }
+
+        private void txtTKDiaChi_TextChanged(object sender, EventArgs e)
+        {
+            dvNCC.RowFilter = string.Format("DiaChi LIKE '%{0}%'", txtTKDiaChi.Text);
+        }
+
+        private void txtTKSDT_TextChanged(object sender, EventArgs e)
+        {
+            dvNCC.RowFilter = string.Format("CONVERT(SoDienThoai, System.String) LIKE '%{0}%'", txtTKSDT.Text);
+        }
     }
 }
