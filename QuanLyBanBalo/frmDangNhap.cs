@@ -49,6 +49,7 @@ namespace QuanLyBanBalo
                     Validation.nhanVien = taiKhoan;
                     frmMain main = new frmMain();
                     main.Show();
+                    clsTaiKhoan_BUS.CapNhatDangNhap(taiKhoan.NhanVien.MaNV);
                     Hide();
                 }
             } else

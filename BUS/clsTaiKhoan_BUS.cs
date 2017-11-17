@@ -45,6 +45,11 @@ namespace BUS
         {
             return clsTaiKhoan_DAO.XoaTaiKhoan(tenTaiKhoan);
         }
+
+        public static bool CapNhatDangNhap(string maNV)
+        {
+            return clsTaiKhoan_DAO.CapNhatDangNhap(maNV);
+        }
         
     }
 }

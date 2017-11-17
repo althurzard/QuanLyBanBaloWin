@@ -21,15 +21,15 @@ namespace DAO
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
                 string query = string.Format(
-                "Insert into TaiKhoan (TenTaiKhoan,MatKhau,TrangThai,MaPhanLoaiTK,MaNV,LastLogin) " +
-                "values (@TenTaiKhoan,@MatKhau,@TrangThai,@MaPhanLoaiTK,@MaNV,@LastLogin)");
+                "Insert into TaiKhoan (TenTaiKhoan,MatKhau,TrangThai,MaPhanLoaiTK,MaNV,LastLogon) " +
+                "values (@TenTaiKhoan,@MatKhau,@TrangThai,@MaPhanLoaiTK,@MaNV,@LastLogon)");
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.Add("@TenTaiKhoan", SqlDbType.NVarChar).Value = taiKhoan.TenTaiKhoan;
                 cmd.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = taiKhoan.MatKhau;
                 cmd.Parameters.Add("@TrangThai", SqlDbType.Int).Value = 1;
                 cmd.Parameters.Add("@MaPhanLoaiTK", SqlDbType.Int).Value = taiKhoan.LoaiTK.MaPhanLoaiTK;
                 cmd.Parameters.Add("@MaNV", SqlDbType.Char).Value = taiKhoan.NhanVien.MaNV;
-                cmd.Parameters.Add("@LastLogon", SqlDbType.DateTime).Value = DateTime.Now;
+                cmd.Parameters.Add("@LastLogon", SqlDbType.DateTime).Value = null;
                 cmd.CommandType = CommandType.Text;
                 try
                 {
@@ -109,6 +109,11 @@ namespace DAO
             return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
 
+        public static bool CapNhatDangNhap(string maNV)
+        {
+            string query = string.Format("Update TaiKhoan Set LastLogon = '{0}' where MaNV = '{1}'", DateTime.Now, maNV);
+            return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+        }
 
         public static DataTable LayBang()
         {

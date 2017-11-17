@@ -61,7 +61,7 @@ namespace QuanLyBanBalo
             cboLoaiTK.DisplayMember = "MoTa";
         }
 
-        private void loadBangTK()
+        public void loadBangTK()
         {
             dgvBangTaiKhoan.AutoGenerateColumns = false;
             dgvBangTaiKhoan.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -174,6 +174,7 @@ namespace QuanLyBanBalo
                                     File.Copy(pictureHinhAnh.ImageLocation, destPath, true);
 
                                     MessageBox.Show("Tạo tài khoản thành công");
+                                    loadBangTK();
                                 }
                                 else
                                 {
@@ -276,6 +277,11 @@ namespace QuanLyBanBalo
             
             frmSuaNhanVien nv = new frmSuaNhanVien(maNV);
             nv.ShowDialog();
+        }
+
+        private void frmNhanVien_Activated(object sender, EventArgs e)
+        {
+            
         }
     }
 }

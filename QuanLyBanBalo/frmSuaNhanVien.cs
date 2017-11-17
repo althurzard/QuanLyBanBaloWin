@@ -40,9 +40,9 @@ namespace QuanLyBanBalo
             txtQueQuan.Text = taiKhoan.NhanVien.QueQuan;
             txtSoDienThoai.Text = taiKhoan.NhanVien.SoDienThoai;
             lblTenDangNhap.Text = taiKhoan.TenTaiKhoan;
-            lblNgayKhoiTao.Text = taiKhoan.NhanVien.NgayKhoiTao.ToShortDateString();
+            lblNgayKhoiTao.Text = taiKhoan.NhanVien.NgayKhoiTao.ToString("dd/MM/yyyy hh:mm:ss");
             lblMaNV.Text = taiKhoan.NhanVien.MaNV;
-            lblLastLogon.Text = taiKhoan.LastLogon.ToLongDateString();
+            lblLastLogon.Text = taiKhoan.LastLogon.ToString("dd/MM/yyyy hh:mm:ss");
             cboLoaiTK.SelectedValue = taiKhoan.LoaiTK.MaPhanLoaiTK;
             pictureHinhAnh.ImageLocation = taiKhoan.NhanVien.HinhAnh.Url;
 
@@ -122,6 +122,17 @@ namespace QuanLyBanBalo
                 Close();
             }
 
+        }
+
+        private void frmSuaNhanVien_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm is frmNhanVien)
+                {
+                    ((frmNhanVien)frm).loadBangTK();
+                }
+            }
         }
     }
 }
