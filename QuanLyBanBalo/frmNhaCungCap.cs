@@ -282,16 +282,6 @@ namespace QuanLyBanBalo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-            string filePath = Helper.layHinhAnh();
-            if (filePath != null)
-            {
-                kiemTraThayDoiPic = true;
-                picHinhAnh.ImageLocation = filePath;
-            }
-        }
 
         private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -324,8 +314,17 @@ namespace QuanLyBanBalo
         }
 
 
+
         #endregion
 
-
+        private void picHinhAnh_Click(object sender, EventArgs e)
+        {
+            string filePath = Helper.layHinhAnh();
+            if (filePath != null)
+            {
+                kiemTraThayDoiPic = true;
+                picHinhAnh.ImageLocation = filePath;
+            }
+        }
     }
 }
