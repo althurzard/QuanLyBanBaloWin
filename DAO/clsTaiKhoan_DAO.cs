@@ -21,15 +21,14 @@ namespace DAO
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
                 string query = string.Format(
-                "Insert into TaiKhoan (TenTaiKhoan,MatKhau,TrangThai,MaPhanLoaiTK,MaNV,LastLogon) " +
-                "values (@TenTaiKhoan,@MatKhau,@TrangThai,@MaPhanLoaiTK,@MaNV,@LastLogon)");
+                "Insert into TaiKhoan (TenTaiKhoan,MatKhau,TrangThai,MaPhanLoaiTK,MaNV) " +
+                "values (@TenTaiKhoan,@MatKhau,@TrangThai,@MaPhanLoaiTK,@MaNV)");
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.Add("@TenTaiKhoan", SqlDbType.NVarChar).Value = taiKhoan.TenTaiKhoan;
                 cmd.Parameters.Add("@MatKhau", SqlDbType.NVarChar).Value = taiKhoan.MatKhau;
                 cmd.Parameters.Add("@TrangThai", SqlDbType.Int).Value = 1;
                 cmd.Parameters.Add("@MaPhanLoaiTK", SqlDbType.Int).Value = taiKhoan.LoaiTK.MaPhanLoaiTK;
                 cmd.Parameters.Add("@MaNV", SqlDbType.Char).Value = taiKhoan.NhanVien.MaNV;
-                cmd.Parameters.Add("@LastLogon", SqlDbType.DateTime).Value = null;
                 cmd.CommandType = CommandType.Text;
                 try
                 {
