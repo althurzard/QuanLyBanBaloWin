@@ -89,7 +89,7 @@
             this.hóaĐơnNhậpToolStripMenuItem,
             this.danhSáchHĐNToolStripMenuItem});
             this.nhapHangToolStripMenuItem.Name = "nhapHangToolStripMenuItem";
-            this.nhapHangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nhapHangToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.nhapHangToolStripMenuItem.Text = "Nhập hàng";
             // 
             // hóaĐơnNhậpToolStripMenuItem
@@ -112,20 +112,20 @@
             this.hóaĐơnXuấtToolStripMenuItem,
             this.danhSáchHĐXToolStripMenuItem});
             this.xuấtHàngToolStripMenuItem.Name = "xuấtHàngToolStripMenuItem";
-            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.xuấtHàngToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.xuấtHàngToolStripMenuItem.Text = "Bán hàng";
             // 
             // hóaĐơnXuấtToolStripMenuItem
             // 
             this.hóaĐơnXuấtToolStripMenuItem.Name = "hóaĐơnXuấtToolStripMenuItem";
-            this.hóaĐơnXuấtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hóaĐơnXuấtToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.hóaĐơnXuấtToolStripMenuItem.Text = "Lập hóa đơn";
             this.hóaĐơnXuấtToolStripMenuItem.Click += new System.EventHandler(this.hóaĐơnXuấtToolStripMenuItem_Click);
             // 
             // danhSáchHĐXToolStripMenuItem
             // 
             this.danhSáchHĐXToolStripMenuItem.Name = "danhSáchHĐXToolStripMenuItem";
-            this.danhSáchHĐXToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.danhSáchHĐXToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.danhSáchHĐXToolStripMenuItem.Text = "Danh Sách HĐ";
             this.danhSáchHĐXToolStripMenuItem.Click += new System.EventHandler(this.danhSáchHĐXToolStripMenuItem_Click);
             // 
@@ -145,28 +145,28 @@
             // matHangToolStripMenuItem
             // 
             this.matHangToolStripMenuItem.Name = "matHangToolStripMenuItem";
-            this.matHangToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.matHangToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.matHangToolStripMenuItem.Text = "Mặt hàng";
             this.matHangToolStripMenuItem.Click += new System.EventHandler(this.mặtHàngToolStripMenuItem_Click);
             // 
             // nhanVienToolStripMenuItem
             // 
             this.nhanVienToolStripMenuItem.Name = "nhanVienToolStripMenuItem";
-            this.nhanVienToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.nhanVienToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nhanVienToolStripMenuItem.Text = "Nhân viên";
             this.nhanVienToolStripMenuItem.Click += new System.EventHandler(this.nhânViênToolStripMenuItem_Click);
             // 
             // nhaCungCapToolStripMenuItem
             // 
             this.nhaCungCapToolStripMenuItem.Name = "nhaCungCapToolStripMenuItem";
-            this.nhaCungCapToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.nhaCungCapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nhaCungCapToolStripMenuItem.Text = "Nhà Cung Cấp";
             this.nhaCungCapToolStripMenuItem.Click += new System.EventHandler(this.nhàCungCấpToolStripMenuItem_Click);
             // 
             // baoHanhToolStripMenuItem
             // 
             this.baoHanhToolStripMenuItem.Name = "baoHanhToolStripMenuItem";
-            this.baoHanhToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.baoHanhToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.baoHanhToolStripMenuItem.Text = "Bảo hành";
             this.baoHanhToolStripMenuItem.Click += new System.EventHandler(this.bảoHànhToolStripMenuItem_Click);
             // 
@@ -251,6 +251,7 @@
             this.tbcMain.Size = new System.Drawing.Size(818, 414);
             this.tbcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tbcMain.TabIndex = 2;
+            this.tbcMain.DoubleClick += new System.EventHandler(this.tbcMain_DoubleClick);
             // 
             // frmMain
             // 

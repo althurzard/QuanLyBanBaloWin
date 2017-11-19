@@ -275,5 +275,15 @@ namespace QuanLyBanBalo
                 Application.Exit();
             } 
         }
+
+        private void tbcMain_DoubleClick(object sender, EventArgs e)
+        {
+            TabPage i = tbcMain.SelectedTab;
+            if (i != null)
+            {
+                tbcMain.TabPages.Remove(i);
+            }
+
+        }
     }
 }

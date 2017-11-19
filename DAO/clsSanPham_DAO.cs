@@ -114,6 +114,13 @@ namespace DAO
             return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
 
+        public static DataTable LayBangSanPham()
+        {
+            string query = string.Format("SELECT * FROM SanPham");
+            return XuLyDuLieu.LayBang(query);
+        }
+
+       
         
     }
 }
