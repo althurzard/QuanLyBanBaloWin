@@ -69,5 +69,26 @@ namespace DAO
             drChiTiet = XuLyDuLieu.LayDuLieu(query);
             return drChiTiet;
         }
+
+        public static List<string> LayMauSac()
+        {
+            List<string> listMauSac = new List<string>();
+            string query = string.Format("Select DISTINCT MauSac from ChiTietSanPham ORDER BY MauSac");
+            using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        listMauSac.Add(reader["MauSac"].ToString());
+                    }
+
+                }
+                conn.Close();
+            }
+
+            return listMauSac;
+        }
     }
 }

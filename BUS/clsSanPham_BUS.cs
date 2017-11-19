@@ -49,6 +49,20 @@ namespace BUS
         {
             return clsSanPham_DAO.LayBangSanPham();
         }
-        
+
+        public static List<string> LayThuongHieu()
+        {
+            return clsSanPham_DAO.LayThuongHieu();
+        }
+
+        public static List<string> LayChatLieu()
+        {
+            return clsSanPham_DAO.LayChatLieu();
+        }
+
+        public static List<string> LayTenSP()
+        {
+            return clsSanPham_DAO.LayTenSP();
+        }
     }
 }

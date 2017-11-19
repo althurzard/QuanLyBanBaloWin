@@ -259,84 +259,12 @@ namespace QuanLyBanBalo
         bool _KiemTraThayDoiTextBox = true;
         private void txtGiaBanLe_TextChanged(object sender, EventArgs e)
         {
-            
-            try
-            {
-                if (_KiemTraThayDoiTextBox)
-                {
-                    string strTemp = txtGiaBanLe.Text;
-                    //kiểm tra chuỗi có trống không
-                    if (String.IsNullOrEmpty(strTemp)) return;
-
-                    //tìm vị trí dấu chấm trong text box
-                    int iIndex = strTemp.IndexOf('.');
-
-                    //nếu tìm thấy 
-                    if (iIndex != -1)
-                    {
-                        string strT = strTemp.Substring(iIndex + 1, 1);
-                        if (!String.IsNullOrEmpty(strT))
-                        {
-
-                        }
-                    }
-
-                    double DinhDangTien = double.Parse(txtGiaBanLe.Text.Trim(','));
-                    _KiemTraThayDoiTextBox = false;
-                    //Định dạng lại textbox
-                    txtGiaBanLe.Text = DinhDangTien.ToString("0,00.##");
-                } else
-                {
-                    _KiemTraThayDoiTextBox = true;
-                    //Đưa vị trí con trỏ ra cuối chuỗi
-                    txtGiaBanLe.Select(txtGiaBanLe.TextLength, 0);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi không biết");
-            }
+            Helper.MoneyFormat(txtGiaBanLe);
         }
 
         private void txtGiaVon_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (_KiemTraThayDoiTextBox)
-                {
-                    string strTemp = txtGiaVon.Text;
-                    //kiểm tra chuỗi có trống không
-                    if (String.IsNullOrEmpty(strTemp)) return;
-
-                    //tìm vị trí dấu chấm trong text box
-                    int iIndex = strTemp.IndexOf('.');
-
-                    //nếu tìm thấy 
-                    if (iIndex != -1)
-                    {
-                        string strT = strTemp.Substring(iIndex + 1, 1);
-                        if (!String.IsNullOrEmpty(strT))
-                        {
-
-                        }
-                    }
-
-                    double DinhDangTien = double.Parse(txtGiaVon.Text.Trim(','));
-                    _KiemTraThayDoiTextBox = false;
-                    //Định dạng lại textbox
-                    txtGiaVon.Text = DinhDangTien.ToString("0,00.##");
-                }
-                else
-                {
-                    _KiemTraThayDoiTextBox = true;
-                    //Đưa vị trí con trỏ ra cuối chuỗi
-                    txtGiaVon.Select(txtGiaVon.TextLength, 0);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi không biết");
-            }
+            Helper.MoneyFormat(txtGiaVon);
         }
 
         private void picHinhAnh_Click(object sender, EventArgs e)

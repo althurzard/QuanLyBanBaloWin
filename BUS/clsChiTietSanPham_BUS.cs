@@ -27,5 +27,11 @@ namespace BUS
         {
             return clsChiTietSanPham_DAO.LayChiTiet(maSp, mauSac);
         }
+
+        public static List<string> LayMauSac()
+        {
+            return clsChiTietSanPham_DAO.LayMauSac();
+        }
+
     }
 }

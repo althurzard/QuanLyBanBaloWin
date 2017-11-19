@@ -51,6 +51,18 @@ namespace QuanLyBanBalo
             dgvSanPham.Columns["colMaSP"].Visible = false;
             //Ẩn cột Mã Sản Phẩm
             dgvSanPham.Columns["colMaCTSP"].Visible = false;
+
+            //Autocomplete cho Chất liệu
+            List<string> listThuongHieu = clsSanPham_BUS.LayThuongHieu();
+            List<string> listChatLieu = clsSanPham_BUS.LayChatLieu();
+            List<string> listTenSP = clsSanPham_BUS.LayTenSP();
+            List<string> listMauSac = clsChiTietSanPham_BUS.LayMauSac();
+            Helper.SetAutocomplete(txtThuongHieu, listThuongHieu.ToArray());
+            Helper.SetAutocomplete(txtChatLieu, listChatLieu.ToArray());
+            Helper.SetAutocomplete(txtTenSP, listTenSP.ToArray());
+            Helper.SetAutocomplete(txtMauSac, listMauSac.ToArray());
+            
+
         }
         private void loadSanPham()
         {
@@ -97,6 +109,93 @@ namespace QuanLyBanBalo
             return kiemtra;
         }
 
+        private void Search()
+        {
+            string searchText = "";
+            if (!string.IsNullOrWhiteSpace(txtTenSP.Text))
+            {
+                searchText = string.Format("TenSP like '%{0}%' AND ",txtTenSP.Text);
+            }  else
+            {
+                searchText = "TRUE AND ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtThuongHieu.Text))
+            {
+                searchText += string.Format("ThuongHieu like '%{0}%' AND ",txtThuongHieu.Text);
+            } else
+            {
+                searchText += "TRUE AND ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtChatLieu.Text))
+            {
+                searchText += string.Format("ChatLieu like '%{0}%' AND ",txtChatLieu.Text);
+            } else
+            {
+                searchText += "TRUE AND ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtMauSac.Text))
+            {
+                searchText += string.Format("MauSac like '%{0}%' AND ", txtMauSac.Text);
+            } else
+            {
+                searchText += "TRUE AND ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtGiaDen.Text))
+            {
+                if (!string.IsNullOrWhiteSpace(txtGiaTu.Text))
+                {
+                    double giaTu = double.Parse(txtGiaTu.Text.Trim(','));
+                    double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
+                    searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", giaTu, giaDen);
+                } else
+                {
+                    double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
+                    searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", 0, giaDen);
+                }
+               
+            } else
+            {
+                searchText += "TRUE AND ";
+            }
+
+            // Lấy danh mục qua rowview
+            drvDanhMuc = (DataRowView)(cboMauMa.SelectedItem);
+            string selectString = drvDanhMuc["TenDanhMuc"].ToString().Trim();
+            if (selectString != "Tất cả")
+            {
+                searchText += string.Format("TenDanhMuc like '%{0}%'", selectString);
+                
+            } else
+            {
+                searchText += "TRUE";
+            }
+
+            dvSanPham.RowFilter = searchText;
+            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
+
+        }
+
+        private void kiemTraGia()
+        {
+            if (string.IsNullOrWhiteSpace(txtGiaTu.Text)) return;
+            if (string.IsNullOrWhiteSpace(txtGiaDen.Text))
+            {
+                txtGiaDen.Text = txtGiaTu.Text;
+                return;
+            }
+
+            double giaTu = double.Parse(txtGiaTu.Text.Trim(','));
+            double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
+            if (giaDen < giaTu)
+            {
+                txtGiaDen.Text = txtGiaTu.Text;
+            }
+        }
+
         private void dgvSanPham_DoubleClick(object sender, EventArgs e)
         {
             string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[0].Value.ToString();
@@ -109,11 +208,10 @@ namespace QuanLyBanBalo
             txtTenSP.Text = "";
             txtThuongHieu.Text = "";
             txtChatLieu.Text = "";
+            txtMauSac.Text = "";
             cboMauMa.SelectedIndex = 0;
-            rdGia1.Checked = false;
-            rdGia2.Checked = false;
-            rdGia3.Checked = false;
-            rdGia4.Checked = false;
+            txtGiaTu.Text = "";
+            txtGiaDen.Text = "";
             loadSanPham();
         }
         private void dgvSanPham_KeyDown(object sender, KeyEventArgs e)
@@ -175,55 +273,19 @@ namespace QuanLyBanBalo
         }
         private void txtTenSP_TextChanged(object sender, EventArgs e)
         {
-            dvSanPham.RowFilter = string.Format("TenSP like '%{0}%'", txtTenSP.Text);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            Search();
         }
         private void txtThuongHieu_TextChanged(object sender, EventArgs e)
         {
-            dvSanPham.RowFilter = string.Format("ThuongHieu like '%{0}%'", txtThuongHieu.Text);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            Search();
         }
         private void txtChatLieu_TextChanged(object sender, EventArgs e)
         {
-            dvSanPham.RowFilter = string.Format("ChatLieu like '%{0}%'", txtChatLieu.Text);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            Search();
         }
         private void cboMauMa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectString;
-            // Lấy danh mục qua rowview
-            drvDanhMuc = (DataRowView)(cboMauMa.SelectedItem);
-            selectString = drvDanhMuc["TenDanhMuc"].ToString();
-            if(selectString =="Tất cả")
-            {
-                dvSanPham.RowFilter = "";
-                lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
-            }
-            else
-            {
-                dvSanPham.RowFilter = string.Format("TenDanhMuc like '%{0}%'", selectString);
-                lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
-            }
-        }
-        private void rdGia1_CheckedChanged(object sender, EventArgs e)
-        {
-            dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'",0,500000);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
-        }
-        private void rdGia2_CheckedChanged(object sender, EventArgs e)
-        {
-            dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'", 500000, 1000000);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
-        }
-        private void rdGia3_CheckedChanged(object sender, EventArgs e)
-        {
-            dvSanPham.RowFilter = String.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}'", 1000000, 2000000);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
-        }
-        private void rdGia4_CheckedChanged(object sender, EventArgs e)
-        {
-            dvSanPham.RowFilter = String.Format("GiaBanLe >= {0} ",2000000);
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            Search();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -325,6 +387,34 @@ namespace QuanLyBanBalo
                 btnSua.Enabled = false;
                 btnThem.Enabled = true;
             }
+        }
+
+        private void txtMauSac_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void txtGiaTu_TextChanged(object sender, EventArgs e)
+        {
+            Helper.MoneyFormat(txtGiaTu);
+            kiemTraGia();
+            Search();
+        }
+
+        private void txtGiaDen_TextChanged(object sender, EventArgs e)
+        {
+            Helper.MoneyFormat(txtGiaDen);
+            Search();
+        }
+
+        private void txtGiaDen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
+        }
+
+        private void txtGiaTu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
         }
     }
 }

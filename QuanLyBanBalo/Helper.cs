@@ -32,5 +32,31 @@ namespace QuanLyBanBalo
             }
             return null;
         }
+        /*
+         * Cài đặt autocomplete cho textbox
+         */
+         public static void SetAutocomplete(TextBox textBox,string[] collection)
+        {
+            var source = new AutoCompleteStringCollection();
+            source.AddRange(collection);
+            textBox.AutoCompleteCustomSource = source;
+            textBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            textBox.AutoCompleteSource = AutoCompleteSource.CustomSource;
+        }
+
+        /*
+         * Định dạng tiền cho text box
+         */
+         public static void MoneyFormat(TextBox textBox)
+        {
+            textBox.Select(textBox.TextLength, 0);
+            string strTemp = textBox.Text;
+            if (string.IsNullOrWhiteSpace(strTemp)) return;
+
+            double DinhDangTien = double.Parse(strTemp.Trim(','));
+
+            //Định dạng lại textbox
+            textBox.Text = DinhDangTien.ToString("0,00.##") == "000" ? "" : DinhDangTien.ToString("0,00.##");
+        }
     }
 }

@@ -4,6 +4,9 @@
 .vs/QuanLyBanBalo/v15/.suo
 .vs/QuanLyBanBalo/v15/sqlite3/storage.ide
 DAO/bin/Debug/
-BUS/obj
-DAO/obj
-DTO/obj
+BUS/obj/
+DAO/obj/
+DTO/obj/
+BUS/bin/
+DAO/bin/
+DTO/bin/
