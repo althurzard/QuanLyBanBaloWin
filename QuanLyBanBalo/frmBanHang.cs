@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace QuanLyBanBalo
 {
-    public partial class frmXuatHang : Form
+    public partial class frmBanHang : Form
     {
-        public frmXuatHang()
+        public frmBanHang()
         {
             InitializeComponent();
         }
-        private static frmXuatHang _Instance = null;
+        private static frmBanHang _Instance = null;
 
-        public static frmXuatHang Instance
+        public static frmBanHang Instance
         {
             get
             {
                 if (_Instance == null)
-                    _Instance = new frmXuatHang();
+                    _Instance = new frmBanHang();
                 return _Instance;
             }
         }

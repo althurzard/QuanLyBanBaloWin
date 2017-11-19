@@ -338,6 +338,7 @@ namespace QuanLyBanBalo
                             object resultCapNhat = clsChiTietSanPham_BUS.CapNhatSoLuong(chiTietSanPham);
                             if (resultCapNhat is bool || (bool)resultCapNhat)
                             {
+                                _TongSanPham += int.Parse(txtCTSoLuong.Text);
                                 MessageBox.Show(string.Format("Thêm sản phẩm thành công \n Số lượng sản phẩm cũ trong kho: {0}  \n Số lượng sản phẩm sau khi thêm: {1} ", SoLuongSanPhamCu,SoLuong), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 RefreshChiTiet();
                                 SetUpHoaDon(true);

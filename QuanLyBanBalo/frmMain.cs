@@ -192,7 +192,7 @@ namespace QuanLyBanBalo
 
         private void hóaĐơnXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmXuatHang frmXH = frmXuatHang.Instance;
+            frmBanHang frmXH = frmBanHang.Instance;
 
             int index = KiemTraTonTaiForm(tbcMain, frmXH);
             if (index >= 0)
