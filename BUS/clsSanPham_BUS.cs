@@ -44,6 +44,11 @@ namespace BUS
         {
             return clsSanPham_DAO.KiemTraTrungSanPham(tenSanPham);
         }
+
+        public static DataTable LayBangSanPham()
+        {
+            return clsSanPham_DAO.LayBangSanPham();
+        }
         
     }
 }

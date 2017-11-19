@@ -10,13 +10,14 @@ using System.Windows.Forms;
 using DTO;
 using BUS;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace QuanLyBanBalo
 {
     public partial class frmNhapHang : Form
     {
-        DataTable dtNhaCungCap;
-        DataTable dtDanhMuc;
+        DataTable dtNhaCungCap, dtDanhMuc , dtSanPham;
+        DataView dvSanPham;
         bool _KiemTraThayDoiTextBox = true;
         int _TongSanPham = 0;
         public frmNhapHang()
@@ -44,6 +45,7 @@ namespace QuanLyBanBalo
         //khôi phục về mặc đinh
         public void RefreshDefault()
         {
+            loadSanPham();
             txtCTMaSP.Enabled = false;
             txtCTMauSac.Enabled = false;
             txtCTSoLuong.Enabled = false;
@@ -61,6 +63,8 @@ namespace QuanLyBanBalo
             txtGhiChu.Text = "";
             RefreshChiTiet();
             SetUpHoaDon(false);
+            setUpCapNhat(false);
+            setUpSanPham(true);
         }
 
         //Hiện chi tiết sau khi thêm sản phẩm
@@ -87,6 +91,27 @@ namespace QuanLyBanBalo
             txtCTMauSac.Text = "";
             txtCTSoLuong.Text = "";
             picHinhAnh.Image = null;
+            picHinhAnh.ImageLocation = null;
+        }
+
+        public void setUpCapNhat(bool b)
+        {
+            txtCTSoLuong.Enabled = b;
+            txtCTMauSac.Enabled = b;
+            btnLuuCT.Enabled = b;
+        }
+
+        public void setUpSanPham(bool b)
+        {
+            txtTenSP.Enabled = b;
+            txtKichCo.Enabled = b;
+            txtThuongHieu.Enabled = b;
+            txtNamBH.Enabled = b;
+            cboMauMa.Enabled = b;
+            txtChatLieu.Enabled = b;
+            txtGiaVon.Enabled = b;
+            txtGiaBanLe.Enabled = b;
+            btnLuu.Enabled = b;
         }
 
         public void loadNhaCungCap()
@@ -102,6 +127,13 @@ namespace QuanLyBanBalo
             cboMauMa.DataSource = dtDanhMuc;
             cboMauMa.ValueMember = "MaDanhMuc";
             cboMauMa.DisplayMember = "TenDanhMuc";
+        }
+        public void loadSanPham()
+        {
+            dtSanPham = clsSanPham_BUS.LayBangSanPham();
+            dvSanPham = new DataView(dtSanPham);
+            dgvSanPham.AutoGenerateColumns = false;
+            dgvSanPham.DataSource = dvSanPham;
         }
         public bool KiemTraTextBox()
         {
@@ -160,7 +192,6 @@ namespace QuanLyBanBalo
         {
             lblCTMauSac.Visible = b;
             lblCTSoLuong.Visible = b;
-            lblImage.Visible = b;
         }
         public bool KiemTraTextBoxCT()
         {
@@ -174,11 +205,6 @@ namespace QuanLyBanBalo
             {
                 lblCTSoLuong.Visible = true;
                 hople = false;
-            }
-            if (string.IsNullOrWhiteSpace(picHinhAnh.ImageLocation))
-            {
-                hople = false;
-                lblImage.Visible = true;
             }
             return hople;
         }
@@ -290,36 +316,75 @@ namespace QuanLyBanBalo
             {
                 try
                 {
-                    // Lưu ảnh vào database 
-                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
-                    object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                    if (resultHinhAnh is bool)
-                    {
-                        //Lưu chi tiết sản phẩm
-                        clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(txtCTMaSP.Text, Helper.GetTimestamp(DateTime.Now), txtCTMauSac.Text, int.Parse(txtCTSoLuong.Text), hinhAnh.MaHinhAnh, 1);
-                        object resultChiTietSP = clsChiTietSanPham_BUS.ThemChiTietSanPham(chiTietSanPham);
-                        if (resultChiTietSP is bool || (bool)resultChiTietSP)
+                        //Kiểm tra tồn tại màu 
+                        if (clsChiTietSanPham_BUS.KiemTraTonTaiMau(txtCTMaSP.Text, txtCTMauSac.Text.Trim()))
                         {
-                            // Copy image file vào folder data/product
-                            string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
-                            string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
-                            File.Copy(picHinhAnh.ImageLocation, destPath, true);
-                            MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _TongSanPham += int.Parse(txtCTSoLuong.Text);
-                            RefreshChiTiet();
-                            SetUpHoaDon(true);
-                            
+                            //Lấy số lượng sản phẩm
+                            int SoLuong = 0;
+                            int SoLuongSanPhamCu = 0;
+                            SqlDataReader dr =  clsChiTietSanPham_BUS.LayChiTiet(txtCTMaSP.Text, txtCTMauSac.Text.Trim());
+                            if (dr != null)
+                            {
+                                while (dr.Read())
+                                {
+                                    SoLuong = int.Parse(dr["SoLuong"].ToString());
+                                    SoLuongSanPhamCu = int.Parse(dr["SoLuong"].ToString());
+                                }
+                            }
+
+                            SoLuong += int.Parse(txtCTSoLuong.Text);
+                            //Màu đã tồn tại ==> cập nhật số lượng
+                            clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(txtCTMaSP.Text, txtCTMauSac.Text.Trim(), SoLuong);
+                            object resultCapNhat = clsChiTietSanPham_BUS.CapNhatSoLuong(chiTietSanPham);
+                            if (resultCapNhat is bool || (bool)resultCapNhat)
+                            {
+                                MessageBox.Show(string.Format("Thêm sản phẩm thành công \n Số lượng sản phẩm cũ trong kho: {0}  \n Số lượng sản phẩm sau khi thêm: {1} ", SoLuongSanPhamCu,SoLuong), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                RefreshChiTiet();
+                                SetUpHoaDon(true);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            // Lưu ảnh vào database 
+                            clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                            object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                            if (resultHinhAnh is bool)
+                            {
+                                //Thêm mới chi tiết
+                                clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(txtCTMaSP.Text, Helper.GetTimestamp(DateTime.Now), txtCTMauSac.Text, int.Parse(txtCTSoLuong.Text), hinhAnh.MaHinhAnh, 1);
+                                object resultChiTietSP = clsChiTietSanPham_BUS.ThemChiTietSanPham(chiTietSanPham);
+                                if (resultChiTietSP is bool || (bool)resultChiTietSP)
+                                {
+                                    // Copy image file vào folder data/product
+                                    string fileName = Path.GetFileName(picHinhAnh.ImageLocation);
+                                    string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
+                                    File.Copy(picHinhAnh.ImageLocation, destPath, true);
+                                    MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    _TongSanPham += int.Parse(txtCTSoLuong.Text);
+                                    RefreshChiTiet();
+                                    SetUpHoaDon(true);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Thêm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                         }
-                    }
+                        else
+                        {
+                            MessageBox.Show("Chưa thêm hình ảnh","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                        }
+                       
+                        }
                 }
-                catch (Exception)
+                catch (IOException msg)
                 {
-                    MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(msg.ToString());
                 }
+                catch (Exception msg)
+                {
+                    MessageBox.Show(msg.ToString());
+                }
+                
 
             }
 
@@ -338,7 +403,38 @@ namespace QuanLyBanBalo
             }
         }
 
+        private void btnCapNhat_Click(object sender, EventArgs e)
+        {
+            txtCTMaSP.Text = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells["colMaSp"].Value.ToString();
+            txtCTTenSP.Text = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells["colTenSanPham"].Value.ToString();
+            setUpCapNhat(true);
+            setUpSanPham(false);
+        }
 
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            RefreshDefault();
+        }
+
+        private void rdTKTenSP_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTKTenSP.Enabled = rdTKTenSP.Checked;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            txtTKThuongHieu.Enabled = rdThuongHieu.Checked;
+        }
+
+        private void txtTKTenSP_TextChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = string.Format("TenSP Like '%{0}%'",txtTKTenSP.Text);
+        }
+
+        private void txtTKThuongHieu_TextChanged(object sender, EventArgs e)
+        {
+            dvSanPham.RowFilter = string.Format("ThuongHieu Like '%{0}%'", txtTKThuongHieu.Text);
+        }
 
         private void txtGiaVon_TextChanged_1(object sender, EventArgs e)
         {
@@ -405,6 +501,10 @@ namespace QuanLyBanBalo
                     {
                         MessageBox.Show("Thêm hóa đơn thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Lỗi");
                 }
             }
             else

@@ -653,7 +653,7 @@
             this.Controls.Add(this.lbDemSp);
             this.Controls.Add(this.dgvSanPham);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMatHang";
             this.Text = "QUẢN LÍ MẶT HÀNG";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
