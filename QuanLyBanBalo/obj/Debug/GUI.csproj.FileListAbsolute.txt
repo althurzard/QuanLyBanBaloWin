@@ -21,9 +21,9 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frm
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmNhapHang.resources
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmSuaNhanVien.resources
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmSuaSanPham.resources
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmBanHang.resources
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.Properties.Resources.resources
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
-C:\Users\DELL\Desktop\QuanLyBanBaloWin\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmBanHang.resources

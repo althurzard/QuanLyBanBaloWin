@@ -120,7 +120,70 @@ namespace DAO
             return XuLyDuLieu.LayBang(query);
         }
 
-       
-        
+
+        public static List<string> LayThuongHieu()
+        {
+            List<string> listThuongHieu = new List<string>();
+            string query = string.Format("Select DISTINCT ThuongHieu from SanPham ORDER BY ThuongHieu");
+            using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while(reader.Read())
+                    {
+                        listThuongHieu.Add(reader["ThuongHieu"].ToString());
+                    }
+
+                }
+                conn.Close();
+            }
+
+            return listThuongHieu;
+        }
+
+        public static List<string> LayChatLieu()
+        {
+            List<string> listChatLieu = new List<string>();
+            string query = string.Format("Select DISTINCT ChatLieu from SanPham ORDER BY ChatLieu");
+            using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        listChatLieu.Add(reader["ChatLieu"].ToString());
+                    }
+
+                }
+                conn.Close();
+            }
+
+            return listChatLieu;
+        }
+
+        public static List<string> LayTenSP()
+        {
+            List<string> listChatLieu = new List<string>();
+            string query = string.Format("Select DISTINCT TenSP from SanPham ORDER BY TenSP");
+            using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        listChatLieu.Add(reader["TenSP"].ToString());
+                    }
+
+                }
+                conn.Close();
+            }
+
+            return listChatLieu;
+        }
+
+
     }
 }
