@@ -120,6 +120,11 @@ namespace DAO
             return XuLyDuLieu.LayBang(query);
         }
 
+        public static bool CapNhatKhuyenMai(int maKhuyenMai)
+        {
+            string query = string.Format("Update SanPham set MaKhuyenMai = {0}", maKhuyenMai);
+            return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+        }
 
         public static List<string> LayThuongHieu()
         {
@@ -183,6 +188,8 @@ namespace DAO
 
             return listChatLieu;
         }
+
+
 
 
     }

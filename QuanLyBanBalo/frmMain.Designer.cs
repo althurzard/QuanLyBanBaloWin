@@ -51,6 +51,7 @@
             this.vềChúngTôiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.tbcMain = new System.Windows.Forms.TabControl();
+            this.khuyếnMạiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,7 +136,8 @@
             this.matHangToolStripMenuItem,
             this.nhanVienToolStripMenuItem,
             this.nhaCungCapToolStripMenuItem,
-            this.baoHanhToolStripMenuItem});
+            this.baoHanhToolStripMenuItem,
+            this.khuyếnMạiToolStripMenuItem});
             this.toolStripDropDownButton2.Image = global::QuanLyBanBalo.Properties.Resources.Paperdesk;
             this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
@@ -253,6 +255,13 @@
             this.tbcMain.TabIndex = 2;
             this.tbcMain.DoubleClick += new System.EventHandler(this.tbcMain_DoubleClick);
             // 
+            // khuyếnMạiToolStripMenuItem
+            // 
+            this.khuyếnMạiToolStripMenuItem.Name = "khuyếnMạiToolStripMenuItem";
+            this.khuyếnMạiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.khuyếnMạiToolStripMenuItem.Text = "Khuyến mại";
+            this.khuyếnMạiToolStripMenuItem.Click += new System.EventHandler(this.khuyếnMạiToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -298,6 +307,7 @@
         private System.Windows.Forms.ToolStripMenuItem danhSáchHĐXToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem baoHanhToolStripMenuItem;
         private System.Windows.Forms.TabControl tbcMain;
+        private System.Windows.Forms.ToolStripMenuItem khuyếnMạiToolStripMenuItem;
     }
 }
 

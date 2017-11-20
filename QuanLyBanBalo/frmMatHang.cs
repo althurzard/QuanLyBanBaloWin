@@ -416,5 +416,10 @@ namespace QuanLyBanBalo
         {
             e.Handled = !Validation.IsNumberic(e);
         }
+
+        private void txtGiaDen_Leave(object sender, EventArgs e)
+        {
+            kiemTraGia();
+        }
     }
 }

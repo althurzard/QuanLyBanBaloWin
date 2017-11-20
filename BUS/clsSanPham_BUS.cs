@@ -64,5 +64,10 @@ namespace BUS
         {
             return clsSanPham_DAO.LayTenSP();
         }
+
+        public static bool CapNhatKhuyenMai(int maKM)
+        {
+            return clsSanPham_DAO.CapNhatKhuyenMai(maKM);
+        }
     }
 }
