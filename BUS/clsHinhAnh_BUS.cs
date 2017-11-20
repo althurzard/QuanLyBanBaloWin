@@ -20,5 +20,11 @@ namespace BUS
             return result;
             
         }
+
+        public static clsHinhAnh_DTO LayHinhAnh(int maHinhAnh)
+        {
+            return clsHinhAnh_DAO.LayHinhAnh(maHinhAnh);
+        }
+
     }
 }

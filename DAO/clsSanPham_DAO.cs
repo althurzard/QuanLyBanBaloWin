@@ -108,6 +108,38 @@ namespace DAO
             }
         }
 
+        public static clsSanPham_DTO LaySanPham(string maSP)
+        {
+            clsSanPham_DTO sanPham = null;
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from SanPham where MaSP = '{0}' ", maSP);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        sanPham = new clsSanPham_DTO();
+                        sanPham.MaKhuyenMai = (int)reader["MaKhuyenMai"];
+                        sanPham.ChatLieu = reader["ChatLieu"].ToString();
+                        sanPham.ChongNuoc = (bool)reader["ChongNuoc"];
+                        sanPham.GiaBanLe = decimal.Parse(reader["GiaBanLe"].ToString());
+                        sanPham.GiaVon = decimal.Parse(reader["GiaVon"].ToString());
+                        sanPham.MaDanhMuc = (int)reader["MaDanhMuc"];
+                        sanPham.MaSP = maSP;
+                        sanPham.SoNamBH = (int)reader["SoNamBH"];
+                        sanPham.TenSP = reader["TenSP"].ToString();
+                        sanPham.ThuongHieu = reader["ThuongHieu"].ToString();
+                        sanPham.TrongLuong = float.Parse(reader["TrongLuong"].ToString());
+
+                    }
+                }
+
+            }
+
+            return sanPham;
+        }
+
         public static bool KiemTraTrungSanPham(string tenSanPham)
         {
             string query = string.Format("SELECT count(TenSP) FROM SanPham WHERE TenSP = N'{0}'", tenSanPham);

@@ -28,9 +28,19 @@ namespace BUS
             return clsChiTietSanPham_DAO.LayChiTiet(maSp, mauSac);
         }
 
+        public static clsChiTietSP_DTO LayChiTiet(string maCTSP)
+        {
+            return clsChiTietSanPham_DAO.LayChiTiet(maCTSP);
+        }
+
         public static List<string> LayMauSac()
         {
             return clsChiTietSanPham_DAO.LayMauSac();
+        }
+
+        public static List<string> LayMaCTSP()
+        {
+            return clsChiTietSanPham_DAO.LayMaCTSP();
         }
 
     }

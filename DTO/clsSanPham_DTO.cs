@@ -18,6 +18,7 @@ namespace DTO
         float _TrongLuong;
         int _MaDanhMuc;
         int _SoNamBH;
+        int _maKhuyenMai;
 
         public clsSanPham_DTO()
         {
@@ -48,5 +49,6 @@ namespace DTO
         public float TrongLuong { get => _TrongLuong; set => _TrongLuong = value; }
         public int MaDanhMuc { get => _MaDanhMuc; set => _MaDanhMuc = value; }
         public int SoNamBH { get => _SoNamBH; set => _SoNamBH = value; }
+        public int MaKhuyenMai { get => _maKhuyenMai; set => _maKhuyenMai = value; }
     }
 }

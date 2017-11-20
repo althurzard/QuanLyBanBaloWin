@@ -15,6 +15,11 @@ namespace BUS
             return clsKhuyenMai_DAO.LayBangKhuyenMai();
         }
 
+        public static clsKhuyenMai_DTO LayKhuyenMai(int maKM)
+        {
+            return clsKhuyenMai_DAO.LayKhuyenMai(maKM);
+        }
+
         public static bool Them(clsKhuyenMai_DTO khuyenMai)
         {
             int result = clsKhuyenMai_DAO.Them(khuyenMai);

@@ -70,6 +70,33 @@ namespace DAO
             return drChiTiet;
         }
 
+        public static clsChiTietSP_DTO LayChiTiet(string maCTSP)
+        {
+            clsChiTietSP_DTO ctsp = null;
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from ChiTietSanPham where MaCTSP = '{0}' ", maCTSP);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ctsp = new clsChiTietSP_DTO();
+                        ctsp.MaCTSP = maCTSP;
+                        ctsp.MaHinhAnh = int.Parse(reader["MaHinhAnh"].ToString());
+                        ctsp.MaSP = reader["MaSP"].ToString();
+                        ctsp.MauSac = reader["MauSac"].ToString();
+                        ctsp.TrangThai = int.Parse(reader["TrangThai"].ToString());
+                        ctsp.SoLuong = int.Parse(reader["SoLuong"].ToString());
+                       
+                    }
+                }
+
+            }
+
+            return ctsp;
+        }
+
         public static List<string> LayMauSac()
         {
             List<string> listMauSac = new List<string>();
@@ -89,6 +116,27 @@ namespace DAO
             }
 
             return listMauSac;
+        }
+
+        public static List<string> LayMaCTSP()
+        {
+            List<string> listMa = new List<string>();
+            string query = string.Format("Select DISTINCT MaCTSP from ChiTietSanPham ORDER BY MaCTSP");
+            using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
+            {
+                SqlCommand cmd = new SqlCommand(query, conn);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        listMa.Add(reader["MaCTSP"].ToString());
+                    }
+
+                }
+                conn.Close();
+            }
+
+            return listMa;
         }
     }
 }

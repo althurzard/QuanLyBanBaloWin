@@ -16,7 +16,10 @@ namespace DTO
         private int _trangThai;
         private bool _apDungHD;
 
+        public clsKhuyenMai_DTO()
+        {
 
+        }
         public clsKhuyenMai_DTO(
             string tenKhuyenMai,
             string moTa,

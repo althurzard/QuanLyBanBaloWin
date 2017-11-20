@@ -29,6 +29,11 @@ namespace BUS
         {
             return clsSanPham_DAO.LayThongTinMotSanPham(idSanPham,idChiTiet);
         }
+
+        public static clsSanPham_DTO LayThongTinMotSanPham(string maSP)
+        {
+            return clsSanPham_DAO.LaySanPham(maSP);
+        }
         
         public static object SuaSanPham(clsSanPham_DTO sanPham, clsChiTietSP_DTO chiTietSP)
         {

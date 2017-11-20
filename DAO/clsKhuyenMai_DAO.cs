@@ -16,6 +16,34 @@ namespace DAO
             return XuLyDuLieu.LayBang(query);
         }
 
+        public static clsKhuyenMai_DTO LayKhuyenMai(int maKM)
+        {
+            clsKhuyenMai_DTO km = null;
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from KhuyenMai where MaKhuyenMai = {0} ", maKM);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        km = new clsKhuyenMai_DTO();
+                        km.MaKhuyenMai = maKM;
+                        km.TenKhuyenMai = reader["TenKhuyenMai"].ToString();
+                        km.MoTa = reader["MoTa"].ToString();
+                        DateTime? ngayTam = null;
+                        km.NgayBatDau = reader["NgayBatDau"] == DBNull.Value ? ngayTam : DateTime.Parse(reader["NgayBatDau"].ToString());
+                        km.NgayKetThuc = reader["NgayKetThuc"] == DBNull.Value ? ngayTam : DateTime.Parse(reader["NgayKetThuc"].ToString());
+                        km.TrangThai = (int)reader["TrangThai"];
+
+                    }
+                }
+                connection.Close();
+            }
+
+            return km;
+        }
+
         public static int Them(clsKhuyenMai_DTO khuyenMai)
         {
             using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
