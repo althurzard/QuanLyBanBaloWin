@@ -256,7 +256,7 @@ namespace QuanLyBanBalo
             e.Handled = !Validation.IsNumberic(e);
         }
 
-        bool _KiemTraThayDoiTextBox = true;
+        
         private void txtGiaBanLe_TextChanged(object sender, EventArgs e)
         {
             Helper.MoneyFormat(txtGiaBanLe);

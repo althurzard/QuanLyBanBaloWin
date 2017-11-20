@@ -20,8 +20,6 @@ namespace QuanLyBanBalo
             matHangToolStripMenuItem.Enabled = Validation.CheckPermission();
             nhaCungCapToolStripMenuItem.Enabled = Validation.CheckPermission();
             baoHanhToolStripMenuItem.Enabled = Validation.CheckPermission();
-
-            
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
