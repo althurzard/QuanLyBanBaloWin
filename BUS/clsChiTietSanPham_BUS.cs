@@ -23,6 +23,12 @@ namespace BUS
         {
             return clsChiTietSanPham_DAO.CapNhatSoLuong(chiTietSanPham);
         }
+
+        public static bool CapNhatSoLuong(string maCTSP, int soLuong)
+        {
+            return clsChiTietSanPham_DAO.CapNhatSoLuong(maCTSP, soLuong);
+        }
+
         public static SqlDataReader LayChiTiet(string maSp, string mauSac)
         {
             return clsChiTietSanPham_DAO.LayChiTiet(maSp, mauSac);
