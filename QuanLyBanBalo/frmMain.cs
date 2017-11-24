@@ -142,26 +142,7 @@ namespace QuanLyBanBalo
 
         private void hóaĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNhapHang frmNH = frmNhapHang.Instance;
-
-            int index = KiemTraTonTaiForm(tbcMain, frmNH);
-            if (index >= 0)
-            {
-                // Nếu tồn tại tab form ==> nhảy vào tab đó
-                tbcMain.SelectedIndex = index;
-            }
-            else
-            {
-                frmNH.MdiParent = this;
-                //Tạo ra 1 tab mới
-                TabPage tp = new TabPage { Text = frmNH.Text };
-                tp.Size = new Size(400, 400);
-                //Add tab mới vào TabControl
-                tbcMain.TabPages.Add(tp);
-                frmNH.Parent = tp;
-                frmNH.Show();
-                tbcMain.SelectTab(tp);
-            }
+            
         }
 
         private void danhSáchHĐNToolStripMenuItem_Click(object sender, EventArgs e)
@@ -184,30 +165,6 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmDSN.Parent = tp;
                 frmDSN.Show();
-                tbcMain.SelectTab(tp);
-            }
-        }
-
-        private void hóaĐơnXuấtToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmBanHang frmXH = frmBanHang.Instance;
-
-            int index = KiemTraTonTaiForm(tbcMain, frmXH);
-            if (index >= 0)
-            {
-                // Nếu tồn tại tab form ==> nhảy vào tab đó
-                tbcMain.SelectedIndex = index;
-            }
-            else
-            {
-                frmXH.MdiParent = this;
-                //Tạo ra 1 tab mới
-                TabPage tp = new TabPage { Text = frmXH.Text };
-                tp.Size = new Size(400, 400);
-                //Add tab mới vào TabControl
-                tbcMain.TabPages.Add(tp);
-                frmXH.Parent = tp;
-                frmXH.Show();
                 tbcMain.SelectTab(tp);
             }
         }
@@ -304,6 +261,54 @@ namespace QuanLyBanBalo
                 tbcMain.TabPages.Add(tp);
                 frmDSN.Parent = tp;
                 frmDSN.Show();
+                tbcMain.SelectTab(tp);
+            }
+        }
+
+        private void nhapHangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNhapHang frmNH = frmNhapHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmNH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmNH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmNH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmNH.Parent = tp;
+                frmNH.Show();
+                tbcMain.SelectTab(tp);
+            }
+        }
+
+        private void banHangToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBanHang frmXH = frmBanHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmXH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmXH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmXH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmXH.Parent = tp;
+                frmXH.Show();
                 tbcMain.SelectTab(tp);
             }
         }

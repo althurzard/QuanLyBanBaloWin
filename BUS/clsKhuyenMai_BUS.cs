@@ -40,6 +40,11 @@ namespace BUS
             return clsKhuyenMai_DAO.Xoa(maKM);
         }
 
+        public static List<clsKhuyenMai_DTO> LayKhuyenMaiTheoHD()
+        {
+            return clsKhuyenMai_DAO.LayKhuyenMaiTheoHD();
+        }
+
         
     }
 }

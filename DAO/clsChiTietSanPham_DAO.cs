@@ -62,7 +62,27 @@ namespace DAO
             }
         }
 
+<<<<<<< HEAD
         public static SqlDataReader LayChiTiet(string maSP,string mauSac)
+=======
+        public static bool CapNhatSoLuong(string maCTSP, int soLuong)
+        {
+            clsChiTietSP_DTO chiTiet = LayChiTiet(maCTSP);
+            if (chiTiet != null)
+            {
+                int tongSLSP = chiTiet.SoLuong - soLuong;
+                string query = string.Format("UPDATE ChiTietSanPham SET SoLuong = {0} WHERE MaCTSP = '{1}'", tongSLSP, maCTSP);
+                return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+
+            } else
+            {
+                return false;
+            }
+           
+        }
+
+        public static SqlDataReader LayChiTiet(string maSp,string mauSac)
+>>>>>>> upstream/master
         {
             SqlDataReader drChiTiet;
             string query = string.Format("SELECT * FROM ChiTietSanPham WHERE MaSP = '{0}' AND MauSac =N'{1}'", maSP, mauSac);
@@ -125,7 +145,7 @@ namespace DAO
         public static List<string> LayMaCTSP()
         {
             List<string> listMa = new List<string>();
-            string query = string.Format("Select DISTINCT MaCTSP from ChiTietSanPham ORDER BY MaCTSP");
+            string query = string.Format("Select DISTINCT MaCTSP from ChiTietSanPham where SoLuong > 0 ORDER BY MaCTSP");
             using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
             {
                 SqlCommand cmd = new SqlCommand(query, conn);

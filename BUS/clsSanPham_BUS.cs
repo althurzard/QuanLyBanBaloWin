@@ -13,9 +13,9 @@ namespace BUS
     public class clsSanPham_BUS
     {
        
-        public static  DataTable LayTatCaSanPham()
+        public static  DataTable LayTatCaSanPham(bool SanPhamTonKho = true)
         {
-            return clsSanPham_DAO.LayTatCaSanPham();
+            return clsSanPham_DAO.LayTatCaSanPham(SanPhamTonKho);
         }
         public static DataTable LayTatCaMauMa()
         {

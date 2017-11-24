@@ -40,10 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsChiTietHD_DAO.cs" />
     <Compile Include="clsChiTietPhieuNhapKho_DAO.cs" />
     <Compile Include="clsChiTietSanPham_DAO.cs" />
     <Compile Include="clsDanhMuc_DAO.cs" />
     <Compile Include="clsHinhAnh_DAO.cs" />
+    <Compile Include="clsHoaDon_DAO.cs" />
     <Compile Include="clsKhuyenMai_DAO.cs" />
     <Compile Include="clsNhaCungCap_DAO.cs" />
     <Compile Include="clsNhanVien_DAO.cs" />

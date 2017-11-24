@@ -44,6 +44,34 @@ namespace DAO
             return km;
         }
 
+        public static List<clsKhuyenMai_DTO> LayKhuyenMaiTheoHD()
+        {
+            List<clsKhuyenMai_DTO> lstKM = new List<clsKhuyenMai_DTO>();
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from KhuyenMai where TrangThai = 1 AND ApDungHD = 1");
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        clsKhuyenMai_DTO km = new clsKhuyenMai_DTO();
+                        km.MaKhuyenMai = (int)reader["MaKhuyenMai"];
+                        km.TenKhuyenMai = reader["TenKhuyenMai"].ToString();
+                        km.MoTa = reader["MoTa"].ToString();
+                        DateTime? ngayTam = null;
+                        km.NgayBatDau = reader["NgayBatDau"] == DBNull.Value ? ngayTam : DateTime.Parse(reader["NgayBatDau"].ToString());
+                        km.NgayKetThuc = reader["NgayKetThuc"] == DBNull.Value ? ngayTam : DateTime.Parse(reader["NgayKetThuc"].ToString());
+                        km.TrangThai = (int)reader["TrangThai"];
+                        lstKM.Add(km);
+                    }
+                }
+                connection.Close();
+            }
+
+            return lstKM;
+        }
+
         public static int Them(clsKhuyenMai_DTO khuyenMai)
         {
             using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
