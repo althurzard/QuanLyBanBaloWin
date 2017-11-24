@@ -16,7 +16,7 @@ namespace DTO
         decimal _GiaBanLe;
         bool _ChongNuoc;
         float _TrongLuong;
-        int _MaDanhMuc;
+        string _MaDanhMuc;
         int _SoNamBH;
         int _maKhuyenMai;
 
@@ -25,7 +25,7 @@ namespace DTO
 
         } 
 
-        public clsSanPham_DTO(string maSP,string tenSP, string thuongHieu, string chatLieu, decimal giaVon, decimal giaBanLe, bool chongNuoc, float trongLuong, int maDanhMuc, int namBH)
+        public clsSanPham_DTO(string maSP,string tenSP, string thuongHieu, string chatLieu, decimal giaVon, decimal giaBanLe, bool chongNuoc, float trongLuong, string maDanhMuc, int namBH)
         {
              _MaSP = maSP;
              _TenSP = tenSP;
@@ -47,7 +47,7 @@ namespace DTO
         public decimal GiaBanLe { get => _GiaBanLe; set => _GiaBanLe = value; }
         public bool ChongNuoc { get => _ChongNuoc; set => _ChongNuoc = value; }
         public float TrongLuong { get => _TrongLuong; set => _TrongLuong = value; }
-        public int MaDanhMuc { get => _MaDanhMuc; set => _MaDanhMuc = value; }
+        public string MaDanhMuc { get => _MaDanhMuc; set => _MaDanhMuc = value; }
         public int SoNamBH { get => _SoNamBH; set => _SoNamBH = value; }
         public int MaKhuyenMai { get => _maKhuyenMai; set => _maKhuyenMai = value; }
     }

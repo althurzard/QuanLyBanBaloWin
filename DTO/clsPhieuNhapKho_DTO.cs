@@ -19,6 +19,10 @@ namespace DTO
         {
 
         }
+        public clsPhieuNhapKho_DTO(string maPhieuNhapKho)
+        {
+            _maPhieuNhapKho = maPhieuNhapKho;
+        }
         public clsPhieuNhapKho_DTO(string maPhieuNhapKho,string maNhanVien,string ghiChu,DateTime ngayKhoiTao,int trangThai, string maNhaCungCap)
         {
              _maPhieuNhapKho = maPhieuNhapKho;
