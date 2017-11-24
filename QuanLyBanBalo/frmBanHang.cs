@@ -20,6 +20,7 @@ namespace QuanLyBanBalo
         private DataView dvTatCaSP;
         private DataTable dtTatCaSP;
         private List<object[]> listTempRemovedRows = new List<object[]>();
+        private clsHoaDon_DTO hoaDonHienTai = null;
         public frmBanHang()
         {
             InitializeComponent();
@@ -104,12 +105,17 @@ namespace QuanLyBanBalo
                             lblTenCTKM.Text = string.Format("- {0}", km.TenKhuyenMai);
                             lblNgayKM.Text = string.Format("- Diễn ra từ ngày {0} đến hết ngày {1}", ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"));
 
-                            break;
+                            return;
                         }
                     }
                 }
                 
             }
+
+            lblTenCTKM.Text = "Hiện không có chương trình khuyến mại.";
+            lblNgayKM.Text = "";
+            khuyenMai = clsKhuyenMai_BUS.LayKhuyenMai(1);
+
         }
 
 
@@ -157,6 +163,8 @@ namespace QuanLyBanBalo
             dtSanPham.Columns.Add("TongTien");
             dtSanPham.Columns.Add("MaCTSP");
             dtSanPham.Columns.Add("MaKhuyenMai");
+            dtSanPham.Columns.Add("ThuongHieu");
+            dtSanPham.Columns.Add("KMGiamTru");
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.DataSource = dvSanPham;
             dgvSanPham.AutoGenerateColumns = false;
@@ -210,7 +218,8 @@ namespace QuanLyBanBalo
 
         private void In()
         {
-
+            frmInHDBanHang frm = new frmInHDBanHang(dtSanPham, hoaDonHienTai);
+            frm.ShowDialog();
         }
 
         private void DoiTrangThaiButtonThem()
@@ -254,7 +263,7 @@ namespace QuanLyBanBalo
             clsKhuyenMai_DTO khuyenMai = clsKhuyenMai_BUS.LayKhuyenMai(sanPham.MaKhuyenMai);
 
             double giaGiamTru = ((double.Parse(khuyenMai.MoTa) / 100) * (double)sanPham.GiaBanLe);
-            double tongTienSP = (((double)sanPham.GiaBanLe - double.Parse(khuyenMai.MoTa)) * double.Parse(soLuong));
+            double tongTienSP = (((double)sanPham.GiaBanLe - giaGiamTru) * double.Parse(soLuong));
 
             DataRow newRow = dtSanPham.NewRow();
             newRow["HinhAnh"] = hinhAnhSP.Url;
@@ -267,9 +276,11 @@ namespace QuanLyBanBalo
             newRow["SoLuong"] = soLuong;
             newRow["MaCTSP"] = CTSP.MaCTSP;
             newRow["MaKhuyenMai"] = khuyenMai.MaKhuyenMai;
-            newRow["TongTien"] = tongTienSP.ToString("0,00#"); 
+            newRow["TongTien"] = tongTienSP.ToString("0,00#");
+            newRow["ThuongHieu"] = sanPham.ThuongHieu;
+            newRow["KMGiamTru"] = khuyenMai.MoTa + "%";
             dtSanPham.Rows.Add(newRow);
-
+            
             CapNhatThongTinThanhToan();
             CapNhatSoLuongChoBangTatCaSP(-int.Parse(soLuong), CTSP.MaCTSP);
             CapNhatSoLuongChoTextbox();
@@ -318,7 +329,7 @@ namespace QuanLyBanBalo
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            clsHoaDon_DTO hoaDon = new clsHoaDon_DTO(
+            hoaDonHienTai = new clsHoaDon_DTO(
                 Helper.GetTimestamp(DateTime.Now),
                 txtSDT.Text,
                 txtTenKH.Text,
@@ -328,7 +339,7 @@ namespace QuanLyBanBalo
                 double.Parse(lblThanhTien.Text),
                 khuyenMai);
 
-            if (clsHoaDon_BUS.Them(hoaDon))
+            if (clsHoaDon_BUS.Them(hoaDonHienTai))
             {
                 // Chi tiet hoa don
                 foreach(DataRow row in dtSanPham.Rows)
@@ -348,7 +359,7 @@ namespace QuanLyBanBalo
                         double.Parse(row["TongTien"].ToString()),
                         int.Parse(row["SoLuong"].ToString()),
                         km,
-                        hoaDon
+                        hoaDonHienTai
                         );
 
                    if (!clsChiTietHD_BUS.Them(cthd))
@@ -524,17 +535,20 @@ namespace QuanLyBanBalo
 
         }
 
-        private void dgvTatCaSP_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void dgvTatCaSP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaCTSP.Text = dgvTatCaSP.CurrentRow.Cells[1].Value.ToString();
-            txtTenSP.Text = dgvTatCaSP.CurrentRow.Cells[3].Value.ToString();
-            txtMauSac.Text = dgvTatCaSP.CurrentRow.Cells[7].Value.ToString();
+
+
             // Cập nhật lại sô lượng nếu vượt quá số lượng tồn kho
+            if (dgvTatCaSP.SelectedRows.Count > 0)
+            {
+                string tenSP = dgvTatCaSP.SelectedRows[0].Cells[3].Value.ToString();
+                string mauSac = dgvTatCaSP.SelectedRows[0].Cells[7].Value.ToString();
+                string maCTSP = dgvTatCaSP.SelectedRows[0].Cells[1].Value.ToString();
+                txtTenSP.Text = tenSP;
+                txtMauSac.Text = mauSac;
+                txtMaCTSP.Text = maCTSP;
+            }
 
         }
     }
