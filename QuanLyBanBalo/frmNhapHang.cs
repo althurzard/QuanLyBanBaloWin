@@ -44,7 +44,7 @@ namespace QuanLyBanBalo
             TaoCotDataTable();
 
             btnThemMoi.Enabled = false;
-            EnableSanPham(false);
+            EnableSanPham(true);
             EnableThongTinHD(false);
             EnableChiTiet(false);
         }
@@ -167,15 +167,7 @@ namespace QuanLyBanBalo
             txtGiaVon.Text = null;
             txtGiaBanLe.Text = null;
         }
-        private void RefreshThongTin()
-        {
-            lbMaHoaDon.Text = null;
-        }
         //enable and disable
-        private void EnableHoaDon(bool b)
-        {
-            btnLuuHoaDon.Enabled = b;
-        }
         private void EnableSanPham(bool b)
         {
             txtTenSP.Enabled = b;
@@ -455,115 +447,66 @@ namespace QuanLyBanBalo
             {
                 try
                 {
-                    for (int i = 0; i < dgvHDSanPham.Rows.Count; i++)
+                    //Lưu vào PhieuNhapKho
+                    string _maPhieuNhapKho = Helper.GetTimestamp(DateTime.Now);
+                    clsPhieuNhapKho_DTO phieuNhapKho = new clsPhieuNhapKho_DTO(_maPhieuNhapKho, Validation.LayMaNhanVien(), txtGhiChu.Text, DateTime.Now, 1, cboNCC.SelectedValue.ToString());
+                    object resultPhieuNhap = clsPhieuNhapKho_BUS.ThemPhieuNhapKho(phieuNhapKho);
+                    if (resultPhieuNhap is bool)
                     {
-                        _maChiTietSanPham = dgvHDSanPham.Rows[i].Cells["colMaChiTiet"].Value.ToString();
-                        _mauSac = dgvHDSanPham.Rows[i].Cells["colMauSac"].Value.ToString();
-                        _soLuong = dgvHDSanPham.Rows[i].Cells["colSoLuong"].Value.ToString();
-                        _hinhAnh = dgvHDSanPham.Rows[i].Cells["colHinhAnh"].Value.ToString();
-                        _maSanPham = dgvHDSanPham.Rows[i].Cells["colMaSanPham"].Value.ToString();
-                        //kiem tra ton tai san pham ==> chua ton tai ==> thêm mới sản phẩm ==> thêm từng chi tiết ==> lưu hóa đơn nhập
-                        if (clsSanPham_BUS.KiemTonTaiSanPham(_maSanPham))
+                        if ((bool)(resultPhieuNhap))
                         {
-                            //kiem tra ton tai chi tiet trong db ==> update
-                            if (clsChiTietSanPham_BUS.KiemTraTonTaiMaCT(_maChiTietSanPham))
+                            //Thành công
+                            for (int i = 0; i < dgvHDSanPham.Rows.Count; i++)
                             {
-                                //Tồn tại
-                                //Lấy số lượng cũ để cập nhật
-                                int SoLuongSanPhamCu = 0;
-                                SqlDataReader dr = clsChiTietSanPham_BUS.LayChiTiet(_maSanPham, _mauSac.Trim());
-                                if (dr != null)
+                                _maChiTietSanPham = dgvHDSanPham.Rows[i].Cells["colMaChiTiet"].Value.ToString();
+                                _mauSac = dgvHDSanPham.Rows[i].Cells["colMauSac"].Value.ToString();
+                                _soLuong = dgvHDSanPham.Rows[i].Cells["colSoLuong"].Value.ToString();
+                                _hinhAnh = dgvHDSanPham.Rows[i].Cells["colHinhAnh"].Value.ToString();
+                                _maSanPham = dgvHDSanPham.Rows[i].Cells["colMaSanPham"].Value.ToString();
+                                //kiem tra ton tai san pham ==> chua ton tai ==> thêm mới sản phẩm ==> thêm từng chi tiết ==> lưu hóa đơn nhập
+                                if (clsSanPham_BUS.KiemTonTaiSanPham(_maSanPham))
                                 {
-                                    while (dr.Read())
+                                    //kiem tra ton tai chi tiet trong db ==> update
+                                    if (clsChiTietSanPham_BUS.KiemTraTonTaiMaCT(_maChiTietSanPham))
                                     {
-                                        SoLuongSanPhamCu = int.Parse(dr["SoLuong"].ToString());
-                                    }
-                                }
-                                SoLuongSanPhamCu += int.Parse(_soLuong);
-                                //Lưu chi tiết sản phẩm
-                                clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(_maChiTietSanPham, _mauSac, SoLuongSanPhamCu);
-                                object resultChiTietSP = clsChiTietSanPham_BUS.CapNhatSoLuong(chiTietSanPham);
-                                if (resultChiTietSP is bool)
-                                {
-                                    if ((bool)resultChiTietSP)
-                                    {
-                                        //MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Thêm chi tiết thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    }
-                                }
-                                else
-                                {
-                                    MessageBox.Show((string)resultChiTietSP);
-                                }
-                            }
-                            else
-                            {
-                                //Không tồn tại chi tiết ==> tạo mới chi tiết
-                                //Lưu ảnh vào database
-                                clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(_hinhAnh, clsHinhAnh_DTO.LoaiHinhAnh.Product);
-                                object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                                if (resultHinhAnh is bool)
-                                {
-                                    //Lưu chi tiết sản phẩm mới
-                                    clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(_maSanPham, _maChiTietSanPham, _mauSac, int.Parse(_soLuong), hinhAnh.MaHinhAnh, 1);
-                                    object resultChiTietSP = clsChiTietSanPham_BUS.ThemChiTietSanPham(chiTietSanPham);
-                                    if (resultChiTietSP is bool)
-                                    {
-                                        if ((bool)resultChiTietSP)
+                                        //Tồn tại
+                                        //Lấy số lượng cũ để cập nhật
+                                        int SoLuongSanPhamCu = 0;
+                                        SqlDataReader dr = clsChiTietSanPham_BUS.LayChiTiet(_maSanPham, _mauSac.Trim());
+                                        if (dr != null)
                                         {
-                                            // Copy image file vào folder data/product
-                                            string fileName = Path.GetFileName(_hinhAnh);
-                                            string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
-                                            File.Copy(_hinhAnh, destPath, true);
+                                            while (dr.Read())
+                                            {
+                                                SoLuongSanPhamCu = int.Parse(dr["SoLuong"].ToString());
+                                            }
+                                        }
+                                        SoLuongSanPhamCu += int.Parse(_soLuong);
+                                        //Lưu chi tiết sản phẩm
+                                        clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(_maChiTietSanPham, _mauSac, SoLuongSanPhamCu);
+                                        object resultChiTietSP = clsChiTietSanPham_BUS.CapNhatSoLuong(chiTietSanPham);
+                                        if (resultChiTietSP is bool)
+                                        {
+                                            if ((bool)resultChiTietSP)
+                                            {
+                                                //MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Thêm chi tiết thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Thêm sản phẩm mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            MessageBox.Show((string)resultChiTietSP);
                                         }
-
                                     }
                                     else
                                     {
-                                        MessageBox.Show((string)resultChiTietSP);
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            //Không tồn tại sản phẩm ==> thêm mới sản phẩm
-                            //Lấy dữ liệu trong DataTable
-                            DataRow row = dtSanPhamMoi.Rows[_layDongTrongDataTable];
-                            string _maSP = row["MaSp"].ToString();
-                            string _tenSP = row["TenSp"].ToString();
-                            string _thuongHieu = row["ThuongHieu"].ToString();
-                            string _chatLieu = row["ChatLieu"].ToString();
-                            int _giaVon = int.Parse(row["GiaVon"].ToString());
-                            int _giaBanLe = int.Parse(row["GiaBanLe"].ToString());
-                            bool _chongNuoc = bool.Parse(row["ChongNuoc"].ToString());
-                            float _trongLuong = float.Parse(row["TrongLuong"].ToString());
-                            string _maDanhMuc = row["MaDanhMuc"].ToString();
-                            int _namBH = int.Parse(row["NamBH"].ToString());
-
-                            //Thêm sản phẩm
-                            clsSanPham_DTO sanPham = new clsSanPham_DTO(_maSP, _tenSP, _thuongHieu, _chatLieu, _giaVon, _giaBanLe, _chongNuoc, _trongLuong, _maDanhMuc, _namBH);
-                            object resultSanPham = clsSanPham_BUS.ThemSanPham(sanPham);
-                            if (resultSanPham is bool)
-                            {
-                                if ((bool)resultSanPham)
-                                {
-                                    //MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    //_layDongTrongDataTable lấy dòng tiếp theo trong datatable nếu có sản phẩm mới
-                                    _layDongTrongDataTable++;
-                                    //thêm chi tiết sản phẩm vừa thêm
-                                    clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(_hinhAnh, clsHinhAnh_DTO.LoaiHinhAnh.Product);
-                                    object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
-                                    if (resultHinhAnh is bool)
-                                    {
-                                        if ((bool)(resultHinhAnh))
+                                        //Không tồn tại chi tiết ==> tạo mới chi tiết
+                                        //Lưu ảnh vào database
+                                        clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(_hinhAnh, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                                        object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                                        if (resultHinhAnh is bool)
                                         {
                                             //Lưu chi tiết sản phẩm mới
                                             clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(_maSanPham, _maChiTietSanPham, _mauSac, int.Parse(_soLuong), hinhAnh.MaHinhAnh, 1);
@@ -579,69 +522,135 @@ namespace QuanLyBanBalo
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Thêm chi tiết mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    MessageBox.Show("Thêm sản phẩm mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 }
+
                                             }
                                             else
                                             {
                                                 MessageBox.Show((string)resultChiTietSP);
                                             }
                                         }
-                                        else
-                                        {
-                                            MessageBox.Show("Thêm hình ảnh mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show((string)resultHinhAnh);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Thêm sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                }
-                            }
-                            else
-                            {
-                                MessageBox.Show((string)resultSanPham);
-                            }
-                        }
+                                    //Không tồn tại sản phẩm ==> thêm mới sản phẩm
+                                    //Lấy dữ liệu trong DataTable
+                                    DataRow row = dtSanPhamMoi.Rows[_layDongTrongDataTable];
+                                    string _maSP = row["MaSp"].ToString();
+                                    string _tenSP = row["TenSp"].ToString();
+                                    string _thuongHieu = row["ThuongHieu"].ToString();
+                                    string _chatLieu = row["ChatLieu"].ToString();
+                                    int _giaVon = int.Parse(row["GiaVon"].ToString());
+                                    int _giaBanLe = int.Parse(row["GiaBanLe"].ToString());
+                                    bool _chongNuoc = bool.Parse(row["ChongNuoc"].ToString());
+                                    float _trongLuong = float.Parse(row["TrongLuong"].ToString());
+                                    string _maDanhMuc = row["MaDanhMuc"].ToString();
+                                    int _namBH = int.Parse(row["NamBH"].ToString());
 
-                        //Lưu ChiTietNhapKho
-                        clsChiTietPhieuNhapKho_DTO chiTiet = new clsChiTietPhieuNhapKho_DTO(Helper.GetTimestamp(DateTime.Now), _maChiTietSanPham, int.Parse(_soLuong), lbMaHoaDon.Text);
-                        object resultChiTiet = clsChiTietPhieuNhapKho_BUS.ThemChiTietPhieuNhapKho(chiTiet);
-                        if (resultChiTiet is bool)
-                        {
-                            if ((bool)(resultChiTiet))
-                            {
-                                //MessageBox.Show("Đã lưu vào chi tiết hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                Check = true;
-                            }
-                            else
-                            {
-                                Check = false;
-                                MessageBox.Show("Thêm chi tiết thất bại, vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                                    //Thêm sản phẩm
+                                    clsSanPham_DTO sanPham = new clsSanPham_DTO(_maSP, _tenSP, _thuongHieu, _chatLieu, _giaVon, _giaBanLe, _chongNuoc, _trongLuong, _maDanhMuc, _namBH);
+                                    object resultSanPham = clsSanPham_BUS.ThemSanPham(sanPham);
+                                    if (resultSanPham is bool)
+                                    {
+                                        if ((bool)resultSanPham)
+                                        {
+                                            //MessageBox.Show("Thêm sản phẩm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                            //_layDongTrongDataTable lấy dòng tiếp theo trong datatable nếu có sản phẩm mới
+                                            _layDongTrongDataTable++;
+                                            //thêm chi tiết sản phẩm vừa thêm
+                                            clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(_hinhAnh, clsHinhAnh_DTO.LoaiHinhAnh.Product);
+                                            object resultHinhAnh = clsHinhAnh_BUS.ThemHinhAnh(hinhAnh);
+                                            if (resultHinhAnh is bool)
+                                            {
+                                                if ((bool)(resultHinhAnh))
+                                                {
+                                                    //Lưu chi tiết sản phẩm mới
+                                                    clsChiTietSP_DTO chiTietSanPham = new clsChiTietSP_DTO(_maSanPham, _maChiTietSanPham, _mauSac, int.Parse(_soLuong), hinhAnh.MaHinhAnh, 1);
+                                                    object resultChiTietSP = clsChiTietSanPham_BUS.ThemChiTietSanPham(chiTietSanPham);
+                                                    if (resultChiTietSP is bool)
+                                                    {
+                                                        if ((bool)resultChiTietSP)
+                                                        {
+                                                            // Copy image file vào folder data/product
+                                                            string fileName = Path.GetFileName(_hinhAnh);
+                                                            string destPath = Directory.GetCurrentDirectory() + "\\data\\product\\" + fileName;
+                                                            File.Copy(_hinhAnh, destPath, true);
+                                                        }
+                                                        else
+                                                        {
+                                                            MessageBox.Show("Thêm chi tiết mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show((string)resultChiTietSP);
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Thêm hình ảnh mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show((string)resultHinhAnh);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Thêm sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show((string)resultSanPham);
+                                    }
+                                }
+
+                                //Lưu ChiTietNhapKho
+                                clsChiTietPhieuNhapKho_DTO chiTiet = new clsChiTietPhieuNhapKho_DTO(Helper.GetTimestamp(DateTime.Now), _maChiTietSanPham, int.Parse(_soLuong), _maPhieuNhapKho);
+                                object resultChiTiet = clsChiTietPhieuNhapKho_BUS.ThemChiTietPhieuNhapKho(chiTiet);
+                                if (resultChiTiet is bool)
+                                {
+                                    if ((bool)(resultChiTiet))
+                                    {
+                                        //MessageBox.Show("Đã lưu vào chi tiết hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        Check = true;
+                                    }
+                                    else
+                                    {
+                                        Check = false;
+                                        MessageBox.Show("Thêm chi tiết thất bại, vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show((string)resultChiTiet);
+                                }
+                            }//end for
                         }
                         else
                         {
-                            MessageBox.Show((string)resultChiTiet);
+                            MessageBox.Show("Thêm thất bại");
                         }
-                    }//end for
+                    }
+                    else
+                    {
+                        MessageBox.Show((string)resultPhieuNhap);
+                    }
                     _layDongTrongDataTable = 0;
                     if (Check)
                     {
-                        lbTongSoLuong.Text = 0.ToString();
+
                         btnThemMoi.Enabled = false;
                         EnableChiTiet(false);
                         EnableSanPham(false);
                         EnableThongTinHD(false);
-                        EnableHoaDon(true);
                         RefreshChiTietSanPham();
                         RefreshHoaDon();
                         RefreshSanPham();
-                        RefreshThongTin();
                         dgvHDSanPham.Rows.Clear();
                         MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -663,19 +672,11 @@ namespace QuanLyBanBalo
 
         private void dgvSanPham_DoubleClick_1(object sender, EventArgs e)
         {
-            if (lbMaHoaDon.Text == "")
-            {
-                MessageBox.Show("Vui lòng tạo mới hóa đơn trước khi cập nhật sản phâm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                txtCTMaSP.Text = dgvSanPham.CurrentRow.Cells["colMaSp"].Value.ToString();
-                txtCTTenSP.Text = dgvSanPham.CurrentRow.Cells["colTenSanPham"].Value.ToString();
-                EnableChiTiet(true);
-                EnableSanPham(false);
-                EnableHoaDon(false);
-            }
 
+            txtCTMaSP.Text = dgvSanPham.CurrentRow.Cells["colMaSp"].Value.ToString();
+            txtCTTenSP.Text = dgvSanPham.CurrentRow.Cells["colTenSanPham"].Value.ToString();
+            EnableChiTiet(true);
+            EnableSanPham(false);
         }
 
         private void txtTenSP_TextChanged(object sender, EventArgs e)
@@ -688,7 +689,6 @@ namespace QuanLyBanBalo
             RefreshHoaDon();
             RefreshChiTietSanPham();
             RefreshSanPham();
-            RefreshThongTin();
             EnableChiTiet(false);
             EnableSanPham(false);
             EnableThongTinHD(false);
@@ -703,27 +703,7 @@ namespace QuanLyBanBalo
 
         private void btnLuuHoaDon_Click_1(object sender, EventArgs e)
         {
-            //Lưu vào PhieuNhapKho
-            string maPhieuNhapKho = Helper.GetTimestamp(DateTime.Now);
-            clsPhieuNhapKho_DTO phieuNhapKho = new clsPhieuNhapKho_DTO(maPhieuNhapKho, Validation.LayMaNhanVien(), txtGhiChu.Text, DateTime.Now, 1, cboNCC.SelectedValue.ToString());
-            object resultPhieuNhap = clsPhieuNhapKho_BUS.ThemPhieuNhapKho(phieuNhapKho);
-            if (resultPhieuNhap is bool)
-            {
-                if ((bool)(resultPhieuNhap))
-                {
-                    //Thành công
-                    lbMaHoaDon.Text = maPhieuNhapKho;
-                    EnableSanPham(true);
-                }
-                else
-                {
-                    MessageBox.Show("Thêm thất bại");
-                }
-            }
-            else
-            {
-                MessageBox.Show((string)resultPhieuNhap);
-            }
+
         }
         private void txtGiaVon_TextChanged_1(object sender, EventArgs e)
         {
