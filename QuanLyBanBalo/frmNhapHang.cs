@@ -19,7 +19,7 @@ namespace QuanLyBanBalo
         DataTable dtNhaCungCap, dtDanhMuc, dtSanPham, dtSanPhamMoi;
         DataView dvSanPham, dvSanPhamMoi;
         bool _KiemTraThayDoiTextBox = true;
-        bool Check = false;
+        bool _KiemTraThemChiTiet = false;
         private static frmNhapHang _Instance = null;
 
         public frmNhapHang()
@@ -450,10 +450,10 @@ namespace QuanLyBanBalo
                     //Lưu vào PhieuNhapKho
                     string _maPhieuNhapKho = Helper.GetTimestamp(DateTime.Now);
                     clsPhieuNhapKho_DTO phieuNhapKho = new clsPhieuNhapKho_DTO(_maPhieuNhapKho, Validation.LayMaNhanVien(), txtGhiChu.Text, DateTime.Now, 1, cboNCC.SelectedValue.ToString());
-                    object resultPhieuNhap = clsPhieuNhapKho_BUS.ThemPhieuNhapKho(phieuNhapKho);
-                    if (resultPhieuNhap is bool)
+                    object resultPhieuNhapKho = clsPhieuNhapKho_BUS.ThemPhieuNhapKho(phieuNhapKho);
+                    if (resultPhieuNhapKho is bool)
                     {
-                        if ((bool)(resultPhieuNhap))
+                        if ((bool)(resultPhieuNhapKho))
                         {
                             //Thành công
                             for (int i = 0; i < dgvHDSanPham.Rows.Count; i++)
@@ -493,11 +493,13 @@ namespace QuanLyBanBalo
                                             else
                                             {
                                                 MessageBox.Show("Thêm chi tiết thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                return;
                                             }
                                         }
                                         else
                                         {
                                             MessageBox.Show((string)resultChiTietSP);
+                                            return;
                                         }
                                     }
                                     else
@@ -522,14 +524,21 @@ namespace QuanLyBanBalo
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Thêm sản phẩm mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    MessageBox.Show("Thêm chi tiết mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    return;
                                                 }
 
                                             }
                                             else
                                             {
                                                 MessageBox.Show((string)resultChiTietSP);
+                                                return;
                                             }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show((string)resultHinhAnh);
+                                            return;
                                         }
                                     }
                                 }
@@ -581,31 +590,37 @@ namespace QuanLyBanBalo
                                                         else
                                                         {
                                                             MessageBox.Show("Thêm chi tiết mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                            return;
                                                         }
                                                     }
                                                     else
                                                     {
                                                         MessageBox.Show((string)resultChiTietSP);
+                                                        return;
                                                     }
                                                 }
                                                 else
                                                 {
                                                     MessageBox.Show("Thêm hình ảnh mới thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                    return;
                                                 }
                                             }
                                             else
                                             {
                                                 MessageBox.Show((string)resultHinhAnh);
+                                                return;
                                             }
                                         }
                                         else
                                         {
                                             MessageBox.Show("Thêm sản phẩm thất bại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                            return;
                                         }
                                     }
                                     else
                                     {
                                         MessageBox.Show((string)resultSanPham);
+                                        return;
                                     }
                                 }
 
@@ -617,36 +632,39 @@ namespace QuanLyBanBalo
                                     if ((bool)(resultChiTiet))
                                     {
                                         //MessageBox.Show("Đã lưu vào chi tiết hóa đơn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                        Check = true;
+                                        _KiemTraThemChiTiet = true;
                                     }
                                     else
                                     {
-                                        Check = false;
+                                        _KiemTraThemChiTiet = false;
                                         MessageBox.Show("Thêm chi tiết thất bại, vui lòng kiểm tra lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                        return;
                                     }
                                 }
                                 else
                                 {
                                     MessageBox.Show((string)resultChiTiet);
+                                    return;
                                 }
                             }//end for
                         }
                         else
                         {
                             MessageBox.Show("Thêm thất bại");
+                            return;
                         }
                     }
                     else
                     {
-                        MessageBox.Show((string)resultPhieuNhap);
+                        MessageBox.Show((string)resultPhieuNhapKho);
+                        return; 
                     }
                     _layDongTrongDataTable = 0;
-                    if (Check)
+                    if (_KiemTraThemChiTiet)
                     {
-
                         btnThemMoi.Enabled = false;
                         EnableChiTiet(false);
-                        EnableSanPham(false);
+                        EnableSanPham(true);
                         EnableThongTinHD(false);
                         RefreshChiTietSanPham();
                         RefreshHoaDon();
@@ -690,7 +708,7 @@ namespace QuanLyBanBalo
             RefreshChiTietSanPham();
             RefreshSanPham();
             EnableChiTiet(false);
-            EnableSanPham(false);
+            EnableSanPham(true);
             EnableThongTinHD(false);
             dgvHDSanPham.Rows.Clear();
         }

@@ -61,10 +61,6 @@ namespace DAO
                 }
             }
         }
-
-<<<<<<< HEAD
-        public static SqlDataReader LayChiTiet(string maSP,string mauSac)
-=======
         public static bool CapNhatSoLuong(string maCTSP, int soLuong)
         {
             clsChiTietSP_DTO chiTiet = LayChiTiet(maCTSP);
@@ -74,15 +70,15 @@ namespace DAO
                 string query = string.Format("UPDATE ChiTietSanPham SET SoLuong = {0} WHERE MaCTSP = '{1}'", tongSLSP, maCTSP);
                 return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
 
-            } else
+            }
+            else
             {
                 return false;
             }
-           
+
         }
 
-        public static SqlDataReader LayChiTiet(string maSp,string mauSac)
->>>>>>> upstream/master
+        public static SqlDataReader LayChiTiet(string maSP,string mauSac)
         {
             SqlDataReader drChiTiet;
             string query = string.Format("SELECT * FROM ChiTietSanPham WHERE MaSP = '{0}' AND MauSac =N'{1}'", maSP, mauSac);
