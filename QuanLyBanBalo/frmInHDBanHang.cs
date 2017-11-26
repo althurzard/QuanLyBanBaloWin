@@ -10,17 +10,27 @@ using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using Microsoft.ReportingServices;
 using DTO;
+using System.Globalization;
+
 namespace QuanLyBanBalo
 {
     public partial class frmInHDBanHang : Form
     {
         private DataTable dtSanPham;
         private clsHoaDon_DTO hoaDon;
+        private clsKhuyenMai_DTO khuyenMai;
+        private string thanhTien;
 
-        public frmInHDBanHang(DataTable dt,clsHoaDon_DTO hd)
+        public frmInHDBanHang(DataTable dt,clsHoaDon_DTO hd,clsKhuyenMai_DTO km, string tongTien)
         {
             dtSanPham = dt.Copy();
             hoaDon = hd;
+            khuyenMai = km;
+            tongTien = tongTien.Trim(',');
+            this.thanhTien = Helper.ChuyenSo(new string((from c in tongTien
+                                                         where char.IsWhiteSpace(c) || char.IsLetterOrDigit(c)
+                                                         select c).ToArray()));
+            this.thanhTien = new CultureInfo("vn-VN").TextInfo.ToTitleCase(this.thanhTien) + ".";
             CapNhatLaiTenSP();
             InitializeComponent();
         }
@@ -47,6 +57,10 @@ namespace QuanLyBanBalo
             this.rptHDBH.LocalReport.SetParameters(new ReportParameter("TenNV", Validation.nhanVien.NhanVien.HoTen, false));
 
             this.rptHDBH.LocalReport.SetParameters(new ReportParameter("MaHD", hoaDon.MaHD, false));
+
+            this.rptHDBH.LocalReport.SetParameters(new ReportParameter("HDKhuyenMai", khuyenMai.MoTa, false));
+
+            this.rptHDBH.LocalReport.SetParameters(new ReportParameter("ThanhTienBangChu", thanhTien, false));
 
             this.rptHDBH.RefreshReport();
            

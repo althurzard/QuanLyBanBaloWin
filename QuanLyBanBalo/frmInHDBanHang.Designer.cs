@@ -36,14 +36,14 @@
             this.rptHDBH.Location = new System.Drawing.Point(1, 2);
             this.rptHDBH.Name = "rptHDBH";
             this.rptHDBH.ServerReport.BearerToken = null;
-            this.rptHDBH.Size = new System.Drawing.Size(860, 483);
+            this.rptHDBH.Size = new System.Drawing.Size(860, 538);
             this.rptHDBH.TabIndex = 0;
             // 
             // frmInHDBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(862, 485);
+            this.ClientSize = new System.Drawing.Size(862, 541);
             this.Controls.Add(this.rptHDBH);
             this.Name = "frmInHDBanHang";
             this.Text = "frmInHDBanHang";

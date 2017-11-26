@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data;
 using DTO;
 using BUS;
+using System.Threading;
+
 namespace QuanLyBanBalo
 {
     public partial class frmBanHang : Form
@@ -198,10 +200,7 @@ namespace QuanLyBanBalo
 
         private void LamMoi()
         {
-            btnThem.Enabled = false;
-            txtSoTienNhan.Enabled = true;
-            btnXacNhan.Enabled = false;
-            btnIn.Enabled = false;
+            XacNhanHoaDon(true);
             txtGhiChu.Text = "";
             txtMaCTSP.Text = "";
             txtSDT.Text = "";
@@ -210,15 +209,31 @@ namespace QuanLyBanBalo
             txtTenSP.Text = "";
             txtMauSac.Text = "";
             txtSoTienNhan.Text = "";
+            lblThanhTien.Text = "";
+            lblTienNhan.Text = "";
             dtSanPham.Clear();
             CapNhatThongTinThanhToan();
             LoadSanPham();
             CaiDat();
         }
 
+        private void XacNhanHoaDon(bool flag)
+        {
+            txtTenKH.Enabled = flag;
+            txtSDT.Enabled = flag;
+            txtGhiChu.Enabled = flag;
+            txtSoTienNhan.Enabled = flag;
+            btnThem.Enabled = flag;
+            txtMaCTSP.Enabled = flag;
+            txtTenSP.Enabled = flag;
+            txtMauSac.Enabled = flag;
+            txtSoLuong.Enabled = flag;
+            btnXacNhan.Enabled = flag;
+        }
+
         private void In()
         {
-            frmInHDBanHang frm = new frmInHDBanHang(dtSanPham, hoaDonHienTai);
+            frmInHDBanHang frm = new frmInHDBanHang(dtSanPham, hoaDonHienTai,khuyenMai,lblThanhTien.Text);
             frm.ShowDialog();
         }
 
@@ -344,6 +359,7 @@ namespace QuanLyBanBalo
                 // Chi tiet hoa don
                 foreach(DataRow row in dtSanPham.Rows)
                 {
+
                     clsKhuyenMai_DTO km = new clsKhuyenMai_DTO
                         (
                         row["TenKhuyenMai"].ToString(),
@@ -378,20 +394,19 @@ namespace QuanLyBanBalo
                         }
 
                     }
-                   
+
+                    int milliseconds = 100;
+                    Thread.Sleep(milliseconds);
+
                 }
 
                 DialogResult result = MessageBox.Show("Tạo hóa đơn thành công, bạn có muốn In ngay bây giờ?", "Thông báo", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     In();
-                } else
-                {
-                    btnXacNhan.Enabled = false;
-                    txtSoTienNhan.Enabled = false;
-                    btnThem.Enabled = false;
-                    btnIn.Enabled = true;
                 }
+                btnIn.Enabled = true;
+                XacNhanHoaDon(false);
 
             } else
             {
