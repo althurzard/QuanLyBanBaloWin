@@ -39,6 +39,11 @@ namespace BUS
             return clsChiTietSanPham_DAO.LayChiTiet(maCTSP);
         }
 
+        public static bool KiemTraTonTaiMaCT(string maCT)
+        {
+            return clsChiTietSanPham_DAO.KiemTraTonTaiMaCT(maCT);
+        }
+
         public static List<string> LayMauSac()
         {
             return clsChiTietSanPham_DAO.LayMauSac();

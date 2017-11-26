@@ -133,7 +133,7 @@ namespace DAO
                         sanPham.ChongNuoc = (bool)reader["ChongNuoc"];
                         sanPham.GiaBanLe = decimal.Parse(reader["GiaBanLe"].ToString());
                         sanPham.GiaVon = decimal.Parse(reader["GiaVon"].ToString());
-                        sanPham.MaDanhMuc = (int)reader["MaDanhMuc"];
+                        sanPham.MaDanhMuc = reader["MaDanhMuc"].ToString();
                         sanPham.MaSP = maSP;
                         sanPham.SoNamBH = (int)reader["SoNamBH"];
                         sanPham.TenSP = reader["TenSP"].ToString();
@@ -146,6 +146,12 @@ namespace DAO
             }
 
             return sanPham;
+        }
+
+        public static bool KiemTonTaiSanPham(string maSanPham)
+        {
+            string query = string.Format("SELECT count(TenSP) FROM SanPham WHERE MaSP = N'{0}'", maSanPham);
+            return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
 
         public static bool KiemTraTrungSanPham(string tenSanPham)

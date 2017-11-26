@@ -45,9 +45,9 @@ namespace DAO
         {
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
-                string query = string.Format("UPDATE ChiTietSanPham SET SoLuong =  @SoLuong WHERE MaSP = @MaSP AND MauSac = @MauSac");
+                string query = string.Format("UPDATE ChiTietSanPham SET SoLuong =  @SoLuong WHERE MaCTSP = @MaCTSP AND MauSac = @MauSac");
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.Add("@MaSP", SqlDbType.Char).Value = chiTietSanPham.MaSP;
+                cmd.Parameters.Add("@MaCTSP", SqlDbType.Char).Value = chiTietSanPham.MaCTSP;
                 cmd.Parameters.Add("@MauSac", SqlDbType.NVarChar).Value = chiTietSanPham.MauSac;
                 cmd.Parameters.Add("@SoLuong", SqlDbType.Int).Value = chiTietSanPham.SoLuong;
                 cmd.CommandType = CommandType.Text;
@@ -61,7 +61,6 @@ namespace DAO
                 }
             }
         }
-
         public static bool CapNhatSoLuong(string maCTSP, int soLuong)
         {
             clsChiTietSP_DTO chiTiet = LayChiTiet(maCTSP);
@@ -71,17 +70,18 @@ namespace DAO
                 string query = string.Format("UPDATE ChiTietSanPham SET SoLuong = {0} WHERE MaCTSP = '{1}'", tongSLSP, maCTSP);
                 return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
 
-            } else
+            }
+            else
             {
                 return false;
             }
-           
+
         }
 
-        public static SqlDataReader LayChiTiet(string maSp,string mauSac)
+        public static SqlDataReader LayChiTiet(string maSP,string mauSac)
         {
             SqlDataReader drChiTiet;
-            string query = string.Format("SELECT * FROM ChiTietSanPham WHERE MaSP = '{0}' and MauSac = N'{1}'",maSp,mauSac);
+            string query = string.Format("SELECT * FROM ChiTietSanPham WHERE MaSP = '{0}' AND MauSac =N'{1}'", maSP, mauSac);
             drChiTiet = XuLyDuLieu.LayDuLieu(query);
             return drChiTiet;
         }
@@ -104,13 +104,17 @@ namespace DAO
                         ctsp.MauSac = reader["MauSac"].ToString();
                         ctsp.TrangThai = int.Parse(reader["TrangThai"].ToString());
                         ctsp.SoLuong = int.Parse(reader["SoLuong"].ToString());
-                       
                     }
                 }
 
             }
 
             return ctsp;
+        }
+        public static bool KiemTraTonTaiMaCT(string _maCT)
+        {
+            string query = string.Format("select count(*) from ChiTietSanPham where MaCTSP = '{0}'", _maCT);
+            return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
 
         public static List<string> LayMauSac()

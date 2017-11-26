@@ -107,7 +107,7 @@ namespace QuanLyBanBalo
                                 dtoSanPham.ChongNuoc = false;
                         }
                         dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
-                        dtoSanPham.MaDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
+                        dtoSanPham.MaDanhMuc = cboMauMa.SelectedValue.ToString();
                         dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
 
                     // Thông tin ảnh hiện tại
