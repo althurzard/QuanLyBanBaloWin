@@ -50,9 +50,9 @@ namespace QuanLyBanBalo
 
             this.rptHDBH.LocalReport.DataSources.Add(new ReportDataSource("dataHDBanHang", dtSanPham));
 
-            this.rptHDBH.LocalReport.SetParameters(new ReportParameter("TenKH", hoaDon.TenKH, false));
+            this.rptHDBH.LocalReport.SetParameters(new ReportParameter("TenKH", hoaDon.KhachHang.TenKH, false));
 
-            this.rptHDBH.LocalReport.SetParameters(new ReportParameter("SDT", hoaDon.SDT, false));
+            this.rptHDBH.LocalReport.SetParameters(new ReportParameter("SDT", hoaDon.KhachHang.SDT, false));
 
             this.rptHDBH.LocalReport.SetParameters(new ReportParameter("TenNV", Validation.nhanVien.NhanVien.HoTen, false));
 

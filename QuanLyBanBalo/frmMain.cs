@@ -15,12 +15,29 @@ namespace QuanLyBanBalo
         public frmMain()
         {
             InitializeComponent();
-            nhapHangToolStripMenuItem.Enabled = Validation.CheckPermission();
-            nhanVienToolStripMenuItem.Enabled = Validation.CheckPermission();
-            matHangToolStripMenuItem.Enabled = Validation.CheckPermission();
-            nhaCungCapToolStripMenuItem.Enabled = Validation.CheckPermission();
-            baoHanhToolStripMenuItem.Enabled = Validation.CheckPermission();
+            nhapHangToolStripMenuItem.Visible = Validation.CheckPermission();
+            nhanVienToolStripMenuItem.Visible = Validation.CheckPermission();
+            matHangToolStripMenuItem.Visible = Validation.CheckPermission();
+            nhaCungCapToolStripMenuItem.Visible = Validation.CheckPermission();
+            khuyenMaiToolStripMenuItem.Visible = Validation.CheckPermission();
+            baoCaoToolStripDropDownButton.Visible = Validation.CheckPermission();
+            foreach (ToolStripItem item in toolStrip1.Items)
+            {
+                item.ForeColor = Color.Green;
+
+                if (item is ToolStripDropDownButton)
+                {
+                    var dropdown = ((ToolStripDropDownButton)item);
+                    foreach (ToolStripItem dropdownItem in dropdown.DropDownItems)
+                    {
+                        dropdownItem.ForeColor = Color.Green;
+                    }
+                }
+                
+            }
         }
+
+
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
         {

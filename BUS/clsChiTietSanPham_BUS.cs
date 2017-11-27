@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using DAO;
 using System.Data.SqlClient;
-
+using System.Data;
 namespace BUS
 {
     public class clsChiTietSanPham_BUS

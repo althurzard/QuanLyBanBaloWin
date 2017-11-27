@@ -31,6 +31,8 @@ namespace QuanLyBanBalo
         public frmNhanVien()
         {
             InitializeComponent();
+            pckNgaySinh.Format = DateTimePickerFormat.Custom;
+            pckNgaySinh.CustomFormat = "dd/MM/yyyy";
             setupBangTK();
             loadLoaiTK();
             showValidateLabel(false);

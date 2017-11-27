@@ -23,6 +23,7 @@ namespace QuanLyBanBalo
         private DataTable dtTatCaSP;
         private List<object[]> listTempRemovedRows = new List<object[]>();
         private clsHoaDon_DTO hoaDonHienTai = null;
+        private clsKhachHang_DTO khachHang = null;
         public frmBanHang()
         {
             InitializeComponent();
@@ -209,8 +210,8 @@ namespace QuanLyBanBalo
             txtTenSP.Text = "";
             txtMauSac.Text = "";
             txtSoTienNhan.Text = "";
-            lblThanhTien.Text = "";
-            lblTienNhan.Text = "";
+            lblThanhTien.Text = "0,000";
+            lblTienNhan.Text = "0,000";
             dtSanPham.Clear();
             CapNhatThongTinThanhToan();
             LoadSanPham();
@@ -344,14 +345,20 @@ namespace QuanLyBanBalo
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
+            if (khachHang == null)
+            {
+                // Khách hàng mới
+               khachHang = new clsKhachHang_DTO(txtTenKH.Text, txtSDT.Text, Helper.GetTimestamp(DateTime.Now));
+               clsKhachHang_BUS.Them(khachHang);
+            }
+           
             hoaDonHienTai = new clsHoaDon_DTO(
                 Helper.GetTimestamp(DateTime.Now),
-                txtSDT.Text,
-                txtTenKH.Text,
                 Validation.LayMaNhanVien(),
                 string.IsNullOrWhiteSpace(txtGhiChu.Text) ? "Không" : txtGhiChu.Text,
                 double.Parse(lblGiamTru.Text),
                 double.Parse(lblThanhTien.Text),
+                khachHang,
                 khuyenMai);
 
             if (clsHoaDon_BUS.Them(hoaDonHienTai))
@@ -565,6 +572,13 @@ namespace QuanLyBanBalo
                 txtMaCTSP.Text = maCTSP;
             }
 
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            khachHang = clsKhachHang_BUS.LayThongTin(txtSDT.Text);
+            txtTenKH.Text = khachHang != null ? khachHang.TenKH : "";
+            txtTenKH.Enabled = khachHang == null;
         }
     }
 }

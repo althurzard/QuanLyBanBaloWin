@@ -111,6 +111,8 @@ namespace DAO
 
             return ctsp;
         }
+
+
         public static bool KiemTraTonTaiMaCT(string _maCT)
         {
             string query = string.Format("select count(*) from ChiTietSanPham where MaCTSP = '{0}'", _maCT);
