@@ -10,35 +10,31 @@ using System.Windows.Forms;
 
 namespace QuanLyBanBalo
 {
-    public partial class frmDanhSachHDN : Form
+    public partial class frmThongKeNhapHang : Form
     {
-        public frmDanhSachHDN()
+        public frmThongKeNhapHang()
         {
             InitializeComponent();
         }
 
-        private void lblNgayNhap_Click(object sender, EventArgs e)
-        {
+        private static frmThongKeNhapHang _Instance = null;
 
-        }
-        private static frmDanhSachHDN _Instance = null;
-
-        public static frmDanhSachHDN Instance
+        public static frmThongKeNhapHang Instance
         {
             get
             {
                 if (_Instance == null)
-                    _Instance = new frmDanhSachHDN();
+                    _Instance = new frmThongKeNhapHang();
                 return _Instance;
             }
         }
 
-        private void frmDanhSachHDN_FormClosed(object sender, FormClosedEventArgs e)
+        private void frmDanhSachHDX_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;
         }
 
-        private void frmDanhSachHDN_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmDanhSachHDX_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Tắt tab khi tắt form
             ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);

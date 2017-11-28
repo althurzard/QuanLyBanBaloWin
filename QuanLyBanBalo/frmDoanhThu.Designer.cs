@@ -1,6 +1,6 @@
 ﻿namespace QuanLyBanBalo
 {
-    partial class frmDanhSachHDN
+    partial class frmDoanhThu
     {
         /// <summary>
         /// Required designer variable.
@@ -44,7 +44,7 @@
             // 
             this.txtMaPhieuNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaPhieuNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaPhieuNhap.Location = new System.Drawing.Point(156, 35);
+            this.txtMaPhieuNhap.Location = new System.Drawing.Point(372, 135);
             this.txtMaPhieuNhap.Name = "txtMaPhieuNhap";
             this.txtMaPhieuNhap.Size = new System.Drawing.Size(217, 26);
             this.txtMaPhieuNhap.TabIndex = 32;
@@ -64,7 +64,7 @@
             this.pckNgayNhapBD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pckNgayNhapBD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pckNgayNhapBD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pckNgayNhapBD.Location = new System.Drawing.Point(155, 90);
+            this.pckNgayNhapBD.Location = new System.Drawing.Point(371, 190);
             this.pckNgayNhapBD.Name = "pckNgayNhapBD";
             this.pckNgayNhapBD.Size = new System.Drawing.Size(217, 26);
             this.pckNgayNhapBD.TabIndex = 34;
@@ -84,7 +84,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(390, 95);
+            this.label1.Location = new System.Drawing.Point(350, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 20);
             this.label1.TabIndex = 36;
@@ -95,7 +95,7 @@
             this.pckNgayNhapKT.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pckNgayNhapKT.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pckNgayNhapKT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pckNgayNhapKT.Location = new System.Drawing.Point(442, 90);
+            this.pckNgayNhapKT.Location = new System.Drawing.Point(658, 190);
             this.pckNgayNhapKT.Name = "pckNgayNhapKT";
             this.pckNgayNhapKT.Size = new System.Drawing.Size(217, 26);
             this.pckNgayNhapKT.TabIndex = 37;
@@ -115,7 +115,7 @@
             this.cboLocDL.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cboLocDL.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLocDL.FormattingEnabled = true;
-            this.cboLocDL.Location = new System.Drawing.Point(156, 145);
+            this.cboLocDL.Location = new System.Drawing.Point(372, 245);
             this.cboLocDL.Name = "cboLocDL";
             this.cboLocDL.Size = new System.Drawing.Size(217, 27);
             this.cboLocDL.TabIndex = 39;
@@ -123,16 +123,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(34, 192);
+            this.dataGridView1.Location = new System.Drawing.Point(23, 310);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(726, 221);
             this.dataGridView1.TabIndex = 40;
             // 
-            // frmDanhSachHDN
+            // frmDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(792, 481);
+            this.ClientSize = new System.Drawing.Size(1224, 681);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cboLocDL);
             this.Controls.Add(this.label2);
@@ -142,9 +142,10 @@
             this.Controls.Add(this.lblNgayNhap);
             this.Controls.Add(this.txtMaPhieuNhap);
             this.Controls.Add(this.lblMaHoaDon);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Name = "frmDanhSachHDN";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmDoanhThu";
             this.Text = "DANH SÁCH HÓA ĐƠN NHẬP";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDanhSachHDN_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmDanhSachHDN_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

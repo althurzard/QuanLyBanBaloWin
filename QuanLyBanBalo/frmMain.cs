@@ -164,7 +164,7 @@ namespace QuanLyBanBalo
 
         private void danhSáchHĐNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDanhSachHDN frmDSN = frmDanhSachHDN.Instance;
+            frmDoanhThu frmDSN = frmDoanhThu.Instance;
 
             int index = KiemTraTonTaiForm(tbcMain, frmDSN);
             if (index >= 0)
@@ -188,7 +188,7 @@ namespace QuanLyBanBalo
 
         private void danhSáchHĐXToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDanhSachHDX frmDSX = frmDanhSachHDX.Instance;
+            frmThongKeNhapHang frmDSX = frmThongKeNhapHang.Instance;
 
             int index = KiemTraTonTaiForm(tbcMain, frmDSX);
             if (index >= 0)
@@ -309,6 +309,30 @@ namespace QuanLyBanBalo
         private void banHangToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBanHang frmXH = frmBanHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmXH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmXH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmXH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmXH.Parent = tp;
+                frmXH.Show();
+                tbcMain.SelectTab(tp);
+            }
+        }
+
+        private void nhapHangToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmThongKeNhapHang frmXH = frmThongKeNhapHang.Instance;
 
             int index = KiemTraTonTaiForm(tbcMain, frmXH);
             if (index >= 0)
