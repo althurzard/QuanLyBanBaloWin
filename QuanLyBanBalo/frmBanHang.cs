@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data;
 using DTO;
 using BUS;
+using System.Threading;
+
 namespace QuanLyBanBalo
 {
     public partial class frmBanHang : Form
@@ -20,6 +22,8 @@ namespace QuanLyBanBalo
         private DataView dvTatCaSP;
         private DataTable dtTatCaSP;
         private List<object[]> listTempRemovedRows = new List<object[]>();
+        private clsHoaDon_DTO hoaDonHienTai = null;
+        private clsKhachHang_DTO khachHang = null;
         public frmBanHang()
         {
             InitializeComponent();
@@ -104,12 +108,17 @@ namespace QuanLyBanBalo
                             lblTenCTKM.Text = string.Format("- {0}", km.TenKhuyenMai);
                             lblNgayKM.Text = string.Format("- Diễn ra từ ngày {0} đến hết ngày {1}", ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"));
 
-                            break;
+                            return;
                         }
                     }
                 }
                 
             }
+
+            lblTenCTKM.Text = "Hiện không có chương trình khuyến mại.";
+            lblNgayKM.Text = "";
+            khuyenMai = clsKhuyenMai_BUS.LayKhuyenMai(1);
+
         }
 
 
@@ -157,6 +166,8 @@ namespace QuanLyBanBalo
             dtSanPham.Columns.Add("TongTien");
             dtSanPham.Columns.Add("MaCTSP");
             dtSanPham.Columns.Add("MaKhuyenMai");
+            dtSanPham.Columns.Add("ThuongHieu");
+            dtSanPham.Columns.Add("KMGiamTru");
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.DataSource = dvSanPham;
             dgvSanPham.AutoGenerateColumns = false;
@@ -190,10 +201,7 @@ namespace QuanLyBanBalo
 
         private void LamMoi()
         {
-            btnThem.Enabled = false;
-            txtSoTienNhan.Enabled = true;
-            btnXacNhan.Enabled = false;
-            btnIn.Enabled = false;
+            XacNhanHoaDon(true);
             txtGhiChu.Text = "";
             txtMaCTSP.Text = "";
             txtSDT.Text = "";
@@ -202,15 +210,32 @@ namespace QuanLyBanBalo
             txtTenSP.Text = "";
             txtMauSac.Text = "";
             txtSoTienNhan.Text = "";
+            lblThanhTien.Text = "0,000";
+            lblTienNhan.Text = "0,000";
             dtSanPham.Clear();
             CapNhatThongTinThanhToan();
             LoadSanPham();
             CaiDat();
         }
 
+        private void XacNhanHoaDon(bool flag)
+        {
+            txtTenKH.Enabled = flag;
+            txtSDT.Enabled = flag;
+            txtGhiChu.Enabled = flag;
+            txtSoTienNhan.Enabled = flag;
+            btnThem.Enabled = flag;
+            txtMaCTSP.Enabled = flag;
+            txtTenSP.Enabled = flag;
+            txtMauSac.Enabled = flag;
+            txtSoLuong.Enabled = flag;
+            btnXacNhan.Enabled = flag;
+        }
+
         private void In()
         {
-
+            frmInHDBanHang frm = new frmInHDBanHang(dtSanPham, hoaDonHienTai,khuyenMai,lblThanhTien.Text);
+            frm.ShowDialog();
         }
 
         private void DoiTrangThaiButtonThem()
@@ -254,7 +279,7 @@ namespace QuanLyBanBalo
             clsKhuyenMai_DTO khuyenMai = clsKhuyenMai_BUS.LayKhuyenMai(sanPham.MaKhuyenMai);
 
             double giaGiamTru = ((double.Parse(khuyenMai.MoTa) / 100) * (double)sanPham.GiaBanLe);
-            double tongTienSP = (((double)sanPham.GiaBanLe - double.Parse(khuyenMai.MoTa)) * double.Parse(soLuong));
+            double tongTienSP = (((double)sanPham.GiaBanLe - giaGiamTru) * double.Parse(soLuong));
 
             DataRow newRow = dtSanPham.NewRow();
             newRow["HinhAnh"] = hinhAnhSP.Url;
@@ -267,9 +292,11 @@ namespace QuanLyBanBalo
             newRow["SoLuong"] = soLuong;
             newRow["MaCTSP"] = CTSP.MaCTSP;
             newRow["MaKhuyenMai"] = khuyenMai.MaKhuyenMai;
-            newRow["TongTien"] = tongTienSP.ToString("0,00#"); 
+            newRow["TongTien"] = tongTienSP.ToString("0,00#");
+            newRow["ThuongHieu"] = sanPham.ThuongHieu;
+            newRow["KMGiamTru"] = khuyenMai.MoTa + "%";
             dtSanPham.Rows.Add(newRow);
-
+            
             CapNhatThongTinThanhToan();
             CapNhatSoLuongChoBangTatCaSP(-int.Parse(soLuong), CTSP.MaCTSP);
             CapNhatSoLuongChoTextbox();
@@ -318,21 +345,28 @@ namespace QuanLyBanBalo
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            clsHoaDon_DTO hoaDon = new clsHoaDon_DTO(
+            if (khachHang == null)
+            {
+                // Khách hàng mới
+               khachHang = new clsKhachHang_DTO(txtTenKH.Text, txtSDT.Text, Helper.GetTimestamp(DateTime.Now));
+               clsKhachHang_BUS.Them(khachHang);
+            }
+           
+            hoaDonHienTai = new clsHoaDon_DTO(
                 Helper.GetTimestamp(DateTime.Now),
-                txtSDT.Text,
-                txtTenKH.Text,
                 Validation.LayMaNhanVien(),
                 string.IsNullOrWhiteSpace(txtGhiChu.Text) ? "Không" : txtGhiChu.Text,
                 double.Parse(lblGiamTru.Text),
                 double.Parse(lblThanhTien.Text),
+                khachHang,
                 khuyenMai);
 
-            if (clsHoaDon_BUS.Them(hoaDon))
+            if (clsHoaDon_BUS.Them(hoaDonHienTai))
             {
                 // Chi tiet hoa don
                 foreach(DataRow row in dtSanPham.Rows)
                 {
+
                     clsKhuyenMai_DTO km = new clsKhuyenMai_DTO
                         (
                         row["TenKhuyenMai"].ToString(),
@@ -348,7 +382,7 @@ namespace QuanLyBanBalo
                         double.Parse(row["TongTien"].ToString()),
                         int.Parse(row["SoLuong"].ToString()),
                         km,
-                        hoaDon
+                        hoaDonHienTai
                         );
 
                    if (!clsChiTietHD_BUS.Them(cthd))
@@ -367,20 +401,19 @@ namespace QuanLyBanBalo
                         }
 
                     }
-                   
+
+                    int milliseconds = 100;
+                    Thread.Sleep(milliseconds);
+
                 }
 
                 DialogResult result = MessageBox.Show("Tạo hóa đơn thành công, bạn có muốn In ngay bây giờ?", "Thông báo", MessageBoxButtons.OKCancel);
                 if (result == DialogResult.OK)
                 {
                     In();
-                } else
-                {
-                    btnXacNhan.Enabled = false;
-                    txtSoTienNhan.Enabled = false;
-                    btnThem.Enabled = false;
-                    btnIn.Enabled = true;
                 }
+                btnIn.Enabled = true;
+                XacNhanHoaDon(false);
 
             } else
             {
@@ -524,18 +557,28 @@ namespace QuanLyBanBalo
 
         }
 
-        private void dgvTatCaSP_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
         private void dgvTatCaSP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMaCTSP.Text = dgvTatCaSP.CurrentRow.Cells[1].Value.ToString();
-            txtTenSP.Text = dgvTatCaSP.CurrentRow.Cells[3].Value.ToString();
-            txtMauSac.Text = dgvTatCaSP.CurrentRow.Cells[7].Value.ToString();
-            // Cập nhật lại sô lượng nếu vượt quá số lượng tồn kho
 
+
+            // Cập nhật lại sô lượng nếu vượt quá số lượng tồn kho
+            if (dgvTatCaSP.SelectedRows.Count > 0)
+            {
+                string tenSP = dgvTatCaSP.SelectedRows[0].Cells[3].Value.ToString();
+                string mauSac = dgvTatCaSP.SelectedRows[0].Cells[7].Value.ToString();
+                string maCTSP = dgvTatCaSP.SelectedRows[0].Cells[1].Value.ToString();
+                txtTenSP.Text = tenSP;
+                txtMauSac.Text = mauSac;
+                txtMaCTSP.Text = maCTSP;
+            }
+
+        }
+
+        private void txtSDT_TextChanged(object sender, EventArgs e)
+        {
+            khachHang = clsKhachHang_BUS.LayThongTin(txtSDT.Text);
+            txtTenKH.Text = khachHang != null ? khachHang.TenKH : "";
+            txtTenKH.Enabled = khachHang == null;
         }
     }
 }

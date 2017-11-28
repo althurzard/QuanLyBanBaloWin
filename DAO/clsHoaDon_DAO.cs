@@ -14,12 +14,11 @@ namespace DAO
         {
             using (SqlConnection conn = XuLyDuLieu.MoKetNoi)
             {
-                string query = "Insert into HoaDon(MaHD,SDT,TenKH,MaNV,NgayKhoiTao,MaKhuyenMai,GiamTru,GhiChu,ThanhTien) values (@MaHD,@SDT,@TenKH,@MaNV,@NgayKhoiTao,@MaKhuyenMai,@GiamTru,@GhiChu,@ThanhTien) ";
+                string query = "Insert into HoaDon(MaHD,MaNV,MaKH,NgayKhoiTao,MaKhuyenMai,GiamTru,GhiChu,ThanhTien) values (@MaHD,@MaNV,@MaKH,@NgayKhoiTao,@MaKhuyenMai,@GiamTru,@GhiChu,@ThanhTien) ";
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.Add("@MaHD", SqlDbType.Char).Value = hoaDon.MaHD;
-                cmd.Parameters.Add("@SDT", SqlDbType.Char).Value = hoaDon.SDT;
-                cmd.Parameters.Add("@TenKH", SqlDbType.NVarChar).Value = hoaDon.TenKH;
                 cmd.Parameters.Add("@MaNV", SqlDbType.Char).Value = hoaDon.MaNV;
+                cmd.Parameters.Add("@MaKH", SqlDbType.Char).Value = hoaDon.KhachHang.MaKH;
                 cmd.Parameters.Add("@NgayKhoiTao", SqlDbType.DateTime).Value = hoaDon.NgayKhoiTao;
                 cmd.Parameters.Add("@MaKhuyenMai", SqlDbType.Int).Value = hoaDon.KhuyenMai.MaKhuyenMai;
                 cmd.Parameters.Add("@GiamTru", SqlDbType.Money).Value = hoaDon.GiamTru;
@@ -36,6 +35,18 @@ namespace DAO
                 }
 
             }
+        }
+
+        public static DataTable LayHoaDonTheoMaKH(string maKH)
+        {
+            string query = string.Format("SELECT MaHD,MaNV,KhachHang.MaKH as MaKhachHang,TenKH,SDT,HoaDon.NgayKhoiTao as NgayKhoiTao,TenKhuyenMai,GiamTru,GhiChu,ThanhTien FROM HoaDon,KhuyenMai,KhachHang WHERE HoaDon.MaKH = '{0}' AND KhuyenMai.MaKhuyenMai = HoaDon.MaKhuyenMai AND HoaDon.MaKH = KhachHang.MaKH ORDER BY HoaDon.NgayKhoiTao DESC", maKH);
+            return XuLyDuLieu.LayBang(query);
+        }
+
+        public static DataTable LayHoaDonTheoMaHD(string maHD)
+        {
+            string query = string.Format("SELECT MaHD,MaNV,HoaDon.MaKH as MaKhachHang,TenKH,SDT,HoaDon.NgayKhoiTao as NgayKhoiTao,TenKhuyenMai,GiamTru,GhiChu,ThanhTien FROM HoaDon,KhuyenMai,KhachHang WHERE HoaDon.MaHD = '{0}' AND KhuyenMai.MaKhuyenMai = HoaDon.MaKhuyenMai AND KhachHang.MaKH = HoaDon.MaKH ORDER BY HoaDon.NgayKhoiTao DESC", maHD);
+            return XuLyDuLieu.LayBang(query);
         }
     }
 }

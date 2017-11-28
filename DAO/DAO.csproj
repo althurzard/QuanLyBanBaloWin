@@ -46,6 +46,7 @@
     <Compile Include="clsDanhMuc_DAO.cs" />
     <Compile Include="clsHinhAnh_DAO.cs" />
     <Compile Include="clsHoaDon_DAO.cs" />
+    <Compile Include="clsKhachHang_DAO.cs" />
     <Compile Include="clsKhuyenMai_DAO.cs" />
     <Compile Include="clsNhaCungCap_DAO.cs" />
     <Compile Include="clsNhanVien_DAO.cs" />

@@ -35,5 +35,11 @@ namespace DAO
 
             }
         }
+
+        public static DataTable LayChiTiet(string maHD)
+        {
+            string query = string.Format("select Url,TenSP,ChiTietSanPham.MaCTSP as MaCTSP,MauSac,ThuongHieu,GiaBanLe,TenKhuyenMai,GiamTru,SoNamBH,ChiTietHoaDon.SoLuong as SoLuong,TongTien from SanPham,ChiTietHoaDon,ChiTietSanPham,HinhAnh,KhuyenMai where ChiTietHoaDon.MaHD = '{0}' AND ChiTietHoaDon.MaCTSP = ChiTietSanPham.MaCTSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietHoaDon.MaKhuyenMai = KhuyenMai.MaKhuyenMai",maHD);
+            return XuLyDuLieu.LayBang(query);
+        }
     }
 }
