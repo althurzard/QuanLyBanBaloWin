@@ -549,6 +549,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="bin\Debug\data\iconsys\icons8-coupon-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-create-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-edit-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-rotate-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-gift-card-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-check-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-checkmark-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-refresh-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-plus-math-40.png" />
+    <None Include="bin\Debug\data\iconsys\uploadimage.png" />
+    <None Include="bin\Debug\data\iconsys\512px-Picture_font_awesome.svg.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-save-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-return-40.png" />
+    <None Include="bin\Debug\data\iconsys\icons8-delete-40.png" />
     <Content Include="bin\Debug\images\1507827672.4542.jpg" />
     <Content Include="bin\Debug\images\1508510316.0103.jpg" />
     <Content Include="bin\Debug\images\balo-b2b01-aji-2_grande.jpg" />

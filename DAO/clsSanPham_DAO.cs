@@ -92,7 +92,7 @@ namespace DAO
         {
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
-                string query = string.Format("INSERT INTO SanPham(MaSP,TenSP,ThuongHieu,ChatLieu,GiaVon,GiaBanLe,ChongNuoc,TrongLuong,MaDanhMuc,SoNamBH) VALUES(@MaSP,@TenSP,@ThuongHieu,@ChatLieu,@GiaVon,@GiaBanLe,@ChongNuoc,@TrongLuong,@MaDanhMuc,@SoNamBH)");
+                string query = string.Format("INSERT INTO SanPham(MaSP,TenSP,ThuongHieu,ChatLieu,GiaVon,GiaBanLe,ChongNuoc,TrongLuong,MaDanhMuc,MaKhuyenMai,SoNamBH) VALUES(@MaSP,@TenSP,@ThuongHieu,@ChatLieu,@GiaVon,@GiaBanLe,@ChongNuoc,@TrongLuong,@MaDanhMuc,@SoNamBH)");
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.Add("@MaSP", SqlDbType.Char).Value = sanPham.MaSP;
                 cmd.Parameters.Add("@TenSP", SqlDbType.NVarChar).Value = sanPham.TenSP;
@@ -104,6 +104,7 @@ namespace DAO
                 cmd.Parameters.Add("@TrongLuong", SqlDbType.Float).Value = sanPham.TrongLuong;
                 cmd.Parameters.Add("@MaDanhMuc", SqlDbType.Int).Value = sanPham.MaDanhMuc;
                 cmd.Parameters.Add("@SoNamBH", SqlDbType.Int).Value = sanPham.SoNamBH;
+                
                 cmd.CommandType = CommandType.Text;
                 try
                 {
