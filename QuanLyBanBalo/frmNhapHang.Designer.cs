@@ -40,6 +40,7 @@
             this.cboNCC = new System.Windows.Forms.ComboBox();
             this.lblMaNCC = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnThemMoi = new System.Windows.Forms.Button();
             this.lblGiaVon = new System.Windows.Forms.Label();
             this.txtGiaVon = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtKichCo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnLuuSanPham = new System.Windows.Forms.Button();
             this.cboMauMa = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtChatLieu = new System.Windows.Forms.TextBox();
@@ -97,8 +99,6 @@
             this.txtCTTenSP = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.picHinhAnh = new System.Windows.Forms.PictureBox();
-            this.btnThemMoi = new System.Windows.Forms.Button();
-            this.btnLuuSanPham = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -199,6 +199,19 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Sản phẩm";
+            // 
+            // btnThemMoi
+            // 
+            this.btnThemMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemMoi.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
+            this.btnThemMoi.Location = new System.Drawing.Point(298, 237);
+            this.btnThemMoi.Name = "btnThemMoi";
+            this.btnThemMoi.Size = new System.Drawing.Size(208, 51);
+            this.btnThemMoi.TabIndex = 84;
+            this.btnThemMoi.Text = "Thêm mới";
+            this.btnThemMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThemMoi.UseVisualStyleBackColor = true;
+            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
             // lblGiaVon
             // 
@@ -417,6 +430,19 @@
             this.label7.TabIndex = 51;
             this.label7.Text = "Trọng lượng";
             // 
+            // btnLuuSanPham
+            // 
+            this.btnLuuSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuuSanPham.Image = global::QuanLyBanBalo.Properties.Resources.icons8_save_40;
+            this.btnLuuSanPham.Location = new System.Drawing.Point(512, 237);
+            this.btnLuuSanPham.Name = "btnLuuSanPham";
+            this.btnLuuSanPham.Size = new System.Drawing.Size(208, 51);
+            this.btnLuuSanPham.TabIndex = 12;
+            this.btnLuuSanPham.Text = "Lưu sản phẩm";
+            this.btnLuuSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLuuSanPham.UseVisualStyleBackColor = true;
+            this.btnLuuSanPham.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // cboMauMa
             // 
             this.cboMauMa.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -591,7 +617,7 @@
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(208, 51);
             this.btnXoa.TabIndex = 79;
-            this.btnXoa.Text = "Xóa hóa đơn";
+            this.btnXoa.Text = "Hủy hóa đơn";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
@@ -840,32 +866,6 @@
             this.picHinhAnh.TabIndex = 47;
             this.picHinhAnh.TabStop = false;
             this.picHinhAnh.Click += new System.EventHandler(this.picHinhAnh_Click);
-            // 
-            // btnThemMoi
-            // 
-            this.btnThemMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemMoi.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
-            this.btnThemMoi.Location = new System.Drawing.Point(298, 237);
-            this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(208, 51);
-            this.btnThemMoi.TabIndex = 84;
-            this.btnThemMoi.Text = "Thêm mới";
-            this.btnThemMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThemMoi.UseVisualStyleBackColor = true;
-            this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
-            // 
-            // btnLuuSanPham
-            // 
-            this.btnLuuSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuSanPham.Image = global::QuanLyBanBalo.Properties.Resources.icons8_save_40;
-            this.btnLuuSanPham.Location = new System.Drawing.Point(512, 237);
-            this.btnLuuSanPham.Name = "btnLuuSanPham";
-            this.btnLuuSanPham.Size = new System.Drawing.Size(208, 51);
-            this.btnLuuSanPham.TabIndex = 12;
-            this.btnLuuSanPham.Text = "Lưu sản phẩm";
-            this.btnLuuSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLuuSanPham.UseVisualStyleBackColor = true;
-            this.btnLuuSanPham.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // frmNhapHang
             // 

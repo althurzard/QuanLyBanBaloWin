@@ -660,6 +660,7 @@ namespace QuanLyBanBalo
                         return; 
                     }
                     _layDongTrongDataTable = 0;
+                    dtSanPhamMoi.Rows.Clear();
                     if (_KiemTraThemChiTiet)
                     {
                         btnThemMoi.Enabled = false;
