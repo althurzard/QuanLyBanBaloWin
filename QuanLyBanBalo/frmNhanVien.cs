@@ -230,10 +230,18 @@ namespace QuanLyBanBalo
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvBangTaiKhoan.Columns[e.ColumnIndex].Name == "Url")
+            try
             {
-                e.Value = new Bitmap(e.Value.ToString());
-            } 
+                if (dgvBangTaiKhoan.Columns[e.ColumnIndex].Name == "Url")
+                {
+                    e.Value = new Bitmap(e.Value.ToString());
+                }
+            }
+            catch
+            {
+                e.Value = null;
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

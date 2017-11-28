@@ -78,8 +78,14 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.dgvHDSanPham = new System.Windows.Forms.DataGridView();
+            this.colMaChiTiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuongCu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
-            this.picHinhAnh = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txtCTMauSac = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -92,20 +98,14 @@
             this.label20 = new System.Windows.Forms.Label();
             this.txtCTTenSP = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.colMaChiTiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaSanPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuongCu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHinhAnh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.picHinhAnh = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDSanPham)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -203,11 +203,13 @@
             // btnThemMoi
             // 
             this.btnThemMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemMoi.Location = new System.Drawing.Point(370, 247);
+            this.btnThemMoi.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
+            this.btnThemMoi.Location = new System.Drawing.Point(298, 237);
             this.btnThemMoi.Name = "btnThemMoi";
-            this.btnThemMoi.Size = new System.Drawing.Size(172, 41);
+            this.btnThemMoi.Size = new System.Drawing.Size(208, 51);
             this.btnThemMoi.TabIndex = 84;
             this.btnThemMoi.Text = "Thêm mới";
+            this.btnThemMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThemMoi.UseVisualStyleBackColor = true;
             this.btnThemMoi.Click += new System.EventHandler(this.btnThemMoi_Click);
             // 
@@ -431,11 +433,13 @@
             // btnLuuSanPham
             // 
             this.btnLuuSanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuSanPham.Location = new System.Drawing.Point(548, 247);
+            this.btnLuuSanPham.Image = global::QuanLyBanBalo.Properties.Resources.icons8_save_40;
+            this.btnLuuSanPham.Location = new System.Drawing.Point(512, 237);
             this.btnLuuSanPham.Name = "btnLuuSanPham";
-            this.btnLuuSanPham.Size = new System.Drawing.Size(172, 41);
+            this.btnLuuSanPham.Size = new System.Drawing.Size(208, 51);
             this.btnLuuSanPham.TabIndex = 12;
             this.btnLuuSanPham.Text = "Lưu sản phẩm";
+            this.btnLuuSanPham.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuuSanPham.UseVisualStyleBackColor = true;
             this.btnLuuSanPham.Click += new System.EventHandler(this.btnLuu_Click);
             // 
@@ -502,11 +506,13 @@
             // btnLuuCTHD
             // 
             this.btnLuuCTHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuCTHD.Location = new System.Drawing.Point(238, 20);
+            this.btnLuuCTHD.Image = global::QuanLyBanBalo.Properties.Resources.icons8_save_40;
+            this.btnLuuCTHD.Location = new System.Drawing.Point(169, 22);
             this.btnLuuCTHD.Name = "btnLuuCTHD";
-            this.btnLuuCTHD.Size = new System.Drawing.Size(147, 41);
+            this.btnLuuCTHD.Size = new System.Drawing.Size(208, 51);
             this.btnLuuCTHD.TabIndex = 76;
-            this.btnLuuCTHD.Text = "Lưu";
+            this.btnLuuCTHD.Text = "Lưu hóa đơn";
+            this.btnLuuCTHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuuCTHD.UseVisualStyleBackColor = true;
             this.btnLuuCTHD.Click += new System.EventHandler(this.btnHoanThanh_Click);
             // 
@@ -606,11 +612,13 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(238, 79);
+            this.btnXoa.Image = global::QuanLyBanBalo.Properties.Resources.icons8_refresh_40;
+            this.btnXoa.Location = new System.Drawing.Point(169, 79);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(147, 41);
+            this.btnXoa.Size = new System.Drawing.Size(208, 51);
             this.btnXoa.TabIndex = 79;
-            this.btnXoa.Text = "Xóa";
+            this.btnXoa.Text = "Hủy hóa đơn";
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
@@ -650,6 +658,55 @@
             this.dgvHDSanPham.Size = new System.Drawing.Size(359, 275);
             this.dgvHDSanPham.TabIndex = 48;
             // 
+            // colMaChiTiet
+            // 
+            this.colMaChiTiet.HeaderText = "Mã Chi Tiết";
+            this.colMaChiTiet.Name = "colMaChiTiet";
+            this.colMaChiTiet.ReadOnly = true;
+            this.colMaChiTiet.Visible = false;
+            // 
+            // colMaSanPham
+            // 
+            this.colMaSanPham.HeaderText = "Mã sản phẩm";
+            this.colMaSanPham.Name = "colMaSanPham";
+            this.colMaSanPham.ReadOnly = true;
+            this.colMaSanPham.Visible = false;
+            // 
+            // colTenCTSP
+            // 
+            this.colTenCTSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colTenCTSP.HeaderText = "Tên sản phẩm";
+            this.colTenCTSP.Name = "colTenCTSP";
+            this.colTenCTSP.ReadOnly = true;
+            this.colTenCTSP.Width = 80;
+            // 
+            // colSoLuongCu
+            // 
+            this.colSoLuongCu.HeaderText = "Số lượng trong kho";
+            this.colSoLuongCu.Name = "colSoLuongCu";
+            this.colSoLuongCu.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colSoLuong.HeaderText = "Số lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            // 
+            // colMauSac
+            // 
+            this.colMauSac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMauSac.HeaderText = "Màu sắc";
+            this.colMauSac.Name = "colMauSac";
+            this.colMauSac.ReadOnly = true;
+            // 
+            // colHinhAnh
+            // 
+            this.colHinhAnh.HeaderText = "Hinh Ảnh";
+            this.colHinhAnh.Name = "colHinhAnh";
+            this.colHinhAnh.ReadOnly = true;
+            this.colHinhAnh.Visible = false;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -659,17 +716,6 @@
             this.label8.Size = new System.Drawing.Size(87, 24);
             this.label8.TabIndex = 46;
             this.label8.Text = "Hình ảnh";
-            // 
-            // picHinhAnh
-            // 
-            this.picHinhAnh.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.picHinhAnh.Location = new System.Drawing.Point(160, 225);
-            this.picHinhAnh.Name = "picHinhAnh";
-            this.picHinhAnh.Size = new System.Drawing.Size(140, 188);
-            this.picHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHinhAnh.TabIndex = 47;
-            this.picHinhAnh.TabStop = false;
-            this.picHinhAnh.Click += new System.EventHandler(this.picHinhAnh_Click);
             // 
             // label17
             // 
@@ -732,11 +778,13 @@
             // btnLuuCT
             // 
             this.btnLuuCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuCT.Location = new System.Drawing.Point(238, 424);
+            this.btnLuuCT.Image = global::QuanLyBanBalo.Properties.Resources.icons8_save_40;
+            this.btnLuuCT.Location = new System.Drawing.Point(169, 414);
             this.btnLuuCT.Name = "btnLuuCT";
-            this.btnLuuCT.Size = new System.Drawing.Size(147, 41);
+            this.btnLuuCT.Size = new System.Drawing.Size(208, 51);
             this.btnLuuCT.TabIndex = 17;
             this.btnLuuCT.Text = "Lưu chi tiết";
+            this.btnLuuCT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLuuCT.UseVisualStyleBackColor = true;
             this.btnLuuCT.Click += new System.EventHandler(this.btnLuuCT_Click);
             // 
@@ -807,54 +855,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Chi tiết sản phẩm";
             // 
-            // colMaChiTiet
+            // picHinhAnh
             // 
-            this.colMaChiTiet.HeaderText = "Mã Chi Tiết";
-            this.colMaChiTiet.Name = "colMaChiTiet";
-            this.colMaChiTiet.ReadOnly = true;
-            this.colMaChiTiet.Visible = false;
-            // 
-            // colMaSanPham
-            // 
-            this.colMaSanPham.HeaderText = "Mã sản phẩm";
-            this.colMaSanPham.Name = "colMaSanPham";
-            this.colMaSanPham.ReadOnly = true;
-            this.colMaSanPham.Visible = false;
-            // 
-            // colTenCTSP
-            // 
-            this.colTenCTSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colTenCTSP.HeaderText = "Tên sản phẩm";
-            this.colTenCTSP.Name = "colTenCTSP";
-            this.colTenCTSP.ReadOnly = true;
-            this.colTenCTSP.Width = 80;
-            // 
-            // colSoLuongCu
-            // 
-            this.colSoLuongCu.HeaderText = "Số lượng trong kho";
-            this.colSoLuongCu.Name = "colSoLuongCu";
-            this.colSoLuongCu.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colSoLuong.HeaderText = "Số lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            this.colSoLuong.ReadOnly = true;
-            // 
-            // colMauSac
-            // 
-            this.colMauSac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMauSac.HeaderText = "Màu sắc";
-            this.colMauSac.Name = "colMauSac";
-            this.colMauSac.ReadOnly = true;
-            // 
-            // colHinhAnh
-            // 
-            this.colHinhAnh.HeaderText = "Hinh Ảnh";
-            this.colHinhAnh.Name = "colHinhAnh";
-            this.colHinhAnh.ReadOnly = true;
-            this.colHinhAnh.Visible = false;
+            this.picHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.picHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources._512px_Picture_font_awesome_svg;
+            this.picHinhAnh.Location = new System.Drawing.Point(160, 225);
+            this.picHinhAnh.Name = "picHinhAnh";
+            this.picHinhAnh.Size = new System.Drawing.Size(217, 173);
+            this.picHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHinhAnh.TabIndex = 47;
+            this.picHinhAnh.TabStop = false;
+            this.picHinhAnh.Click += new System.EventHandler(this.picHinhAnh_Click);
             // 
             // frmNhapHang
             // 
@@ -881,9 +892,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHDSanPham)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHinhAnh)).EndInit();
             this.ResumeLayout(false);
 
         }
