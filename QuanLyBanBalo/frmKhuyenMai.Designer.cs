@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rdbThuCong = new System.Windows.Forms.RadioButton();
             this.lblMoTa = new System.Windows.Forms.Label();
             this.lblTenCTKM = new System.Windows.Forms.Label();
             this.ckbGioiHanTG = new System.Windows.Forms.CheckBox();
@@ -54,12 +55,11 @@
             this.NgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NgayKetThuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
-            this.rdbThuCong = new System.Windows.Forms.RadioButton();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.grpThoiGian.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhuyenMai)).BeginInit();
@@ -87,6 +87,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Khuyến mại";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // rdbThuCong
+            // 
+            this.rdbThuCong.AutoSize = true;
+            this.rdbThuCong.Location = new System.Drawing.Point(126, 255);
+            this.rdbThuCong.Name = "rdbThuCong";
+            this.rdbThuCong.Size = new System.Drawing.Size(187, 24);
+            this.rdbThuCong.TabIndex = 121;
+            this.rdbThuCong.Text = "Tôi muốn làm thủ công";
+            this.rdbThuCong.UseVisualStyleBackColor = true;
             // 
             // lblMoTa
             // 
@@ -354,28 +364,6 @@
             this.TrangThai.ReadOnly = true;
             this.TrangThai.Visible = false;
             // 
-            // btnSua
-            // 
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(712, 384);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(172, 41);
-            this.btnSua.TabIndex = 96;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(504, 384);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(172, 41);
-            this.btnThem.TabIndex = 97;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -399,23 +387,41 @@
             // btnLamMoi
             // 
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Location = new System.Drawing.Point(916, 384);
+            this.btnLamMoi.Image = global::QuanLyBanBalo.Properties.Resources.icons8_refresh_40;
+            this.btnLamMoi.Location = new System.Drawing.Point(888, 384);
             this.btnLamMoi.Name = "btnLamMoi";
-            this.btnLamMoi.Size = new System.Drawing.Size(172, 41);
+            this.btnLamMoi.Size = new System.Drawing.Size(200, 51);
             this.btnLamMoi.TabIndex = 100;
             this.btnLamMoi.Text = "Làm mới";
+            this.btnLamMoi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLamMoi.UseVisualStyleBackColor = true;
             this.btnLamMoi.Click += new System.EventHandler(this.btnLamMoi_Click);
             // 
-            // rdbThuCong
+            // btnThem
             // 
-            this.rdbThuCong.AutoSize = true;
-            this.rdbThuCong.Location = new System.Drawing.Point(126, 255);
-            this.rdbThuCong.Name = "rdbThuCong";
-            this.rdbThuCong.Size = new System.Drawing.Size(187, 24);
-            this.rdbThuCong.TabIndex = 121;
-            this.rdbThuCong.Text = "Tôi muốn làm thủ công";
-            this.rdbThuCong.UseVisualStyleBackColor = true;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
+            this.btnThem.Location = new System.Drawing.Point(460, 384);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(200, 51);
+            this.btnThem.TabIndex = 97;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icons8_edit_40;
+            this.btnSua.Location = new System.Drawing.Point(674, 384);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(200, 51);
+            this.btnSua.TabIndex = 96;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // frmKhuyenMai
             // 

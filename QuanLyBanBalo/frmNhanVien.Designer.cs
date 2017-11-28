@@ -54,12 +54,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblQueQuan = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.btnThem = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDangNhap = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.pictureHinhAnh = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,10 +73,12 @@
             this.txtTraCuuTen = new System.Windows.Forms.TextBox();
             this.rdbMaNhanVien = new System.Windows.Forms.RadioButton();
             this.txtTraCuuMa = new System.Windows.Forms.TextBox();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.pictureHinhAnh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangTaiKhoan)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBangTaiKhoan
@@ -357,17 +357,6 @@
             this.txtMatKhau.Size = new System.Drawing.Size(163, 26);
             this.txtMatKhau.TabIndex = 93;
             // 
-            // btnThem
-            // 
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(481, 279);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(163, 51);
-            this.btnThem.TabIndex = 93;
-            this.btnThem.Text = "Tạo tài khoản";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -404,19 +393,6 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(167, 26);
             this.txtHoTen.TabIndex = 74;
-            // 
-            // pictureHinhAnh
-            // 
-            this.pictureHinhAnh.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources.User;
-            this.pictureHinhAnh.InitialImage = null;
-            this.pictureHinhAnh.Location = new System.Drawing.Point(125, 180);
-            this.pictureHinhAnh.Name = "pictureHinhAnh";
-            this.pictureHinhAnh.Size = new System.Drawing.Size(113, 150);
-            this.pictureHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureHinhAnh.TabIndex = 89;
-            this.pictureHinhAnh.TabStop = false;
-            this.pictureHinhAnh.Click += new System.EventHandler(this.pictureHinhAnh_Click);
             // 
             // label8
             // 
@@ -578,6 +554,32 @@
             this.txtTraCuuMa.TabIndex = 81;
             this.txtTraCuuMa.TextChanged += new System.EventHandler(this.txtTraCuuMa_TextChanged);
             // 
+            // btnThem
+            // 
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
+            this.btnThem.Location = new System.Drawing.Point(481, 280);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(163, 50);
+            this.btnThem.TabIndex = 93;
+            this.btnThem.Text = "Tạo mới";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // pictureHinhAnh
+            // 
+            this.pictureHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources._512px_Picture_font_awesome_svg;
+            this.pictureHinhAnh.InitialImage = null;
+            this.pictureHinhAnh.Location = new System.Drawing.Point(125, 180);
+            this.pictureHinhAnh.Name = "pictureHinhAnh";
+            this.pictureHinhAnh.Size = new System.Drawing.Size(166, 150);
+            this.pictureHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureHinhAnh.TabIndex = 89;
+            this.pictureHinhAnh.TabStop = false;
+            this.pictureHinhAnh.Click += new System.EventHandler(this.pictureHinhAnh_Click);
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -598,9 +600,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangTaiKhoan)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).EndInit();
             this.ResumeLayout(false);
 
         }
