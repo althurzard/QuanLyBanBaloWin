@@ -13,5 +13,10 @@ namespace BUS
         {
             return clsChiTietPhieuNhapKho_DAO.ThemChiTietPhieuNhapKho(chiTiet);
         }
+
+        public static clsChiTietPhieuNhapKho_DTO LayChiTiet(string maPhieuNK)
+        {
+            return clsChiTietPhieuNhapKho_DAO.LayChiTiet(maPhieuNK);
+        }
     }
 }

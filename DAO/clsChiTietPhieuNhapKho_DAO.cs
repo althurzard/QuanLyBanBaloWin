@@ -32,5 +32,29 @@ namespace DAO
                 }
             }
         }
+
+        public static clsChiTietPhieuNhapKho_DTO LayChiTiet(string maPhieuNK)
+        {
+            clsChiTietPhieuNhapKho_DTO ctnk = null;
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from ChiTietPhieuNhapKho where MaPhieuNhapKho = '{0}' ", maPhieuNK);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        ctnk = new clsChiTietPhieuNhapKho_DTO();
+                        ctnk.MaChiTiet = reader["MaCTPhieuNhapKho"].ToString();
+                        ctnk.MaCTSanPham = reader["MaCTSP"].ToString();
+                        ctnk.SoLuong = (int)reader["SoLuong"];
+                        ctnk.MaPhieuNhapKho = maPhieuNK;
+                    }
+                }
+
+            }
+
+            return ctnk;
+        }
     }
 }

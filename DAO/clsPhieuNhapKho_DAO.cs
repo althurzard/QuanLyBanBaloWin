@@ -34,5 +34,13 @@ namespace DAO
                 }
             }
         }
+
+        public static DataTable LayBang(string tuNgay, string denNgay)
+        {
+            string query = string.Format("Select MaPhieuNhapKho, HoTen, PhieuNhapKho.NgayKhoiTao as NgayKhoiTao,GhiChu, TenNhaCungCap" +
+                " from PhieuNhapKho,NhanVien,NhaCungCap" +
+                " where PhieuNhapKho.MaNV = NhanVien.MaNV AND PhieuNhapKho.MaNhaCungCap = NhaCungCap.MaNhaCungCap AND PhieuNhapKho.NgayKhoiTao >= '{0}' AND PhieuNhapKho.NgayKhoiTao <= dateadd(day,1,'{1}')", tuNgay, denNgay);
+            return XuLyDuLieu.LayBang(query);
+        }
     }
 }

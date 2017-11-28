@@ -77,6 +77,8 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\GUI.
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmBaoHanh.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDangNhap.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDanhMuc.resources
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDoanhThu.resources
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmThongKeNhapHang.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmInHDBanHang.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmKhuyenMai.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmMain.resources
@@ -92,5 +94,3 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\GUI.
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
-C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDoanhThu.resources
-C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmThongKeNhapHang.resources

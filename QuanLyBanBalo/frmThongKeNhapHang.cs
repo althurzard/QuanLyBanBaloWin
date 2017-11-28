@@ -7,15 +7,67 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data;
+using DTO;
+using BUS;
 namespace QuanLyBanBalo
 {
     public partial class frmThongKeNhapHang : Form
     {
+
+        private DataTable dtPhieuNhapKho;
+        private DataView dvPhieuNhapKho;
+        private DataTable dtSanPham;
+        private DataView dvSanPham;
         public frmThongKeNhapHang()
         {
             InitializeComponent();
+            CaiDat();
+            CaiDatDatatable();
         }
+
+        private void CaiDat()
+        {
+            dtpDenNgay.Format = DateTimePickerFormat.Custom;
+            dtpDenNgay.CustomFormat = "dd/MM/yyyy";
+
+            dtpTuNgay.Format = DateTimePickerFormat.Custom;
+            dtpTuNgay.CustomFormat = "dd/MM/yyyy";
+
+            cbLoc.SelectedIndex = 0;
+
+           
+
+        }
+
+        private void CaiDatDatatable()
+        {
+            dtSanPham = new DataTable();
+            dtSanPham.Clear();
+            dtSanPham.Columns.Add("Url");
+            dtSanPham.Columns.Add("TenSP");
+            dtSanPham.Columns.Add("MauSac");
+            dtSanPham.Columns.Add("ThuongHieu");
+            dtSanPham.Columns.Add("ChongNuoc");
+            dtSanPham.Columns.Add("TrongLuong");
+            dtSanPham.Columns.Add("ChatLieu");
+            dtSanPham.Columns.Add("GiaVon");
+            dtSanPham.Columns.Add("SoLuong");
+            dtSanPham.Columns.Add("TongTien");
+            dvSanPham = new DataView(dtSanPham);
+            dgvSanPham.DataSource = dvSanPham;
+            dgvSanPham.AutoGenerateColumns = false;
+
+        }
+
+        private void EnableTextBox(bool flag)
+        {
+            txtMauSac.Enabled = flag;
+            txtTenSP.Enabled = flag;
+            cbLoc.Enabled = flag;
+            
+        }
+
 
         private static frmThongKeNhapHang _Instance = null;
 
@@ -38,6 +90,119 @@ namespace QuanLyBanBalo
         {
             //Tắt tab khi tắt form
             ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+        }
+
+
+        private void LayDuLieuSanPham()
+        {
+            foreach(DataRow row in dtPhieuNhapKho.Rows)
+            {
+                string maPNK = row["MaPhieuNhapKho"].ToString();
+                clsChiTietPhieuNhapKho_DTO pnk = clsChiTietPhieuNhapKho_BUS.LayChiTiet(maPNK);
+                if (pnk != null)
+                {
+                    clsChiTietSP_DTO ctsp = clsChiTietSanPham_BUS.LayChiTiet(pnk.MaCTSanPham);
+                    clsHinhAnh_DTO hinhAnh = clsHinhAnh_BUS.LayHinhAnh(ctsp.MaHinhAnh);
+                    clsSanPham_DTO sanPham = clsSanPham_BUS.LayThongTinMotSanPham(ctsp.MaSP);
+
+                    DataRow newSP = dtSanPham.NewRow();
+                    newSP["Url"] = hinhAnh.Url;
+                    newSP["TenSP"] = sanPham.TenSP;
+                    newSP["MauSac"] = ctsp.MauSac;
+                    newSP["ThuongHieu"] = sanPham.ThuongHieu;
+                    newSP["ChongNuoc"] = sanPham.ChongNuoc ? "Có" : "Không";
+                    newSP["TrongLuong"] = sanPham.TrongLuong;
+                    newSP["ChatLieu"] = sanPham.ChatLieu;
+                    newSP["GiaVon"] = sanPham.GiaVon.ToString("0,00#");
+                    newSP["SoLuong"] = pnk.SoLuong;
+                    newSP["TongTien"] = (sanPham.GiaVon * pnk.SoLuong).ToString("0,00#");
+                    dtSanPham.Rows.Add(newSP);
+                }
+                
+            }
+        }
+
+
+        private void CapNhatThongTinThongKe()
+        {
+            int soLuong = 0;
+            double tongTien = 0;
+            foreach (DataRow row in dtSanPham.Rows)
+            {
+                soLuong += int.Parse(row["SoLuong"].ToString());
+                tongTien += double.Parse(row["TongTien"].ToString());
+            }
+
+            lblSoLuongSP.Text = soLuong.ToString();
+            lblTongTien.Text = tongTien.ToString("0,00#");
+        }
+
+        private void dtpTuNgay_ValueChanged(object sender, EventArgs e)
+        {
+            int result = DateTime.Compare(dtpTuNgay.Value, dtpDenNgay.Value);
+            if (result > 0)
+            {
+                dtpTuNgay.Value = dtpDenNgay.Value;
+            }
+
+
+
+        }
+
+        private void dtpDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            int result = DateTime.Compare(dtpDenNgay.Value, dtpTuNgay.Value);
+            if (result < 0)
+            {
+                dtpDenNgay.Value = dtpTuNgay.Value;
+            }
+
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+            dtPhieuNhapKho = clsPhieuNhapKho_BUS.LayBang(dtpTuNgay.Value.ToString("yyyy-MM-dd"),dtpDenNgay.Value.ToString("yyyy-MM-dd"));
+            dvPhieuNhapKho = new DataView(dtPhieuNhapKho);
+            dgvPhieuNhapKho.DataSource = dvPhieuNhapKho;
+            lblHoaDon.Text = string.Format("Có {0} phiếu nhập hàng.", dtPhieuNhapKho.Rows.Count);
+            if (dtPhieuNhapKho.Rows.Count == 0)
+                MessageBox.Show("Không tìm thấy kết quả, vui lòng điều chỉnh lại ngày khác.");
+            
+            if (cbLoc.SelectedIndex == 0)
+            {
+                LayDuLieuSanPham();
+            }
+        }
+
+        private void dgvPhieuNhapKho_DataSourceChanged(object sender, EventArgs e)
+        {
+
+          EnableTextBox(dgvPhieuNhapKho.Rows.Count > 0);
+        }
+
+        private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvSanPham.Columns[e.ColumnIndex].Name == "HinhAnh")
+            {
+                e.Value = new Bitmap(e.Value.ToString());
+            }
+        }
+
+        private void dgvSanPham_DataSourceChanged(object sender, EventArgs e)
+        {
+            
+            
+            
+        }
+
+        private void dgvSanPham_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            CapNhatThongTinThongKe();
+        }
+
+        private void dgvSanPham_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CapNhatThongTinThongKe();
         }
     }
 }

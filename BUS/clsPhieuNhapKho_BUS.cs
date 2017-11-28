@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAO;
+using System.Data;
 namespace BUS
 {
     public class clsPhieuNhapKho_BUS
@@ -13,5 +14,11 @@ namespace BUS
         {
             return clsPhieuNhapKho_DAO.ThemPhieuNhapKho(phieuNhapKho);
         }
+
+        public static DataTable LayBang(string tuNgay, string denNgay)
+        {
+            return clsPhieuNhapKho_DAO.LayBang(tuNgay, denNgay);
+        }
+
     }
 }
