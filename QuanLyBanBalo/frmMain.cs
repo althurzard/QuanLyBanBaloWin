@@ -188,7 +188,7 @@ namespace QuanLyBanBalo
 
         private void danhSáchHĐXToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmThongKeNhapHang frmDSX = frmThongKeNhapHang.Instance;
+            frmBaoCaoNhapHang frmDSX = frmBaoCaoNhapHang.Instance;
 
             int index = KiemTraTonTaiForm(tbcMain, frmDSX);
             if (index >= 0)
@@ -332,7 +332,31 @@ namespace QuanLyBanBalo
 
         private void nhapHangToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmThongKeNhapHang frmXH = frmThongKeNhapHang.Instance;
+            frmBaoCaoNhapHang frmXH = frmBaoCaoNhapHang.Instance;
+
+            int index = KiemTraTonTaiForm(tbcMain, frmXH);
+            if (index >= 0)
+            {
+                // Nếu tồn tại tab form ==> nhảy vào tab đó
+                tbcMain.SelectedIndex = index;
+            }
+            else
+            {
+                frmXH.MdiParent = this;
+                //Tạo ra 1 tab mới
+                TabPage tp = new TabPage { Text = frmXH.Text };
+                tp.Size = new Size(400, 400);
+                //Add tab mới vào TabControl
+                tbcMain.TabPages.Add(tp);
+                frmXH.Parent = tp;
+                frmXH.Show();
+                tbcMain.SelectTab(tp);
+            }
+        }
+
+        private void doanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoDoanhThu frmXH = frmBaoCaoDoanhThu.Instance;
 
             int index = KiemTraTonTaiForm(tbcMain, frmXH);
             if (index >= 0)

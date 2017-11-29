@@ -48,5 +48,13 @@ namespace DAO
             string query = string.Format("SELECT MaHD,MaNV,HoaDon.MaKH as MaKhachHang,TenKH,SDT,HoaDon.NgayKhoiTao as NgayKhoiTao,TenKhuyenMai,GiamTru,GhiChu,ThanhTien FROM HoaDon,KhuyenMai,KhachHang WHERE HoaDon.MaHD = '{0}' AND KhuyenMai.MaKhuyenMai = HoaDon.MaKhuyenMai AND KhachHang.MaKH = HoaDon.MaKH ORDER BY HoaDon.NgayKhoiTao DESC", maHD);
             return XuLyDuLieu.LayBang(query);
         }
+
+        public static DataTable LayBangSanPhamTuHDBan(string tuNgay, string denNgay)
+        {
+            string query = string.Format("Select sp.MaDanhMuc as MaDanhMuc,TenDanhMuc,Url, sp.MaSP as MaSP, TenSP, MauSac, ThuongHieu, ChongNuoc, TrongLuong, ChatLieu, GiaVon, GiaBanLe, cthd.SoLuong as SoLuong, cthd.GiamTru as GiamTru, cthd.TongTien as TongTien" +
+                " from HoaDon as hd, ChiTietHoaDon as cthd, SanPham as sp, ChiTietSanPham as ctsp, HinhAnh as ha, DanhMuc as dm" +
+                " where hd.NgayKhoiTao >= '{0}' AND hd.NgayKhoiTao <= dateadd(day,1,'{1}') AND hd.MaHD = cthd.MaHD AND cthd.MaCTSP = ctsp.MaCTSP AND ctsp.MaSP = sp.MaSP AND ctsp.MaHinhAnh = ha.MaHinhAnh AND dm.MaDanhMuc = sp.MaDanhMuc ORDER BY hd.NgayKhoiTao DESC", tuNgay, denNgay);
+            return XuLyDuLieu.LayBang(query);
+        }
     }
 }

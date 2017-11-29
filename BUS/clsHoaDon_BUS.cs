@@ -24,5 +24,11 @@ namespace BUS
         {
             return clsHoaDon_DAO.LayHoaDonTheoMaHD(maHD);
         }
+
+        public static DataTable LayBangSanPhamTuHDBan(string tuNgay, string denNgay)
+        {
+            return clsHoaDon_DAO.LayBangSanPhamTuHDBan(tuNgay, denNgay);
+        }
+
     }
 }

@@ -81,6 +81,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dataThongKeChiTietPNK.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmBaoCaoDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoDoanhThu.Designer.cs">
+      <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBaoHanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,11 +117,11 @@
     <Compile Include="frmInThongKeChiTietPNK.Designer.cs">
       <DependentUpon>frmInThongKeChiTietPNK.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThongKeNhapHang.cs">
+    <Compile Include="frmBaoCaoNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThongKeNhapHang.Designer.cs">
-      <DependentUpon>frmThongKeNhapHang.cs</DependentUpon>
+    <Compile Include="frmBaoCaoNhapHang.Designer.cs">
+      <DependentUpon>frmBaoCaoNhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInHDBanHang.cs">
       <SubType>Form</SubType>
@@ -183,6 +189,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Validation.cs" />
+    <EmbeddedResource Include="frmBaoCaoDoanhThu.resx">
+      <DependentUpon>frmBaoCaoDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBaoHanh.resx">
       <DependentUpon>frmBaoHanh.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,8 +207,8 @@
     <EmbeddedResource Include="frmInThongKeChiTietPNK.resx">
       <DependentUpon>frmInThongKeChiTietPNK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThongKeNhapHang.resx">
-      <DependentUpon>frmThongKeNhapHang.cs</DependentUpon>
+    <EmbeddedResource Include="frmBaoCaoNhapHang.resx">
+      <DependentUpon>frmBaoCaoNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInHDBanHang.resx">
       <DependentUpon>frmInHDBanHang.cs</DependentUpon>

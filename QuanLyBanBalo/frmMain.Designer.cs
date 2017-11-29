@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tbcMain = new System.Windows.Forms.TabControl();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.nhapHangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.banHangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +46,6 @@
             this.cáchSửDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vềChúngTôiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tbcMain = new System.Windows.Forms.TabControl();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,19 @@
             this.toolStrip1.Size = new System.Drawing.Size(154, 414);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tbcMain
+            // 
+            this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbcMain.ItemSize = new System.Drawing.Size(0, 15);
+            this.tbcMain.Location = new System.Drawing.Point(154, 0);
+            this.tbcMain.Name = "tbcMain";
+            this.tbcMain.Padding = new System.Drawing.Point(10, 3);
+            this.tbcMain.SelectedIndex = 0;
+            this.tbcMain.Size = new System.Drawing.Size(790, 414);
+            this.tbcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tbcMain.TabIndex = 2;
+            this.tbcMain.DoubleClick += new System.EventHandler(this.tbcMain_DoubleClick);
             // 
             // toolStripDropDownButton1
             // 
@@ -166,6 +179,7 @@
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
             this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(165, 26);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
+            this.doanhThuToolStripMenuItem.Click += new System.EventHandler(this.doanhThuToolStripMenuItem_Click);
             // 
             // troGiupToolStripDropDownButton
             // 
@@ -199,19 +213,6 @@
             this.toolStripButton1.Size = new System.Drawing.Size(151, 54);
             this.toolStripButton1.Text = "THOÁT";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // tbcMain
-            // 
-            this.tbcMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbcMain.ItemSize = new System.Drawing.Size(0, 15);
-            this.tbcMain.Location = new System.Drawing.Point(154, 0);
-            this.tbcMain.Name = "tbcMain";
-            this.tbcMain.Padding = new System.Drawing.Point(10, 3);
-            this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(790, 414);
-            this.tbcMain.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tbcMain.TabIndex = 2;
-            this.tbcMain.DoubleClick += new System.EventHandler(this.tbcMain_DoubleClick);
             // 
             // frmMain
             // 

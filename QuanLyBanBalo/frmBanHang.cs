@@ -117,7 +117,7 @@ namespace QuanLyBanBalo
 
             lblTenCTKM.Text = "Hiện không có chương trình khuyến mại.";
             lblNgayKM.Text = "";
-            khuyenMai = clsKhuyenMai_BUS.LayKhuyenMai(1);
+            khuyenMai = clsKhuyenMai_BUS.LayKhuyenMai(4); // Mặc định
 
         }
 
