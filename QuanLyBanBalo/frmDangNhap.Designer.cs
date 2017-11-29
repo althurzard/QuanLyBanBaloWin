@@ -32,10 +32,10 @@
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.lblMaHoaDon = new System.Windows.Forms.Label();
             this.lblMaNCC = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,16 +78,6 @@
             this.lblMaNCC.TabIndex = 79;
             this.lblMaNCC.Text = "Mật khẩu";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::QuanLyBanBalo.Properties.Resources.User;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(147, 217);
-            this.pictureBox1.TabIndex = 83;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnXacNhan
             // 
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -121,6 +111,16 @@
             this.linkLabel1.TabIndex = 87;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "PHẦN MỀM QUẢN LÝ BALO";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::QuanLyBanBalo.Properties.Resources._1j_ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj___Zt8___k4;
+            this.pictureBox1.Location = new System.Drawing.Point(2, 85);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 110);
+            this.pictureBox1.TabIndex = 83;
+            this.pictureBox1.TabStop = false;
             // 
             // frmDangNhap
             // 

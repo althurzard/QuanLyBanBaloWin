@@ -614,6 +614,8 @@
     <None Include="bin\Debug\data\iconsys\icons8-save-40.png" />
     <None Include="bin\Debug\data\iconsys\icons8-return-40.png" />
     <None Include="bin\Debug\data\iconsys\icons8-delete-40.png" />
+    <None Include="bin\Debug\data\avatar\b9cb7a60-df4f-43b2-9ff1-0a995d6420a3.png" />
+    <None Include="bin\Debug\data\avatar\1j+ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj...Zt8...k4.png" />
     <Content Include="bin\Debug\images\1507827672.4542.jpg" />
     <Content Include="bin\Debug\images\1508510316.0103.jpg" />
     <Content Include="bin\Debug\images\balo-b2b01-aji-2_grande.jpg" />
