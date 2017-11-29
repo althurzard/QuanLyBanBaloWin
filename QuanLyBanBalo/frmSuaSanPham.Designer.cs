@@ -531,7 +531,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::QuanLyBanBalo.Properties.Resources.icons8_return_40;
+            this.button1.Image = global::QuanLyBanBalo.Properties.Resources.icon_return;
             this.button1.Location = new System.Drawing.Point(563, 388);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(208, 51);
@@ -544,7 +544,7 @@
             // btnLuu
             // 
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Image = global::QuanLyBanBalo.Properties.Resources.icons8_save_40;
+            this.btnLuu.Image = global::QuanLyBanBalo.Properties.Resources.icon_saved;
             this.btnLuu.Location = new System.Drawing.Point(777, 388);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(208, 51);
@@ -557,7 +557,7 @@
             // picHinhAnh
             // 
             this.picHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.picHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources._512px_Picture_font_awesome_svg;
+            this.picHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources.image_background;
             this.picHinhAnh.Location = new System.Drawing.Point(104, 130);
             this.picHinhAnh.Name = "picHinhAnh";
             this.picHinhAnh.Size = new System.Drawing.Size(217, 167);

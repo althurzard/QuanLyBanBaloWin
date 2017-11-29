@@ -208,7 +208,7 @@
             // btnKhoiPhuc
             // 
             this.btnKhoiPhuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoiPhuc.Image = global::QuanLyBanBalo.Properties.Resources.icons8_refresh_40;
+            this.btnKhoiPhuc.Image = global::QuanLyBanBalo.Properties.Resources.icon_refresh;
             this.btnKhoiPhuc.Location = new System.Drawing.Point(419, 231);
             this.btnKhoiPhuc.Name = "btnKhoiPhuc";
             this.btnKhoiPhuc.Size = new System.Drawing.Size(140, 50);
@@ -500,7 +500,7 @@
             // 
             this.btnSua.Enabled = false;
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icons8_edit_40;
+            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icon_edit;
             this.btnSua.Location = new System.Drawing.Point(120, 88);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(140, 50);
@@ -513,7 +513,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
+            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icon_plus_math;
             this.btnThem.Location = new System.Drawing.Point(264, 88);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(140, 50);

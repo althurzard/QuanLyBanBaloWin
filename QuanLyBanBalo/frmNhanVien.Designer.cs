@@ -557,7 +557,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icons8_plus_math_40;
+            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icon_plus_math;
             this.btnThem.Location = new System.Drawing.Point(481, 280);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(163, 50);
@@ -570,7 +570,7 @@
             // pictureHinhAnh
             // 
             this.pictureHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources._512px_Picture_font_awesome_svg;
+            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources.image_background;
             this.pictureHinhAnh.InitialImage = null;
             this.pictureHinhAnh.Location = new System.Drawing.Point(125, 180);
             this.pictureHinhAnh.Name = "pictureHinhAnh";

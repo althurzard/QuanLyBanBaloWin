@@ -276,7 +276,7 @@
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Image = global::QuanLyBanBalo.Properties.Resources.icons8_return_40;
+            this.btnThoat.Image = global::QuanLyBanBalo.Properties.Resources.icon_return;
             this.btnThoat.Location = new System.Drawing.Point(92, 386);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(208, 51);
@@ -289,7 +289,7 @@
             // btnXoa
             // 
             this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Image = global::QuanLyBanBalo.Properties.Resources.icons8_delete_40;
+            this.btnXoa.Image = global::QuanLyBanBalo.Properties.Resources.icon_delete;
             this.btnXoa.Location = new System.Drawing.Point(308, 386);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(208, 51);
@@ -302,7 +302,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icons8_edit_40;
+            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icon_edit;
             this.btnSua.Location = new System.Drawing.Point(522, 386);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(208, 51);
@@ -315,7 +315,7 @@
             // pictureHinhAnh
             // 
             this.pictureHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources._512px_Picture_font_awesome_svg;
+            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources.image_background;
             this.pictureHinhAnh.InitialImage = null;
             this.pictureHinhAnh.Location = new System.Drawing.Point(51, 25);
             this.pictureHinhAnh.Name = "pictureHinhAnh";

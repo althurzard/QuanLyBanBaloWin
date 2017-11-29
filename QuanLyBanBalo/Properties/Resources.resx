@@ -130,7 +130,7 @@
   <data name="Chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b9cb7a60-df4f-43b2-9ff1-0a995d6420a3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="balo_center" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\avatar\b9cb7a60-df4f-43b2-9ff1-0a995d6420a3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Invoice" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -214,12 +214,9 @@
   <data name="Deliverybox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Deliverybox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-<<<<<<< HEAD
-=======
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
->>>>>>> pr/21
   <data name="if_clipboard_16_22528" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\if_clipboard_16_22528.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -232,7 +229,7 @@
   <data name="Education" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Education.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="512px-Picture_font_awesome.svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="image_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\512px-Picture_font_awesome.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mobilepay" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -247,7 +244,7 @@
   <data name="Balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-save-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_saved" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-save-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Poundpaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -270,9 +267,6 @@
   </data>
   <data name="Statsdecrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Statsdecrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bagremove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Bagremove.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Teammates" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Teammates.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,7 +295,6 @@
   <data name="Book" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Book.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-<<<<<<< HEAD
   <data name="Europaper" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Europaper.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -310,16 +303,9 @@
   </data>
   <data name="Coins" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Coins.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-=======
-  <data name="Upstatspanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Upstatspanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Citybuilding" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Citybuilding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Bitcoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Bitcoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
->>>>>>> pr/21
   </data>
   <data name="Alarmclock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Alarmclock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -330,7 +316,7 @@
   <data name="Timelapsefinished" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Timelapsefinished.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Graphicpanel@2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="Graphic_panel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\Graphicpanel@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Coinincrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -339,7 +325,7 @@
   <data name="Docarchive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Docarchive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-check-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_check_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-check-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Coinstack" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -348,7 +334,7 @@
   <data name="Comissiondown" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Comissiondown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-return-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_return" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-return-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Visacard" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -381,13 +367,13 @@
   <data name="Receipt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Receipt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-checkmark-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_checkmark_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-checkmark-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-edit-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-edit-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-plus-math-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_plus_math" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-plus-math-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Calculate" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -396,11 +382,8 @@
   <data name="Cartsubstract" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Cartsubstract.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-refresh-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_refresh" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-refresh-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cartsubstract" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Cartsubstract.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="if_address_16_22501" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\if_address_16_22501.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -414,7 +397,7 @@
   <data name="Calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Calendar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-gift-card-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_giftcard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-gift-card-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Moneyprinter" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -441,7 +424,7 @@
   <data name="Bagshop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Bagshop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-coupon-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_coupon_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-coupon-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Badadd" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -450,13 +433,10 @@
   <data name="Growingmoney" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Growingmoney.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Bill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Bill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Financestat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Financestat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Chart@2x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="chartxx" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons\Chart@2x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Briefcase" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -468,10 +448,10 @@
   <data name="Prizecup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Prizecup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-rotate-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_rotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-rotate-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-delete-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-delete-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cartgrill" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -482,9 +462,6 @@
   </data>
   <data name="Feather" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Feather.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Chart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Chart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Economies" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Economies.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -498,14 +475,11 @@
   <data name="Eurocoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Eurocoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-create-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_note" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\icons8-create-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Mastercard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Mastercard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Wallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Wallet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -522,17 +496,11 @@
   <data name="Manbag" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Manbag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Incomeincrease" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Incomeincrease.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Bagcancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Bagcancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Humantarget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Humantarget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Citybuilding" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bin\Debug\data\icons2\Citybuilding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Cartdivide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\Cartdivide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -540,12 +508,10 @@
   <data name="BagOK" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\icons2\BagOK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-<<<<<<< HEAD
-  <data name="Chart-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="icon_chart_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\iconsys\Chart-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-=======
-  <data name="1j+ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj...Zt8...k4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  </data>
+  <data name="LogoBalo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\data\avatar\1j+ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj...Zt8...k4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
->>>>>>> pr/21
   </data>
 </root>

@@ -63,26 +63,6 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1j_ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj___Zt8___k4 {
-            get {
-                object obj = ResourceManager.GetObject("1j+ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj...Zt8...k4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _512px_Picture_font_awesome_svg {
-            get {
-                object obj = ResourceManager.GetObject("512px-Picture_font_awesome.svg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Alarmclock {
             get {
                 object obj = ResourceManager.GetObject("Alarmclock", resourceCulture);
@@ -96,16 +76,6 @@ namespace QuanLyBanBalo.Properties {
         internal static System.Drawing.Bitmap ATM {
             get {
                 object obj = ResourceManager.GetObject("ATM", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap b9cb7a60_df4f_43b2_9ff1_0a995d6420a3 {
-            get {
-                object obj = ResourceManager.GetObject("b9cb7a60-df4f-43b2-9ff1-0a995d6420a3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -176,6 +146,16 @@ namespace QuanLyBanBalo.Properties {
         internal static System.Drawing.Bitmap Balance {
             get {
                 object obj = ResourceManager.GetObject("Balance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap balo_center {
+            get {
+                object obj = ResourceManager.GetObject("balo_center", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -413,19 +393,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Chart_2x {
+        internal static System.Drawing.Bitmap chartxx {
             get {
-                object obj = ResourceManager.GetObject("Chart@2x", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Chart_40 {
-            get {
-                object obj = ResourceManager.GetObject("Chart-40", resourceCulture);
+                object obj = ResourceManager.GetObject("chartxx", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -733,9 +703,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Graphicpanel {
+        internal static System.Drawing.Bitmap Graphic_panel {
             get {
-                object obj = ResourceManager.GetObject("Graphicpanel", resourceCulture);
+                object obj = ResourceManager.GetObject("Graphic_panel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,9 +713,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Graphicpanel_2x {
+        internal static System.Drawing.Bitmap Graphicpanel {
             get {
-                object obj = ResourceManager.GetObject("Graphicpanel@2x", resourceCulture);
+                object obj = ResourceManager.GetObject("Graphicpanel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -783,9 +753,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_check_40 {
+        internal static System.Drawing.Bitmap icon_chart_small {
             get {
-                object obj = ResourceManager.GetObject("icons8-check-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_chart_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -793,9 +763,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_checkmark_40 {
+        internal static System.Drawing.Bitmap icon_check_small {
             get {
-                object obj = ResourceManager.GetObject("icons8-checkmark-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_check_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -803,9 +773,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_coupon_40 {
+        internal static System.Drawing.Bitmap icon_checkmark_small {
             get {
-                object obj = ResourceManager.GetObject("icons8-coupon-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_checkmark_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -813,9 +783,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_create_40 {
+        internal static System.Drawing.Bitmap icon_coupon_small {
             get {
-                object obj = ResourceManager.GetObject("icons8-create-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_coupon_small", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -823,9 +793,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_delete_40 {
+        internal static System.Drawing.Bitmap icon_delete {
             get {
-                object obj = ResourceManager.GetObject("icons8-delete-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_delete", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -833,9 +803,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_edit_40 {
+        internal static System.Drawing.Bitmap icon_edit {
             get {
-                object obj = ResourceManager.GetObject("icons8-edit-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -843,9 +813,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_gift_card_40 {
+        internal static System.Drawing.Bitmap icon_giftcard {
             get {
-                object obj = ResourceManager.GetObject("icons8-gift-card-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_giftcard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -853,9 +823,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_plus_math_40 {
+        internal static System.Drawing.Bitmap icon_note {
             get {
-                object obj = ResourceManager.GetObject("icons8-plus-math-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_note", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -863,9 +833,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_refresh_40 {
+        internal static System.Drawing.Bitmap icon_plus_math {
             get {
-                object obj = ResourceManager.GetObject("icons8-refresh-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_plus_math", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -873,9 +843,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_return_40 {
+        internal static System.Drawing.Bitmap icon_refresh {
             get {
-                object obj = ResourceManager.GetObject("icons8-return-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_refresh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -883,9 +853,9 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_rotate_40 {
+        internal static System.Drawing.Bitmap icon_return {
             get {
-                object obj = ResourceManager.GetObject("icons8-rotate-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_return", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -893,9 +863,19 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_save_40 {
+        internal static System.Drawing.Bitmap icon_rotate {
             get {
-                object obj = ResourceManager.GetObject("icons8-save-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icon_rotate", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_saved {
+            get {
+                object obj = ResourceManager.GetObject("icon_saved", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -946,6 +926,16 @@ namespace QuanLyBanBalo.Properties {
         internal static System.Drawing.Bitmap if_statistics_16_22636 {
             get {
                 object obj = ResourceManager.GetObject("if_statistics_16_22636", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_background {
+            get {
+                object obj = ResourceManager.GetObject("image_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1026,6 +1016,16 @@ namespace QuanLyBanBalo.Properties {
         internal static System.Drawing.Bitmap Invoicesmall {
             get {
                 object obj = ResourceManager.GetObject("Invoicesmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoBalo {
+            get {
+                object obj = ResourceManager.GetObject("LogoBalo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -203,7 +203,7 @@
             // btnXacNhan
             // 
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.Image = global::QuanLyBanBalo.Properties.Resources.icons8_checkmark_40;
+            this.btnXacNhan.Image = global::QuanLyBanBalo.Properties.Resources.icon_checkmark_small;
             this.btnXacNhan.Location = new System.Drawing.Point(528, 90);
             this.btnXacNhan.Name = "btnXacNhan";
             this.btnXacNhan.Size = new System.Drawing.Size(217, 49);

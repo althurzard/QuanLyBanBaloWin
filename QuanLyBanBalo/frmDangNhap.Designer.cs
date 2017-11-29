@@ -115,7 +115,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::QuanLyBanBalo.Properties.Resources._1j_ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj___Zt8___k4;
+            this.pictureBox1.Image = global::QuanLyBanBalo.Properties.Resources.LogoBalo;
             this.pictureBox1.Location = new System.Drawing.Point(2, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(181, 110);
