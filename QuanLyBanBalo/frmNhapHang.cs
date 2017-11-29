@@ -226,7 +226,6 @@ namespace QuanLyBanBalo
                         string _maSanPhamMoi = Helper.GetTimestamp(DateTime.Now);
                         txtCTMaSP.Text = _maSanPhamMoi;
                         txtCTTenSP.Text = txtTenSP.Text;
-
                         bool chongNuoc = (rdCo.Checked) ? true : false;
                         int maDanhMuc = int.Parse(cboMauMa.SelectedValue.ToString());
                         DataRow dr = dtSanPhamMoi.NewRow();
@@ -353,7 +352,7 @@ namespace QuanLyBanBalo
                             if (!found)
                             {
                                 //Lưu số lương mới vào dgv
-                                dgvHDSanPham.Rows.Add(maChiTietSanPham, txtCTMaSP.Text, txtCTTenSP.Text, SoLuongSanPhamCu, txtCTSoLuong.Text, txtCTMauSac.Text, hinhAnh);
+                                dgvHDSanPham.Rows.Add(maChiTietSanPham, txtCTMaSP.Text, txtCTTenSP.Text, SoLuongSanPhamCu, txtCTSoLuong.Text, txtCTMauSac.Text, hinhAnh, txtGiaVon.Text);
                                 RefreshChiTietSanPham();
                                 EnableThongTinHD(true);
                                 btnThemMoi.Enabled = true;
@@ -362,7 +361,7 @@ namespace QuanLyBanBalo
                         else
                         {
                             //Lưu số lương mới vào dgv
-                            dgvHDSanPham.Rows.Add(maChiTietSanPham, txtCTMaSP.Text, txtCTTenSP.Text, SoLuongSanPhamCu, txtCTSoLuong.Text, txtCTMauSac.Text, hinhAnh);
+                            dgvHDSanPham.Rows.Add(maChiTietSanPham, txtCTMaSP.Text, txtCTTenSP.Text, SoLuongSanPhamCu, txtCTSoLuong.Text, txtCTMauSac.Text, hinhAnh,txtGiaVon.Text);
                             RefreshChiTietSanPham();
                             EnableThongTinHD(true);
                             btnThemMoi.Enabled = true;
@@ -399,7 +398,7 @@ namespace QuanLyBanBalo
                             if (!found)
                             {
                                 //Lưu số lương mới vào dgv
-                                dgvHDSanPham.Rows.Add(maChiTietSanPhamMoi, txtCTMaSP.Text, txtCTTenSP.Text, 0, txtCTSoLuong.Text, txtCTMauSac.Text, picHinhAnh.ImageLocation);
+                                dgvHDSanPham.Rows.Add(maChiTietSanPhamMoi, txtCTMaSP.Text, txtCTTenSP.Text, 0, txtCTSoLuong.Text, txtCTMauSac.Text, picHinhAnh.ImageLocation, txtGiaVon.Text);
                                 RefreshChiTietSanPham();
                                 EnableThongTinHD(true);
                                 btnThemMoi.Enabled = true;
@@ -408,7 +407,7 @@ namespace QuanLyBanBalo
                         else
                         {
                             //Lưu số lương mới vào dgv
-                            dgvHDSanPham.Rows.Add(maChiTietSanPhamMoi, txtCTMaSP.Text, txtCTTenSP.Text, 0, txtCTSoLuong.Text, txtCTMauSac.Text, picHinhAnh.ImageLocation);
+                            dgvHDSanPham.Rows.Add(maChiTietSanPhamMoi, txtCTMaSP.Text, txtCTTenSP.Text, 0, txtCTSoLuong.Text, txtCTMauSac.Text, picHinhAnh.ImageLocation,txtGiaVon.Text);
                             RefreshChiTietSanPham();
                             EnableThongTinHD(true);
                             btnThemMoi.Enabled = true;
@@ -659,10 +658,16 @@ namespace QuanLyBanBalo
                         MessageBox.Show((string)resultPhieuNhapKho);
                         return; 
                     }
-                    _layDongTrongDataTable = 0;
-                    dtSanPhamMoi.Rows.Clear();
+                    
+                    //lưu thành công
                     if (_KiemTraThemChiTiet)
                     {
+                        _layDongTrongDataTable = 0;
+                        dtSanPhamMoi.Rows.Clear();
+                        lblSoLuongSP.Text = "0";
+                        lblTongTien.Text = "0";
+                        txtCTMaSP.Text = null;
+                        txtCTTenSP.Text = null;
                         btnThemMoi.Enabled = false;
                         EnableChiTiet(false);
                         EnableSanPham(true);
@@ -691,9 +696,19 @@ namespace QuanLyBanBalo
 
         private void dgvSanPham_DoubleClick_1(object sender, EventArgs e)
         {
-
+            //
             txtCTMaSP.Text = dgvSanPham.CurrentRow.Cells["colMaSp"].Value.ToString();
             txtCTTenSP.Text = dgvSanPham.CurrentRow.Cells["colTenSanPham"].Value.ToString();
+            //
+            txtTenSP.Text = dgvSanPham.CurrentRow.Cells["colTenSanPham"].Value.ToString();
+            txtGiaVon.Text = dgvSanPham.CurrentRow.Cells["colGiaVon"].Value.ToString();
+            txtGiaBanLe.Text = dgvSanPham.CurrentRow.Cells["colGiaBan"].Value.ToString();
+            txtKichCo.Text = dgvSanPham.CurrentRow.Cells["colTrongLuong"].Value.ToString();
+            txtNamBH.Text = dgvSanPham.CurrentRow.Cells["colNamBH"].Value.ToString();
+            txtChatLieu.Text = dgvSanPham.CurrentRow.Cells["colChatLieu"].Value.ToString();
+            txtThuongHieu.Text =dgvSanPham.CurrentRow.Cells["colThuongHieu"].Value.ToString();
+            cboMauMa.SelectedValue = dgvSanPham.CurrentRow.Cells["colMauMa"].Value.ToString();
+            //
             EnableChiTiet(true);
             EnableSanPham(false);
         }
@@ -712,7 +727,13 @@ namespace QuanLyBanBalo
             EnableSanPham(true);
             EnableThongTinHD(false);
             dgvHDSanPham.Rows.Clear();
+            txtCTMaSP.Text = null;
+            txtCTTenSP.Text = null;
+            lblTongTien.Text = "0";
+            lblSoLuongSP.Text = "0";
         }
+
+      
 
         private void btnThemMoi_Click(object sender, EventArgs e)
         {
@@ -724,6 +745,9 @@ namespace QuanLyBanBalo
         {
 
         }
+
+       
+
         private void txtGiaVon_TextChanged_1(object sender, EventArgs e)
         {
             try
@@ -763,6 +787,16 @@ namespace QuanLyBanBalo
             {
                 MessageBox.Show("Lỗi không biết");
             }
+        }
+
+        int soLuong = 0;
+        double tongTien = 0;
+        private void dgvHDSanPham_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            soLuong += int.Parse(dgvHDSanPham.Rows[dgvHDSanPham.RowCount - 1].Cells["colSoLuong"].Value.ToString().Replace(",", ""));
+            tongTien += int.Parse(dgvHDSanPham.Rows[dgvHDSanPham.RowCount - 1].Cells["colGiaVonNhap"].Value.ToString().Replace(",", ""));
+            lblSoLuongSP.Text = soLuong.ToString();
+            lblTongTien.Text = tongTien.ToString("0,00#");
         }
     }
 }

@@ -63,6 +63,16 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1j_ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj___Zt8___k4 {
+            get {
+                object obj = ResourceManager.GetObject("1j+ojl1FOMkX9WypfBe43D6kjfCAqxRJnhrEwXs1M3EMoAJtlSEsj...Zt8...k4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _512px_Picture_font_awesome_svg {
             get {
                 object obj = ResourceManager.GetObject("512px-Picture_font_awesome.svg", resourceCulture);
@@ -86,6 +96,16 @@ namespace QuanLyBanBalo.Properties {
         internal static System.Drawing.Bitmap ATM {
             get {
                 object obj = ResourceManager.GetObject("ATM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap b9cb7a60_df4f_43b2_9ff1_0a995d6420a3 {
+            get {
+                object obj = ResourceManager.GetObject("b9cb7a60-df4f-43b2-9ff1-0a995d6420a3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
