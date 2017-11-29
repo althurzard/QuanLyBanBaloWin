@@ -73,6 +73,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dataHDBanHang.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dataThongKeChiTietPNK.cs">
+      <DependentUpon>dataThongKeChiTietPNK.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dataThongKeChiTietPNK.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataThongKeChiTietPNK.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmBaoHanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +104,12 @@
     </Compile>
     <Compile Include="frmDoanhThu.Designer.cs">
       <DependentUpon>frmDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInThongKeChiTietPNK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInThongKeChiTietPNK.Designer.cs">
+      <DependentUpon>frmInThongKeChiTietPNK.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThongKeNhapHang.cs">
       <SubType>Form</SubType>
@@ -181,6 +195,9 @@
     <EmbeddedResource Include="frmDoanhThu.resx">
       <DependentUpon>frmDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInThongKeChiTietPNK.resx">
+      <DependentUpon>frmInThongKeChiTietPNK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThongKeNhapHang.resx">
       <DependentUpon>frmThongKeNhapHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +242,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="rptHDBanHang.rdlc" />
+    <EmbeddedResource Include="rptThongKeChiTietPNK.rdlc" />
     <None Include="dataHDBanHang.xsc">
       <DependentUpon>dataHDBanHang.xsd</DependentUpon>
     </None>
@@ -235,6 +253,17 @@
     </None>
     <None Include="dataHDBanHang.xss">
       <DependentUpon>dataHDBanHang.xsd</DependentUpon>
+    </None>
+    <None Include="dataThongKeChiTietPNK.xsc">
+      <DependentUpon>dataThongKeChiTietPNK.xsd</DependentUpon>
+    </None>
+    <None Include="dataThongKeChiTietPNK.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataThongKeChiTietPNK.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dataThongKeChiTietPNK.xss">
+      <DependentUpon>dataThongKeChiTietPNK.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -614,6 +643,9 @@
     <None Include="bin\Debug\data\iconsys\icons8-save-40.png" />
     <None Include="bin\Debug\data\iconsys\icons8-return-40.png" />
     <None Include="bin\Debug\data\iconsys\icons8-delete-40.png" />
+    <None Include="bin\Debug\data\icons\Chart%402x.png" />
+    <None Include="bin\Debug\data\icons\Graphicpanel%402x.png" />
+    <None Include="bin\Debug\data\iconsys\Chart-40.png" />
     <Content Include="bin\Debug\images\1507827672.4542.jpg" />
     <Content Include="bin\Debug\images\1508510316.0103.jpg" />
     <Content Include="bin\Debug\images\balo-b2b01-aji-2_grande.jpg" />

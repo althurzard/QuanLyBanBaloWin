@@ -39,7 +39,7 @@ namespace DAO
         {
             string query = string.Format("Select MaPhieuNhapKho, HoTen, PhieuNhapKho.NgayKhoiTao as NgayKhoiTao,GhiChu, TenNhaCungCap" +
                 " from PhieuNhapKho,NhanVien,NhaCungCap" +
-                " where PhieuNhapKho.MaNV = NhanVien.MaNV AND PhieuNhapKho.MaNhaCungCap = NhaCungCap.MaNhaCungCap AND PhieuNhapKho.NgayKhoiTao >= '{0}' AND PhieuNhapKho.NgayKhoiTao <= dateadd(day,1,'{1}')", tuNgay, denNgay);
+                " where PhieuNhapKho.MaNV = NhanVien.MaNV AND PhieuNhapKho.MaNhaCungCap = NhaCungCap.MaNhaCungCap AND PhieuNhapKho.NgayKhoiTao >= '{0}' AND PhieuNhapKho.NgayKhoiTao <= dateadd(day,1,'{1}') ORDER BY PhieuNhapKho.NgayKhoiTao DESC", tuNgay, denNgay);
             return XuLyDuLieu.LayBang(query);
         }
     }

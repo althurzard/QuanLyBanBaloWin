@@ -36,7 +36,10 @@ namespace QuanLyBanBalo
 
             cbLoc.SelectedIndex = 0;
 
-           
+            List<string> lstMauSac = clsChiTietSanPham_BUS.LayMauSac();
+            Helper.SetAutocomplete(txtMauSac, lstMauSac.ToArray());
+            List<string> lstTenSP = clsSanPham_BUS.LayTenSP();
+            Helper.SetAutocomplete(txtTenSP, lstTenSP.ToArray());
 
         }
 
@@ -54,6 +57,10 @@ namespace QuanLyBanBalo
             dtSanPham.Columns.Add("GiaVon");
             dtSanPham.Columns.Add("SoLuong");
             dtSanPham.Columns.Add("TongTien");
+            dtSanPham.Columns.Add("MaPhieuNhapKho");
+            dtSanPham.Columns.Add("TenNCC");
+            dtSanPham.Columns.Add("MaSP");
+            dtSanPham.Columns.Add("DVT");
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.DataSource = dvSanPham;
             dgvSanPham.AutoGenerateColumns = false;
@@ -93,33 +100,34 @@ namespace QuanLyBanBalo
         }
 
 
-        private void LayDuLieuSanPham()
+        private void DoDuLieuVaoBangSanPham(DataRow row)
         {
-            foreach(DataRow row in dtPhieuNhapKho.Rows)
+            string maPNK = row["MaPhieuNhapKho"].ToString();
+            clsChiTietPhieuNhapKho_DTO pnk = clsChiTietPhieuNhapKho_BUS.LayChiTiet(maPNK);
+            if (pnk != null)
             {
-                string maPNK = row["MaPhieuNhapKho"].ToString();
-                clsChiTietPhieuNhapKho_DTO pnk = clsChiTietPhieuNhapKho_BUS.LayChiTiet(maPNK);
-                if (pnk != null)
-                {
-                    clsChiTietSP_DTO ctsp = clsChiTietSanPham_BUS.LayChiTiet(pnk.MaCTSanPham);
-                    clsHinhAnh_DTO hinhAnh = clsHinhAnh_BUS.LayHinhAnh(ctsp.MaHinhAnh);
-                    clsSanPham_DTO sanPham = clsSanPham_BUS.LayThongTinMotSanPham(ctsp.MaSP);
+                clsChiTietSP_DTO ctsp = clsChiTietSanPham_BUS.LayChiTiet(pnk.MaCTSanPham);
+                clsHinhAnh_DTO hinhAnh = clsHinhAnh_BUS.LayHinhAnh(ctsp.MaHinhAnh);
+                clsSanPham_DTO sanPham = clsSanPham_BUS.LayThongTinMotSanPham(ctsp.MaSP);
 
-                    DataRow newSP = dtSanPham.NewRow();
-                    newSP["Url"] = hinhAnh.Url;
-                    newSP["TenSP"] = sanPham.TenSP;
-                    newSP["MauSac"] = ctsp.MauSac;
-                    newSP["ThuongHieu"] = sanPham.ThuongHieu;
-                    newSP["ChongNuoc"] = sanPham.ChongNuoc ? "Có" : "Không";
-                    newSP["TrongLuong"] = sanPham.TrongLuong;
-                    newSP["ChatLieu"] = sanPham.ChatLieu;
-                    newSP["GiaVon"] = sanPham.GiaVon.ToString("0,00#");
-                    newSP["SoLuong"] = pnk.SoLuong;
-                    newSP["TongTien"] = (sanPham.GiaVon * pnk.SoLuong).ToString("0,00#");
-                    dtSanPham.Rows.Add(newSP);
-                }
-                
+                DataRow newSP = dtSanPham.NewRow();
+                newSP["Url"] = hinhAnh.Url;
+                newSP["TenSP"] = sanPham.TenSP;
+                newSP["MauSac"] = ctsp.MauSac;
+                newSP["ThuongHieu"] = sanPham.ThuongHieu;
+                newSP["ChongNuoc"] = sanPham.ChongNuoc ? "Có" : "Không";
+                newSP["TrongLuong"] = sanPham.TrongLuong;
+                newSP["ChatLieu"] = sanPham.ChatLieu;
+                newSP["GiaVon"] = sanPham.GiaVon.ToString("0,00#");
+                newSP["SoLuong"] = pnk.SoLuong;
+                newSP["TongTien"] = (sanPham.GiaVon * pnk.SoLuong).ToString("0,00#");
+                newSP["MaPhieuNhapKho"] = pnk.MaPhieuNhapKho;
+                newSP["TenNCC"] = row["TenNhaCungCap"];
+                newSP["MaSP"] = ctsp.MaSP;
+                newSP["DVT"] = "Cái";
+                dtSanPham.Rows.Add(newSP);
             }
+            
         }
 
 
@@ -135,6 +143,33 @@ namespace QuanLyBanBalo
 
             lblSoLuongSP.Text = soLuong.ToString();
             lblTongTien.Text = tongTien.ToString("0,00#");
+        }
+
+        private void Search()
+        {
+            string searchText = "";
+            if (!string.IsNullOrWhiteSpace(txtTenSP.Text))
+            {
+                searchText = string.Format("TenSP like '%{0}%' AND ", txtTenSP.Text);
+            }
+            else
+            {
+                searchText = "TRUE AND ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtMauSac.Text))
+            {
+                searchText += string.Format("MauSac like '%{0}%' AND ", txtMauSac.Text);
+            }
+            else
+            {
+                searchText += "TRUE AND ";
+            }
+
+            searchText += "TRUE";
+
+            dvSanPham.RowFilter = searchText;
+
         }
 
         private void dtpTuNgay_ValueChanged(object sender, EventArgs e)
@@ -161,6 +196,8 @@ namespace QuanLyBanBalo
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
+            if (dtSanPham != null)
+                dtSanPham.Clear();
             dtPhieuNhapKho = clsPhieuNhapKho_BUS.LayBang(dtpTuNgay.Value.ToString("yyyy-MM-dd"),dtpDenNgay.Value.ToString("yyyy-MM-dd"));
             dvPhieuNhapKho = new DataView(dtPhieuNhapKho);
             dgvPhieuNhapKho.DataSource = dvPhieuNhapKho;
@@ -170,7 +207,11 @@ namespace QuanLyBanBalo
             
             if (cbLoc.SelectedIndex == 0)
             {
-                LayDuLieuSanPham();
+                foreach (DataRow row in dtPhieuNhapKho.Rows)
+                {
+                    DoDuLieuVaoBangSanPham(row);
+                }
+                
             }
         }
 
@@ -203,6 +244,54 @@ namespace QuanLyBanBalo
         private void dgvSanPham_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             CapNhatThongTinThongKe();
+        }
+
+        private void cbLoc_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            dtSanPham.Clear();
+            if (cbLoc.SelectedIndex == 0)
+            {
+                foreach (DataRow row in dtPhieuNhapKho.Rows)
+                {
+                    DoDuLieuVaoBangSanPham(row);
+                }
+            }
+        }
+
+        private void dgvPhieuNhapKho_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (cbLoc.SelectedIndex == 0) return;
+            dtSanPham.Clear();
+            DoDuLieuVaoBangSanPham(dtPhieuNhapKho.Rows[e.RowIndex]);
+            
+        }
+
+
+
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void txtMauSac_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            frmInThongKeChiTietPNK frm = new frmInThongKeChiTietPNK(dtSanPham, dtpTuNgay.Value.ToString("dd/MM/yyyy"), dtpDenNgay.Value.ToString("dd/MM/yyyy"), lblTongTien.Text);
+            frm.ShowDialog();
+        }
+
+        private void btnLamMoi_Click(object sender, EventArgs e)
+        {
+            dtSanPham.Clear();
+            dtPhieuNhapKho.Clear();
+            txtMauSac.Text = "";
+            txtTenSP.Text = "";
+            cbLoc.SelectedIndex = 0;
+            EnableTextBox(false);
         }
     }
 }

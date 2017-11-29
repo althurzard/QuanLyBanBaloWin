@@ -94,3 +94,4 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\GUI.
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.exe
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.pdb
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmInThongKeChiTietPNK.resources

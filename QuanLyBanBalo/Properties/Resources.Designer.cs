@@ -393,6 +393,26 @@ namespace QuanLyBanBalo.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Chart_2x {
+            get {
+                object obj = ResourceManager.GetObject("Chart@2x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Chart_40 {
+            get {
+                object obj = ResourceManager.GetObject("Chart-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Chipcard {
             get {
                 object obj = ResourceManager.GetObject("Chipcard", resourceCulture);
@@ -696,6 +716,16 @@ namespace QuanLyBanBalo.Properties {
         internal static System.Drawing.Bitmap Graphicpanel {
             get {
                 object obj = ResourceManager.GetObject("Graphicpanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Graphicpanel_2x {
+            get {
+                object obj = ResourceManager.GetObject("Graphicpanel@2x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
