@@ -159,21 +159,7 @@ namespace QuanLyBanBalo
 
         private void dgvKhuyenMai_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnThem.Enabled = false;
-            btnSua.Enabled = true;
-            _maKhuyenMai = int.Parse(dgvKhuyenMai.CurrentRow.Cells["MaKhuyenMai"].Value.ToString());
-            txtTenCTKM.Text = dgvKhuyenMai.CurrentRow.Cells["TenKhuyenMai"].Value.ToString();
-            txtMoTa.Text = dgvKhuyenMai.CurrentRow.Cells["MoTa"].Value.ToString();
-            rdbApDungHD.Checked = (bool)dgvKhuyenMai.CurrentRow.Cells["ApDungHD"].Value;
-            rdbThuCong.Checked = !(bool)dgvKhuyenMai.CurrentRow.Cells["ApDungHD"].Value;
-
-            ckbGioiHanTG.Checked = !string.IsNullOrWhiteSpace(dgvKhuyenMai.CurrentRow.Cells["NgayBatDau"].Value.ToString());
-            if (ckbGioiHanTG.Checked)
-            {
-                dtpTuNgay.Value = DateTime.Parse(dgvKhuyenMai.CurrentRow.Cells["NgayBatDau"].Value.ToString());
-                dtpDenNgay.Value = DateTime.Parse(dgvKhuyenMai.CurrentRow.Cells["NgayKetThuc"].Value.ToString());
-            }
-
+            
 
         }
 
@@ -219,12 +205,20 @@ namespace QuanLyBanBalo
 
         private void dgvKhuyenMai_KeyDown(object sender, KeyEventArgs e)
         {
+           
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
             {
                 if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
                 {
                     // lấy ra id chi tiet trong dgv
                     int maKhuyenMai = (int)dgvKhuyenMai.CurrentRow.Cells["MaKhuyenMai"].Value;
+                    if(maKhuyenMai == 4)
+                    {
+                        // Khong the xoa Mac dinh
+                        MessageBox.Show("Không thể xóa Loại khuyến mại mặc định.","Thông báo");
+                        return;
+                    }
+                    clsSanPham_BUS.CapNhatKhuyenMai(maKhuyenMai, 4); // Cập nhật lại mã km mặc định cho các sản phẩm có mã KM cần xóa
                     if (clsKhuyenMai_BUS.Xoa(maKhuyenMai))
                     {
                         MessageBox.Show("Xóa Thành Công");
@@ -237,6 +231,36 @@ namespace QuanLyBanBalo
                     }
                 }
             }
+        }
+
+        private void dgvKhuyenMai_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            _maKhuyenMai = int.Parse(dgvKhuyenMai.CurrentRow.Cells["MaKhuyenMai"].Value.ToString());
+            txtTenCTKM.Text = dgvKhuyenMai.CurrentRow.Cells["TenKhuyenMai"].Value.ToString();
+            txtMoTa.Text = dgvKhuyenMai.CurrentRow.Cells["MoTa"].Value.ToString();
+            rdbApDungHD.Checked = (bool)dgvKhuyenMai.CurrentRow.Cells["ApDungHD"].Value;
+            rdbThuCong.Checked = !(bool)dgvKhuyenMai.CurrentRow.Cells["ApDungHD"].Value;
+
+            ckbGioiHanTG.Checked = !string.IsNullOrWhiteSpace(dgvKhuyenMai.CurrentRow.Cells["NgayBatDau"].Value.ToString());
+            if (ckbGioiHanTG.Checked)
+            {
+                dtpTuNgay.Value = DateTime.Parse(dgvKhuyenMai.CurrentRow.Cells["NgayBatDau"].Value.ToString());
+                dtpDenNgay.Value = DateTime.Parse(dgvKhuyenMai.CurrentRow.Cells["NgayKetThuc"].Value.ToString());
+            }
+
+        }
+
+        private void txtMoTa_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
+        private void txtMoTa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !Validation.IsNumberic(e);
         }
     }
 }

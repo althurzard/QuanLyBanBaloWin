@@ -70,6 +70,7 @@ namespace QuanLyBanBalo
             DataTable dt = clsTaiKhoan_BUS.LayBang();
             dgvView = new DataView(dt);
             dgvBangTaiKhoan.DataSource = dgvView;
+            lblKetQua.Text = string.Format("Có {0} kết quả", dt.Rows.Count);
         }
 
         private void themHinhAnh()
@@ -292,6 +293,25 @@ namespace QuanLyBanBalo
         private void frmNhanVien_Activated(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgvBangTaiKhoan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
+            {
+                if (DialogResult.Yes == MessageBox.Show("Bạn có chắc là muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                {
+                    // lấy ra id chi tiet trong dgv
+                    string tenTK = dgvBangTaiKhoan.CurrentRow.Cells["TenTaiKhoan"].Value.ToString();
+                    if (tenTK == Validation.nhanVien.TenTaiKhoan)
+                    {
+                        MessageBox.Show("Không tự xóa tài khoản hiện tại. Vui lòng liên hệ Admin để xử lý.", "Thông báo");
+                        return;
+                    }
+                    clsTaiKhoan_BUS.XoaTaiKhoan(tenTK);
+                    loadBangTK();
+                }
+            }
         }
     }
 }

@@ -25,6 +25,8 @@ namespace QuanLyBanBalo
             InitializeComponent();
             loadLoaiTK();
             LoadData(MaNV);
+            pckNgaySinh.Format = DateTimePickerFormat.Custom;
+            pckNgaySinh.CustomFormat = "dd/MM/yyyy";
 
         }
 
@@ -104,6 +106,11 @@ namespace QuanLyBanBalo
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            if(this.taiKhoan.TenTaiKhoan == Validation.nhanVien.TenTaiKhoan)
+            {
+                MessageBox.Show("Không tự xóa tài khoản hiện tại. Vui lòng liên hệ Admin để xử lý.","Thông báo");
+                return;
+            }
             bool result = clsTaiKhoan_BUS.XoaTaiKhoan(this.taiKhoan.TenTaiKhoan);
             string text = "";
             if (result)

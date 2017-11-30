@@ -173,6 +173,12 @@ namespace DAO
             return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
         }
 
+        public static bool CapNhatKhuyenMai(int maCu, int maMoi)
+        {
+            string query = string.Format("Update SanPham set MaKhuyenMai = {0} where MaKhuyenMai = {1}", maMoi,maCu);
+            return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+        }
+
         public static List<string> LayThuongHieu()
         {
             List<string> listThuongHieu = new List<string>();

@@ -10,9 +10,9 @@ namespace BUS
 {
     public class clsKhuyenMai_BUS
     {
-        public static DataTable LayBangKhuyenMai()
+        public static DataTable LayBangKhuyenMai(bool apDungHD = true)
         {
-            return clsKhuyenMai_DAO.LayBangKhuyenMai();
+            return clsKhuyenMai_DAO.LayBangKhuyenMai(apDungHD);
         }
 
         public static clsKhuyenMai_DTO LayKhuyenMai(int maKM)

@@ -136,5 +136,11 @@ namespace QuanLyBanBalo
                 e.Value = new Bitmap(e.Value.ToString());
             }
         }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            frmInBaoCaoDoanhThu frm = new frmInBaoCaoDoanhThu(dtSanPham, dtpTuNgay.Value.ToString("dd/MM/yyyy"), dtpDenNgay.Value.ToString("dd/MM/yyyy"), lblTongTien.Text, lblLoiNhuan.Text);
+            frm.ShowDialog();
+        }
     }
 }

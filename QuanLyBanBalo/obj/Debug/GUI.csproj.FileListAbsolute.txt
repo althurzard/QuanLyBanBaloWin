@@ -78,7 +78,7 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\Quan
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmBaoHanh.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDangNhap.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDanhMuc.resources
-C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmDoanhThu.resources
+C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmInBaoCaoDoanhThu.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmInThongKeChiTietPNK.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmBaoCaoNhapHang.resources
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\QuanLyBanBalo\obj\Debug\QuanLyBanBalo.frmInHDBanHang.resources

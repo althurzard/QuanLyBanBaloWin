@@ -10,9 +10,17 @@ namespace DAO
 {
     public class clsKhuyenMai_DAO
     {
-        public static DataTable LayBangKhuyenMai()
+        public static DataTable LayBangKhuyenMai(bool apDungHD = true)
         {
-            string query = "Select * from KhuyenMai where TrangThai = 1";
+            string query = "";
+            if (!apDungHD)
+            {
+                query = "Select * from KhuyenMai where TrangThai = 1 AND ApDungHD = 0";
+            } else
+            {
+                query = "Select * from KhuyenMai where TrangThai = 1";
+            }
+            
             return XuLyDuLieu.LayBang(query);
         }
 

@@ -35,6 +35,7 @@ namespace QuanLyBanBalo
         {
             loadMauMa();
             loadSanPham();
+            loadKhuyenMai();
         }
 
 
@@ -45,6 +46,14 @@ namespace QuanLyBanBalo
             cboMauMa.DataSource = dtDanhMuc;
             cboMauMa.ValueMember = "MaDanhMuc";
             cboMauMa.DisplayMember = "TenDanhMuc";
+        }
+
+        private void loadKhuyenMai()
+        {
+            DataTable km = clsKhuyenMai_BUS.LayBangKhuyenMai(false);
+            cbKhuyenMai.DataSource = km;
+            cbKhuyenMai.ValueMember = "MaKhuyenMai";
+            cbKhuyenMai.DisplayMember = "TenKhuyenMai";
         }
         public void loadSanPham()
         {
@@ -65,6 +74,7 @@ namespace QuanLyBanBalo
                     txtCTSoLuong.Text = dr["SoLuong"].ToString();
                     txtMaCTSP.Text = idChiTiet.ToString();
                     cboMauMa.SelectedValue = dr["MaDanhMuc"].ToString();
+                    cbKhuyenMai.SelectedValue = dr["MaKhuyenMai"];
                     if (bool.Parse(dr["ChongNuoc"].ToString()) == true)
                     {
                         rdCo.Checked = true;
@@ -109,6 +119,7 @@ namespace QuanLyBanBalo
                         dtoSanPham.TrongLuong = float.Parse(txtTrongLuong.Text);
                         dtoSanPham.MaDanhMuc = cboMauMa.SelectedValue.ToString();
                         dtoSanPham.SoNamBH = int.Parse(txtNamBH.Text);
+                        dtoSanPham.MaKhuyenMai = (int)cbKhuyenMai.SelectedValue;
 
                     // Thông tin ảnh hiện tại
                     clsHinhAnh_DTO hinhAnh = new clsHinhAnh_DTO(picHinhAnh.ImageLocation, clsHinhAnh_DTO.LoaiHinhAnh.Product, int.Parse(picHinhAnh.Name));

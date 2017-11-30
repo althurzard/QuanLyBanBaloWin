@@ -78,5 +78,12 @@ namespace BUS
         {
             return clsSanPham_DAO.CapNhatKhuyenMai(maKM);
         }
+
+        public static bool CapNhatKhuyenMai(int maCu, int maMoi)
+        {
+            return clsSanPham_DAO.CapNhatKhuyenMai(maCu,maMoi);
+        }
+
+
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvBangTaiKhoan = new System.Windows.Forms.DataGridView();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Url = new System.Windows.Forms.DataGridViewImageColumn();
@@ -54,10 +54,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.lblQueQuan = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.btnThem = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDangNhap = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.pictureHinhAnh = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -73,27 +75,30 @@
             this.txtTraCuuTen = new System.Windows.Forms.TextBox();
             this.rdbMaNhanVien = new System.Windows.Forms.RadioButton();
             this.txtTraCuuMa = new System.Windows.Forms.TextBox();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.pictureHinhAnh = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblKetQua = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangTaiKhoan)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvBangTaiKhoan
             // 
             this.dgvBangTaiKhoan.AllowUserToAddRows = false;
             this.dgvBangTaiKhoan.AllowUserToDeleteRows = false;
+            this.dgvBangTaiKhoan.AllowUserToResizeColumns = false;
+            this.dgvBangTaiKhoan.AllowUserToResizeRows = false;
             this.dgvBangTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBangTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBangTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBangTaiKhoan.ColumnHeadersHeight = 50;
             this.dgvBangTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBangTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -110,7 +115,7 @@
             this.LastLogon,
             this.TrangThai});
             this.dgvBangTaiKhoan.EnableHeadersVisualStyles = false;
-            this.dgvBangTaiKhoan.Location = new System.Drawing.Point(13, 382);
+            this.dgvBangTaiKhoan.Location = new System.Drawing.Point(13, 397);
             this.dgvBangTaiKhoan.MultiSelect = false;
             this.dgvBangTaiKhoan.Name = "dgvBangTaiKhoan";
             this.dgvBangTaiKhoan.ReadOnly = true;
@@ -120,6 +125,7 @@
             this.dgvBangTaiKhoan.TabIndex = 1;
             this.dgvBangTaiKhoan.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dgvBangTaiKhoan.DoubleClick += new System.EventHandler(this.dgvBangTaiKhoan_DoubleClick);
+            this.dgvBangTaiKhoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvBangTaiKhoan_KeyDown);
             // 
             // MaNV
             // 
@@ -356,6 +362,20 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(163, 26);
             this.txtMatKhau.TabIndex = 93;
+            this.txtMatKhau.UseSystemPasswordChar = true;
+            // 
+            // btnThem
+            // 
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icon_plus_math;
+            this.btnThem.Location = new System.Drawing.Point(481, 280);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(163, 50);
+            this.btnThem.TabIndex = 93;
+            this.btnThem.Text = "Tạo mới";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label9
             // 
@@ -393,6 +413,19 @@
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(167, 26);
             this.txtHoTen.TabIndex = 74;
+            // 
+            // pictureHinhAnh
+            // 
+            this.pictureHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources.image_background;
+            this.pictureHinhAnh.InitialImage = null;
+            this.pictureHinhAnh.Location = new System.Drawing.Point(125, 180);
+            this.pictureHinhAnh.Name = "pictureHinhAnh";
+            this.pictureHinhAnh.Size = new System.Drawing.Size(166, 150);
+            this.pictureHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureHinhAnh.TabIndex = 89;
+            this.pictureHinhAnh.TabStop = false;
+            this.pictureHinhAnh.Click += new System.EventHandler(this.pictureHinhAnh_Click);
             // 
             // label8
             // 
@@ -554,37 +587,44 @@
             this.txtTraCuuMa.TabIndex = 81;
             this.txtTraCuuMa.TextChanged += new System.EventHandler(this.txtTraCuuMa_TextChanged);
             // 
-            // btnThem
+            // label2
             // 
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icon_plus_math;
-            this.btnThem.Location = new System.Drawing.Point(481, 280);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(163, 50);
-            this.btnThem.TabIndex = 93;
-            this.btnThem.Text = "Tạo mới";
-            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 661);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 13);
+            this.label2.TabIndex = 100;
+            this.label2.Text = "(*) Bấm nút Delete để xóa";
             // 
-            // pictureHinhAnh
+            // lblKetQua
             // 
-            this.pictureHinhAnh.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureHinhAnh.Image = global::QuanLyBanBalo.Properties.Resources.image_background;
-            this.pictureHinhAnh.InitialImage = null;
-            this.pictureHinhAnh.Location = new System.Drawing.Point(125, 180);
-            this.pictureHinhAnh.Name = "pictureHinhAnh";
-            this.pictureHinhAnh.Size = new System.Drawing.Size(166, 150);
-            this.pictureHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureHinhAnh.TabIndex = 89;
-            this.pictureHinhAnh.TabStop = false;
-            this.pictureHinhAnh.Click += new System.EventHandler(this.pictureHinhAnh_Click);
+            this.lblKetQua.AutoSize = true;
+            this.lblKetQua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKetQua.Location = new System.Drawing.Point(12, 381);
+            this.lblKetQua.Name = "lblKetQua";
+            this.lblKetQua.Size = new System.Drawing.Size(80, 13);
+            this.lblKetQua.TabIndex = 101;
+            this.lblKetQua.Text = "Có 0 kết quả";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 680);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(186, 13);
+            this.label11.TabIndex = 102;
+            this.label11.Text = "(**) Double click để sửa chi tiết";
             // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 702);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblKetQua);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
@@ -600,10 +640,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBangTaiKhoan)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureHinhAnh)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -654,5 +695,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKhoiTao;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastLogon;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblKetQua;
+        private System.Windows.Forms.Label label11;
     }
 }
