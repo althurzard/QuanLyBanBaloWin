@@ -56,5 +56,30 @@ namespace DAO
 
             return ctnk;
         }
+
+        public static List<clsChiTietPhieuNhapKho_DTO> LayDanhSach(string maPhieuNK)
+        {
+            List<clsChiTietPhieuNhapKho_DTO> list = new List<clsChiTietPhieuNhapKho_DTO>();
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                string query = string.Format("Select * from ChiTietPhieuNhapKho where MaPhieuNhapKho = '{0}' ", maPhieuNK);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        clsChiTietPhieuNhapKho_DTO ctnk = new clsChiTietPhieuNhapKho_DTO();
+                        ctnk.MaChiTiet = reader["MaCTPhieuNhapKho"].ToString();
+                        ctnk.MaCTSanPham = reader["MaCTSP"].ToString();
+                        ctnk.SoLuong = (int)reader["SoLuong"];
+                        ctnk.MaPhieuNhapKho = maPhieuNK;
+                        list.Add(ctnk);
+                    }
+                }
+
+            }
+
+            return list;
+        }
     }
 }

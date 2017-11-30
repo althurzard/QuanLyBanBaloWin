@@ -21,6 +21,9 @@ namespace QuanLyBanBalo
             nhaCungCapToolStripMenuItem.Visible = Validation.CheckPermission();
             khuyenMaiToolStripMenuItem.Visible = Validation.CheckPermission();
             baoCaoToolStripDropDownButton.Visible = Validation.CheckPermission();
+
+            //TODO: Làm trợ giúp ở main
+            troGiupToolStripDropDownButton.Visible = false;
             foreach (ToolStripItem item in toolStrip1.Items)
             {
                 item.ForeColor = Color.Green;
@@ -187,29 +190,7 @@ namespace QuanLyBanBalo
             }
         }
 
-        private void danhMụcSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmDanhMuc frmDM = frmDanhMuc.Instance;
-
-            int index = KiemTraTonTaiForm(tbcMain, frmDM);
-            if (index >= 0)
-            {
-                // Nếu tồn tại tab form ==> nhảy vào tab đó
-                tbcMain.SelectedIndex = index;
-            }
-            else
-            {
-                frmDM.MdiParent = this;
-                //Tạo ra 1 tab mới
-                TabPage tp = new TabPage { Text = frmDM.Text };
-                tp.Size = new Size(400, 400);
-                //Add tab mới vào TabControl
-                tbcMain.TabPages.Add(tp);
-                frmDM.Parent = tp;
-                frmDM.Show();
-                tbcMain.SelectTab(tp);
-            }
-        }
+     
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)
         {
@@ -221,7 +202,16 @@ namespace QuanLyBanBalo
            DialogResult result =  MessageBox.Show("Bạn có chắc chứ?", "Thông báo", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                Application.Exit();
+                //Application.Exit();
+                foreach(Form frm in Application.OpenForms)
+                {
+                    if (frm is frmDangNhap)
+                    {
+                        frm.Show();
+                        break;
+                    }
+                }
+                this.Close();
             } 
         }
 

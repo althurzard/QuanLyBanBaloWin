@@ -340,7 +340,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Đơn giá</Value>
+                                  <Value>Đơn giá (VND)</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>12pt</FontSize>
@@ -390,7 +390,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Thành tiền</Value>
+                                  <Value>Thành tiền (VND)</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>12pt</FontSize>
@@ -1048,7 +1048,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatNumber(Sum(CDbl(Fields!TongTien.Value)) - ((CDbl(Parameters!HDKhuyenMai.Value)/100) *Sum(CDbl(Fields!TongTien.Value))),3) + " VND"</Value>
+                                  <Value>=FormatNumber(Sum(CDbl(Fields!TongTien.Value)) - ((CDbl(Parameters!HDKhuyenMai.Value)/100) *Sum(CDbl(Fields!TongTien.Value))),0)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>

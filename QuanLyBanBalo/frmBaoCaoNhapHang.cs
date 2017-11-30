@@ -103,8 +103,9 @@ namespace QuanLyBanBalo
         private void DoDuLieuVaoBangSanPham(DataRow row)
         {
             string maPNK = row["MaPhieuNhapKho"].ToString();
-            clsChiTietPhieuNhapKho_DTO pnk = clsChiTietPhieuNhapKho_BUS.LayChiTiet(maPNK);
-            if (pnk != null)
+            List<clsChiTietPhieuNhapKho_DTO> listPNK = clsChiTietPhieuNhapKho_BUS.LayDanhSach(maPNK);
+
+            foreach(clsChiTietPhieuNhapKho_DTO pnk in listPNK)
             {
                 clsChiTietSP_DTO ctsp = clsChiTietSanPham_BUS.LayChiTiet(pnk.MaCTSanPham);
                 clsHinhAnh_DTO hinhAnh = clsHinhAnh_BUS.LayHinhAnh(ctsp.MaHinhAnh);
