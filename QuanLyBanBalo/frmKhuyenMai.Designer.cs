@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rdbThuCong = new System.Windows.Forms.RadioButton();
             this.lblMoTa = new System.Windows.Forms.Label();
@@ -40,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
-            this.rdbApDungSP = new System.Windows.Forms.RadioButton();
             this.rdbApDungHD = new System.Windows.Forms.RadioButton();
             this.txtTenCTKM = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,7 +73,6 @@
             this.groupBox1.Controls.Add(this.lblTenCTKM);
             this.groupBox1.Controls.Add(this.ckbGioiHanTG);
             this.groupBox1.Controls.Add(this.grpThoiGian);
-            this.groupBox1.Controls.Add(this.rdbApDungSP);
             this.groupBox1.Controls.Add(this.rdbApDungHD);
             this.groupBox1.Controls.Add(this.txtTenCTKM);
             this.groupBox1.Controls.Add(this.label1);
@@ -91,7 +91,7 @@
             // rdbThuCong
             // 
             this.rdbThuCong.AutoSize = true;
-            this.rdbThuCong.Location = new System.Drawing.Point(126, 255);
+            this.rdbThuCong.Location = new System.Drawing.Point(128, 249);
             this.rdbThuCong.Name = "rdbThuCong";
             this.rdbThuCong.Size = new System.Drawing.Size(187, 24);
             this.rdbThuCong.TabIndex = 121;
@@ -103,7 +103,7 @@
             this.lblMoTa.AutoSize = true;
             this.lblMoTa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMoTa.ForeColor = System.Drawing.Color.Red;
-            this.lblMoTa.Location = new System.Drawing.Point(126, 137);
+            this.lblMoTa.Location = new System.Drawing.Point(125, 150);
             this.lblMoTa.Name = "lblMoTa";
             this.lblMoTa.Size = new System.Drawing.Size(121, 15);
             this.lblMoTa.TabIndex = 120;
@@ -125,7 +125,7 @@
             // ckbGioiHanTG
             // 
             this.ckbGioiHanTG.AutoSize = true;
-            this.ckbGioiHanTG.Location = new System.Drawing.Point(125, 314);
+            this.ckbGioiHanTG.Location = new System.Drawing.Point(119, 334);
             this.ckbGioiHanTG.Name = "ckbGioiHanTG";
             this.ckbGioiHanTG.Size = new System.Drawing.Size(15, 14);
             this.ckbGioiHanTG.TabIndex = 118;
@@ -140,7 +140,7 @@
             this.grpThoiGian.Controls.Add(this.dtpDenNgay);
             this.grpThoiGian.Controls.Add(this.dtpTuNgay);
             this.grpThoiGian.Enabled = false;
-            this.grpThoiGian.Location = new System.Drawing.Point(135, 314);
+            this.grpThoiGian.Location = new System.Drawing.Point(129, 334);
             this.grpThoiGian.Name = "grpThoiGian";
             this.grpThoiGian.Size = new System.Drawing.Size(281, 100);
             this.grpThoiGian.TabIndex = 115;
@@ -187,22 +187,11 @@
             this.dtpTuNgay.Size = new System.Drawing.Size(181, 26);
             this.dtpTuNgay.TabIndex = 109;
             // 
-            // rdbApDungSP
-            // 
-            this.rdbApDungSP.AutoSize = true;
-            this.rdbApDungSP.Location = new System.Drawing.Point(126, 205);
-            this.rdbApDungSP.Name = "rdbApDungSP";
-            this.rdbApDungSP.Size = new System.Drawing.Size(186, 24);
-            this.rdbApDungSP.TabIndex = 117;
-            this.rdbApDungSP.Text = "Áp dụng cho tất cả SP";
-            this.rdbApDungSP.UseVisualStyleBackColor = true;
-            this.rdbApDungSP.CheckedChanged += new System.EventHandler(this.rdbApDungSP_CheckedChanged);
-            // 
             // rdbApDungHD
             // 
             this.rdbApDungHD.AutoSize = true;
             this.rdbApDungHD.Checked = true;
-            this.rdbApDungHD.Location = new System.Drawing.Point(126, 155);
+            this.rdbApDungHD.Location = new System.Drawing.Point(128, 206);
             this.rdbApDungHD.Name = "rdbApDungHD";
             this.rdbApDungHD.Size = new System.Drawing.Size(182, 24);
             this.rdbApDungHD.TabIndex = 116;
@@ -233,7 +222,7 @@
             // 
             this.txtMoTa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMoTa.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoTa.Location = new System.Drawing.Point(129, 105);
+            this.txtMoTa.Location = new System.Drawing.Point(128, 118);
             this.txtMoTa.Name = "txtMoTa";
             this.txtMoTa.Size = new System.Drawing.Size(181, 26);
             this.txtMoTa.TabIndex = 101;
@@ -244,7 +233,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(16, 104);
+            this.label3.Location = new System.Drawing.Point(15, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 24);
             this.label3.TabIndex = 100;
@@ -266,14 +255,14 @@
             this.dgvKhuyenMai.AllowUserToResizeColumns = false;
             this.dgvKhuyenMai.AllowUserToResizeRows = false;
             this.dgvKhuyenMai.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKhuyenMai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKhuyenMai.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvKhuyenMai.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKhuyenMai.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaKhuyenMai,
@@ -345,6 +334,8 @@
             // 
             this.NgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.NgayBatDau.DataPropertyName = "NgayBatDau";
+            dataGridViewCellStyle2.Format = "dd/MM/yyyy";
+            this.NgayBatDau.DefaultCellStyle = dataGridViewCellStyle2;
             this.NgayBatDau.HeaderText = "Ngày bắt đầu";
             this.NgayBatDau.Name = "NgayBatDau";
             this.NgayBatDau.ReadOnly = true;
@@ -354,6 +345,8 @@
             // 
             this.NgayKetThuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.NgayKetThuc.DataPropertyName = "NgayKetThuc";
+            dataGridViewCellStyle3.Format = "dd/MM/yyyy";
+            this.NgayKetThuc.DefaultCellStyle = dataGridViewCellStyle3;
             this.NgayKetThuc.HeaderText = "Ngày kết thúc";
             this.NgayKetThuc.Name = "NgayKetThuc";
             this.NgayKetThuc.ReadOnly = true;
@@ -467,12 +460,15 @@
         private System.Windows.Forms.DateTimePicker dtpDenNgay;
         private System.Windows.Forms.DateTimePicker dtpTuNgay;
         private System.Windows.Forms.CheckBox ckbGioiHanTG;
-        private System.Windows.Forms.RadioButton rdbApDungSP;
         private System.Windows.Forms.RadioButton rdbApDungHD;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnLamMoi;
+        private System.Windows.Forms.Label lblMoTa;
+        private System.Windows.Forms.Label lblTenCTKM;
+        private System.Windows.Forms.RadioButton rdbThuCong;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhuyenMai;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenKhuyenMai;
         private System.Windows.Forms.DataGridViewTextBoxColumn MoTa;
@@ -480,9 +476,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayBatDau;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgayKetThuc;
         private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
-        private System.Windows.Forms.Button btnLamMoi;
-        private System.Windows.Forms.Label lblMoTa;
-        private System.Windows.Forms.Label lblTenCTKM;
-        private System.Windows.Forms.RadioButton rdbThuCong;
     }
 }

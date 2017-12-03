@@ -21,6 +21,7 @@ namespace QuanLyBanBalo
         public frmBaoHanh()
         {
             InitializeComponent();
+            CaiDat();
         }
         private static frmBaoHanh _Instance = null;
 
@@ -43,6 +44,49 @@ namespace QuanLyBanBalo
         {
             //Tắt tab khi tắt form
             ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+        }
+
+        private void CaiDat()
+        {
+            dtpTuNgay.Format = DateTimePickerFormat.Custom;
+            dtpTuNgay.CustomFormat = "dd/MM/yyyy";
+
+            dtpDenNgay.Format = DateTimePickerFormat.Custom;
+            dtpDenNgay.CustomFormat = "dd/MM/yyyy";
+
+            //Autocomplete cho Chất liệu
+          
+            List<string> listTenSP = clsSanPham_BUS.LayTenSP();
+            List<string> listMauSac = clsChiTietSanPham_BUS.LayMauSac();
+            Helper.SetAutocomplete(txtTenSP, listTenSP.ToArray());
+            Helper.SetAutocomplete(txtMauSac, listMauSac.ToArray());
+
+        }
+
+        private void Search()
+        {
+            if (dvSanPham == null) return;
+            string searchText = "";
+            if (!string.IsNullOrWhiteSpace(txtTenSP.Text))
+            {
+                searchText = string.Format("TenSP like '%{0}%' AND ", txtTenSP.Text);
+            }
+            else
+            {
+                searchText = "TRUE AND ";
+            }
+
+            if (!string.IsNullOrWhiteSpace(txtMauSac.Text))
+            {
+                searchText += string.Format("MauSac like '%{0}%' AND ", txtMauSac.Text);
+            }
+            else
+            {
+                searchText += "TRUE AND ";
+            }
+
+            searchText += "TRUE";
+            dvSanPham.RowFilter = searchText;
         }
 
         private void btnKiemTra_Click(object sender, EventArgs e)
@@ -93,12 +137,7 @@ namespace QuanLyBanBalo
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.DataSource = dvSanPham;
 
-            clsNhanVien_DTO nv = clsNhanVien_BUS.LayNhanVien(maNV);
-
-            pictureHinhAnh.ImageLocation = nv.HinhAnh.Url;
-            lblTenNV.Text = nv.HoTen;
-            lblSDTNV.Text = nv.SoDienThoai;
-            lblMaNV.Text = nv.MaNV;
+            
         }
 
         private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -144,6 +183,38 @@ namespace QuanLyBanBalo
         private void dgvDanhSachHD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dtpNayLapHD_ValueChanged(object sender, EventArgs e)
+        {
+            int result = DateTime.Compare(dtpTuNgay.Value, dtpDenNgay.Value);
+            if (result > 0)
+            {
+                dtpTuNgay.Value = dtpDenNgay.Value;
+            }
+
+            dvHoaDon.RowFilter = string.Format("NgayKhoiTao >= #{0:MM/dd/yyyy} 12:00:00 AM# AND NgayKhoiTao <= #{1:MM/dd/yyyy} 11:59:00 PM#", dtpTuNgay.Value,dtpDenNgay.Value);
+        }
+
+        private void dtpDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            int result = DateTime.Compare(dtpDenNgay.Value, dtpTuNgay.Value);
+            if (result < 0)
+            {
+                dtpDenNgay.Value = dtpTuNgay.Value;
+            }
+
+            dvHoaDon.RowFilter = string.Format("NgayKhoiTao >= #{0:MM/dd/yyyy} 12:00:00 AM# AND NgayKhoiTao <= #{1:MM/dd/yyyy} 11:59:00 PM#", dtpTuNgay.Value, dtpDenNgay.Value);
+        }
+
+        private void txtMauSac_TextChanged(object sender, EventArgs e)
+        {
+            Search();
+        }
+
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            Search();
         }
     }
 }

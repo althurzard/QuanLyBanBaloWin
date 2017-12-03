@@ -22,6 +22,7 @@ namespace QuanLyBanBalo
         DataTable dtMauMa;
         DataTable dtDanhMuc;
         DataRowView drvDanhMuc;
+        clsKhuyenMai_DTO khuyenMai;
         private static frmMatHang _Instance = null;
         public static frmMatHang Instance
         {
@@ -35,6 +36,56 @@ namespace QuanLyBanBalo
         public frmMatHang()
         {
             InitializeComponent();
+        }
+
+        public frmMatHang(clsKhuyenMai_DTO km)
+        {
+            InitializeComponent();
+
+            this.WindowState = FormWindowState.Normal;
+            this.FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            this.Text = "CẬP NHẬT KHUYẾN MẠI";
+            this.FormClosed -= frmMatHang_FormClosed;
+            this.FormClosing -= frmMatHang_FormClosing;
+            dgvSanPham.AllowUserToDeleteRows = false;
+            dgvSanPham.DoubleClick -= dgvSanPham_DoubleClick;
+            dgvSanPham.Columns["ApDungKM"].Visible = true;
+            dgvSanPham.Columns["colMauSac"].Visible = false;
+            dgvSanPham.Columns["colSoLuong"].Visible = false;
+            dgvSanPham.Columns["colHinhAnh"].Visible = false;
+            khuyenMai = km;
+            grbDanhMuc.Visible = false;
+            lblHDXoa.Visible = false;
+            lblHDSua.Visible = false;
+            cboApDung.Visible = true;
+            grpThongTinKM.Visible = true;
+            btnXacNhan.Visible = true;
+            txtMauSac.Visible = false;
+            lblMauSac.Visible = false;
+            if (khuyenMai.NgayBatDau != null && khuyenMai.NgayKetThuc != null)
+            {
+                DateTime timeNow = DateTime.Now;
+                DateTime ngayBatDau = km.NgayBatDau ?? timeNow;
+                int result = DateTime.Compare(timeNow, ngayBatDau);
+                if (result >= 0)
+                {
+                    DateTime ngayKetThuc = km.NgayKetThuc ?? DateTime.Now;
+                    result = DateTime.Compare(timeNow, ngayKetThuc);
+                    if (result <= 0)
+                    {
+                        khuyenMai = km;
+                        lblTenCTKM.Text = string.Format("- {0}", km.TenKhuyenMai);
+                        lblNgayKM.Text = string.Format("- Diễn ra từ ngày {0} đến hết ngày {1}", ngayBatDau.ToString("dd/MM/yyyy"), ngayKetThuc.ToString("dd/MM/yyyy"));
+
+                        return;
+                    }
+                }
+            } else
+            {
+                lblTenCTKM.Text = string.Format("- {0}", km.TenKhuyenMai);
+                lblNgayKM.Text = "Không có thời hạn";
+            }
+
         }
 
         private void frmMatHang_Load(object sender, EventArgs e)
@@ -66,11 +117,12 @@ namespace QuanLyBanBalo
         }
         private void loadSanPham()
         {
-            dtSanPham = clsSanPham_BUS.LayTatCaSanPham();
+
+            dtSanPham = khuyenMai == null ? clsSanPham_BUS.LayTatCaSanPham() : clsSanPham_BUS.LayBangSanPham();
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.AutoGenerateColumns = false;
             dgvSanPham.DataSource = dvSanPham;
-            lbDemSp.Text = string.Format("* Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            lbDemSp.Text = string.Format("* Có {0} loại sản phẩm", dgvSanPham.Rows.Count);
         }
         private void loadMauMa()
         {
@@ -144,23 +196,37 @@ namespace QuanLyBanBalo
                 searchText += "TRUE AND ";
             }
 
-            if (!string.IsNullOrWhiteSpace(txtGiaDen.Text))
+            if (!string.IsNullOrWhiteSpace(txtGiaTu.Text))
             {
-                if (!string.IsNullOrWhiteSpace(txtGiaTu.Text))
+                double giaTu = double.Parse(txtGiaTu.Text.Trim(','));
+                if (!string.IsNullOrWhiteSpace(txtGiaDen.Text))
                 {
-                    double giaTu = double.Parse(txtGiaTu.Text.Trim(','));
+
+                    
                     double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
-                    searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", giaTu, giaDen);
-                } else
+                    if (giaDen < giaTu)
+                        searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", giaTu, 10000000000);
+                    else
+                        searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", giaTu, giaDen);
+                }
+                else
+                {
+                    searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", giaTu, 10000000000);
+                }
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(txtGiaDen.Text))
                 {
                     double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
                     searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", 0, giaDen);
+                } else
+                {
+                    searchText += "TRUE AND ";
                 }
-               
-            } else
-            {
-                searchText += "TRUE AND ";
+                
             }
+
 
             // Lấy danh mục qua rowview
             drvDanhMuc = (DataRowView)(cboMauMa.SelectedItem);
@@ -175,7 +241,8 @@ namespace QuanLyBanBalo
             }
 
             dvSanPham.RowFilter = searchText;
-            lbDemSp.Text = string.Format(" Có {0} sản phẩm", dgvSanPham.Rows.Count);
+            lbDemSp.Text = string.Format(" Có {0} loại sản phẩm", dgvSanPham.Rows.Count);
+            cboApDung.Checked = false;
 
         }
 
@@ -198,8 +265,8 @@ namespace QuanLyBanBalo
 
         private void dgvSanPham_DoubleClick(object sender, EventArgs e)
         {
-            string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[0].Value.ToString();
-            string idChiTiet = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[1].Value.ToString();
+            string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells["colMaSP"].Value.ToString();
+            string idChiTiet = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells["colMaCTSP"].Value.ToString();
             frmSuaSanPham frm = new frmSuaSanPham(idSanPham,idChiTiet);
             frm.Show();
         }
@@ -237,11 +304,11 @@ namespace QuanLyBanBalo
         private void frmMatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Tắt tab khi tắt form
-            ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+                ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
         }
         private void frmMatHang_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _Instance = null;
+                 _Instance = null;
         }
         private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -397,7 +464,7 @@ namespace QuanLyBanBalo
         private void txtGiaTu_TextChanged(object sender, EventArgs e)
         {
             Helper.MoneyFormat(txtGiaTu);
-            kiemTraGia();
+            //kiemTraGia();
             Search();
         }
 
@@ -419,7 +486,32 @@ namespace QuanLyBanBalo
 
         private void txtGiaDen_Leave(object sender, EventArgs e)
         {
-            kiemTraGia();
+            //kiemTraGia();
+        }
+
+        private void cboApDung_CheckedChanged(object sender, EventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dgvSanPham.Rows)
+            {
+                row.Cells["ApDungKM"].Value = cboApDung.Checked;
+            }
+        }
+
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+           
+            foreach(DataGridViewRow row in dgvSanPham.Rows)
+            {
+                bool apDung = (bool)row.Cells["ApDungKM"].Value;
+                string maSp = row.Cells["colMaSP"].Value.ToString();
+                if (apDung)
+                {
+                    clsSanPham_BUS.CapNhatKhuyenMai(maSp, khuyenMai.MaKhuyenMai);
+                }
+            }
+
+            Close();
         }
     }
 }

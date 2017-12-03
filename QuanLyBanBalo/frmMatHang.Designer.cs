@@ -41,7 +41,7 @@
             this.txtGiaDen = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtMauSac = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblMauSac = new System.Windows.Forms.Label();
             this.txtThuongHieu = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnKhoiPhuc = new System.Windows.Forms.Button();
@@ -53,20 +53,26 @@
             this.label4 = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
             this.lbDemSp = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblHDXoa = new System.Windows.Forms.Label();
+            this.lblHDSua = new System.Windows.Forms.Label();
             this.grbDanhMuc = new System.Windows.Forms.GroupBox();
             this.lbTenDanhMuc = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.txtTenDanhMuc = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lbDemDanhMuc = new System.Windows.Forms.Label();
             this.dgvDanhMuc = new System.Windows.Forms.DataGridView();
             this.colMaDanhMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenMauMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTongSoSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbDemDanhMuc = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.grpThongTinKM = new System.Windows.Forms.GroupBox();
+            this.lblNgayKM = new System.Windows.Forms.Label();
+            this.lblTenCTKM = new System.Windows.Forms.Label();
+            this.btnXacNhan = new System.Windows.Forms.Button();
+            this.cboApDung = new System.Windows.Forms.CheckBox();
+            this.ApDungKM = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHinhAnh = new System.Windows.Forms.DataGridViewImageColumn();
@@ -85,13 +91,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
             this.grbDanhMuc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhMuc)).BeginInit();
+            this.grpThongTinKM.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.txtMauSac);
-            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.lblMauSac);
             this.groupBox1.Controls.Add(this.txtThuongHieu);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnKhoiPhuc);
@@ -175,15 +182,15 @@
             this.txtMauSac.TabIndex = 84;
             this.txtMauSac.TextChanged += new System.EventHandler(this.txtMauSac_TextChanged);
             // 
-            // label13
+            // lblMauSac
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(20, 132);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(81, 24);
-            this.label13.TabIndex = 83;
-            this.label13.Text = "Màu sắc";
+            this.lblMauSac.AutoSize = true;
+            this.lblMauSac.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMauSac.Location = new System.Drawing.Point(20, 132);
+            this.lblMauSac.Name = "lblMauSac";
+            this.lblMauSac.Size = new System.Drawing.Size(81, 24);
+            this.lblMauSac.TabIndex = 83;
+            this.lblMauSac.Text = "Màu sắc";
             // 
             // txtThuongHieu
             // 
@@ -296,6 +303,7 @@
             this.dgvSanPham.ColumnHeadersHeight = 50;
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ApDungKM,
             this.colMaSP,
             this.colMaCTSP,
             this.colHinhAnh,
@@ -313,12 +321,11 @@
             this.dgvSanPham.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvSanPham.Location = new System.Drawing.Point(12, 349);
             this.dgvSanPham.Name = "dgvSanPham";
-            this.dgvSanPham.ReadOnly = true;
             this.dgvSanPham.RowHeadersVisible = false;
             this.dgvSanPham.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSanPham.RowTemplate.Height = 40;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(1198, 287);
+            this.dgvSanPham.Size = new System.Drawing.Size(1211, 287);
             this.dgvSanPham.TabIndex = 1;
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
             this.dgvSanPham.DoubleClick += new System.EventHandler(this.dgvSanPham_DoubleClick);
@@ -334,28 +341,31 @@
             this.lbDemSp.TabIndex = 4;
             this.lbDemSp.Text = "Sản Phẩm";
             // 
-            // label7
+            // lblHDXoa
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 639);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "(*) Bấm nút Delete để xóa";
+            this.lblHDXoa.AutoSize = true;
+            this.lblHDXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHDXoa.Location = new System.Drawing.Point(9, 658);
+            this.lblHDXoa.Name = "lblHDXoa";
+            this.lblHDXoa.Size = new System.Drawing.Size(154, 13);
+            this.lblHDXoa.TabIndex = 5;
+            this.lblHDXoa.Text = "(*) Bấm nút Delete để xóa";
             // 
-            // label11
+            // lblHDSua
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 659);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(196, 13);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "(*) Double click để sửa sản phẩm";
+            this.lblHDSua.AutoSize = true;
+            this.lblHDSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHDSua.Location = new System.Drawing.Point(9, 639);
+            this.lblHDSua.Name = "lblHDSua";
+            this.lblHDSua.Size = new System.Drawing.Size(196, 13);
+            this.lblHDSua.TabIndex = 6;
+            this.lblHDSua.Text = "(*) Double click để sửa sản phẩm";
             // 
             // grbDanhMuc
             // 
+            this.grbDanhMuc.Controls.Add(this.dgvDanhMuc);
+            this.grbDanhMuc.Controls.Add(this.lbDemDanhMuc);
+            this.grbDanhMuc.Controls.Add(this.label12);
             this.grbDanhMuc.Controls.Add(this.lbTenDanhMuc);
             this.grbDanhMuc.Controls.Add(this.btnSua);
             this.grbDanhMuc.Controls.Add(this.btnThem);
@@ -364,7 +374,7 @@
             this.grbDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbDanhMuc.Location = new System.Drawing.Point(761, 12);
             this.grbDanhMuc.Name = "grbDanhMuc";
-            this.grbDanhMuc.Size = new System.Drawing.Size(417, 148);
+            this.grbDanhMuc.Size = new System.Drawing.Size(462, 304);
             this.grbDanhMuc.TabIndex = 7;
             this.grbDanhMuc.TabStop = false;
             this.grbDanhMuc.Text = "Mẫu mã SP";
@@ -428,26 +438,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Tên mẫu mã";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(1045, 169);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(154, 13);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "(*) Bấm nút Delete để xóa";
-            // 
-            // lbDemDanhMuc
-            // 
-            this.lbDemDanhMuc.AutoSize = true;
-            this.lbDemDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDemDanhMuc.Location = new System.Drawing.Point(790, 169);
-            this.lbDemDanhMuc.Name = "lbDemDanhMuc";
-            this.lbDemDanhMuc.Size = new System.Drawing.Size(51, 13);
-            this.lbDemDanhMuc.TabIndex = 10;
-            this.lbDemDanhMuc.Text = "Mẫu mã";
-            // 
             // dgvDanhMuc
             // 
             this.dgvDanhMuc.AllowUserToAddRows = false;
@@ -457,7 +447,7 @@
             this.dgvDanhMuc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -469,7 +459,7 @@
             this.colMaDanhMuc,
             this.colTenMauMa,
             this.colTongSoSP});
-            this.dgvDanhMuc.Location = new System.Drawing.Point(761, 185);
+            this.dgvDanhMuc.Location = new System.Drawing.Point(11, 167);
             this.dgvDanhMuc.Name = "dgvDanhMuc";
             this.dgvDanhMuc.ReadOnly = true;
             this.dgvDanhMuc.RowHeadersVisible = false;
@@ -478,9 +468,7 @@
             this.dgvDanhMuc.RowTemplate.Height = 28;
             this.dgvDanhMuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhMuc.Size = new System.Drawing.Size(438, 131);
-            this.dgvDanhMuc.TabIndex = 11;
-            this.dgvDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellClick);
-            this.dgvDanhMuc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvDanhMuc_KeyDown);
+            this.dgvDanhMuc.TabIndex = 14;
             // 
             // colMaDanhMuc
             // 
@@ -506,6 +494,99 @@
             this.colTongSoSP.Name = "colTongSoSP";
             this.colTongSoSP.ReadOnly = true;
             // 
+            // lbDemDanhMuc
+            // 
+            this.lbDemDanhMuc.AutoSize = true;
+            this.lbDemDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDemDanhMuc.Location = new System.Drawing.Point(40, 151);
+            this.lbDemDanhMuc.Name = "lbDemDanhMuc";
+            this.lbDemDanhMuc.Size = new System.Drawing.Size(51, 13);
+            this.lbDemDanhMuc.TabIndex = 13;
+            this.lbDemDanhMuc.Text = "Mẫu mã";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(295, 151);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(154, 13);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "(*) Bấm nút Delete để xóa";
+            // 
+            // grpThongTinKM
+            // 
+            this.grpThongTinKM.Controls.Add(this.lblNgayKM);
+            this.grpThongTinKM.Controls.Add(this.lblTenCTKM);
+            this.grpThongTinKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpThongTinKM.Location = new System.Drawing.Point(761, 12);
+            this.grpThongTinKM.Name = "grpThongTinKM";
+            this.grpThongTinKM.Size = new System.Drawing.Size(462, 205);
+            this.grpThongTinKM.TabIndex = 77;
+            this.grpThongTinKM.TabStop = false;
+            this.grpThongTinKM.Text = "Thông tin khuyến mại";
+            this.grpThongTinKM.Visible = false;
+            // 
+            // lblNgayKM
+            // 
+            this.lblNgayKM.AutoSize = true;
+            this.lblNgayKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgayKM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNgayKM.Location = new System.Drawing.Point(15, 99);
+            this.lblNgayKM.MaximumSize = new System.Drawing.Size(310, 0);
+            this.lblNgayKM.Name = "lblNgayKM";
+            this.lblNgayKM.Size = new System.Drawing.Size(0, 20);
+            this.lblNgayKM.TabIndex = 65;
+            this.lblNgayKM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblTenCTKM
+            // 
+            this.lblTenCTKM.AutoSize = true;
+            this.lblTenCTKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTenCTKM.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTenCTKM.Location = new System.Drawing.Point(15, 31);
+            this.lblTenCTKM.MaximumSize = new System.Drawing.Size(310, 0);
+            this.lblTenCTKM.Name = "lblTenCTKM";
+            this.lblTenCTKM.Size = new System.Drawing.Size(296, 20);
+            this.lblTenCTKM.TabIndex = 64;
+            this.lblTenCTKM.Text = "- Hiện không có chương trình khuyến mại";
+            this.lblTenCTKM.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnXacNhan
+            // 
+            this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXacNhan.Image = global::QuanLyBanBalo.Properties.Resources.icon_checkmark_small;
+            this.btnXacNhan.Location = new System.Drawing.Point(900, 251);
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(200, 52);
+            this.btnXacNhan.TabIndex = 78;
+            this.btnXacNhan.Text = "Áp dụng";
+            this.btnXacNhan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXacNhan.UseVisualStyleBackColor = true;
+            this.btnXacNhan.Visible = false;
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
+            // 
+            // cboApDung
+            // 
+            this.cboApDung.AutoSize = true;
+            this.cboApDung.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboApDung.Location = new System.Drawing.Point(13, 639);
+            this.cboApDung.Name = "cboApDung";
+            this.cboApDung.Size = new System.Drawing.Size(132, 24);
+            this.cboApDung.TabIndex = 66;
+            this.cboApDung.Text = "Áp dụng tất cả";
+            this.cboApDung.UseVisualStyleBackColor = true;
+            this.cboApDung.Visible = false;
+            this.cboApDung.CheckedChanged += new System.EventHandler(this.cboApDung_CheckedChanged);
+            // 
+            // ApDungKM
+            // 
+            this.ApDungKM.HeaderText = "Áp dụng KM";
+            this.ApDungKM.Name = "ApDungKM";
+            this.ApDungKM.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ApDungKM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ApDungKM.Visible = false;
+            // 
             // colMaSP
             // 
             this.colMaSP.DataPropertyName = "MaSP";
@@ -522,7 +603,7 @@
             // 
             // colHinhAnh
             // 
-            this.colHinhAnh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHinhAnh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colHinhAnh.DataPropertyName = "Url";
             this.colHinhAnh.HeaderText = "Hình Ảnh";
             this.colHinhAnh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
@@ -532,12 +613,11 @@
             // 
             // colTenSP
             // 
-            this.colTenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colTenSP.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colTenSP.DataPropertyName = "TenSP";
             this.colTenSP.HeaderText = "Tên Sản Phẩm";
             this.colTenSP.Name = "colTenSP";
             this.colTenSP.ReadOnly = true;
-            this.colTenSP.Width = 82;
             // 
             // colThuongHieu
             // 
@@ -559,27 +639,30 @@
             // 
             // colChatLieu
             // 
-            this.colChatLieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colChatLieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colChatLieu.DataPropertyName = "ChatLieu";
             this.colChatLieu.HeaderText = "Chất Liệu";
             this.colChatLieu.Name = "colChatLieu";
             this.colChatLieu.ReadOnly = true;
+            this.colChatLieu.Width = 80;
             // 
             // colMauSac
             // 
-            this.colMauSac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMauSac.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colMauSac.DataPropertyName = "MauSac";
             this.colMauSac.HeaderText = "Màu Sắc";
             this.colMauSac.Name = "colMauSac";
             this.colMauSac.ReadOnly = true;
+            this.colMauSac.Width = 80;
             // 
             // colChongNuoc
             // 
-            this.colChongNuoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colChongNuoc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colChongNuoc.DataPropertyName = "ChongNuoc";
             this.colChongNuoc.HeaderText = "Chống Nước";
             this.colChongNuoc.Name = "colChongNuoc";
             this.colChongNuoc.ReadOnly = true;
+            this.colChongNuoc.Width = 50;
             // 
             // colGiaVon
             // 
@@ -614,25 +697,26 @@
             // 
             // colNamBaoHanh
             // 
-            this.colNamBaoHanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNamBaoHanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colNamBaoHanh.DataPropertyName = "SoNamBH";
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             this.colNamBaoHanh.DefaultCellStyle = dataGridViewCellStyle5;
             this.colNamBaoHanh.HeaderText = "Năm BH";
             this.colNamBaoHanh.Name = "colNamBaoHanh";
             this.colNamBaoHanh.ReadOnly = true;
+            this.colNamBaoHanh.Width = 50;
             // 
             // frmMatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1235, 680);
-            this.Controls.Add(this.dgvDanhMuc);
-            this.Controls.Add(this.lbDemDanhMuc);
-            this.Controls.Add(this.label12);
+            this.ClientSize = new System.Drawing.Size(1250, 700);
+            this.Controls.Add(this.cboApDung);
+            this.Controls.Add(this.btnXacNhan);
+            this.Controls.Add(this.grpThongTinKM);
             this.Controls.Add(this.grbDanhMuc);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblHDSua);
+            this.Controls.Add(this.lblHDXoa);
             this.Controls.Add(this.lbDemSp);
             this.Controls.Add(this.dgvSanPham);
             this.Controls.Add(this.groupBox1);
@@ -651,6 +735,8 @@
             this.grbDanhMuc.ResumeLayout(false);
             this.grbDanhMuc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhMuc)).EndInit();
+            this.grpThongTinKM.ResumeLayout(false);
+            this.grpThongTinKM.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -670,27 +756,33 @@
         private System.Windows.Forms.TextBox txtChatLieu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbDemSp;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblHDXoa;
+        private System.Windows.Forms.Label lblHDSua;
         private System.Windows.Forms.GroupBox grbDanhMuc;
         private System.Windows.Forms.Label lbTenDanhMuc;
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.TextBox txtTenDanhMuc;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label lbDemDanhMuc;
-        private System.Windows.Forms.DataGridView dgvDanhMuc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaDanhMuc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenMauMa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTongSoSP;
         private System.Windows.Forms.TextBox txtMauSac;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblMauSac;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtGiaTu;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtGiaDen;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dgvDanhMuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaDanhMuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenMauMa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTongSoSP;
+        private System.Windows.Forms.Label lbDemDanhMuc;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox grpThongTinKM;
+        private System.Windows.Forms.Label lblNgayKM;
+        private System.Windows.Forms.Label lblTenCTKM;
+        private System.Windows.Forms.Button btnXacNhan;
+        private System.Windows.Forms.CheckBox cboApDung;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ApDungKM;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTSP;
         private System.Windows.Forms.DataGridViewImageColumn colHinhAnh;

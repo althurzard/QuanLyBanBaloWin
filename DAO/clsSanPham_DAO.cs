@@ -163,7 +163,7 @@ namespace DAO
 
         public static DataTable LayBangSanPham()
         {
-            string query = string.Format("SELECT * FROM SanPham");
+            string query = string.Format("SELECT * FROM SanPham,DanhMuc where SanPham.MaDanhMuc = DanhMuc.MaDanhMuc");
             return XuLyDuLieu.LayBang(query);
         }
 
@@ -176,6 +176,12 @@ namespace DAO
         public static bool CapNhatKhuyenMai(int maCu, int maMoi)
         {
             string query = string.Format("Update SanPham set MaKhuyenMai = {0} where MaKhuyenMai = {1}", maMoi,maCu);
+            return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+        }
+
+        public static bool CapNhatKhuyenMai(string maSP,int maKhuyenMai)
+        {
+            string query = string.Format("Update SanPham set MaKhuyenMai = {0} where MaSP = '{1}'", maKhuyenMai,maSP);
             return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
         }
 
