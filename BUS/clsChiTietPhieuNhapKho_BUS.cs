@@ -18,5 +18,10 @@ namespace BUS
         {
             return clsChiTietPhieuNhapKho_DAO.LayChiTiet(maPhieuNK);
         }
+
+        public static List<clsChiTietPhieuNhapKho_DTO> LayDanhSach(string maPhieuNK)
+        {
+            return clsChiTietPhieuNhapKho_DAO.LayDanhSach(maPhieuNK);
+        }
     }
 }

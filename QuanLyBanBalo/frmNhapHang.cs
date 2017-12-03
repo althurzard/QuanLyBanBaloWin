@@ -47,6 +47,18 @@ namespace QuanLyBanBalo
             EnableSanPham(true);
             EnableThongTinHD(false);
             EnableChiTiet(false);
+
+            List<string> listTH = clsSanPham_BUS.LayThuongHieu();
+            Helper.SetAutocomplete(txtThuongHieu, listTH.ToArray());
+
+            List<string> listCL = clsSanPham_BUS.LayChatLieu();
+            Helper.SetAutocomplete(txtChatLieu, listCL.ToArray());
+
+            List<string> listMauSac = clsChiTietSanPham_BUS.LayMauSac();
+            Helper.SetAutocomplete(txtCTMauSac, listMauSac.ToArray());
+
+            List<string> listTenSP = clsSanPham_BUS.LayTenSP();
+            Helper.SetAutocomplete(txtTenSP, listTenSP.ToArray());
         }
 
         //Load dữ liệu 
@@ -664,6 +676,7 @@ namespace QuanLyBanBalo
                     {
                         _layDongTrongDataTable = 0;
                         dtSanPhamMoi.Rows.Clear();
+                        loadSanPham();
                         lblSoLuongSP.Text = "0";
                         lblTongTien.Text = "0";
                         txtCTMaSP.Text = null;
@@ -720,6 +733,7 @@ namespace QuanLyBanBalo
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            loadSanPham();
             RefreshHoaDon();
             RefreshChiTietSanPham();
             RefreshSanPham();
@@ -731,6 +745,7 @@ namespace QuanLyBanBalo
             txtCTTenSP.Text = null;
             lblTongTien.Text = "0";
             lblSoLuongSP.Text = "0";
+            ShowLabel(false);
         }
 
       
@@ -794,7 +809,7 @@ namespace QuanLyBanBalo
         private void dgvHDSanPham_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             soLuong += int.Parse(dgvHDSanPham.Rows[dgvHDSanPham.RowCount - 1].Cells["colSoLuong"].Value.ToString().Replace(",", ""));
-            tongTien += int.Parse(dgvHDSanPham.Rows[dgvHDSanPham.RowCount - 1].Cells["colGiaVonNhap"].Value.ToString().Replace(",", ""));
+            tongTien += int.Parse(dgvHDSanPham.Rows[dgvHDSanPham.RowCount - 1].Cells["colGiaVonNhap"].Value.ToString().Replace(",", ""))* int.Parse(dgvHDSanPham.Rows[dgvHDSanPham.RowCount - 1].Cells["colSoLuong"].Value.ToString().Replace(",", ""));
             lblSoLuongSP.Text = soLuong.ToString();
             lblTongTien.Text = tongTien.ToString("0,00#");
         }

@@ -43,9 +43,9 @@
             // 
             this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMatKhau.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau.Location = new System.Drawing.Point(325, 154);
+            this.txtMatKhau.Location = new System.Drawing.Point(226, 169);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(217, 26);
+            this.txtMatKhau.Size = new System.Drawing.Size(294, 26);
             this.txtMatKhau.TabIndex = 82;
             this.txtMatKhau.UseSystemPasswordChar = true;
             // 
@@ -53,16 +53,16 @@
             // 
             this.txtTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtTenDangNhap.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDangNhap.Location = new System.Drawing.Point(325, 106);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(226, 97);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(217, 26);
+            this.txtTenDangNhap.Size = new System.Drawing.Size(294, 26);
             this.txtTenDangNhap.TabIndex = 80;
             // 
             // lblMaHoaDon
             // 
             this.lblMaHoaDon.AutoSize = true;
             this.lblMaHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaHoaDon.Location = new System.Drawing.Point(178, 105);
+            this.lblMaHoaDon.Location = new System.Drawing.Point(222, 70);
             this.lblMaHoaDon.Name = "lblMaHoaDon";
             this.lblMaHoaDon.Size = new System.Drawing.Size(141, 24);
             this.lblMaHoaDon.TabIndex = 81;
@@ -72,7 +72,7 @@
             // 
             this.lblMaNCC.AutoSize = true;
             this.lblMaNCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMaNCC.Location = new System.Drawing.Point(178, 153);
+            this.lblMaNCC.Location = new System.Drawing.Point(222, 142);
             this.lblMaNCC.Name = "lblMaNCC";
             this.lblMaNCC.Size = new System.Drawing.Size(86, 24);
             this.lblMaNCC.TabIndex = 79;
@@ -81,22 +81,26 @@
             // btnXacNhan
             // 
             this.btnXacNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXacNhan.Location = new System.Drawing.Point(325, 208);
+            this.btnXacNhan.Image = global::QuanLyBanBalo.Properties.Resources.icon_checkmark_small;
+            this.btnXacNhan.Location = new System.Drawing.Point(376, 208);
             this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(104, 34);
+            this.btnXacNhan.Size = new System.Drawing.Size(144, 48);
             this.btnXacNhan.TabIndex = 84;
             this.btnXacNhan.Text = "Xác nhận";
+            this.btnXacNhan.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXacNhan.UseVisualStyleBackColor = true;
             this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(438, 208);
+            this.btnThoat.Image = global::QuanLyBanBalo.Properties.Resources.icon_delete;
+            this.btnThoat.Location = new System.Drawing.Point(226, 208);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(104, 34);
+            this.btnThoat.Size = new System.Drawing.Size(144, 48);
             this.btnThoat.TabIndex = 85;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThoat.UseVisualStyleBackColor = true;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
@@ -105,7 +109,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(221, 25);
+            this.linkLabel1.Location = new System.Drawing.Point(138, 24);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(287, 25);
             this.linkLabel1.TabIndex = 87;

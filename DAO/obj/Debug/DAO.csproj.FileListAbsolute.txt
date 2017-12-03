@@ -14,3 +14,11 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.csprojReso
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DAO\obj\Debug\DAO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\bin\Debug\DAO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\bin\Debug\DAO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\bin\Debug\DTO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\bin\Debug\DTO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.dll
+C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.pdb

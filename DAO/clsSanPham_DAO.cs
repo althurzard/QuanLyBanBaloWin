@@ -92,7 +92,7 @@ namespace DAO
         {
             using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
             {
-                string query = string.Format("INSERT INTO SanPham(MaSP,TenSP,ThuongHieu,ChatLieu,GiaVon,GiaBanLe,ChongNuoc,TrongLuong,MaDanhMuc,MaKhuyenMai,SoNamBH) VALUES(@MaSP,@TenSP,@ThuongHieu,@ChatLieu,@GiaVon,@GiaBanLe,@ChongNuoc,@TrongLuong,@MaDanhMuc,null,@SoNamBH)");
+                string query = string.Format("INSERT INTO SanPham(MaSP,TenSP,ThuongHieu,ChatLieu,GiaVon,GiaBanLe,ChongNuoc,TrongLuong,MaDanhMuc,MaKhuyenMai,SoNamBH) VALUES(@MaSP,@TenSP,@ThuongHieu,@ChatLieu,@GiaVon,@GiaBanLe,@ChongNuoc,@TrongLuong,@MaDanhMuc,4,@SoNamBH)");
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.Parameters.Add("@MaSP", SqlDbType.Char).Value = sanPham.MaSP;
                 cmd.Parameters.Add("@TenSP", SqlDbType.NVarChar).Value = sanPham.TenSP;
