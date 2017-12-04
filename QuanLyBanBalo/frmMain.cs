@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BUS;
 
 namespace QuanLyBanBalo
 {
@@ -14,6 +16,7 @@ namespace QuanLyBanBalo
     {
         public frmMain()
         {
+            CapNhatKhuyenMai();
             InitializeComponent();
             nhapHangToolStripMenuItem.Visible = Validation.CheckPermission();
             nhanVienToolStripMenuItem.Visible = Validation.CheckPermission();
@@ -40,6 +43,10 @@ namespace QuanLyBanBalo
             }
         }
 
+        private void CapNhatKhuyenMai()
+        {
+            clsSanPham_BUS.CapNhatKhuyenMai();
+        }
 
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)

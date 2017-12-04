@@ -503,7 +503,7 @@ namespace QuanLyBanBalo
            
             foreach(DataGridViewRow row in dgvSanPham.Rows)
             {
-                bool apDung = (bool)row.Cells["ApDungKM"].Value;
+                bool apDung = row.Cells["ApDungKM"].Value == null ? false : (bool)row.Cells["ApDungKM"].Value;
                 string maSp = row.Cells["colMaSP"].Value.ToString();
                 if (apDung)
                 {

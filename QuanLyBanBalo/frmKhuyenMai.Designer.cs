@@ -176,6 +176,7 @@
             this.dtpDenNgay.Name = "dtpDenNgay";
             this.dtpDenNgay.Size = new System.Drawing.Size(181, 26);
             this.dtpDenNgay.TabIndex = 110;
+            this.dtpDenNgay.ValueChanged += new System.EventHandler(this.dtpDenNgay_ValueChanged);
             // 
             // dtpTuNgay
             // 

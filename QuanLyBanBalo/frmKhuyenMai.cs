@@ -265,5 +265,12 @@ namespace QuanLyBanBalo
         {
             e.Handled = !Validation.IsNumberic(e);
         }
+
+        private void dtpDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            int result = DateTime.Compare(DateTime.Now, dtpDenNgay.Value);
+            if (result >= 1)
+                dtpDenNgay.Value = DateTime.Now;
+        }
     }
 }

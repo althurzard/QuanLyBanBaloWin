@@ -89,6 +89,10 @@ namespace BUS
             return clsSanPham_DAO.CapNhatKhuyenMai(maSP, maMoi);
         }
 
+        public static void CapNhatKhuyenMai()
+        {
+            clsSanPham_DAO.CapNhatKhuyenMai();
+        }
 
     }
 }
