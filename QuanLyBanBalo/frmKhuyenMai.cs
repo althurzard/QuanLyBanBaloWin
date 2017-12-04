@@ -272,5 +272,16 @@ namespace QuanLyBanBalo
             if (result >= 1)
                 dtpDenNgay.Value = DateTime.Now;
         }
+
+        private void frmKhuyenMai_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
+        }
+
+        private void frmKhuyenMai_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Tắt tab khi tắt form
+            ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+        }
     }
 }

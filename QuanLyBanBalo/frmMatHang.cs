@@ -50,9 +50,11 @@ namespace QuanLyBanBalo
             dgvSanPham.AllowUserToDeleteRows = false;
             dgvSanPham.DoubleClick -= dgvSanPham_DoubleClick;
             dgvSanPham.Columns["ApDungKM"].Visible = true;
+            dgvSanPham.Columns["TenKhuyenMai"].Visible = true;
             dgvSanPham.Columns["colMauSac"].Visible = false;
             dgvSanPham.Columns["colSoLuong"].Visible = false;
             dgvSanPham.Columns["colHinhAnh"].Visible = false;
+
             khuyenMai = km;
             grbDanhMuc.Visible = false;
             lblHDXoa.Visible = false;

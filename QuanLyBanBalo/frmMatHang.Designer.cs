@@ -56,23 +56,24 @@
             this.lblHDXoa = new System.Windows.Forms.Label();
             this.lblHDSua = new System.Windows.Forms.Label();
             this.grbDanhMuc = new System.Windows.Forms.GroupBox();
-            this.lbTenDanhMuc = new System.Windows.Forms.Label();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.txtTenDanhMuc = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.dgvDanhMuc = new System.Windows.Forms.DataGridView();
             this.colMaDanhMuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenMauMa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTongSoSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbDemDanhMuc = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lbTenDanhMuc = new System.Windows.Forms.Label();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.txtTenDanhMuc = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.grpThongTinKM = new System.Windows.Forms.GroupBox();
             this.lblNgayKM = new System.Windows.Forms.Label();
             this.lblTenCTKM = new System.Windows.Forms.Label();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.cboApDung = new System.Windows.Forms.CheckBox();
             this.ApDungKM = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TenKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHinhAnh = new System.Windows.Forms.DataGridViewImageColumn();
@@ -304,6 +305,7 @@
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ApDungKM,
+            this.TenKhuyenMai,
             this.colMaSP,
             this.colMaCTSP,
             this.colHinhAnh,
@@ -378,65 +380,6 @@
             this.grbDanhMuc.TabIndex = 7;
             this.grbDanhMuc.TabStop = false;
             this.grbDanhMuc.Text = "Mẫu mã SP";
-            // 
-            // lbTenDanhMuc
-            // 
-            this.lbTenDanhMuc.AutoSize = true;
-            this.lbTenDanhMuc.BackColor = System.Drawing.SystemColors.Control;
-            this.lbTenDanhMuc.ForeColor = System.Drawing.Color.Red;
-            this.lbTenDanhMuc.Location = new System.Drawing.Point(116, 65);
-            this.lbTenDanhMuc.Name = "lbTenDanhMuc";
-            this.lbTenDanhMuc.Size = new System.Drawing.Size(157, 20);
-            this.lbTenDanhMuc.TabIndex = 4;
-            this.lbTenDanhMuc.Text = "Không được để trống";
-            this.lbTenDanhMuc.Visible = false;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Enabled = false;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icon_edit;
-            this.btnSua.Location = new System.Drawing.Point(120, 88);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(140, 50);
-            this.btnSua.TabIndex = 3;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icon_plus_math;
-            this.btnThem.Location = new System.Drawing.Point(264, 88);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(140, 50);
-            this.btnThem.TabIndex = 2;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // txtTenDanhMuc
-            // 
-            this.txtTenDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDanhMuc.Location = new System.Drawing.Point(120, 32);
-            this.txtTenDanhMuc.Multiline = true;
-            this.txtTenDanhMuc.Name = "txtTenDanhMuc";
-            this.txtTenDanhMuc.Size = new System.Drawing.Size(284, 28);
-            this.txtTenDanhMuc.TabIndex = 1;
-            this.txtTenDanhMuc.TextChanged += new System.EventHandler(this.txtTenDanhMuc_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(0, 35);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(117, 24);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Tên mẫu mã";
             // 
             // dgvDanhMuc
             // 
@@ -514,6 +457,65 @@
             this.label12.TabIndex = 12;
             this.label12.Text = "(*) Bấm nút Delete để xóa";
             // 
+            // lbTenDanhMuc
+            // 
+            this.lbTenDanhMuc.AutoSize = true;
+            this.lbTenDanhMuc.BackColor = System.Drawing.SystemColors.Control;
+            this.lbTenDanhMuc.ForeColor = System.Drawing.Color.Red;
+            this.lbTenDanhMuc.Location = new System.Drawing.Point(116, 65);
+            this.lbTenDanhMuc.Name = "lbTenDanhMuc";
+            this.lbTenDanhMuc.Size = new System.Drawing.Size(157, 20);
+            this.lbTenDanhMuc.TabIndex = 4;
+            this.lbTenDanhMuc.Text = "Không được để trống";
+            this.lbTenDanhMuc.Visible = false;
+            // 
+            // btnSua
+            // 
+            this.btnSua.Enabled = false;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.Image = global::QuanLyBanBalo.Properties.Resources.icon_edit;
+            this.btnSua.Location = new System.Drawing.Point(120, 88);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(140, 50);
+            this.btnSua.TabIndex = 3;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = global::QuanLyBanBalo.Properties.Resources.icon_plus_math;
+            this.btnThem.Location = new System.Drawing.Point(264, 88);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(140, 50);
+            this.btnThem.TabIndex = 2;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // txtTenDanhMuc
+            // 
+            this.txtTenDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenDanhMuc.Location = new System.Drawing.Point(120, 32);
+            this.txtTenDanhMuc.Multiline = true;
+            this.txtTenDanhMuc.Name = "txtTenDanhMuc";
+            this.txtTenDanhMuc.Size = new System.Drawing.Size(284, 28);
+            this.txtTenDanhMuc.TabIndex = 1;
+            this.txtTenDanhMuc.TextChanged += new System.EventHandler(this.txtTenDanhMuc_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(0, 35);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(117, 24);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Tên mẫu mã";
+            // 
             // grpThongTinKM
             // 
             this.grpThongTinKM.Controls.Add(this.lblNgayKM);
@@ -587,6 +589,14 @@
             this.ApDungKM.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ApDungKM.Visible = false;
             // 
+            // TenKhuyenMai
+            // 
+            this.TenKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenKhuyenMai.DataPropertyName = "TenKhuyenMai";
+            this.TenKhuyenMai.HeaderText = "Chương Trình KM";
+            this.TenKhuyenMai.Name = "TenKhuyenMai";
+            this.TenKhuyenMai.Visible = false;
+            // 
             // colMaSP
             // 
             this.colMaSP.DataPropertyName = "MaSP";
@@ -632,10 +642,10 @@
             // 
             this.colTenDanhMuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.colTenDanhMuc.DataPropertyName = "TenDanhMuc";
-            this.colTenDanhMuc.HeaderText = "Tên Danh Mục";
+            this.colTenDanhMuc.HeaderText = "Mẫu mã";
             this.colTenDanhMuc.Name = "colTenDanhMuc";
             this.colTenDanhMuc.ReadOnly = true;
-            this.colTenDanhMuc.Width = 90;
+            this.colTenDanhMuc.Width = 60;
             // 
             // colChatLieu
             // 
@@ -783,6 +793,7 @@
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.CheckBox cboApDung;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ApDungKM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKhuyenMai;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTSP;
         private System.Windows.Forms.DataGridViewImageColumn colHinhAnh;

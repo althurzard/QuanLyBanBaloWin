@@ -247,6 +247,7 @@ namespace QuanLyBanBalo
         private void frmXuatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;
+
         }
 
         private void frmXuatHang_FormClosing(object sender, FormClosingEventArgs e)
@@ -580,5 +581,6 @@ namespace QuanLyBanBalo
             txtTenKH.Text = khachHang != null ? khachHang.TenKH : "";
             txtTenKH.Enabled = khachHang == null;
         }
+
     }
 }

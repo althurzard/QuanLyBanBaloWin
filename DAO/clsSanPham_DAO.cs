@@ -163,7 +163,7 @@ namespace DAO
 
         public static DataTable LayBangSanPham()
         {
-            string query = string.Format("SELECT * FROM SanPham,DanhMuc where SanPham.MaDanhMuc = DanhMuc.MaDanhMuc");
+            string query = string.Format("SELECT * FROM SanPham,DanhMuc,KhuyenMai where SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai");
             return XuLyDuLieu.LayBang(query);
         }
 
