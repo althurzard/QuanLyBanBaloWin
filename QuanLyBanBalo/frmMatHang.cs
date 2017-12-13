@@ -515,5 +515,16 @@ namespace QuanLyBanBalo
 
             Close();
         }
+
+        private void dgvDanhMuc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnThem.Enabled = false;
+            btnSua.Enabled = true;
+            if (e.RowIndex >= 0)
+            {
+                txtTenDanhMuc.Text = dgvDanhMuc.CurrentRow.Cells["colTenMauMa"].Value.ToString();
+                MaDanhMuc = int.Parse(dgvDanhMuc.CurrentRow.Cells["colMaDanhMuc"].Value.ToString());
+            }
+        }
     }
 }
