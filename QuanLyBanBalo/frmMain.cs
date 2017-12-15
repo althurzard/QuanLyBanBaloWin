@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BUS;
 
 namespace QuanLyBanBalo
 {
     public partial class frmMain : Form
     {
+        private List<Form> forms = new List<Form>();
         public frmMain()
         {
+            CapNhatKhuyenMai();
             InitializeComponent();
             nhapHangToolStripMenuItem.Visible = Validation.CheckPermission();
             nhanVienToolStripMenuItem.Visible = Validation.CheckPermission();
@@ -40,6 +44,10 @@ namespace QuanLyBanBalo
             }
         }
 
+        private void CapNhatKhuyenMai()
+        {
+            clsSanPham_BUS.CapNhatKhuyenMai();
+        }
 
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
@@ -76,6 +84,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmNv.MdiParent = this;
+                forms.Add(frmNv);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmNv.Text };
                 tp.Size = new Size(400, 400);
@@ -101,6 +110,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmMH.MdiParent = this;
+                forms.Add(frmMH);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmMH.Text };
                 tp.Size = new Size(400, 400);
@@ -125,6 +135,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmNCC.MdiParent = this;
+                forms.Add(frmNCC);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmNCC.Text };
                 tp.Size = new Size(400, 400);
@@ -149,6 +160,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmBH.MdiParent = this;
+                forms.Add(frmBH);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmBH.Text };
                 tp.Size = new Size(400, 400);
@@ -179,6 +191,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmDSX.MdiParent = this;
+                forms.Add(frmDSX);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmDSX.Text };
                 tp.Size = new Size(400, 400);
@@ -211,6 +224,10 @@ namespace QuanLyBanBalo
                         break;
                     }
                 }
+                foreach(Form frm in forms)
+                {
+                    frm.Close();
+                }
                 this.Close();
             } 
         }
@@ -238,6 +255,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmDSN.MdiParent = this;
+                forms.Add(frmDSN);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmDSN.Text };
                 tp.Size = new Size(400, 400);
@@ -262,6 +280,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmNH.MdiParent = this;
+                forms.Add(frmNH);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmNH.Text };
                 tp.Size = new Size(400, 400);
@@ -276,7 +295,7 @@ namespace QuanLyBanBalo
         private void banHangToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBanHang frmXH = frmBanHang.Instance;
-
+            
             int index = KiemTraTonTaiForm(tbcMain, frmXH);
             if (index >= 0)
             {
@@ -286,6 +305,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmXH.MdiParent = this;
+                forms.Add(frmXH);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmXH.Text };
                 tp.Size = new Size(400, 400);
@@ -310,6 +330,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmXH.MdiParent = this;
+                forms.Add(frmXH);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmXH.Text };
                 tp.Size = new Size(400, 400);
@@ -334,6 +355,7 @@ namespace QuanLyBanBalo
             else
             {
                 frmXH.MdiParent = this;
+                forms.Add(frmXH);
                 //Tạo ra 1 tab mới
                 TabPage tp = new TabPage { Text = frmXH.Text };
                 tp.Size = new Size(400, 400);

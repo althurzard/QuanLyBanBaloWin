@@ -28,3 +28,13 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\BUS\obj\Debug\BUS.csprojResolveAss
 C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\BUS\obj\Debug\BUS.dll
 C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\BUS\obj\Debug\BUS.pdb
+D:\DA-WIN\QuanLyBanBaloWin\BUS\bin\Debug\BUS.dll
+D:\DA-WIN\QuanLyBanBaloWin\BUS\bin\Debug\BUS.pdb
+D:\DA-WIN\QuanLyBanBaloWin\BUS\bin\Debug\DAO.dll
+D:\DA-WIN\QuanLyBanBaloWin\BUS\bin\Debug\DTO.dll
+D:\DA-WIN\QuanLyBanBaloWin\BUS\bin\Debug\DAO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\BUS\bin\Debug\DTO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+D:\DA-WIN\QuanLyBanBaloWin\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+D:\DA-WIN\QuanLyBanBaloWin\BUS\obj\Debug\BUS.dll
+D:\DA-WIN\QuanLyBanBaloWin\BUS\obj\Debug\BUS.pdb

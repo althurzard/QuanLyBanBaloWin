@@ -33,9 +33,10 @@ namespace QuanLyBanBalo
         }
         private void frmSuaSanPham_Load(object sender, EventArgs e)
         {
+            loadKhuyenMai();
             loadMauMa();
             loadSanPham();
-            loadKhuyenMai();
+            
         }
 
 

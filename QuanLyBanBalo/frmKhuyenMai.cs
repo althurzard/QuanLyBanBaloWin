@@ -88,10 +88,12 @@ namespace QuanLyBanBalo
 
         private void CapNhatKM(int maKM)
         {
-            if (rdbApDungSP.Checked)
+            if (rdbThuCong.Checked)
             {
-               clsSanPham_BUS.CapNhatKhuyenMai(maKM);
+                frmMatHang frm = new frmMatHang(clsKhuyenMai_BUS.LayKhuyenMai(maKM));
+                frm.ShowDialog();
             }
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -187,11 +189,11 @@ namespace QuanLyBanBalo
 
             if (result)
             {
-                MessageBox.Show("Sửa thành công.");
+                
                 LoadKhuyenMai();
                 CapNhatKM(khuyenMai.MaKhuyenMai);
                 LamMoi();
-
+                MessageBox.Show("Sửa thành công.");
             }
             else
                 MessageBox.Show("Sửa thất bại.");
@@ -235,9 +237,10 @@ namespace QuanLyBanBalo
 
         private void dgvKhuyenMai_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            int maKhuyenMai = int.Parse(dgvKhuyenMai.CurrentRow.Cells["MaKhuyenMai"].Value.ToString());
             btnThem.Enabled = false;
             btnSua.Enabled = true;
-            _maKhuyenMai = int.Parse(dgvKhuyenMai.CurrentRow.Cells["MaKhuyenMai"].Value.ToString());
+            _maKhuyenMai = maKhuyenMai;
             txtTenCTKM.Text = dgvKhuyenMai.CurrentRow.Cells["TenKhuyenMai"].Value.ToString();
             txtMoTa.Text = dgvKhuyenMai.CurrentRow.Cells["MoTa"].Value.ToString();
             rdbApDungHD.Checked = (bool)dgvKhuyenMai.CurrentRow.Cells["ApDungHD"].Value;
@@ -261,6 +264,24 @@ namespace QuanLyBanBalo
         private void txtMoTa_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !Validation.IsNumberic(e);
+        }
+
+        private void dtpDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            int result = DateTime.Compare(DateTime.Now, dtpDenNgay.Value);
+            if (result >= 1)
+                dtpDenNgay.Value = DateTime.Now;
+        }
+
+        private void frmKhuyenMai_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
+        }
+
+        private void frmKhuyenMai_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Tắt tab khi tắt form
+            ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
         }
     }
 }

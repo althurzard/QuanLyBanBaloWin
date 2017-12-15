@@ -163,7 +163,7 @@ namespace DAO
 
         public static DataTable LayBangSanPham()
         {
-            string query = string.Format("SELECT * FROM SanPham");
+            string query = string.Format("SELECT * FROM SanPham,DanhMuc,KhuyenMai where SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai");
             return XuLyDuLieu.LayBang(query);
         }
 
@@ -177,6 +177,25 @@ namespace DAO
         {
             string query = string.Format("Update SanPham set MaKhuyenMai = {0} where MaKhuyenMai = {1}", maMoi,maCu);
             return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+        }
+
+        public static bool CapNhatKhuyenMai(string maSP,int maKhuyenMai)
+        {
+            string query = string.Format("Update SanPham set MaKhuyenMai = {0} where MaSP = '{1}'", maKhuyenMai,maSP);
+            return XuLyDuLieu.ThucThiCauLenh(query) >= 1;
+        }
+
+        public static void CapNhatKhuyenMai()
+        {
+            string query = string.Format("Select * from SanPham as sp,KhuyenMai as km where sp.MaKhuyenMai = km.MaKhuyenMai AND sp.MaKhuyenMai != 4 AND km.NgayKetThuc <= '{0}' ", DateTime.Now.ToString("yyyy-MM-dd"));
+            DataTable sanPhamHetHan = XuLyDuLieu.LayBang(query);
+            foreach(DataRow row in sanPhamHetHan.Rows)
+            {
+                string maSP = row["MaSP"].ToString();
+                query = string.Format("Update SanPham set MaKhuyenMai = {0} where MaSP = '{1}'", 4, maSP);
+                XuLyDuLieu.ThucThiCauLenh(query);
+            }
+            
         }
 
         public static List<string> LayThuongHieu()
