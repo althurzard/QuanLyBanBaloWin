@@ -17,6 +17,10 @@ namespace BUS
         {
             return clsSanPham_DAO.LayTatCaSanPham(SanPhamTonKho);
         }
+        public static DataTable LaySPTheoDK(int i = 0)
+        {
+            return clsSanPham_DAO.LaySPTheoDK(i);
+        }
         public static DataTable LayTatCaMauMa()
         {
             return clsSanPham_DAO.LayTatCaMauMa();

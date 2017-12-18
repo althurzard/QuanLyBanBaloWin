@@ -398,6 +398,7 @@ namespace QuanLyBanBalo
                     MessageBox.Show(msg.Message);
                 }
             }
+            thayDoiDgv();
         }
 
 

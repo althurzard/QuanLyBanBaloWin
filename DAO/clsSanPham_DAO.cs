@@ -28,6 +28,26 @@ namespace DAO
             return dtSanPham;
         }
 
+        public static DataTable LaySPTheoDK(int i = 0)
+        {
+            string query = "";
+            if(i == 1)
+            {
+                query = "SELECT SanPham.*,DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong>0";
+            }
+            else if(i==2)
+            {
+                query = "SELECT SanPham.*,DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong = 0";
+            }
+            else
+            {
+                query = "SELECT SanPham.*,DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1";
+
+            }
+            dtSanPham = XuLyDuLieu.LayBang(query);
+            return dtSanPham;
+        }
+
         public static SqlDataReader LayThongTinMotSanPham(string idSanPham,string idChiTiet)
         {
             string query =string.Format("SELECT SanPham.*,DanhMuc.*,ChiTietSanPham.*,HinhAnh.Url,HinhAnh.MaHinhAnh FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND SanPham.MaSP='{0}' AND ChiTietSanPham.MaCTSP ='{1}'", idSanPham,idChiTiet);

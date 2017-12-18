@@ -21,7 +21,7 @@ namespace QuanLyBanBalo
         DataTable dtSanPham;
         DataTable dtMauMa;
         DataTable dtDanhMuc;
-        DataRowView drvDanhMuc;
+        DataRowView drvDanhMuc,drvTonKho;
         clsKhuyenMai_DTO khuyenMai;
         private static frmMatHang _Instance = null;
         public static frmMatHang Instance
@@ -82,7 +82,8 @@ namespace QuanLyBanBalo
                         return;
                     }
                 }
-            } else
+            }
+            else
             {
                 lblTenCTKM.Text = string.Format("- {0}", km.TenKhuyenMai);
                 lblNgayKM.Text = "Không có thời hạn";
@@ -96,6 +97,7 @@ namespace QuanLyBanBalo
             loadSanPham();
             loadMauMa();
             LoadDanhMuc();
+            loadTonKho();
         }
 
         private void setUp()
@@ -114,12 +116,10 @@ namespace QuanLyBanBalo
             Helper.SetAutocomplete(txtChatLieu, listChatLieu.ToArray());
             Helper.SetAutocomplete(txtTenSP, listTenSP.ToArray());
             Helper.SetAutocomplete(txtMauSac, listMauSac.ToArray());
-            
 
         }
         private void loadSanPham()
         {
-
             dtSanPham = khuyenMai == null ? clsSanPham_BUS.LayTatCaSanPham() : clsSanPham_BUS.LayBangSanPham();
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.AutoGenerateColumns = false;
@@ -133,11 +133,40 @@ namespace QuanLyBanBalo
             dr = dtMauMa.NewRow();
             dr["TenDanhMuc"] = "Tất cả";
             dr["MaDanhMuc"] = 0;
-            dtMauMa.Rows.InsertAt(dr,0);
+            dtMauMa.Rows.InsertAt(dr, 0);
             dvMauMa = new DataView(dtMauMa);
             cboMauMa.DataSource = dvMauMa;
             cboMauMa.ValueMember = "MaDanhMuc";
             cboMauMa.DisplayMember = "TenDanhMuc";
+        }
+
+        private void loadTonKho()
+        {
+            DataRow dr;
+            DataTable dtTonKho = new DataTable();
+            dtTonKho.Clear();
+            dtTonKho.Columns.Add("TenTonKho");
+            dtTonKho.Columns.Add("MaTonKho");
+
+            dr = dtTonKho.NewRow();
+            dr["TenTonKho"] = "Tất cả";
+            dr["MaTonKho"] = 0;
+            dtTonKho.Rows.InsertAt(dr, 0);
+
+            dr = dtTonKho.NewRow();
+            dr["TenTonKho"] = "Sản phẩm còn hàng";
+            dr["MaTonKho"] = 1;
+            dtTonKho.Rows.InsertAt(dr, 1);
+
+            dr = dtTonKho.NewRow();
+            dr["TenTonKho"] = "Sản phẩm hết hàng";
+            dr["MaTonKho"] = 2;
+            dtTonKho.Rows.InsertAt(dr, 2);
+
+            DataView dvTonKho = new DataView(dtTonKho);
+            cboTonKho.DataSource = dvTonKho;
+            cboTonKho.ValueMember = "MaTonKho";
+            cboTonKho.DisplayMember = "TenTonKho";
         }
 
         private void LoadDanhMuc()
@@ -168,24 +197,27 @@ namespace QuanLyBanBalo
             string searchText = "";
             if (!string.IsNullOrWhiteSpace(txtTenSP.Text))
             {
-                searchText = string.Format("TenSP like '%{0}%' AND ",txtTenSP.Text);
-            }  else
+                searchText = string.Format("TenSP like '%{0}%' AND ", txtTenSP.Text);
+            }
+            else
             {
                 searchText = "TRUE AND ";
             }
 
             if (!string.IsNullOrWhiteSpace(txtThuongHieu.Text))
             {
-                searchText += string.Format("ThuongHieu like '%{0}%' AND ",txtThuongHieu.Text);
-            } else
+                searchText += string.Format("ThuongHieu like '%{0}%' AND ", txtThuongHieu.Text);
+            }
+            else
             {
                 searchText += "TRUE AND ";
             }
 
             if (!string.IsNullOrWhiteSpace(txtChatLieu.Text))
             {
-                searchText += string.Format("ChatLieu like '%{0}%' AND ",txtChatLieu.Text);
-            } else
+                searchText += string.Format("ChatLieu like '%{0}%' AND ", txtChatLieu.Text);
+            }
+            else
             {
                 searchText += "TRUE AND ";
             }
@@ -193,7 +225,8 @@ namespace QuanLyBanBalo
             if (!string.IsNullOrWhiteSpace(txtMauSac.Text))
             {
                 searchText += string.Format("MauSac like '%{0}%' AND ", txtMauSac.Text);
-            } else
+            }
+            else
             {
                 searchText += "TRUE AND ";
             }
@@ -204,7 +237,7 @@ namespace QuanLyBanBalo
                 if (!string.IsNullOrWhiteSpace(txtGiaDen.Text))
                 {
 
-                    
+
                     double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
                     if (giaDen < giaTu)
                         searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", giaTu, 10000000000);
@@ -222,11 +255,12 @@ namespace QuanLyBanBalo
                 {
                     double giaDen = double.Parse(txtGiaDen.Text.Trim(','));
                     searchText += string.Format("GiaBanLe >= '{0}' and GiaBanLe <= '{1}' AND ", 0, giaDen);
-                } else
+                }
+                else
                 {
                     searchText += "TRUE AND ";
                 }
-                
+
             }
 
 
@@ -236,8 +270,9 @@ namespace QuanLyBanBalo
             if (selectString != "Tất cả")
             {
                 searchText += string.Format("TenDanhMuc like '%{0}%'", selectString);
-                
-            } else
+
+            }
+            else
             {
                 searchText += "TRUE";
             }
@@ -269,7 +304,7 @@ namespace QuanLyBanBalo
         {
             string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells["colMaSP"].Value.ToString();
             string idChiTiet = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells["colMaCTSP"].Value.ToString();
-            frmSuaSanPham frm = new frmSuaSanPham(idSanPham,idChiTiet);
+            frmSuaSanPham frm = new frmSuaSanPham(idSanPham, idChiTiet);
             frm.Show();
         }
         private void btnKhoiPhuc_Click(object sender, EventArgs e)
@@ -306,11 +341,11 @@ namespace QuanLyBanBalo
         private void frmMatHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Tắt tab khi tắt form
-                ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
+            ((TabControl)((TabPage)this.Parent).Parent).TabPages.Remove((TabPage)this.Parent);
         }
         private void frmMatHang_FormClosing(object sender, FormClosingEventArgs e)
         {
-                 _Instance = null;
+            _Instance = null;
         }
         private void dgvSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -320,10 +355,11 @@ namespace QuanLyBanBalo
                 {
                     e.Value = new Bitmap(e.Value.ToString());
                 }
-                if (dgvSanPham.Columns[e.ColumnIndex].Name =="colChongNuoc")
-                {           if (e.Value != null)
+                if (dgvSanPham.Columns[e.ColumnIndex].Name == "colChongNuoc")
+                {
+                    if (e.Value != null)
                     {
-                        if(bool.Parse(e.Value.ToString()) == true)
+                        if (bool.Parse(e.Value.ToString()) == true)
                         {
                             e.Value = "Có";
                         }
@@ -334,11 +370,11 @@ namespace QuanLyBanBalo
                     }
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
 
             }
-            
+
         }
         private void txtTenSP_TextChanged(object sender, EventArgs e)
         {
@@ -502,8 +538,8 @@ namespace QuanLyBanBalo
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-           
-            foreach(DataGridViewRow row in dgvSanPham.Rows)
+
+            foreach (DataGridViewRow row in dgvSanPham.Rows)
             {
                 bool apDung = row.Cells["ApDungKM"].Value == null ? false : (bool)row.Cells["ApDungKM"].Value;
                 string maSp = row.Cells["colMaSP"].Value.ToString();
@@ -525,6 +561,18 @@ namespace QuanLyBanBalo
                 txtTenDanhMuc.Text = dgvDanhMuc.CurrentRow.Cells["colTenMauMa"].Value.ToString();
                 MaDanhMuc = int.Parse(dgvDanhMuc.CurrentRow.Cells["colMaDanhMuc"].Value.ToString());
             }
+        }
+
+        
+
+        private void cboTonKho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            drvTonKho = (DataRowView)(cboTonKho.SelectedItem);
+            string selectString = drvTonKho["MaTonKho"].ToString();
+            DataTable dt = clsSanPham_BUS.LaySPTheoDK(int.Parse(selectString));
+            dvSanPham = new DataView(dt);
+            dgvSanPham.DataSource = dvSanPham;
+            lbDemSp.Text = string.Format(" Có {0} loại sản phẩm", dgvSanPham.Rows.Count);
         }
     }
 }
