@@ -290,7 +290,7 @@ namespace QuanLyBanBalo
                 if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
                 {
                     // lấy ra id chi tiet trong dgv
-                    string idSanPham = dgvSanPham.Rows[dgvSanPham.CurrentCell.RowIndex].Cells[1].Value.ToString();
+                    string idSanPham = dgvSanPham.CurrentRow.Cells["colMaCTSP"].Value.ToString();
                     if (clsSanPham_BUS.XoaSanPham(idSanPham) == 1)
                     {
                         MessageBox.Show("Xóa Thành Công");

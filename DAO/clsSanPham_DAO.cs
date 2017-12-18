@@ -149,6 +149,11 @@ namespace DAO
             return sanPham;
         }
 
+        public static DataTable LaySanPham()
+        {
+            string query = string.Format("SELECT * FROM SanPham,DanhMuc,ChiTietSanPham where SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND SanPham.MaSP = ChiTietSanPham.MaSP AND ChiTietSanPham.TrangThai = 1");
+            return XuLyDuLieu.LayBang(query);
+        }
         public static bool KiemTonTaiSanPham(string maSanPham)
         {
             string query = string.Format("SELECT count(TenSP) FROM SanPham WHERE MaSP = N'{0}'", maSanPham);

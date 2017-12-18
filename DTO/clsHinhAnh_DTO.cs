@@ -48,6 +48,11 @@ namespace DTO
             _maHinhAnh = maHinhAnh;
         }
 
+        public clsHinhAnh_DTO(string url)
+        {
+            _url = url;
+        }
+
         public string TenHinhAnh { get => _tenHinhAnh; set => _tenHinhAnh = value; }
         public string Url { get => _url; set => _url = value; }
         public int MaHinhAnh { get => _maHinhAnh; set => _maHinhAnh = value; }

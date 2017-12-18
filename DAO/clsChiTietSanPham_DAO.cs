@@ -119,6 +119,26 @@ namespace DAO
             return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
 
+        public static clsHinhAnh_DTO layHinhAnh(string maSP,string mauSac)
+        {
+            clsHinhAnh_DTO HinhAnh = null;
+            using (SqlConnection connection = XuLyDuLieu.MoKetNoi)
+            {
+                
+                string query = string.Format("Select Url from ChiTietSanPham,HinhAnh where MaSP = '{0}' AND MauSac = N'{1}' AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh ", maSP,mauSac);
+                SqlCommand cmd = new SqlCommand(query, connection);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        HinhAnh = new clsHinhAnh_DTO();
+                        HinhAnh.Url = reader["Url"].ToString();
+                    }
+                }
+            }
+            return HinhAnh;
+        }
+
         public static List<string> LayMauSac()
         {
             List<string> listMauSac = new List<string>();
