@@ -22,3 +22,11 @@ C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.csprojResolveAss
 C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.dll
 C:\Users\DELL\Desktop\QuanLyBanBaloWin-master\DAO\obj\Debug\DAO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\DAO\bin\Debug\DAO.dll
+D:\DA-WIN\QuanLyBanBaloWin\DAO\bin\Debug\DAO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\DAO\bin\Debug\DTO.dll
+D:\DA-WIN\QuanLyBanBaloWin\DAO\bin\Debug\DTO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+D:\DA-WIN\QuanLyBanBaloWin\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\DA-WIN\QuanLyBanBaloWin\DAO\obj\Debug\DAO.dll
+D:\DA-WIN\QuanLyBanBaloWin\DAO\obj\Debug\DAO.pdb

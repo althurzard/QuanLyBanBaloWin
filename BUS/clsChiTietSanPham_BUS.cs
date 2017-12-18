@@ -39,6 +39,11 @@ namespace BUS
             return clsChiTietSanPham_DAO.LayChiTiet(maCTSP);
         }
 
+        public static clsHinhAnh_DTO layHinhAnh(string maSP,string mauSac)
+        {
+            return clsChiTietSanPham_DAO.layHinhAnh(maSP, mauSac);
+        }
+
         public static bool KiemTraTonTaiMaCT(string maCT)
         {
             return clsChiTietSanPham_DAO.KiemTraTonTaiMaCT(maCT);

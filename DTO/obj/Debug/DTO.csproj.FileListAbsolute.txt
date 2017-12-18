@@ -8,3 +8,9 @@ C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DTO\bin\Debug\DTO.pdb
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DTO\obj\Debug\DTO.dll
 C:\Users\nguyenquocvuong\source\repos\QuanLyBanBalo\DTO\obj\Debug\DTO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\DTO\bin\Debug\DTO.dll
+D:\DA-WIN\QuanLyBanBaloWin\DTO\bin\Debug\DTO.pdb
+D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.dll
+D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.pdb
