@@ -145,7 +145,7 @@ namespace QuanLyBanBalo
 
         private void LoadSanPham()
         {
-            dtTatCaSP = clsSanPham_BUS.LayTatCaSanPham(false);
+            dtTatCaSP = clsSanPham_BUS.LaySPTheoDK();
             dvTatCaSP = new DataView(dtTatCaSP);
             dgvTatCaSP.AutoGenerateColumns = false;
             dgvTatCaSP.DataSource = dvTatCaSP;

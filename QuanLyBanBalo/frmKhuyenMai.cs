@@ -210,7 +210,7 @@ namespace QuanLyBanBalo
            
             if (e.KeyCode == Keys.Delete || e.KeyCode == Keys.Back)
             {
-                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                if (DialogResult.Yes == MessageBox.Show(string.Format("Bạn có muốn xóa '{0}' không?",dgvKhuyenMai.CurrentRow.Cells["TenKhuyenMai"].Value), "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
                 {
                     // lấy ra id chi tiet trong dgv
                     int maKhuyenMai = (int)dgvKhuyenMai.CurrentRow.Cells["MaKhuyenMai"].Value;

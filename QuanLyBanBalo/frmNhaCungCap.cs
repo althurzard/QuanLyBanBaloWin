@@ -249,7 +249,7 @@ namespace QuanLyBanBalo
         {
             if (e.KeyCode == Keys.Delete)
             {
-                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                if (DialogResult.Yes == MessageBox.Show(string.Format("Bạn có muốn xóa '{0}' không?",dgvDanhSachNCC.CurrentRow.Cells["colTenNCC"].Value), "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
                 {
                     if (clsNhaCungCap_BUS.XoaNhaCungCap(MaNhaCungCap) == 1)
                     {
@@ -260,6 +260,9 @@ namespace QuanLyBanBalo
                     {
                         MessageBox.Show("Xóa Thất Bại");
                     }
+                } else
+                {
+                    LoadNCC();
                 }
             }
         }

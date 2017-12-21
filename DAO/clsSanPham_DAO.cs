@@ -13,36 +13,25 @@ namespace DAO
         private static DataTable dtSanPham;
         private static SqlDataReader drSanPham;
 
-        public static  DataTable LayTatCaSanPham(bool SanPhamTonKho = true)
-        {
-            string query = "";
-            if (SanPhamTonKho)
-            {
-               query = "SELECT SanPham.MaSP, SanPham.TenSP, SanPham.ThuongHieu,SanPham.ChatLieu,SanPham.GiaVon,SanPham.GiaBanLe,SanPham.ChongNuoc,SanPham.SoNamBH, DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 ";
-            } else
-            {
-               query = "SELECT SanPham.MaSP, SanPham.TenSP, SanPham.ThuongHieu,SanPham.ChatLieu,SanPham.GiaVon,SanPham.GiaBanLe,SanPham.ChongNuoc,SanPham.SoNamBH, DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong > 0 ";
-            }
-            
-            dtSanPham = XuLyDuLieu.LayBang(query);
-            return dtSanPham;
-        }
 
         public static DataTable LaySPTheoDK(int i = 0)
         {
             string query = "";
             if(i == 1)
             {
-                query = "SELECT SanPham.*,DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong>0";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong>0";
             }
             else if(i==2)
             {
-                query = "SELECT SanPham.*,DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong = 0";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh, KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong = 0";
             }
-            else
+            else if(i==0)
             {
-                query = "SELECT SanPham.*,DanhMuc.* ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh  WHERE SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1";
 
+            } else
+            {
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 0";
             }
             dtSanPham = XuLyDuLieu.LayBang(query);
             return dtSanPham;
@@ -186,11 +175,6 @@ namespace DAO
             return XuLyDuLieu.ThucThiCauLenhWithScalar(query) >= 1;
         }
 
-        public static DataTable LayBangSanPham()
-        {
-            string query = string.Format("SELECT * FROM SanPham,DanhMuc,KhuyenMai where SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai");
-            return XuLyDuLieu.LayBang(query);
-        }
 
         public static bool CapNhatKhuyenMai(int maKhuyenMai)
         {

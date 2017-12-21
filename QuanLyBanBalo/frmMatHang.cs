@@ -50,7 +50,7 @@ namespace QuanLyBanBalo
             dgvSanPham.AllowUserToDeleteRows = false;
             dgvSanPham.DoubleClick -= dgvSanPham_DoubleClick;
             dgvSanPham.Columns["ApDungKM"].Visible = true;
-            dgvSanPham.Columns["TenKhuyenMai"].Visible = true;
+            dgvSanPham.Columns["colTenKhuyenMai"].Visible = true;
             dgvSanPham.Columns["colMauSac"].Visible = false;
             dgvSanPham.Columns["colSoLuong"].Visible = false;
             dgvSanPham.Columns["colHinhAnh"].Visible = false;
@@ -118,9 +118,9 @@ namespace QuanLyBanBalo
             Helper.SetAutocomplete(txtMauSac, listMauSac.ToArray());
 
         }
-        private void loadSanPham()
+        private void loadSanPham(int i = 0)
         {
-            dtSanPham = khuyenMai == null ? clsSanPham_BUS.LayTatCaSanPham() : clsSanPham_BUS.LayBangSanPham();
+            dtSanPham = clsSanPham_BUS.LaySPTheoDK(i);
             dvSanPham = new DataView(dtSanPham);
             dgvSanPham.AutoGenerateColumns = false;
             dgvSanPham.DataSource = dvSanPham;
@@ -162,6 +162,11 @@ namespace QuanLyBanBalo
             dr["TenTonKho"] = "Sản phẩm hết hàng";
             dr["MaTonKho"] = 2;
             dtTonKho.Rows.InsertAt(dr, 2);
+
+            dr = dtTonKho.NewRow();
+            dr["TenTonKho"] = "Sản phẩm đã xóa";
+            dr["MaTonKho"] = -1;
+            dtTonKho.Rows.InsertAt(dr, 3);
 
             DataView dvTonKho = new DataView(dtTonKho);
             cboTonKho.DataSource = dvTonKho;
@@ -322,7 +327,7 @@ namespace QuanLyBanBalo
         {
             if (e.KeyCode == Keys.Delete)
             {
-                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                if (DialogResult.Yes == MessageBox.Show(string.Format("Bạn có muốn xóa '{0}' không?",dgvSanPham.CurrentRow.Cells["colTenSP"].Value), "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
                 {
                     // lấy ra id chi tiet trong dgv
                     string idSanPham = dgvSanPham.CurrentRow.Cells["colMaCTSP"].Value.ToString();
@@ -369,6 +374,8 @@ namespace QuanLyBanBalo
                         }
                     }
                 }
+               
+
             }
             catch (Exception)
             {
@@ -463,10 +470,11 @@ namespace QuanLyBanBalo
         {
             if (e.KeyCode == Keys.Delete)
             {
-                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop))
+                DialogResult rsl = MessageBox.Show(string.Format("Bạn có muốn xóa '{0}' không ?",dgvDanhMuc.CurrentRow.Cells["colTenMauMa"].Value), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+                if (rsl == DialogResult.Yes)
                 {
                     clsDanhMuc_DTO dtoDanhMuc = new clsDanhMuc_DTO();
-                    dtoDanhMuc.MaDanhMuc = MaDanhMuc;
+                    dtoDanhMuc.MaDanhMuc = (int)dgvDanhMuc.CurrentRow.Cells["colMaDanhMuc"].Value;
                     object resultDanhMuc = clsDanhMuc_BUS.XoaDanhMuc(dtoDanhMuc);
                     if (resultDanhMuc is bool || (bool)resultDanhMuc)
                     {
@@ -533,6 +541,7 @@ namespace QuanLyBanBalo
             foreach (DataGridViewRow row in dgvSanPham.Rows)
             {
                 row.Cells["ApDungKM"].Value = cboApDung.Checked;
+              
             }
         }
 
@@ -552,6 +561,13 @@ namespace QuanLyBanBalo
             Close();
         }
 
+        private void cboTonKho_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            drvTonKho = (DataRowView)(cboTonKho.SelectedItem);
+            int maTonKho = int.Parse(drvTonKho["MaTonKho"].ToString());
+            loadSanPham(maTonKho);
+        }
+
         private void dgvDanhMuc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             btnThem.Enabled = false;
@@ -564,15 +580,5 @@ namespace QuanLyBanBalo
         }
 
         
-
-        private void cboTonKho_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            drvTonKho = (DataRowView)(cboTonKho.SelectedItem);
-            string selectString = drvTonKho["MaTonKho"].ToString();
-            DataTable dt = clsSanPham_BUS.LaySPTheoDK(int.Parse(selectString));
-            dvSanPham = new DataView(dt);
-            dgvSanPham.DataSource = dvSanPham;
-            lbDemSp.Text = string.Format(" Có {0} loại sản phẩm", dgvSanPham.Rows.Count);
-        }
     }
 }

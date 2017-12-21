@@ -13,10 +13,6 @@ namespace BUS
     public class clsSanPham_BUS
     {
        
-        public static  DataTable LayTatCaSanPham(bool SanPhamTonKho = true)
-        {
-            return clsSanPham_DAO.LayTatCaSanPham(SanPhamTonKho);
-        }
         public static DataTable LaySPTheoDK(int i = 0)
         {
             return clsSanPham_DAO.LaySPTheoDK(i);
@@ -61,11 +57,6 @@ namespace BUS
         public static bool KiemTonTaiSanPham(string maSanPham)
         {
             return clsSanPham_DAO.KiemTonTaiSanPham(maSanPham);
-        }
-
-        public static DataTable LayBangSanPham()
-        {
-            return clsSanPham_DAO.LayBangSanPham();
         }
 
         public static List<string> LayThuongHieu()
