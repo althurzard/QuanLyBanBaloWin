@@ -25,7 +25,9 @@ namespace QuanLyBanBalo
             nhaCungCapToolStripMenuItem.Visible = Validation.CheckPermission();
             khuyenMaiToolStripMenuItem.Visible = Validation.CheckPermission();
             baoCaoToolStripDropDownButton.Visible = Validation.CheckPermission();
-
+            toolStripDropDownButton2.Visible = Validation.CheckPermission();
+            //TODO: Hướng phát triển tiếp theo
+            baoHanhToolStripMenuItem.Visible = false;
             //TODO: Làm trợ giúp ở main
             troGiupToolStripDropDownButton.Visible = false;
             foreach (ToolStripItem item in toolStrip1.Items)

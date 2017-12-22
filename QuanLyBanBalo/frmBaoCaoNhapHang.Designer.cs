@@ -61,6 +61,12 @@
             this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaPNK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPhieuNhapKho = new System.Windows.Forms.DataGridView();
+            this.MaPhieuNhapKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayKhoiTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblHoaDon = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cbLoc = new System.Windows.Forms.ComboBox();
@@ -73,12 +79,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
-            this.MaPhieuNhapKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayKhoiTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenNhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).BeginInit();
@@ -165,7 +165,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(787, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(425, 177);
+            this.groupBox1.Size = new System.Drawing.Size(410, 177);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin thống kê";
@@ -252,7 +252,7 @@
             this.dgvSanPham.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvSanPham.RowTemplate.Height = 40;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(1200, 241);
+            this.dgvSanPham.Size = new System.Drawing.Size(1185, 241);
             this.dgvSanPham.TabIndex = 99;
             this.dgvSanPham.DataSourceChanged += new System.EventHandler(this.dgvSanPham_DataSourceChanged);
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
@@ -415,6 +415,56 @@
             this.dgvPhieuNhapKho.DataSourceChanged += new System.EventHandler(this.dgvPhieuNhapKho_DataSourceChanged);
             this.dgvPhieuNhapKho.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhieuNhapKho_CellDoubleClick);
             // 
+            // MaPhieuNhapKho
+            // 
+            this.MaPhieuNhapKho.DataPropertyName = "MaPhieuNhapKho";
+            this.MaPhieuNhapKho.HeaderText = "Mã Phiếu Nhập";
+            this.MaPhieuNhapKho.Name = "MaPhieuNhapKho";
+            this.MaPhieuNhapKho.ReadOnly = true;
+            // 
+            // HoTen
+            // 
+            this.HoTen.DataPropertyName = "HoTen";
+            this.HoTen.HeaderText = "Tên nhân viên";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.ReadOnly = true;
+            // 
+            // NgayKhoiTao
+            // 
+            this.NgayKhoiTao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NgayKhoiTao.DataPropertyName = "NgayKhoiTao";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
+            dataGridViewCellStyle6.NullValue = "dd/MM/yyyy";
+            this.NgayKhoiTao.DefaultCellStyle = dataGridViewCellStyle6;
+            this.NgayKhoiTao.HeaderText = "Ngày Lập Phiếu";
+            this.NgayKhoiTao.Name = "NgayKhoiTao";
+            this.NgayKhoiTao.ReadOnly = true;
+            // 
+            // GhiChu
+            // 
+            this.GhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GhiChu.DataPropertyName = "GhiChu";
+            this.GhiChu.HeaderText = "Ghi chú";
+            this.GhiChu.Name = "GhiChu";
+            this.GhiChu.ReadOnly = true;
+            // 
+            // TenNhaCungCap
+            // 
+            this.TenNhaCungCap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenNhaCungCap.DataPropertyName = "TenNhaCungCap";
+            this.TenNhaCungCap.HeaderText = "Tên NCC";
+            this.TenNhaCungCap.Name = "TenNhaCungCap";
+            this.TenNhaCungCap.ReadOnly = true;
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.DataPropertyName = "TrangThai";
+            this.TrangThai.HeaderText = "Trạng thái";
+            this.TrangThai.Name = "TrangThai";
+            this.TrangThai.ReadOnly = true;
+            this.TrangThai.Visible = false;
+            // 
             // lblHoaDon
             // 
             this.lblHoaDon.AutoSize = true;
@@ -553,56 +603,6 @@
             this.btnIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
-            // 
-            // MaPhieuNhapKho
-            // 
-            this.MaPhieuNhapKho.DataPropertyName = "MaPhieuNhapKho";
-            this.MaPhieuNhapKho.HeaderText = "Mã Phiếu Nhập";
-            this.MaPhieuNhapKho.Name = "MaPhieuNhapKho";
-            this.MaPhieuNhapKho.ReadOnly = true;
-            // 
-            // HoTen
-            // 
-            this.HoTen.DataPropertyName = "HoTen";
-            this.HoTen.HeaderText = "Tên nhân viên";
-            this.HoTen.Name = "HoTen";
-            this.HoTen.ReadOnly = true;
-            // 
-            // NgayKhoiTao
-            // 
-            this.NgayKhoiTao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NgayKhoiTao.DataPropertyName = "NgayKhoiTao";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Format = "dd/MM/yyyy";
-            dataGridViewCellStyle6.NullValue = "dd/MM/yyyy";
-            this.NgayKhoiTao.DefaultCellStyle = dataGridViewCellStyle6;
-            this.NgayKhoiTao.HeaderText = "Ngày Lập Phiếu";
-            this.NgayKhoiTao.Name = "NgayKhoiTao";
-            this.NgayKhoiTao.ReadOnly = true;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GhiChu.DataPropertyName = "GhiChu";
-            this.GhiChu.HeaderText = "Ghi chú";
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
-            // 
-            // TenNhaCungCap
-            // 
-            this.TenNhaCungCap.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TenNhaCungCap.DataPropertyName = "TenNhaCungCap";
-            this.TenNhaCungCap.HeaderText = "Tên NCC";
-            this.TenNhaCungCap.Name = "TenNhaCungCap";
-            this.TenNhaCungCap.ReadOnly = true;
-            // 
-            // TrangThai
-            // 
-            this.TrangThai.DataPropertyName = "TrangThai";
-            this.TrangThai.HeaderText = "Trạng thái";
-            this.TrangThai.Name = "TrangThai";
-            this.TrangThai.ReadOnly = true;
-            this.TrangThai.Visible = false;
             // 
             // frmBaoCaoNhapHang
             // 

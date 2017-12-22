@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtMauSac = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,6 +64,19 @@
             this.lblMaHoaDon = new System.Windows.Forms.Label();
             this.lblMaNCC = new System.Windows.Forms.Label();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
+            this.HinhAnh = new System.Windows.Forms.DataGridViewImageColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBanLe = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiamTru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoNamBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThuongHieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KMGiamTru = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -92,19 +105,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
-            this.HinhAnh = new System.Windows.Forms.DataGridViewImageColumn();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MauSac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBanLe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiamTru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoNamBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaCTSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaKhuyenMai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThuongHieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KMGiamTru = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -420,6 +420,131 @@
             this.dgvSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvSanPham_CellFormatting);
             this.dgvSanPham.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvSanPham_KeyDown);
             // 
+            // HinhAnh
+            // 
+            this.HinhAnh.DataPropertyName = "HinhAnh";
+            this.HinhAnh.HeaderText = "Hình ảnh";
+            this.HinhAnh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.HinhAnh.Name = "HinhAnh";
+            this.HinhAnh.ReadOnly = true;
+            this.HinhAnh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.HinhAnh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // TenSP
+            // 
+            this.TenSP.DataPropertyName = "TenSP";
+            this.TenSP.HeaderText = "Tên SP";
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            // 
+            // MauSac
+            // 
+            this.MauSac.DataPropertyName = "MauSac";
+            this.MauSac.HeaderText = "Màu sắc";
+            this.MauSac.Name = "MauSac";
+            this.MauSac.ReadOnly = true;
+            // 
+            // GiaBanLe
+            // 
+            this.GiaBanLe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GiaBanLe.DataPropertyName = "GiaBanLe";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "#,##0 VND";
+            this.GiaBanLe.DefaultCellStyle = dataGridViewCellStyle2;
+            this.GiaBanLe.HeaderText = "Giá Bán Lẻ (VND)";
+            this.GiaBanLe.Name = "GiaBanLe";
+            this.GiaBanLe.ReadOnly = true;
+            this.GiaBanLe.Width = 150;
+            // 
+            // TenKhuyenMai
+            // 
+            this.TenKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.TenKhuyenMai.DataPropertyName = "TenKhuyenMai";
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.TenKhuyenMai.DefaultCellStyle = dataGridViewCellStyle3;
+            this.TenKhuyenMai.HeaderText = "Chương trình KM";
+            this.TenKhuyenMai.Name = "TenKhuyenMai";
+            this.TenKhuyenMai.ReadOnly = true;
+            this.TenKhuyenMai.Width = 108;
+            // 
+            // GiamTru
+            // 
+            this.GiamTru.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.GiamTru.DataPropertyName = "GiamTru";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "#,##0 VND";
+            dataGridViewCellStyle4.NullValue = null;
+            this.GiamTru.DefaultCellStyle = dataGridViewCellStyle4;
+            this.GiamTru.HeaderText = "Giảm trừ KM (VND)";
+            this.GiamTru.Name = "GiamTru";
+            this.GiamTru.ReadOnly = true;
+            this.GiamTru.Width = 150;
+            // 
+            // SoNamBH
+            // 
+            this.SoNamBH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoNamBH.DataPropertyName = "SoNamBH";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SoNamBH.DefaultCellStyle = dataGridViewCellStyle5;
+            this.SoNamBH.HeaderText = "Số năm BH";
+            this.SoNamBH.Name = "SoNamBH";
+            this.SoNamBH.ReadOnly = true;
+            this.SoNamBH.Width = 60;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.SoLuong.DataPropertyName = "SoLuong";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.SoLuong.DefaultCellStyle = dataGridViewCellStyle6;
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 82;
+            // 
+            // TongTien
+            // 
+            this.TongTien.DataPropertyName = "TongTien";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "0,00#";
+            dataGridViewCellStyle7.NullValue = null;
+            this.TongTien.DefaultCellStyle = dataGridViewCellStyle7;
+            this.TongTien.HeaderText = "Thành tiền (VND)";
+            this.TongTien.Name = "TongTien";
+            this.TongTien.ReadOnly = true;
+            // 
+            // MaCTSP
+            // 
+            this.MaCTSP.DataPropertyName = "MaCTSP";
+            this.MaCTSP.HeaderText = "Mã CTSP";
+            this.MaCTSP.Name = "MaCTSP";
+            this.MaCTSP.ReadOnly = true;
+            this.MaCTSP.Visible = false;
+            // 
+            // MaKhuyenMai
+            // 
+            this.MaKhuyenMai.DataPropertyName = "MaKhuyenMai";
+            this.MaKhuyenMai.HeaderText = "MaKhuyenMai";
+            this.MaKhuyenMai.Name = "MaKhuyenMai";
+            this.MaKhuyenMai.ReadOnly = true;
+            this.MaKhuyenMai.Visible = false;
+            // 
+            // ThuongHieu
+            // 
+            this.ThuongHieu.DataPropertyName = "ThuongHieu";
+            this.ThuongHieu.HeaderText = "ThuongHieu";
+            this.ThuongHieu.Name = "ThuongHieu";
+            this.ThuongHieu.ReadOnly = true;
+            this.ThuongHieu.Visible = false;
+            // 
+            // KMGiamTru
+            // 
+            this.KMGiamTru.DataPropertyName = "KMGiamTru";
+            this.KMGiamTru.HeaderText = "KMGiamTru";
+            this.KMGiamTru.Name = "KMGiamTru";
+            this.KMGiamTru.ReadOnly = true;
+            this.KMGiamTru.Visible = false;
+            // 
             // btnXacNhan
             // 
             this.btnXacNhan.Enabled = false;
@@ -480,9 +605,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 160);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 24);
+            this.label7.Size = new System.Drawing.Size(101, 24);
             this.label7.TabIndex = 62;
-            this.label7.Text = "Tiền thừa:";
+            this.label7.Text = "Tiền trả lại:";
             // 
             // lblTienNhan
             // 
@@ -603,6 +728,7 @@
             this.colMaSP.HeaderText = "Mã Sản Phẩm";
             this.colMaSP.Name = "colMaSP";
             this.colMaSP.ReadOnly = true;
+            this.colMaSP.Visible = false;
             // 
             // colMaCTSP
             // 
@@ -610,6 +736,7 @@
             this.colMaCTSP.HeaderText = "Mã Chi Tiết SP";
             this.colMaCTSP.Name = "colMaCTSP";
             this.colMaCTSP.ReadOnly = true;
+            this.colMaCTSP.Visible = false;
             // 
             // colHinhAnh
             // 
@@ -754,131 +881,6 @@
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
-            // HinhAnh
-            // 
-            this.HinhAnh.DataPropertyName = "HinhAnh";
-            this.HinhAnh.HeaderText = "Hình ảnh";
-            this.HinhAnh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.HinhAnh.Name = "HinhAnh";
-            this.HinhAnh.ReadOnly = true;
-            this.HinhAnh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.HinhAnh.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // TenSP
-            // 
-            this.TenSP.DataPropertyName = "TenSP";
-            this.TenSP.HeaderText = "Tên SP";
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            // 
-            // MauSac
-            // 
-            this.MauSac.DataPropertyName = "MauSac";
-            this.MauSac.HeaderText = "Màu sắc";
-            this.MauSac.Name = "MauSac";
-            this.MauSac.ReadOnly = true;
-            // 
-            // GiaBanLe
-            // 
-            this.GiaBanLe.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.GiaBanLe.DataPropertyName = "GiaBanLe";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "#,##0 VND";
-            this.GiaBanLe.DefaultCellStyle = dataGridViewCellStyle2;
-            this.GiaBanLe.HeaderText = "Giá Bán Lẻ (VND)";
-            this.GiaBanLe.Name = "GiaBanLe";
-            this.GiaBanLe.ReadOnly = true;
-            this.GiaBanLe.Width = 150;
-            // 
-            // TenKhuyenMai
-            // 
-            this.TenKhuyenMai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.TenKhuyenMai.DataPropertyName = "TenKhuyenMai";
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.TenKhuyenMai.DefaultCellStyle = dataGridViewCellStyle3;
-            this.TenKhuyenMai.HeaderText = "Chương trình KM";
-            this.TenKhuyenMai.Name = "TenKhuyenMai";
-            this.TenKhuyenMai.ReadOnly = true;
-            this.TenKhuyenMai.Width = 108;
-            // 
-            // GiamTru
-            // 
-            this.GiamTru.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.GiamTru.DataPropertyName = "GiamTru";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Format = "#,##0 VND";
-            dataGridViewCellStyle4.NullValue = null;
-            this.GiamTru.DefaultCellStyle = dataGridViewCellStyle4;
-            this.GiamTru.HeaderText = "Giảm trừ KM (VND)";
-            this.GiamTru.Name = "GiamTru";
-            this.GiamTru.ReadOnly = true;
-            this.GiamTru.Width = 150;
-            // 
-            // SoNamBH
-            // 
-            this.SoNamBH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoNamBH.DataPropertyName = "SoNamBH";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.SoNamBH.DefaultCellStyle = dataGridViewCellStyle5;
-            this.SoNamBH.HeaderText = "Số năm BH";
-            this.SoNamBH.Name = "SoNamBH";
-            this.SoNamBH.ReadOnly = true;
-            this.SoNamBH.Width = 60;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.SoLuong.DataPropertyName = "SoLuong";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.SoLuong.DefaultCellStyle = dataGridViewCellStyle6;
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 82;
-            // 
-            // TongTien
-            // 
-            this.TongTien.DataPropertyName = "TongTien";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "0,00#";
-            dataGridViewCellStyle7.NullValue = null;
-            this.TongTien.DefaultCellStyle = dataGridViewCellStyle7;
-            this.TongTien.HeaderText = "Thành tiền (VND)";
-            this.TongTien.Name = "TongTien";
-            this.TongTien.ReadOnly = true;
-            // 
-            // MaCTSP
-            // 
-            this.MaCTSP.DataPropertyName = "MaCTSP";
-            this.MaCTSP.HeaderText = "Mã CTSP";
-            this.MaCTSP.Name = "MaCTSP";
-            this.MaCTSP.ReadOnly = true;
-            this.MaCTSP.Visible = false;
-            // 
-            // MaKhuyenMai
-            // 
-            this.MaKhuyenMai.DataPropertyName = "MaKhuyenMai";
-            this.MaKhuyenMai.HeaderText = "MaKhuyenMai";
-            this.MaKhuyenMai.Name = "MaKhuyenMai";
-            this.MaKhuyenMai.ReadOnly = true;
-            this.MaKhuyenMai.Visible = false;
-            // 
-            // ThuongHieu
-            // 
-            this.ThuongHieu.DataPropertyName = "ThuongHieu";
-            this.ThuongHieu.HeaderText = "ThuongHieu";
-            this.ThuongHieu.Name = "ThuongHieu";
-            this.ThuongHieu.ReadOnly = true;
-            this.ThuongHieu.Visible = false;
-            // 
-            // KMGiamTru
-            // 
-            this.KMGiamTru.DataPropertyName = "KMGiamTru";
-            this.KMGiamTru.HeaderText = "KMGiamTru";
-            this.KMGiamTru.Name = "KMGiamTru";
-            this.KMGiamTru.ReadOnly = true;
-            this.KMGiamTru.Visible = false;
-            // 
             // frmBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,19 +957,6 @@
         private System.Windows.Forms.TextBox txtMauSac;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTSP;
-        private System.Windows.Forms.DataGridViewImageColumn colHinhAnh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colThuongHieu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenDanhMuc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChatLieu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMauSac;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colChongNuoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGiaVon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGiaBanLe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colNamBaoHanh;
         private System.Windows.Forms.DataGridViewImageColumn HinhAnh;
         private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn MauSac;
@@ -981,5 +970,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MaKhuyenMai;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThuongHieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn KMGiamTru;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTSP;
+        private System.Windows.Forms.DataGridViewImageColumn colHinhAnh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colThuongHieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenDanhMuc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChatLieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMauSac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colChongNuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGiaVon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGiaBanLe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colNamBaoHanh;
     }
 }

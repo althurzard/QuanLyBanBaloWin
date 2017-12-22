@@ -19,19 +19,19 @@ namespace DAO
             string query = "";
             if(i == 1)
             {
-                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong>0";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong>0 order by SanPham.TenSP ";
             }
             else if(i==2)
             {
-                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh, KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong = 0";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh, KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 AND ChiTietSanPham.SoLuong = 0 order by SanPham.TenSP";
             }
             else if(i==0)
             {
-                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 1 order by SanPham.TenSP";
 
             } else
             {
-                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 0";
+                query = "SELECT SanPham.*,TenDanhMuc ,ChiTietSanPham.MaCTSP, ChiTietSanPham.MauSac, ChiTietSanPham.TrangThai, ChiTietSanPham.SoLuong, HinhAnh.Url,TenKhuyenMai FROM SanPham, DanhMuc, ChiTietSanPham, HinhAnh,KhuyenMai  WHERE SanPham.MaKhuyenMai = KhuyenMai.MaKhuyenMai AND SanPham.MaDanhMuc = DanhMuc.MaDanhMuc AND ChiTietSanPham.MaSP = SanPham.MaSP AND ChiTietSanPham.MaHinhAnh = HinhAnh.MaHinhAnh AND ChiTietSanPham.TrangThai = 0 order by SanPham.TenSP";
             }
             dtSanPham = XuLyDuLieu.LayBang(query);
             return dtSanPham;

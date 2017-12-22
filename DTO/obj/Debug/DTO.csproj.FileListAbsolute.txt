@@ -14,3 +14,4 @@ D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cach
 D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.dll
 D:\DA-WIN\QuanLyBanBaloWin\DTO\obj\Debug\DTO.pdb
+C:\Users\DELL\Desktop\QuanLyBanBaloWin\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
